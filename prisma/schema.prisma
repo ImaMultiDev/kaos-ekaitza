@@ -1,0 +1,134 @@
+// Schema para Canal Musical Ska-Punk Antifascista
+// Kaos Ekaitza - Música consciente y cambio social
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Modelo para álbumes musicales
+model Album {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  coverImage  String?
+  releaseDate DateTime
+  spotifyUrl  String?
+  bandcampUrl String?
+  youtubeUrl  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relación con canciones
+  songs       Song[]
+  
+  @@map("albums")
+}
+
+// Modelo para canciones
+model Song {
+  id          String   @id @default(cuid())
+  title       String
+  duration    String?  // formato "3:45"
+  lyrics      String?
+  audioUrl    String?
+  spotifyUrl  String?
+  youtubeUrl  String?
+  message     String?  // mensaje antifascista/social de la canción
+  coverImage  String?  // URL de la imagen de portada de Cloudinary
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relaciones
+  albumId     String?
+  album       Album?    @relation(fields: [albumId], references: [id])
+  comments    Comment[]
+  
+  @@map("songs")
+}
+
+// Modelo para posts del blog/noticias
+model Post {
+  id          String   @id @default(cuid())
+  title       String
+  content     String
+  excerpt     String?
+  featuredImage String?
+  published   Boolean  @default(false)
+  publishedAt DateTime?
+  slug        String   @unique
+  tags        String[] // tags como "antifascismo", "ska-punk", "resistencia"
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relación con comentarios
+  comments    Comment[]
+  
+  @@map("posts")
+}
+
+// Modelo para comentarios (canciones y posts)
+model Comment {
+  id        String   @id @default(cuid())
+  content   String
+  author    String   // nombre del comentarista
+  email     String?
+  approved  Boolean  @default(false) // moderación de comentarios
+  createdAt DateTime @default(now())
+  
+  // Relaciones opcionales
+  songId    String?
+  song      Song?    @relation(fields: [songId], references: [id])
+  postId    String?
+  post      Post?    @relation(fields: [postId], references: [id])
+  
+  @@map("comments")
+}
+
+// Modelo para suscriptores del newsletter
+model Subscriber {
+  id          String   @id @default(cuid())
+  email       String   @unique
+  name        String?
+  active      Boolean  @default(true)
+  subscribedAt DateTime @default(now())
+  
+  @@map("subscribers")
+}
+
+// Modelo para mensajes de contacto
+model Contact {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  
+  @@map("contacts")
+}
+
+// Modelo para galería de imágenes/videos
+model GalleryItem {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  type        MediaType
+  url         String
+  thumbnailUrl String?
+  tags        String[]
+  createdAt   DateTime @default(now())
+  
+  @@map("gallery_items")
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+  AUDIO
+}

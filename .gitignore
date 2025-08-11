@@ -32,6 +32,10 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # vercel
 .vercel
@@ -39,3 +43,40 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Prisma & Database
+/prisma/migrations/
+/prisma/*.db
+/prisma/*.db-journal
+/prisma/*.sqlite
+/prisma/*.sqlite3
+/src/generated/prisma
+
+# Database URLs and credentials (backup)
+*.env.backup
+database-urls.txt
+
+# Logs
+*.log
+logs/
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+
+# seed
+prisma/seed.ts
