@@ -25,16 +25,34 @@ export const metadata: Metadata = {
   creator: "Kaos Ekaitza",
   publisher: "Kaos Ekaitza",
   robots: "index, follow",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/logo-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/logo-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/logo-192.png", sizes: "192x192", type: "image/png" }],
+  },
+  manifest: "/manifest.json",
   openGraph: {
     title: "Kaos Ekaitza - Canal Musical Ska-Punk Antifascista",
     description: "Música consciente y cambio social a través del ska-punk",
     type: "website",
     locale: "es_ES",
+    images: [
+      {
+        url: "/logo-512.png",
+        width: 512,
+        height: 512,
+        alt: "Kaos Ekaitza Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Kaos Ekaitza - Ska-Punk Antifascista",
     description: "Música consciente y cambio social",
+    images: ["/logo-512.png"],
   },
 };
 

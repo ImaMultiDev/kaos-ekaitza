@@ -78,5 +78,5 @@ Desktop.ini
 .cache/
 
 
-# seed
-prisma/seed.ts
+# seed (mantener en git para desarrollo)
+# prisma/seed.ts

@@ -1,0 +1,26 @@
+{
+  "name": "Kaos Ekaitza - Canal Musical Ska-Punk Antifascista",
+  "short_name": "Kaos Ekaitza",
+  "description": "Música consciente y cambio social a través del ska-punk",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#dc2626",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["music", "entertainment", "social"],
+  "lang": "es-ES"
+}
