@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Music, Heart, Shield, Users } from "lucide-react";
 
 const Footer = () => {
@@ -15,8 +16,14 @@ const Footer = () => {
             {/* Sobre el Canal */}
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center">
-                  <Music className="w-6 h-6 text-white" />
+                <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center overflow-hidden">
+                  <Image
+                    src="/logo-192.png"
+                    alt="Kaos Ekaitza Logo"
+                    width={40}
+                    height={40}
+                    className="object-cover"
+                  />
                 </div>
                 <div>
                   <h3 className="text-punk text-lg">KAOS EKAITZA</h3>

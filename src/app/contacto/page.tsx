@@ -11,9 +11,31 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contacto - Kaos Ekaitza",
+  title: "Contacto - Kaos Ekaitza | Conecta con Nuestra Comunidad Ska-Punk",
   description:
-    "Ponte en contacto con Kaos Ekaitza. Colaboraciones, preguntas o simplemente para conectar con nuestra comunidad ska-punk antifascista.",
+    "Ponte en contacto con Kaos Ekaitza para colaboraciones, preguntas o simplemente para conectar con nuestra comunidad ska-punk antifascista. Únete a la revolución musical.",
+  keywords: [
+    "contacto kaos ekaitza",
+    "colaboraciones ska-punk",
+    "comunidad antifascista",
+    "música consciente",
+    "ska-punk colaboraciones",
+    "contactar kaos ekaitza",
+    "música comprometida",
+  ],
+  openGraph: {
+    title: "Contacto - Kaos Ekaitza | Conecta con Nuestra Comunidad Ska-Punk",
+    description:
+      "Ponte en contacto con Kaos Ekaitza para colaboraciones, preguntas o simplemente para conectar con nuestra comunidad ska-punk antifascista.",
+    url: "https://kaosekaitza.com/contacto",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contacto - Kaos Ekaitza | Conecta con Nuestra Comunidad Ska-Punk",
+    description:
+      "Ponte en contacto con Kaos Ekaitza para colaboraciones y conectar con nuestra comunidad ska-punk antifascista.",
+  },
 };
 
 export default function ContactoPage() {

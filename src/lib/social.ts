@@ -1,0 +1,72 @@
+// Social Media Configuration
+export const socialConfig = {
+  name: "Kaos Ekaitza",
+  description:
+    "Canal musical ska-punk antifascista que promueve la resistencia pacífica y la justicia social",
+  url: "https://kaosekaitza.com",
+  logo: "/logo-512.png",
+  logo192: "/logo-192.png",
+  themeColor: "#dc2626",
+  backgroundColor: "#000000",
+
+  // Social Media URLs
+  social: {
+    youtube: "https://www.youtube.com/@KaosEkaitza",
+    spotify: "https://open.spotify.com/artist/kaosekaitza",
+    bandcamp: "https://kaosekaitza.bandcamp.com",
+    instagram: "#", // Añadir cuando esté disponible
+    twitter: "#", // Añadir cuando esté disponible
+    facebook: "#", // Añadir cuando esté disponible
+  },
+
+  // Hashtags recomendados para redes sociales
+  hashtags: [
+    "#KaosEkaitza",
+    "#SkaPunk",
+    "#Antifascista",
+    "#MúsicaConsciente",
+    "#ResistenciaPacífica",
+    "#JusticiaSocial",
+    "#SkaPunkAntifascista",
+    "#MúsicaProtesta",
+    "#RockComprometido",
+    "#MúsicaSocial",
+  ],
+
+  // Mensajes para compartir en redes sociales
+  shareMessages: {
+    default:
+      "🎵 Descubre la música consciente de Kaos Ekaitza - Ska-Punk Antifascista que lucha por la justicia social 🎵",
+    music:
+      "🎵 Nueva música de Kaos Ekaitza - Ska-Punk con mensaje social y resistencia pacífica 🎵",
+    philosophy:
+      "💪 Conoce la filosofía de Kaos Ekaitza - Música como herramienta de cambio social 💪",
+    community:
+      "🤝 Únete a la comunidad Kaos Ekaitza - Unidos por la música y la justicia social 🤝",
+  },
+};
+
+// Función para generar enlaces de compartir
+export const generateShareUrl = (
+  platform: string,
+  url: string,
+  text: string
+) => {
+  const encodedUrl = encodeURIComponent(url);
+  const encodedText = encodeURIComponent(text);
+
+  switch (platform) {
+    case "twitter":
+      return `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}&hashtags=${socialConfig.hashtags.join(
+        ","
+      )}`;
+    case "facebook":
+      return `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+    case "whatsapp":
+      return `https://wa.me/?text=${encodedText}%20${encodedUrl}`;
+    case "telegram":
+      return `https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`;
+    default:
+      return url;
+  }
+};

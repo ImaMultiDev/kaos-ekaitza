@@ -1,10 +1,42 @@
 import { Play, BookOpen } from "lucide-react";
 import Link from "next/link";
+import { Metadata } from "next";
 import HeroSection from "@/components/HeroSection";
 import LatestMusic from "@/components/LatestMusic";
 import PhilosophySection from "@/components/PhilosophySection";
 import NewsSection from "@/components/NewsSection";
 import { getLatestSongs } from "@/lib/database";
+
+export const metadata: Metadata = {
+  title: "Kaos Ekaitza - Inicio | Ska-Punk Antifascista y Música Consciente",
+  description:
+    "Bienvenido a Kaos Ekaitza, el canal musical ska-punk antifascista que promueve la resistencia pacífica y la justicia social. Descubre música consciente que lucha por un mundo más justo.",
+  keywords: [
+    "ska-punk",
+    "antifascista",
+    "música consciente",
+    "resistencia pacífica",
+    "justicia social",
+    "kaos ekaitza",
+    "música protesta",
+    "punk rock",
+    "ska",
+    "antifascismo",
+  ],
+  openGraph: {
+    title: "Kaos Ekaitza - Inicio | Ska-Punk Antifascista y Música Consciente",
+    description:
+      "Bienvenido a Kaos Ekaitza, el canal musical ska-punk antifascista que promueve la resistencia pacífica y la justicia social.",
+    url: "https://kaosekaitza.com",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kaos Ekaitza - Inicio | Ska-Punk Antifascista y Música Consciente",
+    description:
+      "Bienvenido a Kaos Ekaitza, el canal musical ska-punk antifascista que promueve la resistencia pacífica y la justicia social.",
+  },
+};
 
 export default async function Home() {
   const latestSongs = await getLatestSongs(3);

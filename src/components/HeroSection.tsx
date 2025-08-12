@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Music, Heart, Play, Volume2 } from "lucide-react";
+import Image from "next/image";
+import { Heart, Play } from "lucide-react";
 
 const HeroSection = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
   const [currentText, setCurrentText] = useState(0);
 
   const revolutionTexts = [
@@ -33,8 +33,15 @@ const HeroSection = () => {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Logo/Ícono principal */}
         <div className="mb-8 flex justify-center">
-          <div className="w-32 h-32 bg-red-600 rounded-full flex items-center justify-center ska-bounce shadow-2xl">
-            <Music className="w-16 h-16 text-white" />
+          <div className="w-32 h-32 bg-red-600 rounded-full flex items-center justify-center ska-bounce shadow-2xl overflow-hidden">
+            <Image
+              src="/logo-512.png"
+              alt="Kaos Ekaitza Logo"
+              width={128}
+              height={128}
+              className="object-cover"
+              priority
+            />
           </div>
         </div>
 
@@ -62,17 +69,15 @@ const HeroSection = () => {
 
         {/* Botones de acción */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-          <button
+          <a
+            href="https://www.youtube.com/@KaosEkaitza"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-punk flex items-center space-x-3 text-lg"
-            onClick={() => setIsPlaying(!isPlaying)}
           >
-            {isPlaying ? (
-              <Volume2 className="w-6 h-6" />
-            ) : (
-              <Play className="w-6 h-6" />
-            )}
-            <span>{isPlaying ? "Pausar Música" : "Reproducir Ahora"}</span>
-          </button>
+            <Play className="w-6 h-6" />
+            <span>Accede al Canal</span>
+          </a>
 
           <a
             href="#filosofia"

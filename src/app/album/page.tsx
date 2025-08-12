@@ -3,9 +3,32 @@ import { getSongs } from "@/lib/database";
 import AlbumMusicGrid from "@/components/AlbumMusicGrid";
 
 export const metadata: Metadata = {
-  title: "Discografía - Kaos Ekaitza",
+  title: "Discografía Completa - Kaos Ekaitza | Ska-Punk Antifascista",
   description:
-    "Discografía completa del canal ska-punk antifascista Kaos Ekaitza. Álbumes, EPs y singles cargados de mensaje social y resistencia pacífica.",
+    "Descubre toda la discografía del canal ska-punk antifascista Kaos Ekaitza. Álbumes, EPs y singles cargados de mensaje social, resistencia pacífica y lucha por la justicia social.",
+  keywords: [
+    "discografía kaos ekaitza",
+    "ska-punk antifascista",
+    "música consciente",
+    "álbumes ska-punk",
+    "música protesta",
+    "kaos ekaitza canciones",
+    "ska-punk comprometido",
+    "música social",
+  ],
+  openGraph: {
+    title: "Discografía Completa - Kaos Ekaitza | Ska-Punk Antifascista",
+    description:
+      "Descubre toda la discografía del canal ska-punk antifascista Kaos Ekaitza. Álbumes, EPs y singles cargados de mensaje social y resistencia pacífica.",
+    url: "https://kaosekaitza.com/album",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Discografía Completa - Kaos Ekaitza | Ska-Punk Antifascista",
+    description:
+      "Descubre toda la discografía del canal ska-punk antifascista Kaos Ekaitza.",
+  },
 };
 
 export default async function AlbumPage() {

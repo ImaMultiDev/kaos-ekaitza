@@ -2,9 +2,35 @@ import { Metadata } from "next";
 import { Music, Heart, Shield, Users, Target, Globe } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Sobre Nosotros - Kaos Ekaitza",
+  title:
+    "Sobre Nosotros - Kaos Ekaitza | Historia y Valores Ska-Punk Antifascista",
   description:
-    "Conoce la historia, misión y valores del canal ska-punk antifascista Kaos Ekaitza. Nuestra lucha por la justicia social a través de la música.",
+    "Conoce la historia, misión y valores del canal ska-punk antifascista Kaos Ekaitza. Descubre cómo luchamos por la justicia social a través de la música consciente y la resistencia pacífica.",
+  keywords: [
+    "sobre kaos ekaitza",
+    "historia ska-punk",
+    "valores antifascistas",
+    "música consciente",
+    "resistencia pacífica",
+    "justicia social",
+    "kaos ekaitza misión",
+    "ska-punk comprometido",
+  ],
+  openGraph: {
+    title:
+      "Sobre Nosotros - Kaos Ekaitza | Historia y Valores Ska-Punk Antifascista",
+    description:
+      "Conoce la historia, misión y valores del canal ska-punk antifascista Kaos Ekaitza. Descubre cómo luchamos por la justicia social a través de la música consciente.",
+    url: "https://kaosekaitza.com/sobre-nosotros",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Sobre Nosotros - Kaos Ekaitza | Historia y Valores Ska-Punk Antifascista",
+    description:
+      "Conoce la historia, misión y valores del canal ska-punk antifascista Kaos Ekaitza.",
+  },
 };
 
 export default function SobreNosotrosPage() {
@@ -37,28 +63,27 @@ export default function SobreNosotrosPage() {
 
   const historia = [
     {
-      año: "2023",
+      año: "2024",
       evento: "Fundación de Kaos Ekaitza",
       descripcion:
         "Nace nuestro proyecto musical con la misión de combinar ska-punk con mensaje social antifascista.",
     },
     {
-      año: "2024",
-      evento: "Álbum Principal: 'Kaos Ekaitza'",
+      año: "2025",
+      evento: "Primeros temas: 'Kaos Ekaitza'",
       descripcion:
-        "Lanzamos nuestro trabajo discográfico principal con temas que definen nuestra identidad musical ska-punk antifascista.",
+        "Lanzamos nuestro trabajo principal con temas que definen nuestra identidad musical ska-punk antifascista.",
     },
     {
-      año: "2023",
-      evento: "Primera colaboración",
-      descripcion:
-        "Colaboramos con artistas antifascistas europeos en el proyecto 'Voces Unidas'.",
+      año: "2025",
+      evento: "Redes sociales",
+      descripcion: "Comenzamos a crear contenido para nuestras redes sociales.",
     },
     {
-      año: "2024",
-      evento: "Álbum 'Voces de Resistencia'",
+      año: "2025",
+      evento: "Álbum 'Voces de Resistencia' (En proceso)",
       descripcion:
-        "Nuestro trabajo más maduro hasta la fecha, con 5 temas que profundizan en la resistencia pacífica.",
+        "Nuestro primer álbum llegará en breve, con una variedad de temas que profundizan en la resistencia pacífica.",
     },
   ];
 
@@ -71,8 +96,10 @@ export default function SobreNosotrosPage() {
             Sobre Nosotros
           </h1>
           <p className="text-xl text-white/90 max-w-2xl mx-auto">
-            Somos más que una banda. Somos un movimiento de resistencia pacífica
-            que utiliza el ska-punk como herramienta de transformación social.
+            No somos una banda (por el momento). Somos un movimiento de
+            resistencia pacífica que nace de las llamas y utiliza el ska-punk y
+            las herramientas digitales como herramienta de transformación
+            social.
           </p>
         </div>
       </section>

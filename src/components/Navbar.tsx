@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Music, Users, Mail } from "lucide-react";
+import Image from "next/image";
+import { Menu, X, Home, Music, Users, Mail } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,7 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navItems = [
-    { href: "/", label: "Home", icon: Music },
+    { href: "/", label: "Home", icon: Home },
     { href: "/album", label: "Album", icon: Music },
     { href: "/sobre-nosotros", label: "Sobre Nosotros", icon: Users },
     { href: "/contacto", label: "Contacto", icon: Mail },
@@ -23,10 +24,16 @@ const Navbar = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center punk-hover">
-              <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center">
-                <Music className="w-6 h-6 text-white" />
+              <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center overflow-hidden">
+                <Image
+                  src="/logo-192.png"
+                  alt="Kaos Ekaitza Logo"
+                  width={40}
+                  height={40}
+                  className="object-cover"
+                />
               </div>
-              <div className="hidden sm:block" style={{ paddingLeft: "16px" }}>
+              <div className="ml-3">
                 <h1 className="text-punk text-xl font-black">KAOS EKAITZA</h1>
                 <p className="text-red-500 text-xs font-semibold tracking-wider">
                   SKA-PUNK ANTIFASCISTA
