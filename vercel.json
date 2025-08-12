@@ -1,0 +1,19 @@
+{
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "functions": {
+    "src/app/album/page.tsx": {
+      "maxDuration": 30
+    },
+    "src/app/sobre-nosotros/page.tsx": {
+      "maxDuration": 30
+    },
+    "src/app/contacto/page.tsx": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "PRISMA_GENERATE_DATAPROXY": "true"
+  }
+}
