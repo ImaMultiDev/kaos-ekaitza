@@ -69,6 +69,13 @@ export const metadata: Metadata = {
         alt: "Kaos Ekaitza - Logo Ska-Punk Antifascista",
         type: "image/png",
       },
+      {
+        url: "/logo.png",
+        width: 1400,
+        height: 1400,
+        alt: "Kaos Ekaitza - Logo Principal Ska-Punk Antifascista",
+        type: "image/png",
+      },
     ],
   },
   twitter: {
@@ -79,7 +86,7 @@ export const metadata: Metadata = {
       "Kaos Ekaitza - Ska-Punk Antifascista | Música Consciente y Cambio Social",
     description:
       "Canal musical ska-punk antifascista que promueve la resistencia pacífica, justicia social y cambio positivo. Escucha música consciente que lucha por un mundo más justo.",
-    images: ["/logo-512.png"],
+    images: ["/logo.png", "/logo-512.png"],
   },
 };
 
