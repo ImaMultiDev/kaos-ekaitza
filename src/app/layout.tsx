@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   icons: {
     icon: [
-      { url: "/icon" },
+      { url: "/favicon.ico" },
       { url: "/logo-192.png", sizes: "192x192", type: "image/png" },
       { url: "/logo-512.png", sizes: "512x512", type: "image/png" },
     ],
