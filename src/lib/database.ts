@@ -85,6 +85,39 @@ export async function getAlbumById(id: string) {
   }
 }
 
+// Función auxiliar para generar slug del álbum
+export function generateAlbumSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+// Obtener álbum por slug (título normalizado)
+export async function getAlbumBySlug(slug: string) {
+  try {
+    const albums = await prisma.album.findMany({
+      include: {
+        songs: {
+          orderBy: {
+            createdAt: "asc",
+          },
+        },
+      },
+    });
+
+    // Buscar el álbum cuyo slug coincida
+    const album = albums.find((a) => generateAlbumSlug(a.title) === slug);
+
+    return album || null;
+  } catch (error) {
+    console.error("Error obteniendo álbum por slug:", error);
+    return null;
+  }
+}
+
 // Obtener posts del blog
 export async function getPosts(published: boolean = true) {
   try {

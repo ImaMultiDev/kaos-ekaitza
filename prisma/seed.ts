@@ -16,21 +16,39 @@ async function main() {
 
   console.log("🗑️ Datos anteriores eliminados");
 
-  // Crear álbum principal
-  const album = await prisma.album.create({
+  // Crear primer álbum: Gritos en la Tormenta
+  const album1 = await prisma.album.create({
     data: {
-      title: "Kaos Ekaitza - Ska Punk Antifascista",
+      title: "Gritos en la Tormenta",
       description:
-        "Álbum principal de Kaos Ekaitza. Ska-punk combativo con alma libertaria, directo desde el ruido del pueblo.",
+        "Primer álbum de Kaos Ekaitza. Ska-punk combativo con alma libertaria, directo desde el ruido del pueblo. 10 temas cargados de denuncia social, resistencia y memoria histórica.",
       releaseDate: new Date("2024-01-15"),
-      coverImage: "/album-kaos-ekaitza.jpg",
+      coverImage:
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1762130747/ChatGPT_Image_5_sept_2025_12_08_58_mwxtn5.png",
       spotifyUrl: "https://open.spotify.com/artist/kaosekaitza",
       bandcampUrl: "https://kaosekaitza.bandcamp.com",
       youtubeUrl: "https://www.youtube.com/channel/kaosekaitza",
     },
   });
 
-  console.log("💿 Álbum creado:", album.title);
+  console.log("💿 Álbum creado:", album1.title);
+
+  // Crear segundo álbum: Revienta el Silencio
+  const album2 = await prisma.album.create({
+    data: {
+      title: "Revienta el Silencio",
+      description:
+        "Segundo álbum de Kaos Ekaitza. Ska-punk rebelde que rompe el silencio con mensajes de resistencia, solidaridad y lucha por la justicia social.",
+      releaseDate: new Date("2025-09-05"),
+      coverImage:
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1762130856/Publi2temas_vegcms.png",
+      spotifyUrl: "https://open.spotify.com/artist/kaosekaitza",
+      bandcampUrl: "https://kaosekaitza.bandcamp.com",
+      youtubeUrl: "https://www.youtube.com/channel/kaosekaitza",
+    },
+  });
+
+  console.log("💿 Álbum creado:", album2.title);
 
   // Crear canción real: Mentiras de Bandera
   const song1 = await prisma.song.create({
@@ -119,7 +137,7 @@ ska-punk sonando en cada rincón,
         "https://res.cloudinary.com/dzt73baf9/image/upload/v1754948539/ChatGPT_Image_7_ago_2025_11_31_24_sy8hbg.png",
       message:
         '"Mentiras de Bandera" es una canción de denuncia contra la ultraderecha, el racismo institucional, y el uso de la patria como arma para justificar la guerra, el odio y la opresión. Ska-punk combativo con alma libertaria, directo desde el ruido del pueblo.',
-      albumId: album.id,
+      albumId: album1.id,
     },
   });
 
@@ -213,7 +231,7 @@ ni poder que entierre la libertad.`,
         "https://res.cloudinary.com/dzt73baf9/image/upload/v1754948524/ChatGPT_Image_11_ago_2025_21_49_54_ygnmyq.png",
       message:
         '"Tendrán que Matarme" es una poderosa canción de Kaos Ekaitza que nace como respuesta al intento de silenciar voces que luchan por la libertad y la justicia. Con un estilo ska punk antiautoritario, esta canción denuncia la represión, la impunidad y la resistencia del pueblo frente a la opresión.',
-      albumId: album.id,
+      albumId: album1.id,
     },
   });
 
@@ -315,11 +333,877 @@ Y aquí seguimos… luchando, resistiendo.`,
         "https://res.cloudinary.com/dzt73baf9/image/upload/v1754948539/Que_mi_nombre_no_se_borre_de_la_historia_20250807_103408_0000_dg6jxl.png",
       message:
         "Una canción de ska punk combativo en memoria de Las 13 Rosas, trece jóvenes fusiladas por la dictadura franquista el 5 de agosto de 1939. Este tema rinde homenaje a su valentía, a la lucha antifascista, y a todos los pueblos que no olvidan.",
-      albumId: album.id,
+      albumId: album1.id,
     },
   });
 
   console.log("🎵 Canción creada:", song3.title);
+
+  // Crear canción real: Herederos de Sangre
+  const song4 = await prisma.song.create({
+    data: {
+      title: "Herederos de Sangre - Kaos Ekaitza (Ska Punk Antifascista)",
+      duration: "4:05",
+      lyrics: `[Verso 1]
+No nacieron estas letras de mi pluma,
+vienen de cartas que dejó la bruma,
+de muros donde alguien grabó con sangre y sudor
+su última verdad, alzamos su voz.
+
+Somos su palabra, que guarda el silencio,
+la voz que el tiempo creía olvidada,
+para gritar lo que ellos escribieron
+brotamos de sus lágrimas, sepultadas en escombros.
+
+[Pre-Coro]
+¡No somos autores, somos herederos!
+¡De todos los gritos verdaderos!
+
+[Coro]
+¡Herederos de sangre, portavoces del dolor!
+Cantamos lo que escribió aquel que luchó,
+cada verso viene de una verdad distinta,
+de quien grabó su historia con tinta.
+¡No inventamos nada, solo transmitimos!
+Las palabras que del silencio recibimos,
+¡Esta música es de quienes ya no están!
+¡Sus testimonios vivos resonarán!
+
+[Verso 2]
+En diarios rotos, en paredes frías,
+dejaron escritas sus rebeldías,
+el minero, la madre, el fusilado,
+cada uno su historia, su legado.
+
+Nosotros somos solo el altavoz
+de quien nunca pudo alzar su voz,
+los hijos que cantan aquello que ocultaron,
+los ecos de quienes se rebelaron.
+
+[Pre-Coro]
+¡No somos autores, somos herederos!
+¡De todos los gritos verdaderos!
+
+[Coro]
+¡Herederos de sangre, portavoces del dolor!
+Cantamos lo que escribió aquel que luchó,
+cada verso viene de una verdad distinta,
+de quien grabó su historia con tinta.
+¡No inventamos nada, solo transmitimos!
+Las palabras que del silencio recibimos,
+¡esta música es de quienes ya no están!
+¡Sus testimonios vivos resonarán!
+
+[Puente - Spoken Word reverencial]
+Cada canción que escucháis
+nació en una celda,
+en una trinchera,
+en el exilio de una guerra.
+La escribió alguien que existió,
+que sangró, que resistió.
+Nosotros solo somos
+los mensajeros del tiempo,
+los que damos sonido
+a lo que quedó en el olvido.
+No somos los creadores,
+somos los herederos
+de una voz ancestral.
+
+[Break - Riff emotivo y potente]
+¡Sus palabras!
+¡Nuestras voces!
+¡Su dolor!
+¡Nuestros acordes!
+¡Su memoria!
+¡Nuestra historia!
+¡Su verdad!
+¡Nuestro objetivo!
+
+[Verso 3]
+Por eso recordad siempre que la escucháis,
+es la más auténtica, porque es de raíz,
+son décadas de historias por contar
+que ahora por fin, pueden resonar.
+
+Somos la nueva generación
+que hereda su revolución,
+que canta lo que ellos escribieron
+cuando por la verdad murieron.
+
+[Coro Final - con toda la pasión]
+¡Herederos de sangre, portavoces del dolor!
+Cantamos lo que escribió aquel que luchó,
+cada verso viene de una verdad distinta,
+de quien grabó su historia con tinta.
+¡No inventamos nada, solo transmitimos!
+Las palabras que del silencio recibimos,
+¡esta música es de quienes ya no están!
+¡Sus testimonios vivos resonarán!
+
+[Outro]
+Y cuando pregunten de dónde suena el eco,
+decidles que viene de muy lejos,
+de cartas perdidas, de muros quebrados,
+de corazones nunca callados.
+¡Herederos de sangre!
+¡Portavoces de memoria!
+¡Cantamos por sus almas!
+¡Gritamos sus historias!`,
+      audioUrl: null,
+      spotifyUrl: "https://open.spotify.com/track/herederos-de-sangre",
+      youtubeUrl: "https://www.youtube.com/watch?v=gHtZTxwWr8s",
+      coverImage:
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1755456015/ChatGPT_Image_17_ago_2025_19_56_01_pejrz1.png",
+      message:
+        '"Herederos de Sangre" recoge la voz de quienes ya no están, pero dejaron huella con su lucha y su palabra. Con un estilo ska-punk rebelde y emocional, se convierte en un puente entre pasado y presente, recordándonos que somos portavoces de los mensajes escritos con sacrificio, memoria y esperanza.',
+      albumId: album1.id,
+    },
+  });
+
+  console.log("🎵 Canción creada:", song4.title);
+
+  // Crear canción real: Sangre y Palabra
+  const song5 = await prisma.song.create({
+    data: {
+      title: "Sangre y Palabra - Kaos Ekaitza (Ska Punk Antifascista)",
+      duration: "3:56",
+      lyrics: `[Verso 1]
+Nos cortaron la lengua a golpe de bota,
+cuarenta años de silencio, la historia rota,
+pero el euskera vive en cada latido,
+sangre ancestral que nunca se ha rendido.
+
+Fusilaron maestros por enseñar verdades,
+quemaron libros, borraron ciudades,
+pero en los bosques y cuevas, en noches oscuras,
+grabamos con fuego nuestra cultura
+
+[Pre-Coro]
+¡No somos su bandera, no somos su cruz!
+Somos la llama que danza en la hoguera
+
+[Coro]
+¡Odol eta hizkuntza! ¡Sangre y palabra!
+Los hijos del bosque nunca caerán.
+¡gora gudari! ¡gora euskera!
+¡Contra el fascismo, Askatasuna!
+
+[Verso 2]
+Desde Guernica, aún se oyen los gritos,
+la misma mano que nos destruyó
+vuelve con otra cara pero el mismo olor,
+fragancia que apesta, la misma mierda,
+
+VOX gruñe cual cerdos de Franco,
+"una España" que quiso borrarnos,
+ahora nuestros hijos hablan dos lenguas,
+y eso les quema, les pudre por dentro.
+
+[Pre-Coro]
+¡No somos su bandera, no somos su cruz!
+Somos la llama que danza en la hoguera
+
+[Coro]
+¡Odol eta hizkuntza! ¡Sangre y palabra!
+Los hijos del bosque nunca se rinden.
+¡gora gudari! ¡gora euskera!
+¡Nafarroa Askatasuna!
+
+[Puente - Spoken Word con instrumental agresivo]
+Nos quieren muertos por hablar nuestra lengua,
+nos criminalizaron por amar nuestra tierra,
+torturaron cuerpos pero no pudieron
+con el alma de un pueblo entero.
+Somos los hijos de quienes resistieron
+en sótanos, cárceles, en el exilio,
+y ahora que vuelven los mismos discursos,
+¡que sepan que seguimos aquí!
+
+[Break - Riff ska-punk brutal con coros de guerra]
+¡Que sepan que somos!
+¡El pueblo ancestral!
+¡Ez gara!
+¡No somos!
+¡Débiles ni temerosos!
+
+[Verso 3]
+Cataluña sangrando, Galicia callada,
+cada pueblo aplastado, cada voz cortada,
+pero las raíces resuena en cada rincón,
+gritando verdades sin sumisión.
+Que vengan con guardias, con jueces, con todo,
+tenemos los cojones de guardar el modo
+de resistir sin doblar la rodilla,
+¡Euskal Herria askatasuna!
+
+[Coro Final - con furia total]
+¡Odol eta hizkuntza! ¡Sangre y palabra!
+Los hijos del bosque nunca se rinden.
+¡gora gudari! ¡gora euskera!
+¡Nafarroa Askatasuna!
+
+Y cuando piensen que pueden vencernos,
+escuchar el mensaje del pueblo eterno,
+en cada protesta, en cada canción,
+¡porque somos hijos del fuego, somos rebelión!
+Odol eta hizkuntza, sangre y palabra,
+¡Somos los hijos del bosque y esta es nuestra casa!`,
+      audioUrl: null,
+      spotifyUrl: "https://open.spotify.com/track/sangre-y-palabra",
+      youtubeUrl: "https://www.youtube.com/watch?v=Na27XrfUNuI",
+      coverImage:
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1755520989/ChatGPT_Image_18_ago_2025_14_06_30_mlwgor.png",
+      message:
+        '"Sangre y Palabra" es una canción de Kaos Ekaitza que alza la voz contra quienes intentaron silenciar al euskera y borrar una cultura entera. Con un estilo ska-punk rebelde y combativo, la canción es un grito de resistencia, memoria y dignidad frente al fascismo y la represión.',
+      albumId: album1.id,
+    },
+  });
+
+  console.log("🎵 Canción creada:", song5.title);
+
+  // Crear canción real: Aquí sigo
+  const song6 = await prisma.song.create({
+    data: {
+      title: "Aquí sigo - Kaos Ekaitza (Ska Punk Antifascista)",
+      duration: "3:54",
+      lyrics: `[Verso 1]
+Me despierto y ya no está mi casa,
+me despierto y ya no está mi padre,
+me despierto y sigo respirando
+aunque todo reviente y parezca acabado.
+
+Voy a buscar agua para mi madre,
+voy a buscar algo que comer,
+paso por donde estaba mi escuela
+y ya no queda nada que ver.
+
+[Pre-Coro]
+Pero aquí estoy, aquí sigo,
+no me han podido quebrar,
+aunque me quiten todo
+yo no me voy a callar.
+
+[Coro]
+¡Aquí sigo de pie!
+¡Aunque todo se joda!
+¡Aquí sigo de pie!
+¡Cada puta mañana!
+
+¡No me vais a parar!
+¡No me vais a vencer!
+¡Mientras pueda gritar
+voy a hacerme escuchar!
+
+[Verso 2]
+Reparto lo que tengo con el que no tiene nada,
+abrazo la vida aunque no haya esperanza,
+porque si no lo hago y me rindo, me callo,
+no quedará nadie para contar la historia.
+
+Cada bomba que cae me hace más fuerte,
+cada día que pasa aprendo a sobrevivir,
+y cuando llega la noche y todo duele
+me prometo que mañana voy a resistir.
+
+[Pre-Coro]
+Porque aquí estoy, aquí sigo,
+no me han podido quebrar,
+aunque me quiten todo
+yo no me voy a callar.
+
+[Coro]
+¡Aquí sigo de pie!
+¡Aunque todo se joda!
+¡Aquí sigo de pie!
+¡Cada puta mañana!
+
+¡No me vais a parar!
+¡No me vais a vencer!
+¡Mientras pueda gritar
+voy a hacerme escuchar!
+
+[Puente - Spoken word directo]
+A todos los que veis las noticias
+y cambiáis de canal porque os molesta,
+a todos los que pensáis que esto no va con vosotros,
+a todos los que creéis que estoy muy lejos:
+
+Yo estoy aquí, sigo aquí,
+y no me voy a mover,
+y no me voy a callar,
+y vais a tener que verme.
+
+[Coro Final - Más agresivo]
+¡Aquí sigo de pie!
+¡Y os jode que esté vivo!
+¡Aquí sigo de pie!
+¡Contra todo pronóstico!
+
+¡No me habéis podido parar!
+¡No me habéis podido vencer!
+¡Y mientras pueda gritar
+me vais a tener que ver!`,
+      audioUrl: null,
+      spotifyUrl: "https://open.spotify.com/track/aqui-sigo",
+      youtubeUrl: "https://www.youtube.com/watch?v=DPk1ah1HVvc",
+      coverImage:
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1755862084/ChatGPT_Image_22_ago_2025_12_45_24_leh15j.png",
+      message:
+        '"Aquí Sigo" da voz a la resistencia inquebrantable de un niño que se niega a rendirse ante la guerra y la destrucción. La canción es un grito de supervivencia, dignidad y resistencia frente a la opresión y el olvido.',
+      albumId: album1.id,
+    },
+  });
+
+  console.log("🎵 Canción creada:", song6.title);
+
+  // Crear canción real: Trolls Fascistas
+  const song7 = await prisma.song.create({
+    data: {
+      title: "Trolls Fascistas - Kaos Ekaitza (Ska Punk Antifascista)",
+      duration: "3:19",
+      lyrics: `[Verso 1]
+Ahí están otra vez, los putos fascistas,
+rascándose los huevos y siendo racistas,
+todo el día en las redes echando veneno,
+vomitando mierda desde su agujero.
+
+Patriotas de mierda que no han dado un palo,
+defendiendo España desde su teclado,
+con la barriga hinchada de cerveza y odio,
+diciendo estupideces en cada episodio.
+
+[Pre-Coro]
+¿Dónde coño están cuando hay que currar?
+¿Dónde coño están cuando hay que luchar?
+Solo saben escupir desde el ordenador,
+cobardes de mierda sin ningún honor.
+
+[Coro]
+¡Trolls fascistas, hijos de puta!
+¡Que os jodan a todos en vuestra disputa!
+Mientras lloráis detrás de la pantalla,
+nosotros ganamos cada batalla.
+
+¡Vox de mierda, gente sin cerebro!
+¡Perdiendo el tiempo con vuestro delirio!
+El pueblo os odia, el pueblo os desprecia,
+¡y vuestro fascismo se va a la mierda!
+
+[Verso 2]
+Se creen muy machos insultando en la red,
+pero en las calles necesitan ser cien,
+nazis de salón con complejo de macho,
+atentos subnormales, así es como os despacho!
+
+Copian y pegan como putos robots,
+y aun así su castellano parece marciano,
+su único objetivo es querer callarnos,
+y callamos sí, solo pa' descojonarnos.
+
+[Pre-Coro]
+¿Dónde están cuando hay que luchar?
+¿Dónde coño están a la hora de currar?
+Dejar la careta de payaso,
+Fantasmas de salón, haceros un favor, y callaros copón.
+
+[Coro]
+¡Trolls fascistas, hijos de puta!
+¡Que os jodan a todos en vuestra disputa!
+Mientras lloráis detrás de la pantalla,
+nosotros ganamos cada batalla.
+
+¡Vox de mierda, gente sin cerebro!
+¡Perdiendo el tiempo con vuestro delirio!
+El pueblo os odia, el pueblo os desprecia,
+¡y vuestro fascismo se va a la mierda!
+
+[Puente - Spoken Word agresivo]
+Escuchad bien, putos fascistas:
+Podéis seguir llorando cada uno de vuestros días,
+podéis seguir odiando desde el puto teclado,
+pero el pueblo os desprecia y eso es lo que os quema.
+
+Sois basura, sois escoria,
+no tenéis futuro, no tenéis gloria,
+mientras vosotros os pudrís de rabia,
+nosotros construimos, creamos un futuro
+
+[Coro Final - más agresivo]
+¡Trolls fascistas, hijos de puta!
+¡Que os jodan a todos en vuestra disputa!
+Seguid llorando detrás del cristal,
+que vuestro tiempo llega a su final.
+
+¡Vox de mierda, nazis de salón!
+¡Os vamos a joder en cada canción!
+Kaos Ekaitza no se calla jamás,
+¡Este es nuestro estilo!
+¡Y así es como os lo dedico!
+
+[Outro]
+Que se jodan todos los fascistas,
+que se jodan todos los racistas,
+el pueblo grita contra el odio y la opresión,
+¡música rebelde, pura insurrección!`,
+      audioUrl: null,
+      spotifyUrl: "https://open.spotify.com/track/trolls-fascistas",
+      youtubeUrl: "https://www.youtube.com/watch?v=ZS5_zxKjpN4",
+      coverImage:
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1755862131/ChatGPT_Image_22_ago_2025_12_06_24_fwig2e.png",
+      message:
+        '"Trolls Fascistas" desenmascara a los cobardes del odio digital: esos personajes que se esconden tras una pantalla para escupir racismo, machismo y fascismo mientras jamás dan la cara en la vida real. La canción es una bofetada sonora contra la intolerancia y la cobardía.',
+      albumId: album1.id,
+    },
+  });
+
+  console.log("🎵 Canción creada:", song7.title);
+
+  // Crear canción real: Que Suerte Tienes
+  const song8 = await prisma.song.create({
+    data: {
+      title: "Que Suerte Tienes - Kaos Ekaitza (Ska Punk Antifascista)",
+      duration: "5:22",
+      lyrics: `[Verso 1]
+Te levantas y tienes agua en el grifo,
+te levantas y tu casa sigue ahí,
+te levantas y tu familia respira,
+pero te quejas porque llueve y no puedes salir.
+
+
+Tienes comida en la nevera que se pudre,
+tienes ropa en el armario sin estrenar,
+tienes un techo, tienes cama, lo tienes todo,
+pero sigues protestando sin parar.
+
+
+[Pre-Coro]
+Mientras tú lloras por tonterías,
+otros rezan por vivir un día más,
+mientras tú buscas nuevos problemas,
+otros luchan por respirar en paz.
+
+[Coro]
+¡Qué suerte tienes!
+¡Y no lo sabes!
+¡Qué suerte tienes!
+¡De no saber lo que es perder!
+
+¡Qué bonita es tu vida!
+¡Aunque te duela admitir!
+¡Qué bonita es tu vida!
+¡Comparado con morir!
+
+[Verso 2]
+Él se acuesta sin saber si amanecerá,
+él se acuesta con el miedo en el pecho,
+él se acuesta recordando lo que fue,
+cuando tenía lo que tú das por hecho.
+
+Ella camina buscando entre la basura
+algo que pueda calmar su dolor,
+mientras tú tiras la comida que no te gusta
+y te inventas una nueva depresión.
+
+[Pre-Coro]
+Mientras tú lloras por tonterías,
+otros rezan por vivir un día más,
+mientras tú buscas nuevos dramas,
+otros luchan por encontrar la paz.
+
+[Coro]
+¡Qué suerte tienes!
+¡Y no lo sabes!
+¡Qué suerte tienes!
+¡De no saber lo que es perder!
+
+¡Qué bonita es tu vida!
+¡Aunque te cueste verlo!
+¡Qué bonita es tu vida!
+¡Comparado con su infierno!
+
+[Puente - Spoken word emotivo con instrumental más suave]
+Ponte en su lugar por un segundo,
+imagínate sin nada que perder,
+imagínate que cada día es un milagro
+porque has conseguido sobrevivir hasta ayer.
+
+Imagínate que no tienes a nadie,
+que el mundo te ha dado la espalda,
+que tu único crimen fue nacer
+en el lugar equivocado del mapa.
+
+¿Seguirías quejándote del tráfico?
+¿Seguirías llorando por el WiFi?
+¿Seguirías inventándote problemas
+cuando sabrías lo que es sufrir?
+
+[Coro Final - Más intenso]
+¡Qué suerte tienes!
+¡Y ya es hora que lo sepas!
+¡Qué suerte tienes!
+¡De dormir sin que te despierten las balas!
+
+¡Qué hermosa es tu vida!
+¡Aunque no la valores!
+¡Qué hermosa es tu vida!
+¡Mientras otros mueren de hambre y dolores!
+
+¡Despierta de una vez!
+¡Abre bien los ojos!
+¡Tu vida es un regalo
+que otros pagarían con sangre!
+
+[Outro]
+La vida es hermosa cuando la tienes,
+la vida es un lujo cuando puedes vivirla,
+pero hay millones que darían todo
+por tener tu peor día de mierda.`,
+      audioUrl: null,
+      spotifyUrl: "https://open.spotify.com/track/que-suerte-tienes",
+      youtubeUrl: "https://www.youtube.com/watch?v=aeshG7nSrVI",
+      coverImage:
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1756455492/ChatGPT_Image_29_ago_2025_01_14_36_lazkc9.png",
+      message:
+        '"Que Suerte Tienes" desnuda la contradicción entre la comodidad cotidiana y la tragedia global que millones viven a diario. La canción es un espejo incómodo que refleja cómo muchas veces olvidamos el privilegio de lo que tenemos, mientras otros luchan por sobrevivir.',
+      albumId: album1.id,
+    },
+  });
+
+  console.log("🎵 Canción creada:", song8.title);
+
+  // Crear canción real: Cheto Rizo Trump
+  const song9 = await prisma.song.create({
+    data: {
+      title: "Cheto Rizo Trump - Kaos Ekaitza (Ska Punk Antifascista)",
+      duration: "2:49",
+      lyrics: `[Verso 1]
+Ahí viene otra vez, el payaso naranja,
+con su tupé de plástico y su asquerosa cara.
+Promete muros, cadenas y odio,
+se cree Jesucristo sentado en su trono.
+
+Un ricachón de feria, un cartoon barato,
+con manos de niño y cerebro en formato.
+Cheto rizo Trump, rey de la mentira,
+vende humo podrido y el pueblo conspira.
+
+[Pre-Coro]
+¿Dónde está tu gloria, magnate de cartón?
+Sólo eres un meme con traje de león.
+
+[Coro]
+¡Cheto rizo Trump, caricatura infernal!
+Un payaso de circo con ego nuclear.
+¡Cheto rizo Trump, muñeco de cartón!
+Te bailamos este ska mientras se hunde tu ilusión.
+
+[Verso 2]
+Grita “América First” con voz de niñato,
+pero en la cocina solo hay McDonald’s barato.
+Sueña con tanques, con bombas nucleares,
+con que todos se arrodillen como putos anormales
+
+Tuitea su rabia como un adolescente,
+su ejército de trolls lo llama “presidente”.
+Pero el mundo lo ve como un show decadente,
+un rey de mentira, un payaso indecente.
+
+[Pre-Coro]
+¿Dónde está tu fuerza, ladrón del salón?
+Solo eres un muppet con cara de limón.
+
+[Coro]
+¡Cheto rizo Trump, caricatura infernal!
+Un payaso de circo con ego nuclear.
+¡Cheto rizo Trump, muñeco de cartón!
+Te bailamos este ska mientras se hunde tu ilusión.
+
+[Puente – Spoken Word sarcástico/violento]
+Escucha, cheto rizo:
+Tus casinos quebraron, tu imperio se hundió,
+y aún así pretendes ser el puto Dios.
+
+Eres más falso que tu bronceado,
+más ridículo que tu peinado.
+South Park te dibuja y la risa estalla,
+¡pero aquí en las calles empieza la batalla!
+
+[Break – ska/punk acelerado con coros]
+Oh-oh-oh, ¡payaso Trump!
+Oh-oh-oh, cheto de cartón.
+Oh-oh-oh, tu circo cayó,
+¡el pueblo te grita: que te jodan, cabrón!
+
+[Coro Final – más agresivo]
+¡Cheto rizo Trump, caricatura infernal!
+Un payaso de circo con ego nuclear.
+¡Cheto rizo Trump, muñeco de cartón!
+Te bailamos este ska mientras se hunde tu ilusión.
+
+[Outro]
+Cheto rizo Trump, marioneta imperial,
+te manda a la mierda la voz popular.
+Y cuando tu ego se caiga al vacío,
+¡serás solo un chiste podrido y hundido!`,
+      audioUrl: null,
+      spotifyUrl: "https://open.spotify.com/track/cheto-rizo-trump",
+      youtubeUrl: "https://www.youtube.com/watch?v=ELazjVhCk-8",
+      coverImage:
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1756994488/ChatGPT_Image_1_sept_2025_10_19_17_n5eqzu.png",
+      message:
+        '"Cheto Rizo Trump" convierte en sátira a uno de los símbolos del poder corrupto y grotesco. Un ska-punk mordaz y burlón que desarma la figura del magnate convertido en político, ridiculizando su ego desmesurado, su discurso vacío y su caricatura de líder autoritario.',
+      albumId: album2.id,
+    },
+  });
+
+  console.log("🎵 Canción creada:", song9.title);
+
+  // Crear canción real: Flotilla Libertad
+  const song10 = await prisma.song.create({
+    data: {
+      title: "Flotilla Libertad - Kaos Ekaitza (Ska Punk Antifascista)",
+      duration: "02:57",
+      lyrics: `[Intro]
+¡Arriad las velas, que ruja el tambor!
+¡Contra el silencio navegamos hoy!
+
+[Verso 1]
+Barcos libres cruzando la marea,
+traen vida y coraje, justicia que pelea.
+El mar retumba con gritos de verdad,
+¡si calla la ONU, la flota hablará!
+
+[Pre-Coro]
+Al abordaje del miedo y la rabia,
+¡héroes del pueblo, la lucha no falla!
+
+[Coro]
+¡Flotilla libertad, no nos podrán parar!
+¡Con valor y coraje, la marea va a ganar!
+¡Flotilla libertad, tu ejemplo vivirá!
+Si el mundo se esconde, la memoria gritará.
+
+[Verso 2]
+Bloquean las rutas, cadenas de hierro,
+pero en nuestras manos no hay más que un anhelo.
+Pan y medicinas, bandera de honor,
+¡somos la tormenta que hunde al opresor!
+
+[Pre-Coro]
+Sin oro ni gloria, solo dignidad,
+¡héroes del pueblo, justicia naval!
+
+[Coro]
+¡Flotilla libertad, héroes del mar!
+¡Con valor y coraje, la marea va a ganar!
+¡Flotilla libertad, tu ejemplo vivirá!
+Si el mundo se esconde, la memoria gritará.
+
+[Puente – estilo taberna marinera, voz grave + coros]
+Eh-oh, eh-oh, ¡los mares rugirán!
+Eh-oh, eh-oh, ¡al tirano hundirán!
+
+[Break – ska-punk acelerado, como motín]
+¡Eh-oh-oh! ¡Eh-oh-oh!
+¡Héroes del mar contra el invasor!
+¡Eh-oh-oh! ¡Eh-oh-oh!
+¡La flota del pueblo jamás se rindió!
+
+[Coro Final – más épico, doble velocidad]
+¡Flotilla libertad, no nos podrán parar!
+¡Con valor y coraje, la marea va a ganar!
+¡Flotilla libertad, tu ejemplo vivirá!
+Si el mundo se esconde, la memoria gritará.
+
+[Outro – voz rasposa, lenta]
+Levanta tu vaso, recuerda su andar,
+¡héroes del pueblo, justicia en el mar!`,
+      audioUrl: null,
+      spotifyUrl: "https://open.spotify.com/track/flotilla-libertad",
+      youtubeUrl: "https://www.youtube.com/watch?v=mJgfg_RXqtU",
+      coverImage:
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1756994506/ChatGPT_Image_3_sept_2025_009_51_06_lhia1n.jpg",
+      message:
+        '"Flotilla Libertad" rinde homenaje a l@s héroes del mar que arriesgan sus vidas llevando ayuda humanitaria al pueblo palestino. Con un estilo punk-rock intenso, combativo y cargado de emoción, la canción se convierte en un grito de solidaridad y resistencia frente a la pasividad de los poderes internacionales.',
+      albumId: album2.id,
+    },
+  });
+
+  console.log("🎵 Canción creada:", song10.title);
+
+  // Crear canción real: Levántate (Album 2)
+  const song11 = await prisma.song.create({
+    data: {
+      title: "Levántate - Kaos Ekaitza",
+      duration: "3:34",
+      lyrics: `[Intro]
+Cuando la vida te presente razones para llorar, demuéstrale que tienes mil y una razones para reír.
+
+
+
+
+
+Levantate...
+
+
+
+
+
+[Verse 1]
+Se que caíste otra vez, se que te dolió hasta el alma,
+caíste tan fuerte que debilitó tu llama.
+Miraste al suelo, sin aire, sin fe,
+pero no te rendiste y te alzaste otra vez.
+
+
+
+
+
+La vida te exprime, te dobla, te parte,
+te enseña a sufrir para hacerte más grande.
+No hay gloria sin golpes, ni luz sin dolor,
+Recuerda ¡cada herida forja el valor!
+
+
+
+
+
+[Pre-Chorus]
+Porque nadie dijo que fuera fácil,
+nadie prometió que sería justo,
+pero piensa siempre en lo más importante,
+un nuevo día te espera, adelante.
+
+
+
+
+
+[Chorus]
+¡Levántate! ¡aunque duela el cuerpo!
+¡Levántate! ¡aunque el miedo te venza por dentro!
+¡cada caída enseña!
+¡que no hay victoria sin pena!
+
+
+
+
+
+¡Levántate! ¡aunque el suelo te llame!
+¡Levántate! ¡aunque el alma sangre!
+¡Levántate! ¡siempre hacía la victoria!
+¡Levántate! ¡y escribe tu historia!
+
+
+
+
+
+[Verse 2]
+Caerás mil veces, eso es seguro,
+pero te levantarás más fuerte, más duro.
+atravesamos el fuego, esquivamos la bruma,
+nos follamos al miedo cuando brilla la luna.
+
+
+
+
+
+La vida te empuja, te pone a prueba,
+te rompe los huesos, te roba las fuerzas.
+Pero si caes, y te vuelves a alzar,
+Recuerda ¡es la vida queriendo enseñar!
+
+
+
+
+
+[Pre-Chorus]
+Porque el poder quiere verte roto,
+sumiso, callado, tirado en el suelo,
+pero tú no dejas que eso te afecte,
+¡Levanta la cabeza y mira al frente!
+
+
+
+
+
+[Chorus]
+¡Levántate! ¡aunque duela el cuerpo!
+¡Levántate! ¡aunque el miedo te venza por dentro!
+¡cada caída enseña!
+¡que no hay victoria sin pena!
+
+
+
+
+
+¡Levántate! ¡aunque el suelo te llame!
+¡Levántate! ¡aunque el alma sangre!
+¡Levántate! ¡que la vida te reta!
+¡Levántate! ¡Tu lucha te espera!
+
+
+
+
+
+[Bridge]
+Vas a caer.
+Y va a doler.
+Vas a pensar que no puedes más,
+que todo fue en vano.
+
+
+
+
+
+Pero ahí, justo ahí,
+cuando todo arde,
+cuando nadie te mira,
+cuando sientes que no queda nada,
+¡recuerda quién eres!
+¡recuerda porqué empezaste!
+¡y levántate una y mil veces más!
+
+
+
+
+
+[Final Chorus]
+¡Levántate! ¡aunque duela el cuerpo!
+¡Levántate! ¡aunque el miedo te venza por dentro!
+¡cada caída enseña!
+¡que no hay victoria sin pena!
+
+
+
+
+
+¡Levántate! ¡por los que ya no pueden!
+¡Levántate! ¡por los que vienen delante!
+¡Levántate! ¡que despierte tu llama!
+¡Levántate! ¡Y devora el mañana!
+
+
+
+
+
+[Outro]
+Y si mañana vuelves a caer…
+recuerda esto:
+¡No hay derrota si te vuelves a poner en pie!
+¡Levántate!`,
+      audioUrl: null,
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/track/7CqY87gz7uMS6Qf6oCJpWE?si=480777f6230d4cc2",
+      youtubeUrl: "https://www.youtube.com/watch?v=KrpL9PHmEX4",
+      coverImage:
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1762131627/ChatGPT_Image_7_oct_2025_12_47_25_prpvup.jpg",
+      message:
+        '"Levántate" es un llamado a la resiliencia y a la fuerza interior, una canción que convierte el dolor en motivación y la caída en aprendizaje. Con un sonido poderoso y lleno de energía, Kaos Ekaitza transforma el miedo, la derrota y la adversidad en un grito de esperanza y superación que toca el corazón de quien escucha.',
+      albumId: album2.id,
+    },
+  });
+
+  console.log("🎵 Canción creada:", song11.title);
 
   console.log("✅ Seed completado exitosamente!");
 }
