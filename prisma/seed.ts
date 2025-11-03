@@ -1339,6 +1339,378 @@ Somos la tormenta perfecta... enemigos de la tempestad.
 
   console.log("🎵 Canción creada:", song13.title);
 
+  // Crear canción real: Intifada (Album 2)
+  const song14 = await prisma.song.create({
+    data: {
+      title: "Intifada - Kaos Ekaitza",
+      duration: "3:09",
+      lyrics: `[Intro]
+Esta va por los más grandes, ¡Skape!
+
+[Verse 1]
+Veintitrés años gritando unidos,
+la voz resuena en cada latido.
+David fue Goliat, la historia no acaba,
+el pueblo resiste, la lucha no falla.
+
+El mundo levanta cadenas de hierro,
+expulsan familias, condenan a pueblos.
+El odio se esconde tras leyes y rezos,
+¡la mentira gobierna, la verdad es su miedo!
+
+[Pre-Chorus]
+¡Ooohooh! El grito no muere,
+El mundo lo siente.
+¡Ooohooh! La lucha no acaba,
+Palestina se levanta.
+
+[Chorus - Powerful]
+¡Intifada! ¡intifada!
+La voz del pueblo nunca se apaga.
+¡Intifada! ¡liberación!
+Contra el genocidio, ¡revolución!
+[ska-punk break]
+
+[Verse 2]
+Skape lo cantó, y hoy lo repetimos,
+de la sangre inocente somos los testigos.
+De Gaza a Cisjordania, de norte a sur,
+la vida persiste, David aún resiste.
+
+No hay dios ni bandera que justifique,
+que un niño muera y el mundo lo evite.
+La voz de la calle desata tormentas,
+la lucha del pueblo no tiene fronteras.
+
+[Pre-Chorus]
+¡Ooohooh! Que tiemble la tierra,
+Romper las cadenas.
+¡Ooohooh! La lucha es eterna,
+Palestina resiste!
+
+[Chorus]
+¡Intifada! ¡intifada!
+La voz del pueblo nunca se apaga.
+¡Intifada! ¡liberación!
+Contra el genocidio, ¡revolución!
+[ska-punk break]
+
+[Bridge]
+No podrán callar el rugido del viento,
+ni borrar la historia plasmada en el lienzo.
+Por cada silencio, mil voces despiertan,
+¡la lucha del pueblo no tiene fronteras!
+
+No hay muro que encierre la dignidad,
+ni bala que apague la libertad.
+Del polvo renace la llama encendida,
+¡la tierra respira, la vida resiste!
+
+[Final Chorus]
+¡Intifada! ¡intifada!
+La voz del pueblo nunca se apaga.
+¡Intifada! ¡liberación!
+La verdad florece entre la opresión.
+
+¡Intifada! ¡intifada!
+Del fuego renace la esperanza.
+¡Intifada! ¡liberación!
+El grito del pueblo es revolución.
+[ska-punk break]
+
+[Outro]
+Intifada…
+la voz del mañana.
+Intifada…
+la llama no se apaga.
+Intifada…
+de pie, corazón,
+porque el pueblo vive en cada canción.`,
+      audioUrl: null,
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/track/3IO6EyMz3BeaEaFSTgIY9u",
+      youtubeUrl: "https://youtu.be/osTGRJD95zc?si=HL0J_t59qbTorKdh",
+      coverImage:
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1762134600/ChatGPT_Image_6_oct_2025_14_22_20_gyxwfs.png",
+      message:
+        '"Intifada" es un grito de resistencia, una canción que une música y memoria para rendir homenaje a la lucha del pueblo palestino. Con un sonido ska-punk combativo y emotivo, Kaos Ekaitza transforma la rabia y la impotencia en energía colectiva, en un canto de esperanza que atraviesa fronteras y desafía la opresión.',
+      albumId: album2.id,
+    },
+  });
+
+  console.log("🎵 Canción creada:", song14.title);
+
+  // Crear canción real: Lluvia de Mentiras (Album 2)
+  const song15 = await prisma.song.create({
+    data: {
+      title: "Lluvia de Mentiras - Kaos Ekaitza",
+      duration: "5:15",
+      lyrics: `[Verso 1]
+Una madre está aterrada en la noche,
+ya no recuerda desde cuando no duerme,
+teme que al cerrar los ojos el demonio se acerque,
+y la lluvia de fuego a sus hijos se lleve.
+
+Un niño respira y ya es juzgado,
+como un terrorista, nació condenado.
+El mundo ha sucumbido en la oscuridad,
+le niega la vida, destruyen su verdad
+
+[Pre-Coro]
+En las pantallas dibujan pecados,
+con tinta de sangre, con hilos comprados.
+Fabrican monstruos, inventan guerras,
+y sus mentiras cubren los ojos con vendas.
+
+[Coro]
+¡Lluvia de mentiras¡ !procedentes de Israel!
+¡Manos inocentes marcadas con hiel!
+Dicen que el enemigo es quien nace sin nada,
+Mientras los verdugos se jactan con saña.
+¡Yo no voy a callar,
+yo no voy a ceder!
+¡Los gritos de los niños despertaron la razón!
+¡La tormenta ya está encima, la verdad se reveló¡
+
+[Verso 2]
+Él juega en ruinas, juguetes de piedra,
+ella susurra canciones, su alma tiembla,
+El futuro es oscuro, el presente una herida,
+infancia prohibida, esperanza perdida.
+
+La verdad se esconde detrás de banderas,
+la mentira avanza vestida de sedas.
+Cada discurso que excusa la muerte
+es otra bala que siempre revierte.
+
+[Pre-Coro]
+En tu salón consumes su cuento,
+te venden culpables, disfrazan el viento.
+Te roban la mente, te roban el corazón,
+quieren que asumas que es suya la razón.
+
+[Coro]
+¡Lluvia de mentiras¡ !procedentes de Israel!
+¡Manos inocentes marcadas con hiel!
+Dicen que el enemigo es quien nace sin nada,
+Mientras los verdugos se jactan con saña.
+¡Yo no voy a callar,
+yo no voy a ceder!
+¡Los gritos de los niños despertaron la razón!
+¡La tormenta ya está encima, la verdad se reveló¡
+
+[Puente]
+Acércate a ese niño y dile que es culpable.
+Míra sus ojos, dile que es el responsable
+Muestrale tu odio mientras el hambre se lo lleva,
+Recuerda cuál fué tu posición cuando caiga el telón.
+
+[Coro Final]
+¡Lluvia de mentiras¡ !procedentes de Israel!
+¡Manos inocentes marcadas con hiel!
+Dicen que el enemigo es quien nace sin nada,
+Mientras los verdugos se jactan con saña.
+¡Yo no voy a callar,
+yo no voy a ceder!
+¡Los gritos de los niños despertaron la razón!
+¡La tormenta ya está encima, la verdad se reveló¡
+
+[Outro]
+esperanzas prohibidas, llantos de sangre,
+pueblo que grita, la muerte no cesa.
+Las mentiras crecen tras el cristal,
+pero la tormenta estalla, despertando la verdad`,
+      audioUrl: null,
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/track/7lFXhTJ468Qu6bsXcBC2Gn",
+      youtubeUrl: "https://youtu.be/aIsLcyxvmgI?si=KRvC3Ne4KDaw2sQI",
+      coverImage:
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1762134630/ChatGPT_Image_1_oct_2025_11_09_54_ajrbjg.png",
+      message:
+        '"Lluvia de Mentiras" es una canción de Kaos Ekaitza que desenmascara la manipulación de los medios de comunicación y denuncia cómo las narrativas oficiales sirven para justificar guerras, ocultar genocidios y sembrar odio contra los pueblos más vulnerables.',
+      albumId: album2.id,
+    },
+  });
+
+  console.log("🎵 Canción creada:", song15.title);
+
+  // Crear canción real: Fuego y Raíz (Album 2)
+  const song16 = await prisma.song.create({
+    data: {
+      title: "Fuego y Raíz - Kaos Ekaitza",
+      duration: "3:12",
+      lyrics: `[Introduction]
+Fuego y raíz, del barrio al corazón,
+la tormenta despierta, al ritmo del león.
+
+[Verse 1]
+Caminos que hablan, raíces que arden,
+las voces del pueblo no pueden taparse.
+Del humo y la hierba renace ese olor,
+la tierra respira, la lucha es amor.
+
+[Pre-Chorus]
+Que se escuche la voz de la verdad,
+La tormenta llama a la unidad.
+
+[Chorus]
+¡Get up! (get up) ¡Stand up! (stand up) que retumbe la conciencia,
+¡One love! (one love) ¡One heart! (one heart) la esperanza es resistencia,
+Fuego y raíz, del alma a la ciudad,
+Bob encendió la llama de la libertad.
+
+[Verse 2]
+No hay cadenas que frenen nuestros pasos,
+la tormenta avanza, sin descanso.
+De Trench Town al barrio, la historia cantó,
+el humo en el viento, al pueblo unió.
+
+[Pre-Chorus]
+Que resuenen los tambores de paz,
+Que el trueno del pueblo deslumbre verdad.
+
+[Chorus]
+¡Get up! (get up) ¡Stand up! (stand up) que retumbe la conciencia,
+¡One love! (one love) ¡One heart! (one heart) la esperanza es resistencia,
+Fuego y raíz, del alma a la ciudad,
+Bob sembró la llama de la libertad.
+
+[Verse 3]
+Que el humo se eleve, que el ritmo nos una,
+que el odio se apague, que el alma perdura.
+De norte a sur, del trueno al clamor,
+la calle despierta, rugiendo en su honor.
+
+[Bridge]
+Que las nubes se alcen, y la lluvia reviente,
+que el grito del pueblo despierte a la gente.
+Y si el miedo se aferra, le haremos saber:
+¡no hay fuerza más pura que un pueblo en pie!
+
+[Final Chorus]
+¡Get up! (get up) ¡Stand up! (stand up) que retumbe la conciencia,
+¡One love! (one love) ¡One heart! (one heart) la esperanza es resistencia,
+Fuego y raíz, del alma a la ciudad,
+Bob sembró la llama de la libertad.
+
+[Repeat]
+Fuego y raíz, del alma a la ciudad,
+Kaos y Marley, por la misma verdad.
+
+¡Get up! (get up) ¡Stand up! (stand up) que retumbe la conciencia,
+¡One love! (one love) ¡One heart! (one heart) la esperanza es resistencia,
+Fuego y raíz, del alma a la ciudad,
+Bob sembró la llama de la libertad.`,
+      audioUrl: null,
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/track/7lFXhTJ468Qu6bsXcBC2Gn",
+      youtubeUrl: "https://youtu.be/e8NMr6Cj-Bc?si=CPtqOQJOLwND-Pca",
+      coverImage:
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1762134615/ChatGPT_Image_13_oct_2025_09_32_27_bi8ix1.png",
+      message:
+        '"Fuego y Raíz" es un homenaje a la esencia que nunca muere, al fuego que enciende la conciencia y a las raíces que nos mantienen firmes frente al viento. Una canción donde Kaos Ekaitza une el reggae, el ska y el punk en un mismo grito de libertad, inspirada en el legado eterno de Bob Marley y en la fuerza del pueblo que no se rinde.',
+      albumId: album2.id,
+    },
+  });
+
+  console.log("🎵 Canción creada:", song16.title);
+
+  // Crear canción real: Miss Nuclear (Album 2)
+  const song17 = await prisma.song.create({
+    data: {
+      title: "Miss Nuclear - Kaos Ekaitza",
+      duration: "3:54",
+      lyrics: `[Spoken Intro]
+ Y desde el corazón del desastre global…
+ ¡Démosle la bienvenida a la reina del desfile!
+ Brillando con uranio,
+ luciendo su sonrisa radiactiva…
+ ¡Ella es… Miss Nuclear!
+
+[Introduction]
+ Pies de hierro sobre el asfalto,
+ Los bosques tiemblan a su paso.
+ Luces, discursos, flores, color…
+ La guerra desfila con traje de honor.
+
+[Verse 1]
+ Miss Nuclear camina entre humo y metralla,
+ sus tacones resuenan como bombas en batalla.
+ El mundo la mira, rendido y servil,
+ le ponen corona… de uranio febril.
+
+Su sonrisa brilla, en la televisión,
+ un millón de almas sin conexión.
+ Desfila la muerte, envuelta en cristal,
+ con un beso pintado, artificial.
+
+[Pre-Chorus]
+ Y el jurado de la historia aplaude de pie,
+ por la belleza del poder.
+
+[Chorus]
+ ¡Miss Nuclear, reina del final!
+ ¡Tu fuego baila, el ritmo letal!
+ ¡Miss Nuclear, madre del dolor!
+ ¡Tu luz nos abrasa, nos roba el color!
+
+[Verse 2]
+ Bajo el desfile hay rostros con anhelo,
+ sus ojos desean ver arder el cielo.
+ Pero ella sonríe, radiante y feliz,
+ no ve nada más allá de su nariz.
+
+Las potencias beben del mismo vaso,
+ brindan por paz… en su propio ocaso.
+ El humo del tiempo lo cubre todo,
+ los demonios planean el nuevo éxodo
+
+[Pre-Chorus]
+ Y el jurado de la historia vuelve a aplaudir,
+ sin saber… que todos van a morir.
+
+[Chorus]
+ ¡Miss Nuclear, reina del final!
+ ¡Tu fuego baila, el ritmo letal!
+ ¡Miss Nuclear, madre del dolor!
+ ¡Tu luz nos abrasa, nos roba el color!
+
+[Bridge]
+ ¿Quién la coronó?
+ ¿Quién le dio su voz?
+ ¿Quién la vistió con miedo y esplendor?
+ En su espejo no hay belleza ni fe,
+ solo el reflejo… del infierno y su poder.
+
+[Final Chorus]
+ ¡Miss Nuclear, reina del final!
+ ¡Tu trono es humo, tu reino irreal!
+ ¡Miss Nuclear, madre del dolor!
+ ¡Enemiga de la vida, solo traerás horror!
+
+[Outro]
+ Y en el silencio que deja a su paso,
+ solo proyecta… un mundo en pedazos
+
+[Chorus]
+ ¡Miss Nuclear, reina del final!
+ ¡Tu fuego baila, el ritmo letal!
+ ¡Miss Nuclear, madre del dolor!
+ ¡Tu luz nos abrasa, nos roba el color!`,
+      audioUrl: null,
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/track/10T9Qsg9kYAwy8UeUoutM8",
+      youtubeUrl: "https://youtu.be/g-JD-5XMpwQ?si=eHrC3c3xR14tQn3b",
+      coverImage:
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1762134618/ChatGPT_Image_19_oct_2025_10_52_20_zo7geh.png",
+      message:
+        '"Miss Nuclear" es una radiografía sarcástica del delirio de las potencias: un desfile donde la muerte viste de gala y el miedo se aplaude como espectáculo. La canción retrata ese tóxico culto moderno a la destrucción que se esconde tras la palabra "defensa".',
+      albumId: album2.id,
+    },
+  });
+
+  console.log("🎵 Canción creada:", song17.title);
+
   console.log("✅ Seed completado exitosamente!");
 }
 
