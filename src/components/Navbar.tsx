@@ -36,9 +36,6 @@ const Navbar = () => {
               </div>
               <div className="ml-3">
                 <h1 className="text-punk text-xl font-black">KAOS EKAITZA</h1>
-                <p className="text-red-500 text-xs font-semibold tracking-wider">
-                  SKA-PUNK ANTIFASCISTA
-                </p>
               </div>
             </Link>
 
@@ -51,7 +48,7 @@ const Navbar = () => {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="text-white hover:text-red-500 px-3 py-2 rounded-md text-md font-bold tracking-wide transition-all duration-300 flex items-center punk-hover"
+                      className="text-white hover:text-red-500 p-2 rounded-md text-md font-bold tracking-wide transition-all duration-300 flex items-center punk-hover"
                     >
                       <IconComponent className="w-4 h-4" />
                       <span className="text-md" style={{ paddingLeft: "12px" }}>
