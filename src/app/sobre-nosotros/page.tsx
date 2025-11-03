@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { Music, Heart, Shield, Users, Target, Globe } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -261,15 +262,15 @@ export default function SobreNosotrosPage() {
             ayúdanos a construir un mundo más justo a través del ska-punk.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/contacto" className="btn-punk">
+            <Link href="/contacto" className="btn-punk">
               Contáctanos
-            </a>
-            <a
+            </Link>
+            <Link
               href="/album"
               className="btn-punk-outline text-white border-white hover:bg-white hover:text-black"
             >
               Escucha Nuestra Música
-            </a>
+            </Link>
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Play, Download, ExternalLink, Clock, Calendar, X } from "lucide-react";
 import Image from "next/image";
 import { getLatestSongs } from "@/lib/database";
@@ -196,13 +197,13 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
               Explora toda nuestra discografía y descubre el poder del ska-punk
               consciente.
             </p>
-            <a
+            <Link
               href="/album"
               className="btn-punk inline-flex items-center gap-2"
             >
               <Play className="w-5 h-5" />
               <span>Ver Toda la Discografía</span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
