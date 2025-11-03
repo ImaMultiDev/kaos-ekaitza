@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Home, Music, Users, Mail } from "lucide-react";
+import { Menu, X, Home, Music, Users, Mail, ShoppingBag } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +13,7 @@ const Navbar = () => {
   const navItems = [
     { href: "/", label: "Home", icon: Home },
     { href: "/album", label: "Album", icon: Music },
+    { href: "/merchandising", label: "Merchandising", icon: ShoppingBag },
     { href: "/sobre-nosotros", label: "Sobre Nosotros", icon: Users },
     { href: "/contacto", label: "Contacto", icon: Mail },
   ];

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Music, Heart, Shield, Users } from "lucide-react";
+import { Music, Heart, Shield, Users, ShoppingBag } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -73,6 +73,14 @@ const Footer = () => {
                     className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center"
                   >
                     <Heart className="w-4 h-4 mr-2" /> Sobre Nosotros
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/merchandising"
+                    className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center"
+                  >
+                    <ShoppingBag className="w-4 h-4 mr-2" /> Merchandising
                   </Link>
                 </li>
                 <li>
