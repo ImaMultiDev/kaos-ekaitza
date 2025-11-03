@@ -25,9 +25,10 @@ async function main() {
       releaseDate: new Date("2024-01-15"),
       coverImage:
         "https://res.cloudinary.com/dzt73baf9/image/upload/v1762130747/ChatGPT_Image_5_sept_2025_12_08_58_mwxtn5.png",
-      spotifyUrl: "https://open.spotify.com/artist/kaosekaitza",
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/artist/1reWo4KzVQLgqOwNXrVgr4",
       bandcampUrl: "https://kaosekaitza.bandcamp.com",
-      youtubeUrl: "https://www.youtube.com/channel/kaosekaitza",
+      youtubeUrl: "https://www.youtube.com/@KaosEkaitza",
     },
   });
 
@@ -42,9 +43,10 @@ async function main() {
       releaseDate: new Date("2025-09-05"),
       coverImage:
         "https://res.cloudinary.com/dzt73baf9/image/upload/v1762130856/Publi2temas_vegcms.png",
-      spotifyUrl: "https://open.spotify.com/artist/kaosekaitza",
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/artist/1reWo4KzVQLgqOwNXrVgr4",
       bandcampUrl: "https://kaosekaitza.bandcamp.com",
-      youtubeUrl: "https://www.youtube.com/channel/kaosekaitza",
+      youtubeUrl: "https://www.youtube.com/@KaosEkaitza",
     },
   });
 
@@ -53,8 +55,8 @@ async function main() {
   // Crear canción real: Mentiras de Bandera
   const song1 = await prisma.song.create({
     data: {
-      title: "Mentiras de Bandera - Kaos Ekaitza (Ska Punk Antifascista)",
-      duration: "4:12", // Ajusta según la duración real
+      title: "Mentiras de Bandera - Kaos Ekaitza",
+      duration: "3:20", // Ajusta según la duración real
       lyrics: `[Verso 1]
 Vienen de traje, con cruz y rosario,
 gritan "libertad" y siembran calvario,
@@ -131,7 +133,8 @@ pero el pueblo unido levanta su voz,
 ska-punk sonando en cada rincón,
 ¡contra el fascismo, rebelión!`,
       audioUrl: null,
-      spotifyUrl: "https://open.spotify.com/track/mentiras-de-bandera",
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/track/29AK82i5pyF51AxjC03wMF",
       youtubeUrl: "https://www.youtube.com/watch?v=bkTN9n-O0f8",
       coverImage:
         "https://res.cloudinary.com/dzt73baf9/image/upload/v1754948539/ChatGPT_Image_7_ago_2025_11_31_24_sy8hbg.png",
@@ -146,8 +149,8 @@ ska-punk sonando en cada rincón,
   // Crear canción real: Tendrán que Matarme
   const song2 = await prisma.song.create({
     data: {
-      title: "Tendrán que Matarme - Kaos Ekaitza (Ska Punk Antifascista)",
-      duration: "4:15", // Ajusta según la duración real
+      title: "Tendrán que Matarme - Kaos Ekaitza",
+      duration: "3:24", // Ajusta según la duración real
       lyrics: `[Verso 1]
 Quieren tapar mi voz con muros de plomo,
 firmar mi condena, borrarme del todo.
@@ -225,7 +228,8 @@ en cada madre, en cada hermano.
 Porque no hay muerte que mate la verdad,
 ni poder que entierre la libertad.`,
       audioUrl: null,
-      spotifyUrl: "https://open.spotify.com/track/tendran-que-matarme",
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/track/6rVbLzYGXgOq9ojZs3Sdb4",
       youtubeUrl: "https://www.youtube.com/watch?v=DUt6ehKdw0w",
       coverImage:
         "https://res.cloudinary.com/dzt73baf9/image/upload/v1754948524/ChatGPT_Image_11_ago_2025_21_49_54_ygnmyq.png",
@@ -240,9 +244,8 @@ ni poder que entierre la libertad.`,
   // Crear canción real: Que mi nombre no se borre de la historia
   const song3 = await prisma.song.create({
     data: {
-      title:
-        '"Que mi nombre no se borre de la historia" - Kaos Ekaitza (Ska Punk Antifascista)',
-      duration: "4:08", // Ajusta según la duración real
+      title: '"Que mi nombre no se borre de la historia" - Kaos Ekaitza',
+      duration: "3:44", // Ajusta según la duración real
       lyrics: `En Madrid tronó el silencio,
 la derrota se firmó con sangre y odio.
 Trece voces en la sombra,
@@ -327,12 +330,13 @@ como llama eterna, como ejemplo vivo.
 Porque cuando olvidamos, ellos ganan.
 Y aquí seguimos… luchando, resistiendo.`,
       audioUrl: null,
-      spotifyUrl: "https://open.spotify.com/track/que-mi-nombre-no-se-borre",
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/track/0y47YZgwfs9ARPlQg65VL0",
       youtubeUrl: "https://www.youtube.com/watch?v=nLxYbAVjspc",
       coverImage:
         "https://res.cloudinary.com/dzt73baf9/image/upload/v1754948539/Que_mi_nombre_no_se_borre_de_la_historia_20250807_103408_0000_dg6jxl.png",
       message:
-        "Una canción de ska punk combativo en memoria de Las 13 Rosas, trece jóvenes fusiladas por la dictadura franquista el 5 de agosto de 1939. Este tema rinde homenaje a su valentía, a la lucha antifascista, y a todos los pueblos que no olvidan.",
+        "Una canción combativa en memoria de Las 13 Rosas, trece jóvenes fusiladas por la dictadura franquista el 5 de agosto de 1939. Este tema rinde homenaje a su valentía, a la lucha antifascista, y a todos los pueblos que no olvidan.",
       albumId: album1.id,
     },
   });
@@ -342,7 +346,7 @@ Y aquí seguimos… luchando, resistiendo.`,
   // Crear canción real: Herederos de Sangre
   const song4 = await prisma.song.create({
     data: {
-      title: "Herederos de Sangre - Kaos Ekaitza (Ska Punk Antifascista)",
+      title: "Herederos de Sangre - Kaos Ekaitza",
       duration: "4:05",
       lyrics: `[Verso 1]
 No nacieron estas letras de mi pluma,
@@ -450,7 +454,8 @@ de corazones nunca callados.
 ¡Cantamos por sus almas!
 ¡Gritamos sus historias!`,
       audioUrl: null,
-      spotifyUrl: "https://open.spotify.com/track/herederos-de-sangre",
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/track/0bofRv8kVafYqZUFWjLrvf",
       youtubeUrl: "https://www.youtube.com/watch?v=gHtZTxwWr8s",
       coverImage:
         "https://res.cloudinary.com/dzt73baf9/image/upload/v1755456015/ChatGPT_Image_17_ago_2025_19_56_01_pejrz1.png",
@@ -465,7 +470,7 @@ de corazones nunca callados.
   // Crear canción real: Sangre y Palabra
   const song5 = await prisma.song.create({
     data: {
-      title: "Sangre y Palabra - Kaos Ekaitza (Ska Punk Antifascista)",
+      title: "Sangre y Palabra - Kaos Ekaitza",
       duration: "3:56",
       lyrics: `[Verso 1]
 Nos cortaron la lengua a golpe de bota,
@@ -549,7 +554,8 @@ en cada protesta, en cada canción,
 Odol eta hizkuntza, sangre y palabra,
 ¡Somos los hijos del bosque y esta es nuestra casa!`,
       audioUrl: null,
-      spotifyUrl: "https://open.spotify.com/track/sangre-y-palabra",
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/track/3up3TlkdRP9Fro52DBWx09",
       youtubeUrl: "https://www.youtube.com/watch?v=Na27XrfUNuI",
       coverImage:
         "https://res.cloudinary.com/dzt73baf9/image/upload/v1755520989/ChatGPT_Image_18_ago_2025_14_06_30_mlwgor.png",
@@ -564,7 +570,7 @@ Odol eta hizkuntza, sangre y palabra,
   // Crear canción real: Aquí sigo
   const song6 = await prisma.song.create({
     data: {
-      title: "Aquí sigo - Kaos Ekaitza (Ska Punk Antifascista)",
+      title: "Aquí sigo - Kaos Ekaitza",
       duration: "3:54",
       lyrics: `[Verso 1]
 Me despierto y ya no está mi casa,
@@ -644,7 +650,8 @@ y vais a tener que verme.
 ¡Y mientras pueda gritar
 me vais a tener que ver!`,
       audioUrl: null,
-      spotifyUrl: "https://open.spotify.com/track/aqui-sigo",
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/track/1uss0mysCJ1a11BaoMkg6Q",
       youtubeUrl: "https://www.youtube.com/watch?v=DPk1ah1HVvc",
       coverImage:
         "https://res.cloudinary.com/dzt73baf9/image/upload/v1755862084/ChatGPT_Image_22_ago_2025_12_45_24_leh15j.png",
@@ -659,7 +666,7 @@ me vais a tener que ver!`,
   // Crear canción real: Trolls Fascistas
   const song7 = await prisma.song.create({
     data: {
-      title: "Trolls Fascistas - Kaos Ekaitza (Ska Punk Antifascista)",
+      title: "Trolls Fascistas - Kaos Ekaitza",
       duration: "3:19",
       lyrics: `[Verso 1]
 Ahí están otra vez, los putos fascistas,
@@ -746,7 +753,8 @@ que se jodan todos los racistas,
 el pueblo grita contra el odio y la opresión,
 ¡música rebelde, pura insurrección!`,
       audioUrl: null,
-      spotifyUrl: "https://open.spotify.com/track/trolls-fascistas",
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/track/4UIuqJGMFM4avI3GlwBVQp",
       youtubeUrl: "https://www.youtube.com/watch?v=ZS5_zxKjpN4",
       coverImage:
         "https://res.cloudinary.com/dzt73baf9/image/upload/v1755862131/ChatGPT_Image_22_ago_2025_12_06_24_fwig2e.png",
@@ -761,7 +769,7 @@ el pueblo grita contra el odio y la opresión,
   // Crear canción real: Que Suerte Tienes
   const song8 = await prisma.song.create({
     data: {
-      title: "Que Suerte Tienes - Kaos Ekaitza (Ska Punk Antifascista)",
+      title: "Que Suerte Tienes - Kaos Ekaitza",
       duration: "5:22",
       lyrics: `[Verso 1]
 Te levantas y tienes agua en el grifo,
@@ -859,7 +867,8 @@ la vida es un lujo cuando puedes vivirla,
 pero hay millones que darían todo
 por tener tu peor día de mierda.`,
       audioUrl: null,
-      spotifyUrl: "https://open.spotify.com/track/que-suerte-tienes",
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/track/2vf4kkqJiT3Mze23BOYoXI",
       youtubeUrl: "https://www.youtube.com/watch?v=aeshG7nSrVI",
       coverImage:
         "https://res.cloudinary.com/dzt73baf9/image/upload/v1756455492/ChatGPT_Image_29_ago_2025_01_14_36_lazkc9.png",
@@ -874,7 +883,7 @@ por tener tu peor día de mierda.`,
   // Crear canción real: Cheto Rizo Trump
   const song9 = await prisma.song.create({
     data: {
-      title: "Cheto Rizo Trump - Kaos Ekaitza (Ska Punk Antifascista)",
+      title: "Cheto Rizo Trump - Kaos Ekaitza",
       duration: "2:49",
       lyrics: `[Verso 1]
 Ahí viene otra vez, el payaso naranja,
@@ -946,13 +955,14 @@ te manda a la mierda la voz popular.
 Y cuando tu ego se caiga al vacío,
 ¡serás solo un chiste podrido y hundido!`,
       audioUrl: null,
-      spotifyUrl: "https://open.spotify.com/track/cheto-rizo-trump",
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/track/3Shd5f5wwC9V3DqksIGVQP",
       youtubeUrl: "https://www.youtube.com/watch?v=ELazjVhCk-8",
       coverImage:
         "https://res.cloudinary.com/dzt73baf9/image/upload/v1756994488/ChatGPT_Image_1_sept_2025_10_19_17_n5eqzu.png",
       message:
         '"Cheto Rizo Trump" convierte en sátira a uno de los símbolos del poder corrupto y grotesco. Un ska-punk mordaz y burlón que desarma la figura del magnate convertido en político, ridiculizando su ego desmesurado, su discurso vacío y su caricatura de líder autoritario.',
-      albumId: album2.id,
+      albumId: album1.id,
     },
   });
 
@@ -961,7 +971,7 @@ Y cuando tu ego se caiga al vacío,
   // Crear canción real: Flotilla Libertad
   const song10 = await prisma.song.create({
     data: {
-      title: "Flotilla Libertad - Kaos Ekaitza (Ska Punk Antifascista)",
+      title: "Flotilla Libertad - Kaos Ekaitza",
       duration: "02:57",
       lyrics: `[Intro]
 ¡Arriad las velas, que ruja el tambor!
@@ -1019,13 +1029,14 @@ Si el mundo se esconde, la memoria gritará.
 Levanta tu vaso, recuerda su andar,
 ¡héroes del pueblo, justicia en el mar!`,
       audioUrl: null,
-      spotifyUrl: "https://open.spotify.com/track/flotilla-libertad",
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/track/4ffN6j6uDOHpef2XPVOdIV",
       youtubeUrl: "https://www.youtube.com/watch?v=mJgfg_RXqtU",
       coverImage:
         "https://res.cloudinary.com/dzt73baf9/image/upload/v1756994506/ChatGPT_Image_3_sept_2025_009_51_06_lhia1n.jpg",
       message:
         '"Flotilla Libertad" rinde homenaje a l@s héroes del mar que arriesgan sus vidas llevando ayuda humanitaria al pueblo palestino. Con un estilo punk-rock intenso, combativo y cargado de emoción, la canción se convierte en un grito de solidaridad y resistencia frente a la pasividad de los poderes internacionales.',
-      albumId: album2.id,
+      albumId: album1.id,
     },
   });
 
@@ -1039,15 +1050,7 @@ Levanta tu vaso, recuerda su andar,
       lyrics: `[Intro]
 Cuando la vida te presente razones para llorar, demuéstrale que tienes mil y una razones para reír.
 
-
-
-
-
 Levantate...
-
-
-
-
 
 [Verse 1]
 Se que caíste otra vez, se que te dolió hasta el alma,
@@ -1055,18 +1058,10 @@ caíste tan fuerte que debilitó tu llama.
 Miraste al suelo, sin aire, sin fe,
 pero no te rendiste y te alzaste otra vez.
 
-
-
-
-
 La vida te exprime, te dobla, te parte,
 te enseña a sufrir para hacerte más grande.
 No hay gloria sin golpes, ni luz sin dolor,
 Recuerda ¡cada herida forja el valor!
-
-
-
-
 
 [Pre-Chorus]
 Porque nadie dijo que fuera fácil,
@@ -1074,28 +1069,16 @@ nadie prometió que sería justo,
 pero piensa siempre en lo más importante,
 un nuevo día te espera, adelante.
 
-
-
-
-
 [Chorus]
 ¡Levántate! ¡aunque duela el cuerpo!
 ¡Levántate! ¡aunque el miedo te venza por dentro!
 ¡cada caída enseña!
 ¡que no hay victoria sin pena!
 
-
-
-
-
 ¡Levántate! ¡aunque el suelo te llame!
 ¡Levántate! ¡aunque el alma sangre!
 ¡Levántate! ¡siempre hacía la victoria!
 ¡Levántate! ¡y escribe tu historia!
-
-
-
-
 
 [Verse 2]
 Caerás mil veces, eso es seguro,
@@ -1103,18 +1086,10 @@ pero te levantarás más fuerte, más duro.
 atravesamos el fuego, esquivamos la bruma,
 nos follamos al miedo cuando brilla la luna.
 
-
-
-
-
 La vida te empuja, te pone a prueba,
 te rompe los huesos, te roba las fuerzas.
 Pero si caes, y te vuelves a alzar,
 Recuerda ¡es la vida queriendo enseñar!
-
-
-
-
 
 [Pre-Chorus]
 Porque el poder quiere verte roto,
@@ -1122,38 +1097,22 @@ sumiso, callado, tirado en el suelo,
 pero tú no dejas que eso te afecte,
 ¡Levanta la cabeza y mira al frente!
 
-
-
-
-
 [Chorus]
 ¡Levántate! ¡aunque duela el cuerpo!
 ¡Levántate! ¡aunque el miedo te venza por dentro!
 ¡cada caída enseña!
 ¡que no hay victoria sin pena!
 
-
-
-
-
 ¡Levántate! ¡aunque el suelo te llame!
 ¡Levántate! ¡aunque el alma sangre!
 ¡Levántate! ¡que la vida te reta!
 ¡Levántate! ¡Tu lucha te espera!
-
-
-
-
 
 [Bridge]
 Vas a caer.
 Y va a doler.
 Vas a pensar que no puedes más,
 que todo fue en vano.
-
-
-
-
 
 Pero ahí, justo ahí,
 cuando todo arde,
@@ -1163,34 +1122,23 @@ cuando sientes que no queda nada,
 ¡recuerda porqué empezaste!
 ¡y levántate una y mil veces más!
 
-
-
-
-
 [Final Chorus]
 ¡Levántate! ¡aunque duela el cuerpo!
 ¡Levántate! ¡aunque el miedo te venza por dentro!
 ¡cada caída enseña!
 ¡que no hay victoria sin pena!
 
-
-
-
-
 ¡Levántate! ¡por los que ya no pueden!
 ¡Levántate! ¡por los que vienen delante!
 ¡Levántate! ¡que despierte tu llama!
 ¡Levántate! ¡Y devora el mañana!
-
-
-
-
 
 [Outro]
 Y si mañana vuelves a caer…
 recuerda esto:
 ¡No hay derrota si te vuelves a poner en pie!
 ¡Levántate!`,
+
       audioUrl: null,
       spotifyUrl:
         "https://open.spotify.com/intl-es/track/7CqY87gz7uMS6Qf6oCJpWE?si=480777f6230d4cc2",
@@ -1204,6 +1152,192 @@ recuerda esto:
   });
 
   console.log("🎵 Canción creada:", song11.title);
+
+  // Crear canción real: Enemigos de la Tempestad (Album 2)
+  const song12 = await prisma.song.create({
+    data: {
+      title: "Enemigos de la Tempestad - Kaos Ekaitza",
+      duration: "3:17",
+      lyrics: `[Intro]
+Nos quisieron en calma,
+pero nacimos trueno.
+Y ahora que retumba la garganta,
+vienen a comprar silencio.
+
+[Verso 1]
+Nos criaron a hostias y sermones,
+escuchando su veneno de oraciones,
+a coser las cicatrices con canciones,
+a vestir la rabia, a prohibir las opiniones.
+
+Aprendimos que de bueno estás jodido,
+que la lluvia no moja a quien ya se ha hundido,
+que en el barro cualquier sueño se ha perdido,
+y todo, hasta el silencio huele a ruido.
+
+[Pre-Coro]
+Nos quisieron dóciles, pero salimos fieras.
+Nos llamaron locos, pero nos crecieron alas.
+Y mientras la tempestad empuña un arma,
+la tormenta aprende a bailar sobre su bruma.
+
+[Coro]
+¡Somos la tormenta, los hijos del trueno!
+¡La voz que no calla, el puño del pueblo!
+¡Qué tiemble su calma, que caiga su altar!
+¡Somos la furia que no se deja domar!
+
+[Verso]
+Nos juraron verdades con la boca llena de billetes,
+pero solo balas y mentiras escupen sus cañones.
+Y aunque al pueblo le derrumben los dientes,
+seguiremos cantando entre ruinas y prisiones.
+
+No hay dios que apague esta llamarada,
+ni rey que compre la dignidad.
+Somos los perros que tanto ladran,
+perros salvajes nos dirán.
+
+[Coro]
+¡Somos la tormenta, los hijos del trueno!
+¡La voz que no calla, el puño del pueblo!
+¡Que tiemble su calma, que rompa su altar!
+¡Somos la furia que no se deja domar!
+
+[Puente]
+La tempestad sale de caza, con la mentira, y el rezo.
+Nosotros somos lo que queda cuando se rompe el espejo.
+Y si hemos de arder,
+que sea gritando juntos,
+hasta que el viento nos eche a volar.
+
+[Coro Final]
+¡Somos la tormenta que no se arrodilla!
+¡Enemigos de la tempestad!
+¡Nos duele el alma, pero brilla!
+¡Arde calcinando la oscuridad!
+
+[Outro]
+Y si el trueno muere, que muera de pie.
+Sólo los necios, se rinden a su merced.
+
+Somos la tormenta perfecta... enemigos de la tempestad.
+`,
+
+      audioUrl: null,
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/album/17nJVjR1gBWYRPW1n2jvnL",
+      youtubeUrl: "https://youtu.be/FYPgoojC9FQ?si=1koZSV1agLtQ4qis",
+      coverImage:
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1762132832/EnemigosDeLaTempestad_gvvlmu.png",
+      message:
+        '"Enemigos de la Tempestad" es una declaración de guerra al engaño, un estruendo contra los falsos profetas del poder que visten de tormenta mientras pudren el mundo con mentiras. En un tiempo donde el ruido confunde y las sombras se disfrazan de luz, Kaos Ekaitza levanta su voz para recordar que no toda tormenta destruye. Porque la nuestra truena por la verdad, por la paz y por los que ya no tienen voz.',
+      albumId: album2.id,
+    },
+  });
+
+  console.log("🎵 Canción creada:", song12.title);
+
+  // Crear canción real: El Pueblo Despierta (Album 2)
+  const song13 = await prisma.song.create({
+    data: {
+      title: "El Pueblo Despierta - Kaos Ekaitza",
+      duration: "3:50",
+      lyrics: `¡ARABAKO INDARRA! 
+¡FORÇA BARCELONA! 
+
+¡EL PUEBLO DESPIERTA!
+¡NO PASARÁN!
+
+[Spoken Intro]
+ Dicen que el silencio es paz…
+ Pero en ocasiones el silencio debe cesar.
+ Cuando el odio amenaza en las calles,
+ ¡la voz del pueblo nos vuelve inmortales!
+
+[Introduction]
+ Pájaros libres surcan el aire,
+ la tormenta anuncia la lucha,
+ el pueblo despierta,
+ ¡y el miedo se derrumba!
+
+[Verse 1]
+ Desde Vitoria hasta Barcelona,
+ el fuego del pueblo ya no perdona.
+ Bandas de odio buscan dividir,
+ pero hay un latido que no va a morir.
+ Que ruja el trueno, puños en alto,
+ la calle arde, ya no hay descanso.
+ La juventud levanta su voz,
+ contra el fascista y su falso dios.
+
+[Pre-Chorus]
+ ¡Ni un paso atrás! ¡Ni un paso atrás!
+ Que tiemblen los muros, no van a pasar.
+
+[Chorus]
+ ¡Despierta el pueblo, despierta ya!
+ En cada calle, la dignidad.
+ ¡Despierta el fuego, no pasarán!
+ La historia es nuestra, no nos vencerán.
+
+[Verse 2]
+ Intentan vendernos miedo y frontera,
+ pero el odio nunca será bandera.
+ Nos quieren sumisos, mirando al suelo,
+ pero la lucha aumenta, incendiemos el cielo.
+
+ Las plazas llenas, la libertad unida,
+ es el rugido de la vida.
+ Vitoria se levanta, Barcelona no cede,
+ fascistas asquerosos… ¡ya nadie os teme!
+
+[Pre-Chorus]
+ ¡No pasarán! ¡No pasarán!
+ El odio muere frente al mar.
+
+[Chorus]
+ ¡Despierta el pueblo, despierta ya!
+ ¡Rompe el silencio, no pasarán!
+ ¡Despierta el fuego, en cada ciudad!
+ ¡La lucha avanza, no nos vencerán!
+
+[Bridge]
+ No hay banderas que tapen el sol,
+ ni mordazas para el corazón.
+ El antifascismo no es una opción,
+ es defensa, es revolución.
+
+[Chorus]
+ ¡Despierta el pueblo, despierta ya!
+ ¡En cada calle, la dignidad!
+ ¡Despierta el fuego, no pasarán!
+ ¡La historia es nuestra… no nos vencerán!
+
+[Outro]
+ No hay paz sin justicia.
+ No hay justicia sin memoria.
+ Y el pueblo… no olvida la historia.
+
+[Final Chorus]
+ ¡Despierta el pueblo, despierta ya!
+ ¡En cada calle, la dignidad!
+ ¡Despierta el fuego, no pasarán!
+ ¡La historia es nuestra… no nos vencerán!`,
+
+      audioUrl: null,
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/album/0IenzJl2uaKBzsbXBTQuou",
+      youtubeUrl: "https://youtu.be/YXkuEXndiUE?si=g3emH1c_yktPZPnM",
+      coverImage:
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1762133116/ChatGPT_Image_19_oct_2025_03_54_44_dtvige.png",
+      message:
+        '"Despierta el Pueblo" es un himno a la resistencia y la dignidad frente al odio y la provocación. Inspirada por los recientes actos de firmeza del pueblo vasco y catalán, la canción rinde homenaje a Vitoria-Gasteiz y Barcelona, ciudades que se han alzado contra el fascismo y la intolerancia.',
+      albumId: album2.id,
+    },
+  });
+
+  console.log("🎵 Canción creada:", song13.title);
 
   console.log("✅ Seed completado exitosamente!");
 }
