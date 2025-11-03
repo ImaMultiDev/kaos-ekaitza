@@ -35,10 +35,10 @@ export const metadata: Metadata = {
 const products = [
   {
     id: 1,
-    name: "Camiseta 'Kaos Ekaitza: Alarma Antifascista'",
+    name: "Camiseta 'Kaos Ekaitza: Alerta Antifascista'",
     category: "ropa",
     description:
-      "Camiseta personalizada de Kaos Ekaitza: Alarma Antifascista con diseño exclusivo",
+      "Camiseta personalizada de Kaos Ekaitza: Alerta Antifascista con diseño exclusivo",
     price: "25€",
     image:
       "https://res.cloudinary.com/dzt73baf9/image/upload/v1762140927/personaliza-tu-camiseta-personalizada--id_4ae6a119-813e-4543-a54e-4b085a534811-removebg-preview_nhfr47.png",
