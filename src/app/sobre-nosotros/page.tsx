@@ -64,27 +64,39 @@ export default function SobreNosotrosPage() {
 
   const historia = [
     {
-      año: "2024",
+      año: "Abril 2025",
       evento: "Fundación de Kaos Ekaitza",
       descripcion:
         "Nace nuestro proyecto musical con la misión de combinar ska-punk con mensaje social antifascista.",
     },
     {
-      año: "2025",
+      año: "Junio 2025",
       evento: "Primeros temas: 'Kaos Ekaitza'",
       descripcion:
         "Lanzamos nuestro trabajo principal con temas que definen nuestra identidad musical ska-punk antifascista.",
     },
     {
-      año: "2025",
+      año: "Julio 2025",
       evento: "Redes sociales",
       descripcion: "Comenzamos a crear contenido para nuestras redes sociales.",
     },
     {
-      año: "2025",
-      evento: "Álbum 'Voces de Resistencia' (En proceso)",
+      año: "Septiembre 2025",
+      evento: "Lanzamiento del álbum 'Gritos en la Tormenta'",
       descripcion:
-        "Nuestro primer álbum llegará en breve, con una variedad de temas que profundizan en la resistencia pacífica.",
+        "Nuestro primer álbum, con una variedad de temas que profundizan en la resistencia pacífica.",
+    },
+    {
+      año: "Diciembre 2025",
+      evento: "Lanzamiento del álbum 'Revienta el Silencio'",
+      descripcion:
+        "Nuestro segundo álbum llegará en breve, con otros 10 temas para seguir gritando en la tormenta.",
+    },
+    {
+      año: "2026",
+      evento: "Objetivo: La Banda",
+      descripcion:
+        "Nuestro principal objetivo en 2026 será formar la banda al completo y conseguir salir a tocar en las calles.",
     },
   ];
 
