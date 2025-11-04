@@ -43,7 +43,7 @@ export default function ContactoPage() {
     {
       icon: Mail,
       title: "Email",
-      info: "info@kaosekaitza.com",
+      info: "imanol@kaosekaitza.com",
       description: "Para colaboraciones, preguntas o cualquier consulta",
     },
     {
@@ -76,13 +76,13 @@ export default function ContactoPage() {
     {
       icon: Instagram,
       name: "Instagram",
-      url: "#",
+      url: "https://www.instagram.com/kaosekaitza/",
       color: "hover:text-pink-500",
     },
     {
       icon: Youtube,
       name: "YouTube",
-      url: "#",
+      url: "https://www.youtube.com/@KaosEkaitza",
       color: "hover:text-red-500",
     },
   ];
