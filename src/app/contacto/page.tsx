@@ -181,43 +181,6 @@ export default function ContactoPage() {
                   })}
                 </div>
               </div>
-
-              {/* Newsletter Signup */}
-              <div className="bg-gradient-punk rounded-lg p-6">
-                <h3 className="text-xl font-bold text-white mb-4">
-                  Newsletter
-                </h3>
-                <p className="text-white/90 mb-4 text-sm">
-                  Suscríbete para recibir nuestras últimas canciones y noticias.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <input
-                    type="email"
-                    placeholder="Tu email"
-                    className="flex-grow px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 text-sm"
-                  />
-                  <button className="btn-punk-outline text-white border-white hover:bg-white hover:text-black text-sm">
-                    Suscribirse
-                  </button>
-                </div>
-              </div>
-
-              {/* Collaboration Info */}
-              <div className="bg-black border border-gray-800 rounded-lg p-6">
-                <h3 className="text-xl font-bold text-white mb-4">
-                  ¿Interesado en Colaborar?
-                </h3>
-                <p className="text-gray-300 mb-4 text-sm leading-relaxed">
-                  Siempre estamos abiertos a colaboraciones con artistas que
-                  compartan nuestros valores de justicia social y antifascismo.
-                </p>
-                <ul className="text-gray-400 text-sm space-y-2">
-                  <li>• Colaboraciones musicales</li>
-                  <li>• Eventos y conciertos solidarios</li>
-                  <li>• Proyectos de arte y resistencia</li>
-                  <li>• Iniciativas comunitarias</li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
@@ -237,12 +200,7 @@ export default function ContactoPage() {
               {
                 pregunta: "¿Están disponibles para conciertos?",
                 respuesta:
-                  "Sí, estamos abiertos a tocar en eventos que compartan nuestros valores de justicia social y resistencia pacífica.",
-              },
-              {
-                pregunta: "¿Cómo puedo usar su música en mi proyecto?",
-                respuesta:
-                  "Contacta con nosotros para discutir el uso de nuestra música. Somos flexibles con proyectos que promuevan valores similares a los nuestros.",
+                  "La banda no está disponible para conciertos en este momento, estamos trabajando en ello.",
               },
               {
                 pregunta: "¿Aceptan demos de otros artistas?",
@@ -250,9 +208,9 @@ export default function ContactoPage() {
                   "Siempre estamos interesados en escuchar a artistas comprometidos con el cambio social. Envíanos tu material.",
               },
               {
-                pregunta: "¿Organizan eventos comunitarios?",
+                pregunta: "¿Merchandising?",
                 respuesta:
-                  "Sí, regularmente organizamos eventos solidarios y comunitarios. Síguenos en redes sociales para estar al día.",
+                  "De momento solo podemos ofrecer el primer CD de la fase inicial del proyecto, pronto tendremos un mayor número de artículos, posiblemente",
               },
             ].map((faq, index) => (
               <div

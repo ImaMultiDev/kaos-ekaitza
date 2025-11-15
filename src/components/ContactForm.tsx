@@ -299,10 +299,10 @@ const ContactForm = () => {
         <p className="text-gray-400 text-sm">
           ¿Prefieres escribirnos directamente? Envía un email a{" "}
           <a
-            href="mailto:info@kaosekaitza.com"
+            href="mailto:imanol@kaosekaitza.com"
             className="text-red-500 hover:text-red-400"
           >
-            info@kaosekaitza.com
+            imanol@kaosekaitza.com
           </a>
         </p>
       </div>

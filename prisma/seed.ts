@@ -1711,6 +1711,218 @@ Las potencias beben del mismo vaso,
 
   console.log("🎵 Canción creada:", song17.title);
 
+  // Crear canción real: Renace (Album 2)
+  const song18 = await prisma.song.create({
+    data: {
+      title: "Renace - Kaos Ekaitza",
+      duration: "3:18",
+      lyrics: `[Intro] 
+Consumieron tu llama, pero aún respiras. 
+Y mientras arda el aliento, seguirá encendida. 
+
+[Verse 1] 
+Te dijeron que no podías, y dudaste, 
+te hundieron el alma, y te callaste. 
+Pero el fuego duerme, nunca muere, 
+espera el momento en que renace. 
+
+Entre las ruinas de tus intentos, 
+hay semillas creciendo en silencio.
+Cada lágrima que pensaste perdida, 
+riega la senda que te devuelve la vida. 
+
+[Pre-Chorus] 
+No hay caída eterna, 
+solo la tiniebla ciega. 
+Y aunque duela el paso, truena, 
+se la luz de la tormenta. 
+
+[Chorus] 
+¡Renace! ¡Desde tus propias cenizas! 
+¡Que el dolor cicatriza! 
+¡No hay invierno que dure en tu pecho, 
+ni pesadillas viviendo en tu lecho! 
+
+[Verse 2] 
+Te hicieron creer que eras derrota, 
+pero fuiste tormenta, pesadilla del déspota. 
+El miedo rugió, pero no te venció, 
+porque el fuego no teme: ¡renace! 
+
+Tu senda te espera tras el derrumbe, 
+latido en silencio, pero nunca se hunde. 
+Y si tiemblas, que tiemble contigo el suelo, 
+que el cielo se parta, y responda el trueno. 
+
+[Pre-Chorus] 
+No mires atrás, 
+no busques más penas, 
+si algo te ató… 
+ya corren libres tus piernas. 
+
+[Chorus] 
+¡Renace! 
+¡Desde tus propias cenizas! 
+¡Que el miedo agoniza! 
+¡No hay sombra que apague tu nombre, 
+ni sueños que teman ser libres! 
+
+[Bridge] 
+La sombra te quiso pisar, pero no lo logró. 
+Cada vez que sangraste, nació un color. 
+Y si un día el cielo vuelve a caer, 
+recuerda lo que eres: 
+
+Eres fuego, 
+¡Fuego que siempre vuelve a prender! 
+
+[Final Chorus] 
+¡Renace! ¡Por los tuyos, por ti! 
+¡Por todo lo que queda aquí! 
+¡Que tiemble la noche, que ruja el dolor, 
+del polvo renace el valor! ¡Renace! 
+
+¡Que el mundo despierte! ¡Renace! 
+¡Que el miedo tiemble! 
+¡Que tu grito reviente el silencio! ¡Renace! 
+¡Libre, loco y eterno! 
+
+[Outro]
+No hay final… 
+solo una chispa que surca el viento, 
+para volver a arder 
+con cada aliento.
+
+Renace...
+Renace...
+Renace...`,
+      audioUrl: null,
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/track/4xTjZmlHquyKy91eqdsWmC",
+      youtubeUrl: "https://www.youtube.com/watch?v=k3Rr440bVt0",
+      coverImage:
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1763237632/ChatGPT_Image_3_nov_2025_00_25_30_fkoqdf.png",
+      message:
+        "“Renace” es un canto a la transformación, una declaración de que incluso después de perderlo todo, sigue existiendo algo que arde dentro: la voluntad de volver a empezar. En este tema, Kaos Ekaitza convierte las cicatrices en símbolos de poder y las caídas en el impulso que enciende una nueva vida.",
+      albumId: album2.id,
+    },
+  });
+
+  console.log("🎵 Canción creada:", song18.title);
+
+  // Crear canción real: Renace (Album 2)
+  const song19 = await prisma.song.create({
+    data: {
+      title: "Memoria que Truena - Kaos Ekaitza",
+      duration: "4:22",
+      lyrics: `[Intro]
+No pedimos odio.
+Pedimos verdad.
+Que cada nombre caído
+regrese, se vuelva a alzar.
+Que la tormenta no sea amenaza,
+sino casa… despertar.
+
+[Verso 1]
+Vuelven viejas sombras con sonrisa nueva,
+prometen descanso, traen la cuerda.
+Pero en la grieta crece la raíz,
+y en cada raíz despierta una voz.
+No es odio lo que nos levanta,
+es la dignidad que nunca descansa.
+Si la mentira quiere mandar,
+que hable la lluvia al reventar.
+
+[Pre-Coro]
+Junta tu aliento con el mío,
+que el miedo se quede frío.
+Cuando una voz se vuelve dos,
+tiembla la noche… y nace el sol.
+
+[Coro]
+Por quienes ya no vuelven: ¡memoria que truena!
+Por quienes aún resisten: la lluvia nos guía.
+Carlos vive. Las Rosas respiran.
+Gernika no olvida. La lucha camina.
+
+[Verso 2]
+Vi cuartos vacíos, tazas en la mesa,
+fotos torcidas que nadie endereza.
+Vi calles sin risas, manos de sal,
+vi promesas rotas en un portal.
+Pero también vi a la vecina abrir,
+compartir pan, enseñar a vivir.
+Vi niñas cantar “nunca jamás”,
+y el corazón volver a andar.
+
+[Pre-Coro]
+Si tropiezas, toma mi paso,
+si me rompo, dame tu abrazo.
+Que no haya cuerpo fuera del fuego
+que a los vivos reúne de nuevo.
+
+[Coro]
+Por quienes ya no vuelven: ¡memoria que truena!
+Por quienes aún resisten: la lluvia nos guía.
+Carlos vive. Las Rosas respiran.
+Gernika no olvida. La lucha camina.
+
+[Puente]
+No pedimos calma: pedimos verdad.
+No queremos venganza:
+sino libertad.
+Que cada fosa encuentre su nombre,
+que cada nombre encuentre su casa.
+Que nadie vuelva a temer la noche,
+que nadie venda la esperanza.
+
+[Interludio]
+Gernika bajo el relámpago.
+Madrid con su herida abierta.
+Los nombres susurrados en las cunetas.
+Carlos en un andén que no calla.
+Trece Rosas amaneciendo.
+Manos que sostienen la tierra.
+El viento trae su verdad:
+seguimos.
+
+[Break]
+¿Qué nos sostiene? La memoria viva.
+¿Qué nos reúne? La voz compartida.
+¿Qué nos defiende? La verdad que brilla.
+¿Qué nos empuja? La tormenta unida.
+
+[Coro]
+Por quienes ya no vuelven: ¡memoria que truena!
+Por quienes aún resisten: la lluvia nos guía.
+Carlos vive. Las Rosas respiran.
+Gernika no olvida. La lucha camina.
+
+[Outro]
+Que nadie nos compre, que nadie nos mida,
+si estamos juntas… la noche termina.
+Carlos vive. Las Rosas respiran.
+Gernika no olvida. La lucha camina.
+
+Cuando el trueno se apague,
+que siga el latido.
+La tormenta no muere:
+cambia de sitio.
+Y vuelve a empezar… contigo.`,
+      audioUrl: null,
+      spotifyUrl:
+        "https://open.spotify.com/intl-es/album/3IS1RWtIVGAU5BYaTuLxUj",
+      youtubeUrl: "https://www.youtube.com/watch?v=0HcD7LXaqVE",
+      coverImage:
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1763237642/ChatGPT_Image_12_nov_2025_23_34_44_kp61ou.png",
+      message:
+        "“Memoria que Truena” es una canción que nace del eco de los que ya no están, pero siguen respirando en cada gesto de dignidad.",
+      albumId: album2.id,
+    },
+  });
+
+  console.log("🎵 Canción creada:", song19.title);
+
   console.log("✅ Seed completado exitosamente!");
 }
 
