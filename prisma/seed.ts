@@ -42,7 +42,7 @@ async function main() {
         "Segundo álbum de Kaos Ekaitza. Ska-punk rebelde que rompe el silencio con mensajes de resistencia, solidaridad y lucha por la justicia social.",
       releaseDate: new Date("2025-09-05"),
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1762130856/Publi2temas_vegcms.png",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1763659843/ChatGPT_Image_18_nov_2025_18_32_41_gan64r.png",
       spotifyUrl:
         "https://open.spotify.com/intl-es/artist/1reWo4KzVQLgqOwNXrVgr4",
       bandcampUrl: "https://kaosekaitza.bandcamp.com",
