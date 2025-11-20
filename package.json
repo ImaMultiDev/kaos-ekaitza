@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "db:seed": "tsx prisma/seed.ts",
+    "db:update-album2": "tsx prisma/update-album2-image.ts",
     "postinstall": "prisma generate"
   },
   "prisma": {
