@@ -216,22 +216,7 @@ const AlbumGrid = ({ albums = [] }: AlbumGridProps) => {
             lanzamientos y conciertos. La música ska-punk antifascista sigue
             creciendo.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#"
-              className="btn-punk flex items-center space-x-2 justify-center"
-            >
-              <ExternalLink className="w-5 h-5" />
-              <span>Seguir en Spotify</span>
-            </a>
-            <a
-              href="#"
-              className="btn-punk-outline flex items-center space-x-2 justify-center"
-            >
-              <Download className="w-5 h-5" />
-              <span>Descargar Música</span>
-            </a>
-          </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center"></div>
         </div>
       </div>
     </section>

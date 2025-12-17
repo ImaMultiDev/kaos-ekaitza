@@ -3,7 +3,6 @@ import { Metadata } from "next";
 import HeroSection from "@/components/HeroSection";
 import LatestMusic from "@/components/LatestMusic";
 import PhilosophySection from "@/components/PhilosophySection";
-import NewsSection from "@/components/NewsSection";
 import { getLatestSongs } from "@/lib/database";
 import { ArrowRight, Waves, Zap } from "lucide-react";
 

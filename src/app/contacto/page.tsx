@@ -1,14 +1,6 @@
 import { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
-import {
-  Mail,
-  MapPin,
-  Phone,
-  Facebook,
-  Twitter,
-  Instagram,
-  Youtube,
-} from "lucide-react";
+import { Mail, MapPin, Phone, Instagram, Youtube } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contacto - Kaos Ekaitza | Conecta con Nuestra Comunidad Ska-Punk",
