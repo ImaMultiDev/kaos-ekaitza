@@ -24,9 +24,9 @@ async function main() {
         "Primer álbum de Kaos Ekaitza. Ska-punk combativo con alma libertaria, directo desde el ruido del pueblo. 10 temas cargados de denuncia social, resistencia y memoria histórica.",
       releaseDate: new Date("2024-01-15"),
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1762130747/ChatGPT_Image_5_sept_2025_12_08_58_mwxtn5.png",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765958585/%C3%81lbum_01_Portada_wbnc55.png",
       spotifyUrl:
-        "https://open.spotify.com/intl-es/artist/1reWo4KzVQLgqOwNXrVgr4",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       bandcampUrl: "https://kaosekaitza.bandcamp.com",
       youtubeUrl: "https://www.youtube.com/@KaosEkaitza",
     },
@@ -42,9 +42,9 @@ async function main() {
         "Segundo álbum de Kaos Ekaitza. Ska-punk rebelde que rompe el silencio con mensajes de resistencia, solidaridad y lucha por la justicia social.",
       releaseDate: new Date("2025-09-05"),
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1763659843/ChatGPT_Image_18_nov_2025_18_32_41_gan64r.png",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765958639/album_2_caratula_fuudzy.png",
       spotifyUrl:
-        "https://open.spotify.com/intl-es/artist/1reWo4KzVQLgqOwNXrVgr4",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       bandcampUrl: "https://kaosekaitza.bandcamp.com",
       youtubeUrl: "https://www.youtube.com/@KaosEkaitza",
     },
@@ -134,10 +134,10 @@ ska-punk sonando en cada rincón,
 ¡contra el fascismo, rebelión!`,
       audioUrl: null,
       spotifyUrl:
-        "https://open.spotify.com/intl-es/track/29AK82i5pyF51AxjC03wMF",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://www.youtube.com/watch?v=bkTN9n-O0f8",
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1754948539/ChatGPT_Image_7_ago_2025_11_31_24_sy8hbg.png",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765958098/Mentiras_de_Bandera_rez6z7.png",
       message:
         '"Mentiras de Bandera" es una canción de denuncia contra la ultraderecha, el racismo institucional, y el uso de la patria como arma para justificar la guerra, el odio y la opresión. Ska-punk combativo con alma libertaria, directo desde el ruido del pueblo.',
       albumId: album1.id,
@@ -229,10 +229,10 @@ Porque no hay muerte que mate la verdad,
 ni poder que entierre la libertad.`,
       audioUrl: null,
       spotifyUrl:
-        "https://open.spotify.com/intl-es/track/6rVbLzYGXgOq9ojZs3Sdb4",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://www.youtube.com/watch?v=DUt6ehKdw0w",
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1754948524/ChatGPT_Image_11_ago_2025_21_49_54_ygnmyq.png",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765958123/Tedr%C3%A1n_que_Matarme_sr31nz.png",
       message:
         '"Tendrán que Matarme" es una poderosa canción de Kaos Ekaitza que nace como respuesta al intento de silenciar voces que luchan por la libertad y la justicia. Con un estilo ska punk antiautoritario, esta canción denuncia la represión, la impunidad y la resistencia del pueblo frente a la opresión.',
       albumId: album1.id,
@@ -331,10 +331,10 @@ Porque cuando olvidamos, ellos ganan.
 Y aquí seguimos… luchando, resistiendo.`,
       audioUrl: null,
       spotifyUrl:
-        "https://open.spotify.com/intl-es/track/0y47YZgwfs9ARPlQg65VL0",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://www.youtube.com/watch?v=nLxYbAVjspc",
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1754948539/Que_mi_nombre_no_se_borre_de_la_historia_20250807_103408_0000_dg6jxl.png",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765958002/Que_mi_Nombre_no_se_Borre_abli2m.png",
       message:
         "Una canción combativa en memoria de Las 13 Rosas, trece jóvenes fusiladas por la dictadura franquista el 5 de agosto de 1939. Este tema rinde homenaje a su valentía, a la lucha antifascista, y a todos los pueblos que no olvidan.",
       albumId: album1.id,
@@ -455,10 +455,10 @@ de corazones nunca callados.
 ¡Gritamos sus historias!`,
       audioUrl: null,
       spotifyUrl:
-        "https://open.spotify.com/intl-es/track/0bofRv8kVafYqZUFWjLrvf",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://www.youtube.com/watch?v=gHtZTxwWr8s",
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1755456015/ChatGPT_Image_17_ago_2025_19_56_01_pejrz1.png",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765958050/Herederos_de_Sangre_bamw3a.png",
       message:
         '"Herederos de Sangre" recoge la voz de quienes ya no están, pero dejaron huella con su lucha y su palabra. Con un estilo ska-punk rebelde y emocional, se convierte en un puente entre pasado y presente, recordándonos que somos portavoces de los mensajes escritos con sacrificio, memoria y esperanza.',
       albumId: album1.id,
@@ -555,10 +555,10 @@ Odol eta hizkuntza, sangre y palabra,
 ¡Somos los hijos del bosque y esta es nuestra casa!`,
       audioUrl: null,
       spotifyUrl:
-        "https://open.spotify.com/intl-es/track/3up3TlkdRP9Fro52DBWx09",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://www.youtube.com/watch?v=Na27XrfUNuI",
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1755520989/ChatGPT_Image_18_ago_2025_14_06_30_mlwgor.png",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765958020/Sangre_y_Palabra_qosvqh.png",
       message:
         '"Sangre y Palabra" es una canción de Kaos Ekaitza que alza la voz contra quienes intentaron silenciar al euskera y borrar una cultura entera. Con un estilo ska-punk rebelde y combativo, la canción es un grito de resistencia, memoria y dignidad frente al fascismo y la represión.',
       albumId: album1.id,
@@ -651,10 +651,10 @@ y vais a tener que verme.
 me vais a tener que ver!`,
       audioUrl: null,
       spotifyUrl:
-        "https://open.spotify.com/intl-es/track/1uss0mysCJ1a11BaoMkg6Q",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://www.youtube.com/watch?v=DPk1ah1HVvc",
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1755862084/ChatGPT_Image_22_ago_2025_12_45_24_leh15j.png",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765957943/Aqu%C3%AD_Sigo_v4u0yk.png",
       message:
         '"Aquí Sigo" da voz a la resistencia inquebrantable de un niño que se niega a rendirse ante la guerra y la destrucción. La canción es un grito de supervivencia, dignidad y resistencia frente a la opresión y el olvido.',
       albumId: album1.id,
@@ -754,10 +754,10 @@ el pueblo grita contra el odio y la opresión,
 ¡música rebelde, pura insurrección!`,
       audioUrl: null,
       spotifyUrl:
-        "https://open.spotify.com/intl-es/track/4UIuqJGMFM4avI3GlwBVQp",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://www.youtube.com/watch?v=ZS5_zxKjpN4",
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1755862131/ChatGPT_Image_22_ago_2025_12_06_24_fwig2e.png",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765958035/TrollsFascistas_igwees.png",
       message:
         '"Trolls Fascistas" desenmascara a los cobardes del odio digital: esos personajes que se esconden tras una pantalla para escupir racismo, machismo y fascismo mientras jamás dan la cara en la vida real. La canción es una bofetada sonora contra la intolerancia y la cobardía.',
       albumId: album1.id,
@@ -868,10 +868,10 @@ pero hay millones que darían todo
 por tener tu peor día de mierda.`,
       audioUrl: null,
       spotifyUrl:
-        "https://open.spotify.com/intl-es/track/2vf4kkqJiT3Mze23BOYoXI",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://www.youtube.com/watch?v=aeshG7nSrVI",
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1756455492/ChatGPT_Image_29_ago_2025_01_14_36_lazkc9.png",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765958046/Que_Suerte_Tienes_ad36kx.png",
       message:
         '"Que Suerte Tienes" desnuda la contradicción entre la comodidad cotidiana y la tragedia global que millones viven a diario. La canción es un espejo incómodo que refleja cómo muchas veces olvidamos el privilegio de lo que tenemos, mientras otros luchan por sobrevivir.',
       albumId: album1.id,
@@ -956,10 +956,10 @@ Y cuando tu ego se caiga al vacío,
 ¡serás solo un chiste podrido y hundido!`,
       audioUrl: null,
       spotifyUrl:
-        "https://open.spotify.com/intl-es/track/3Shd5f5wwC9V3DqksIGVQP",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://www.youtube.com/watch?v=ELazjVhCk-8",
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1756994488/ChatGPT_Image_1_sept_2025_10_19_17_n5eqzu.png",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765957969/Cheto_Rizo_Trump_efewsw.png",
       message:
         '"Cheto Rizo Trump" convierte en sátira a uno de los símbolos del poder corrupto y grotesco. Un ska-punk mordaz y burlón que desarma la figura del magnate convertido en político, ridiculizando su ego desmesurado, su discurso vacío y su caricatura de líder autoritario.',
       albumId: album1.id,
@@ -1030,10 +1030,10 @@ Levanta tu vaso, recuerda su andar,
 ¡héroes del pueblo, justicia en el mar!`,
       audioUrl: null,
       spotifyUrl:
-        "https://open.spotify.com/intl-es/track/4ffN6j6uDOHpef2XPVOdIV",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://www.youtube.com/watch?v=mJgfg_RXqtU",
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1756994506/ChatGPT_Image_3_sept_2025_009_51_06_lhia1n.jpg",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765958103/Flotilla_Libertad_x9xkfy.png",
       message:
         '"Flotilla Libertad" rinde homenaje a l@s héroes del mar que arriesgan sus vidas llevando ayuda humanitaria al pueblo palestino. Con un estilo punk-rock intenso, combativo y cargado de emoción, la canción se convierte en un grito de solidaridad y resistencia frente a la pasividad de los poderes internacionales.',
       albumId: album1.id,
@@ -1141,10 +1141,10 @@ recuerda esto:
 
       audioUrl: null,
       spotifyUrl:
-        "https://open.spotify.com/intl-es/track/7CqY87gz7uMS6Qf6oCJpWE?si=480777f6230d4cc2",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://www.youtube.com/watch?v=KrpL9PHmEX4",
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1762131627/ChatGPT_Image_7_oct_2025_12_47_25_prpvup.jpg",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765957914/Lev%C3%A1ntate_yje3pt.png",
       message:
         '"Levántate" es un llamado a la resiliencia y a la fuerza interior, una canción que convierte el dolor en motivación y la caída en aprendizaje. Con un sonido poderoso y lleno de energía, Kaos Ekaitza transforma el miedo, la derrota y la adversidad en un grito de esperanza y superación que toca el corazón de quien escucha.',
       albumId: album2.id,
@@ -1226,10 +1226,10 @@ Somos la tormenta perfecta... enemigos de la tempestad.
 
       audioUrl: null,
       spotifyUrl:
-        "https://open.spotify.com/intl-es/album/17nJVjR1gBWYRPW1n2jvnL",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://youtu.be/FYPgoojC9FQ?si=1koZSV1agLtQ4qis",
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1762132832/EnemigosDeLaTempestad_gvvlmu.png",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765957874/Enemigos_de_la_Tempestad_usthml.png",
       message:
         '"Enemigos de la Tempestad" es una declaración de guerra al engaño, un estruendo contra los falsos profetas del poder que visten de tormenta mientras pudren el mundo con mentiras. En un tiempo donde el ruido confunde y las sombras se disfrazan de luz, Kaos Ekaitza levanta su voz para recordar que no toda tormenta destruye. Porque la nuestra truena por la verdad, por la paz y por los que ya no tienen voz.',
       albumId: album2.id,
@@ -1327,10 +1327,10 @@ Somos la tormenta perfecta... enemigos de la tempestad.
 
       audioUrl: null,
       spotifyUrl:
-        "https://open.spotify.com/intl-es/album/0IenzJl2uaKBzsbXBTQuou",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://youtu.be/YXkuEXndiUE?si=g3emH1c_yktPZPnM",
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1762133116/ChatGPT_Image_19_oct_2025_03_54_44_dtvige.png",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765957858/DespiertaElPueblo_bv7zxp.png",
       message:
         '"Despierta el Pueblo" es un himno a la resistencia y la dignidad frente al odio y la provocación. Inspirada por los recientes actos de firmeza del pueblo vasco y catalán, la canción rinde homenaje a Vitoria-Gasteiz y Barcelona, ciudades que se han alzado contra el fascismo y la intolerancia.',
       albumId: album2.id,
@@ -1428,10 +1428,10 @@ de pie, corazón,
 porque el pueblo vive en cada canción.`,
       audioUrl: null,
       spotifyUrl:
-        "https://open.spotify.com/intl-es/track/3IO6EyMz3BeaEaFSTgIY9u",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://youtu.be/osTGRJD95zc?si=HL0J_t59qbTorKdh",
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1762134600/ChatGPT_Image_6_oct_2025_14_22_20_gyxwfs.png",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765957905/Intifada_xrbnjb.png",
       message:
         '"Intifada" es un grito de resistencia, una canción que une música y memoria para rendir homenaje a la lucha del pueblo palestino. Con un sonido ska-punk combativo y emotivo, Kaos Ekaitza transforma la rabia y la impotencia en energía colectiva, en un canto de esperanza que atraviesa fronteras y desafía la opresión.',
       albumId: album2.id,
@@ -1522,10 +1522,10 @@ Las mentiras crecen tras el cristal,
 pero la tormenta estalla, despertando la verdad`,
       audioUrl: null,
       spotifyUrl:
-        "https://open.spotify.com/intl-es/track/7lFXhTJ468Qu6bsXcBC2Gn",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://youtu.be/aIsLcyxvmgI?si=KRvC3Ne4KDaw2sQI",
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1762134630/ChatGPT_Image_1_oct_2025_11_09_54_ajrbjg.png",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765957921/Lluvia_de_Mentiras_wheby1.png",
       message:
         '"Lluvia de Mentiras" es una canción de Kaos Ekaitza que desenmascara la manipulación de los medios de comunicación y denuncia cómo las narrativas oficiales sirven para justificar guerras, ocultar genocidios y sembrar odio contra los pueblos más vulnerables.',
       albumId: album2.id,
@@ -1603,10 +1603,10 @@ Fuego y raíz, del alma a la ciudad,
 Bob sembró la llama de la libertad.`,
       audioUrl: null,
       spotifyUrl:
-        "https://open.spotify.com/intl-es/track/7lFXhTJ468Qu6bsXcBC2Gn",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://youtu.be/e8NMr6Cj-Bc?si=CPtqOQJOLwND-Pca",
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1762134615/ChatGPT_Image_13_oct_2025_09_32_27_bi8ix1.png",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765957899/Fuego_y_Ra%C3%ADz_e5gbd0.png",
       message:
         '"Fuego y Raíz" es un homenaje a la esencia que nunca muere, al fuego que enciende la conciencia y a las raíces que nos mantienen firmes frente al viento. Una canción donde Kaos Ekaitza une el reggae, el ska y el punk en un mismo grito de libertad, inspirada en el legado eterno de Bob Marley y en la fuerza del pueblo que no se rinde.',
       albumId: album2.id,
@@ -1699,10 +1699,10 @@ Las potencias beben del mismo vaso,
  ¡Tu luz nos abrasa, nos roba el color!`,
       audioUrl: null,
       spotifyUrl:
-        "https://open.spotify.com/intl-es/track/10T9Qsg9kYAwy8UeUoutM8",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://youtu.be/g-JD-5XMpwQ?si=eHrC3c3xR14tQn3b",
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1762134618/ChatGPT_Image_19_oct_2025_10_52_20_zo7geh.png",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765957927/Miss_Nuclear_x7bnve.png",
       message:
         '"Miss Nuclear" es una radiografía sarcástica del delirio de las potencias: un desfile donde la muerte viste de gala y el miedo se aplaude como espectáculo. La canción retrata ese tóxico culto moderno a la destrucción que se esconde tras la palabra "defensa".',
       albumId: album2.id,
@@ -1798,10 +1798,10 @@ Renace...
 Renace...`,
       audioUrl: null,
       spotifyUrl:
-        "https://open.spotify.com/intl-es/track/4xTjZmlHquyKy91eqdsWmC",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://www.youtube.com/watch?v=k3Rr440bVt0",
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1763237632/ChatGPT_Image_3_nov_2025_00_25_30_fkoqdf.png",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765957827/MemoriaQueTruena_grkgwx.jpg",
       message:
         "“Renace” es un canto a la transformación, una declaración de que incluso después de perderlo todo, sigue existiendo algo que arde dentro: la voluntad de volver a empezar. En este tema, Kaos Ekaitza convierte las cicatrices en símbolos de poder y las caídas en el impulso que enciende una nueva vida.",
       albumId: album2.id,
@@ -1911,10 +1911,10 @@ cambia de sitio.
 Y vuelve a empezar… contigo.`,
       audioUrl: null,
       spotifyUrl:
-        "https://open.spotify.com/intl-es/album/3IS1RWtIVGAU5BYaTuLxUj",
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://www.youtube.com/watch?v=0HcD7LXaqVE",
       coverImage:
-        "https://res.cloudinary.com/dzt73baf9/image/upload/v1763237642/ChatGPT_Image_12_nov_2025_23_34_44_kp61ou.png",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765957827/MemoriaQueTruena_grkgwx.jpg",
       message:
         "“Memoria que Truena” es una canción que nace del eco de los que ya no están, pero siguen respirando en cada gesto de dignidad.",
       albumId: album2.id,
@@ -1922,6 +1922,71 @@ Y vuelve a empezar… contigo.`,
   });
 
   console.log("🎵 Canción creada:", song19.title);
+
+  // Crear canción real: Renace (Album 2)
+  const song20 = await prisma.song.create({
+    data: {
+      title: "La Tormenta - Kaos Ekaitza",
+      duration: "3:24",
+      lyrics: `Subí a la colina con mis penas y lamentos,
+y la noche me respondió trayendo truenos.
+Creí estar solo, la calma me encontraba,
+pero fue la tormenta quien me hablaba.
+
+Lluvia cayendo sobre mi pena,
+cada gota, una verdad ajena.
+El cielo rugía por los olvidados,
+por los que luchan y no son nombrados.
+
+Yo le mostraba en la oscuridad mi problema,
+y ella me devolvía con fuerza su condena.
+No hay soledad cuando duele el mundo,
+solo silencio… y un corazón profundo.
+
+Y entendí del trueno la verdad en su interior:
+mis penas eran un lujo al lado de su dolor.
+
+¡Cuando habla la tormenta, muestra la herida!
+¡Rompe las sombras, diluvia la vida!
+¡Su caos nos ha unido en un mismo camino,
+la tormenta ha forjado en las calles su grito!
+
+Los rayos pintaban el horizonte,
+mostrando rostros bajo el monte.
+Vivos sin techo, muertos sin suelo,
+ojos que buscan esperanza y consuelo.
+
+Y supe entonces que no era azar:
+era el mundo pidiendo hablar.
+La tormenta no destruye, reivindica;
+muestra su dolor, desnuda la mentira.
+
+No temas al trueno,
+es un grito de esperanza.
+La lluvia no cae sin razón:
+pelea por la vida sin condición.
+
+¡Cuando habla la tormenta, muestra la herida!
+¡Rompe las sombras, diluvia la vida!
+¡Su caos nos ha unido en un mismo camino,
+la tormenta ha forjado en las calles su grito!
+
+¡Cuando el cielo reviente, no corras más!
+¡Ábrele el alma… y escucha su verdad!
+`,
+      audioUrl: null,
+      spotifyUrl:
+        "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
+      youtubeUrl: "https://www.youtube.com/watch?v=LzFqpR6t9As",
+      coverImage:
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765957782/LaTormenta_deb8ss.png",
+      message:
+        "La Tormenta nace del dolor, de lo olvidado,de los que siguen resistiendo cuando el mundo se cae.",
+      albumId: album2.id,
+    },
+  });
+
+  console.log("🎵 Canción creada:", song20.title);
 
   console.log("✅ Seed completado exitosamente!");
 }
