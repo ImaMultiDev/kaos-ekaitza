@@ -1,4 +1,3 @@
-import { Play, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from "next";
 import HeroSection from "@/components/HeroSection";
@@ -6,6 +5,7 @@ import LatestMusic from "@/components/LatestMusic";
 import PhilosophySection from "@/components/PhilosophySection";
 import NewsSection from "@/components/NewsSection";
 import { getLatestSongs } from "@/lib/database";
+import { ArrowRight, Waves, Zap } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Kaos Ekaitza - Inicio | Ska-Punk Antifascista y Música Consciente",
@@ -46,39 +46,80 @@ export default async function Home() {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Philosophy Section */}
-      <PhilosophySection />
-
       {/* Latest Music */}
       <LatestMusic songs={latestSongs} />
 
-      {/* News Section */}
-      <NewsSection />
+      {/* Franja de evolución */}
+      <section className="py-10 gradient-punk">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-4 text-center text-white">
+          <div className="text-sm uppercase tracking-[0.25em] text-white/80">
+            Evolución
+          </div>
+          <div className="flex flex-col md:flex-row justify-center gap-6 text-lg font-semibold">
+            <div className="flex items-center justify-center gap-2">
+              <Waves className="w-5 h-5" />
+              <span>2025 · Proyecto digital (20 temas)</span>
+            </div>
+            <div className="flex items-center justify-center gap-2">
+              <Waves className="w-5 h-5" />
+              <span>2026 · Banda real en Navarra · Calle y directos</span>
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <Link
+              href="/sobre-nosotros"
+              className="btn-punk-outline inline-flex items-center gap-2 text-white border-white hover:bg-white hover:text-black"
+            >
+              <ArrowRight className="w-4 h-4" />
+              <span>Conocer el proyecto</span>
+            </Link>
+          </div>
+        </div>
+      </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-punk">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            ¡Únete a la Revolución Musical!
+      {/* Philosophy Section */}
+      <PhilosophySection />
+
+      {/* News Section */}
+      {/*<NewsSection />*/}
+
+      {/* Participa CTA */}
+      <section className="py-16 bg-black">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <h2 className="text-3xl md:text-4xl font-black text-white">
+            Participa en la tormenta.
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Suscríbete para recibir nuestras últimas canciones, noticias y
-            mantente conectado con la comunidad ska-punk antifascista.
+          <p className="text-white/80 max-w-2xl mx-auto">
+            Escucha, conoce, colabora o apoya. Cuatro pasos claros para sumar.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/album"
-              className="btn-punk flex items-center space-x-2"
+              className="btn-punk inline-flex items-center gap-2"
             >
-              <Play className="w-5 h-5" />
-              <span>Escucha Nuestra Música</span>
+              <Zap className="w-5 h-5" />
+              <span>Escuchar</span>
+            </Link>
+            <Link
+              href="/sobre-nosotros"
+              className="btn-punk-outline inline-flex items-center gap-2 text-white border-white hover:bg-white hover:text-black"
+            >
+              <ArrowRight className="w-5 h-5" />
+              <span>Conocer el proyecto</span>
             </Link>
             <Link
               href="/contacto"
-              className="btn-punk-outline flex items-center space-x-2"
+              className="btn-punk-outline inline-flex items-center gap-2 text-white border-white hover:bg-white hover:text-black"
             >
-              <BookOpen className="w-5 h-5" />
-              <span>Contáctanos</span>
+              <ArrowRight className="w-5 h-5" />
+              <span>Contactar</span>
+            </Link>
+            <Link
+              href="/merchandising"
+              className="btn-punk inline-flex items-center gap-2"
+            >
+              <Zap className="w-5 h-5" />
+              <span>Apoyar</span>
             </Link>
           </div>
         </div>

@@ -1,287 +1,329 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Music, Heart, Shield, Users, Target, Globe } from "lucide-react";
+import { ArrowRight, Disc, Radio, Waves, Zap } from "lucide-react";
 
 export const metadata: Metadata = {
-  title:
-    "Sobre Nosotros - Kaos Ekaitza | Historia y Valores Ska-Punk Antifascista",
+  title: "Sobre Nosotros - Kaos Ekaitza | Manifiesto Ska-Punk Antifascista",
   description:
-    "Conoce la historia, misión y valores del canal ska-punk antifascista Kaos Ekaitza. Descubre cómo luchamos por la justicia social a través de la música consciente y la resistencia pacífica.",
+    "Conoce el manifiesto de Kaos Ekaitza: origen en Navarra, fases 2025-2026, territorio, comunidad y compromiso antifascista. Tormenta colectiva de ska-punk.",
   keywords: [
-    "sobre kaos ekaitza",
-    "historia ska-punk",
-    "valores antifascistas",
-    "música consciente",
-    "resistencia pacífica",
-    "justicia social",
-    "kaos ekaitza misión",
-    "ska-punk comprometido",
+    "kaos ekaitza",
+    "ska-punk",
+    "antifascista",
+    "navarra",
+    "manifiesto",
+    "punk",
+    "resistencia",
+    "tormenta",
   ],
   openGraph: {
-    title:
-      "Sobre Nosotros - Kaos Ekaitza | Historia y Valores Ska-Punk Antifascista",
+    title: "Sobre Nosotros - Kaos Ekaitza | Manifiesto Ska-Punk Antifascista",
     description:
-      "Conoce la historia, misión y valores del canal ska-punk antifascista Kaos Ekaitza. Descubre cómo luchamos por la justicia social a través de la música consciente.",
+      "Manifiesto vivo de Kaos Ekaitza: origen, fases, territorio y compromiso antifascista.",
     url: "https://kaosekaitza.com/sobre-nosotros",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Sobre Nosotros - Kaos Ekaitza | Historia y Valores Ska-Punk Antifascista",
+    title: "Sobre Nosotros - Kaos Ekaitza | Manifiesto Ska-Punk Antifascista",
     description:
-      "Conoce la historia, misión y valores del canal ska-punk antifascista Kaos Ekaitza.",
+      "Manifiesto vivo de Kaos Ekaitza: origen, fases, territorio y compromiso antifascista.",
   },
 };
 
 export default function SobreNosotrosPage() {
-  const valores = [
-    {
-      icon: Shield,
-      title: "Antifascismo",
-      description:
-        "Creemos firmemente en la resistencia pacífica contra toda forma de fascismo y opresión. Nuestra música es un grito de libertad.",
-    },
-    {
-      icon: Heart,
-      title: "Paz y Amor",
-      description:
-        "Promovemos el cambio social a través del amor, la comprensión y la no violencia. La música es nuestro lenguaje de paz.",
-    },
-    {
-      icon: Users,
-      title: "Comunidad",
-      description:
-        "Construimos una comunidad inclusiva donde todas las personas son bienvenidas, sin importar su origen, género u orientación.",
-    },
-    {
-      icon: Globe,
-      title: "Justicia Global",
-      description:
-        "Luchamos por los derechos humanos y la justicia social en todo el mundo. Los problemas globales requieren solidaridad global.",
-    },
-  ];
-
-  const historia = [
-    {
-      año: "Abril 2025",
-      evento: "Fundación de Kaos Ekaitza",
-      descripcion:
-        "Nace nuestro proyecto musical con la misión de combinar ska-punk con mensaje social antifascista.",
-    },
-    {
-      año: "Junio 2025",
-      evento: "Primeros temas: 'Kaos Ekaitza'",
-      descripcion:
-        "Lanzamos nuestro trabajo principal con temas que definen nuestra identidad musical ska-punk antifascista.",
-    },
-    {
-      año: "Julio 2025",
-      evento: "Redes sociales",
-      descripcion: "Comenzamos a crear contenido para nuestras redes sociales.",
-    },
-    {
-      año: "Septiembre 2025",
-      evento: "Lanzamiento del álbum 'Gritos en la Tormenta'",
-      descripcion:
-        "Nuestro primer álbum, con una variedad de temas que profundizan en la resistencia pacífica.",
-    },
-    {
-      año: "Diciembre 2025",
-      evento: "Lanzamiento del álbum 'Revienta el Silencio'",
-      descripcion:
-        "Nuestro segundo álbum llegará en breve, con otros 10 temas para seguir gritando en la tormenta.",
-    },
-    {
-      año: "2026",
-      evento: "Objetivo: La Banda",
-      descripcion:
-        "Nuestro principal objetivo en 2026 será formar la banda al completo y conseguir salir a tocar en las calles.",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-black">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-punk">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-            Sobre Nosotros
+      {/* Hero - Manifiesto vivo */}
+      <section className="relative overflow-hidden bg-black">
+        <div className="absolute inset-0 opacity-10">
+          <div className="ska-stripes h-full w-full"></div>
+        </div>
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+          <p className="text-sm uppercase tracking-[0.25em] text-red-500 mb-4">
+            Manifiesto vivo
+          </p>
+          <h1 className="text-4xl md:text-6xl font-black text-white leading-tight mb-6">
+            Kaos Ekaitza es tormenta colectiva.
           </h1>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto">
-            No somos una banda (por el momento). Somos un movimiento de
-            resistencia pacífica que nace de las llamas y utiliza el ska-punk y
-            las herramientas digitales como herramienta de transformación
-            social.
+          <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+            Kaos Ekaitza es un proyecto musical antifascista nacido desde la
+            periferia, desde el pueblo y desde la necesidad de alzar la voz
+            cuando el silencio empieza a doler. Musicalmente se mueve entre el
+            punk rock y el ska-punk, pero su identidad va más allá del estilo:
+            es grito del pueblo, ruido con sentido y resistencia organizada. El
+            nombre significa tormenta. No como destrucción vacía, sino como
+            fuerza colectiva. La tormenta que nace cuando muchas voces deciden
+            no callar más.
           </p>
-        </div>
-      </section>
-
-      {/* Misión Section */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="ska-stripes-horizontal h-2 w-32 mx-auto mb-6 rounded"></div>
-            <h2 className="text-4xl font-black text-white mb-8">
-              Nuestra <span className="text-red-500">Misión</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-6">
-                ¿Quiénes Somos?
-              </h3>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                Kaos Ekaitza es un canal musical ska-punk nacido de la
-                convicción de que la música puede ser una poderosa herramienta
-                de cambio social. Combinamos la energía y la rebeldía del
-                ska-punk con mensajes de resistencia pacífica, antifascismo y
-                justicia social.
-              </p>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                Nuestro nombre refleja nuestra esencia: &ldquo;Kaos&rdquo;
-                representa la ruptura con las estructuras opresivas, mientras
-                que &ldquo;Ekaitza&rdquo; (tormenta en euskera) simboliza la
-                fuerza transformadora de nuestro mensaje.
-              </p>
-              <p className="text-gray-300 leading-relaxed">
-                Creemos firmemente que la verdadera revolución se hace desde el
-                corazón, con amor, comprensión y respeto por la diversidad
-                humana.
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              <div className="bg-black border border-gray-800 rounded-lg p-6">
-                <div className="flex items-center mb-4">
-                  <Target className="w-8 h-8 text-red-500 mr-3" />
-                  <h4 className="text-xl font-bold text-white">
-                    Nuestro Objetivo
-                  </h4>
-                </div>
-                <p className="text-gray-300">
-                  Crear una comunidad global unida por la música consciente,
-                  donde el ska-punk sea el vehículo para promover la paz, la
-                  justicia y la resistencia pacífica.
-                </p>
-              </div>
-
-              <div className="bg-black border border-gray-800 rounded-lg p-6">
-                <div className="flex items-center mb-4">
-                  <Music className="w-8 h-8 text-red-500 mr-3" />
-                  <h4 className="text-xl font-bold text-white">
-                    Nuestra Música
-                  </h4>
-                </div>
-                <p className="text-gray-300">
-                  Cada canción es una declaración de principios. Combinamos
-                  ritmos ska-punk con letras que inspiran, educan y movilizan
-                  hacia un mundo más justo.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Valores Section */}
-      <section className="py-20 bg-black">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-white mb-8">
-              Nuestros <span className="text-red-500">Valores</span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Los principios que guían cada acorde, cada letra y cada decisión
-              que tomamos.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {valores.map((valor, index) => {
-              const IconComponent = valor.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-gray-900 border border-gray-800 rounded-lg p-8 punk-hover group"
-                >
-                  <div className="flex items-center mb-6">
-                    <div className="w-16 h-16 bg-red-600 rounded-lg flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-white group-hover:text-red-400 transition-colors duration-300">
-                      {valor.title}
-                    </h3>
-                  </div>
-                  <p className="text-gray-300 leading-relaxed group-hover:text-white transition-colors duration-300">
-                    {valor.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Historia Section */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-white mb-8">
-              Nuestra <span className="text-red-500">Historia</span>
-            </h2>
-            <p className="text-xl text-gray-300">
-              El camino que nos ha llevado hasta aquí.
-            </p>
-          </div>
-
-          <div className="space-y-8">
-            {historia.map((momento, index) => (
-              <div
-                key={index}
-                className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-8 bg-black border border-gray-800 rounded-lg p-6 punk-hover group"
-              >
-                <div className="flex-shrink-0">
-                  <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center group-hover:bg-red-500 transition-colors duration-300">
-                    <span className="text-white font-black text-xl">
-                      {momento.año}
-                    </span>
-                  </div>
-                </div>
-                <div className="flex-grow">
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors duration-300">
-                    {momento.evento}
-                  </h3>
-                  <p className="text-gray-300 group-hover:text-white transition-colors duration-300">
-                    {momento.descripcion}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-punk">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            ¡Forma Parte del Movimiento!
-          </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            La revolución musical necesita tu voz. Únete a nuestra comunidad y
-            ayúdanos a construir un mundo más justo a través del ska-punk.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contacto" className="btn-punk">
-              Contáctanos
-            </Link>
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/album"
-              className="btn-punk-outline text-white border-white hover:bg-white hover:text-black"
+              className="btn-punk inline-flex items-center gap-2"
             >
-              Escucha Nuestra Música
+              <Radio className="w-5 h-5" />
+              <span>Escuchar</span>
+            </Link>
+            <Link
+              href="/contacto"
+              className="btn-punk-outline inline-flex items-center gap-2 text-white border-white hover:bg-white hover:text-black"
+            >
+              <Zap className="w-5 h-5" />
+              <span>Contactar</span>
+            </Link>
+          </div>
+        </div>
+        <div className="ska-stripes-horizontal h-2 w-full"></div>
+      </section>
+
+      {/* Origen */}
+      <section className="py-16 bg-gray-900">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-12 md:grid-cols-[1.6fr,1fr] items-start">
+          <div>
+            <p className="text-sm uppercase tracking-[0.25em] text-red-500 mb-3">
+              Origen
+            </p>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
+              Verano de 2025. Navarra. Un monte. Una tormenta.
+            </h2>
+            <div className="space-y-4 text-white/80 leading-relaxed">
+              <p>
+                El proyecto nace en el verano de 2025, en Navarra, desde un
+                pueblo pequeño. En un momento de soledad y oscuridad personal,
+                la escritura y la música se convierten en refugio. Pero la
+                tormenta no mira solo hacia dentro. Llega una conciencia clara:
+                las preocupaciones personales, siendo reales, no son nada
+                comparadas con el sufrimiento de quienes viven bajo guerras,
+                ocupaciones, hambre o represión.{" "}
+              </p>
+              <p>
+                Una noche, lejos de casa, me quedé en soledad contemplando una
+                gran tormenta en medio del monte. Entonces entendí que mi pena
+                era un lujo frente al dolor de quienes luchan cada día por
+                sobrevivir. Ahí Kaos Ekaitza toma forma: la rabia deja de ser
+                individual y se convierte en voz colectiva.
+              </p>
+            </div>
+          </div>
+          <div className="bg-black border border-gray-800 rounded-lg p-6 space-y-3">
+            <p className="text-white font-black text-xl">En síntesis</p>
+            <ul className="space-y-2 text-white/80">
+              <li className="flex items-center gap-2">
+                <Disc className="w-4 h-4 text-red-500" />
+                Verano 2025 · Navarra · Pueblo pequeño
+              </li>
+              <li className="flex items-center gap-2">
+                <Disc className="w-4 h-4 text-red-500" />
+                Oscuridad personal → conciencia global
+              </li>
+              <li className="flex items-center gap-2">
+                <Disc className="w-4 h-4 text-red-500" />
+                La rabia se vuelve voz colectiva
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Fase 1 · Proyecto digital */}
+      <section className="py-16 bg-black">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-sm uppercase tracking-[0.25em] text-red-500 mb-3">
+              Fase 1 · 2025
+            </p>
+            <h3 className="text-3xl md:text-4xl font-black text-white">
+              Proyecto digital, mensaje directo.
+            </h3>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 space-y-4">
+              <p className="text-white/80 leading-relaxed">
+                Kaos Ekaitza comienza como un proyecto musical digital. Sin
+                banda, sin escenario, pero con un sonido real y un mensaje
+                directo. Las primeras canciones hablan de memoria histórica,
+                antifascismo y resistencia. Desde Las Trece Rosas hasta “Tendrán
+                que matarme”, el proyecto conecta con un contexto marcado por el
+                resurgir del fascismo y la manipulación de la juventud.
+              </p>
+              <p className="text-white/80 leading-relaxed">
+                Llegan canciones sobre Palestina, sobre la infancia robada,
+                sobre el privilegio y la ceguera de quien no quiere mirar más
+                allá. Letras incómodas, necesarias, que empiezan a tocar a mucha
+                gente.
+              </p>
+            </div>
+            <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 space-y-3">
+              <p className="text-white font-black text-lg">
+                Sin banda, pero real
+              </p>
+              <p className="text-white/80 leading-relaxed">
+                En esta fase no existe un plan para formar una banda. Existe el
+                sueño, pero no la estructura. Kaos Ekaitza es conciencia,
+                mensaje y acumulación de fuerza.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* El salto */}
+      <section className="py-12 gradient-punk">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h4 className="text-2xl md:text-3xl font-black text-white mb-3">
+            La comunidad empuja el proyecto fuera de lo digital.
+          </h4>
+          <p className="text-white/90 max-w-3xl mx-auto">
+            El cambio no nace tanto de mí como de la gente que apoya el
+            proyecto. Seguidores, músicos y personas del entorno musical
+            empiezan a decir lo mismo: esto no puede quedarse en digital. Muchos
+            ya tratan Kaos Ekaitza como una banda real. Cuando la comunidad
+            convierte el proyecto en algo compartido, deja de ser solo una idea
+            y se transforma en responsabilidad.
+          </p>
+        </div>
+      </section>
+
+      {/* Fase 2 · La tormenta en la calle */}
+      <section className="py-16 bg-gray-900">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-10 lg:grid-cols-[1.6fr,1fr] items-start">
+          <div>
+            <p className="text-sm uppercase tracking-[0.25em] text-red-500 mb-3">
+              Fase 2 · 2026
+            </p>
+            <h3 className="text-3xl md:text-4xl font-black text-white mb-6">
+              La tormenta en la calle.
+            </h3>
+            <div className="space-y-4 text-white/80 leading-relaxed">
+              <p>
+                Tras veinte canciones digitales, Kaos Ekaitza cierra su primera
+                etapa. La Tormenta marca el final de una fase y el inicio de
+                otra. Se forma una banda real en Navarra, con base en Iruña y
+                pueblos de alrededor. Ocho personas unidas no por la fama, sino
+                por el compromiso, el nivel musical y una identidad antifascista
+                clara.
+              </p>
+              <p>
+                La fase 2 es calle, conciertos, comunidad y ruido con sentido.
+                Es llevar el mensaje al cuerpo, al sudor y al directo.
+              </p>
+            </div>
+          </div>
+          <div className="bg-black border border-gray-800 rounded-lg p-6 space-y-3">
+            <p className="text-white font-black text-lg">Panel de tormenta</p>
+            <ul className="space-y-2 text-white/80">
+              <li className="flex items-center gap-2">
+                <Waves className="w-4 h-4 text-red-500" />
+                20 canciones digitales cerradas
+              </li>
+              <li className="flex items-center gap-2">
+                <Waves className="w-4 h-4 text-red-500" />
+                Base en Iruña y pueblos de alrededor
+              </li>
+              <li className="flex items-center gap-2">
+                <Waves className="w-4 h-4 text-red-500" />
+                Calle, conciertos, comunidad y sudor
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Territorio y Comunidad */}
+      <section className="py-16 bg-black">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="text-center">
+            <p className="text-sm uppercase tracking-[0.25em] text-red-500 mb-3">
+              Territorio y comunidad
+            </p>
+            <h3 className="text-3xl md:text-4xl font-black text-white">
+              Raíz vasca, alcance sin fronteras.
+            </h3>
+          </div>
+          <div className="space-y-4 text-white/80 leading-relaxed max-w-5xl mx-auto text-center">
+            <p>
+              Kaos Ekaitza nace en Navarra, desde pueblos pequeños y desde la
+              periferia, pero no se queda ahí. El proyecto representa a personas
+              de distintos territorios y ha cruzado fronteras, llegando a
+              diferentes puntos del Estado y a muchos lugares de Latinoamérica.
+            </p>
+            <p>
+              La raíz es vasca. Aunque no siempre aparezca en las letras,
+              portamos el euskera en el corazón. El grito es común, compartido,
+              y no entiende de fronteras.
+            </p>
+            <p className="text-white font-semibold">
+              Quien sigue Kaos Ekaitza no es público: es parte de la tormenta.
+              Cada persona es un trueno, una voz más gritando por la justicia,
+              la libertad y la paz.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Compromiso */}
+      <section className="py-16 bg-gray-900">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-black border border-gray-800 rounded-lg p-8 space-y-4 text-center">
+            <p className="text-sm uppercase tracking-[0.25em] text-red-500">
+              Compromiso
+            </p>
+            <h3 className="text-3xl md:text-4xl font-black text-white">
+              Si quieren silencio, tendrán que arrancarlo.
+            </h3>
+            <ul className="mt-4 grid gap-4 md:grid-cols-3 text-white/90">
+              <li className="bg-gray-900 rounded-lg p-4 border border-gray-800">
+                Entrega total a quien camina con nosotros.
+              </li>
+              <li className="bg-gray-900 rounded-lg p-4 border border-gray-800">
+                Llevar esta música a las calles, que suene y que sirva.
+              </li>
+              <li className="bg-gray-900 rounded-lg p-4 border border-gray-800">
+                Ruido con sentido al servicio de la justicia y la paz.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA final */}
+      <section className="py-16 bg-black">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <h4 className="text-2xl md:text-3xl font-black text-white">
+            Súmate a la tormenta.
+          </h4>
+          <p className="text-white/80 max-w-2xl mx-auto">
+            Escucha, suscríbete, contacta o apoya. Cada paso hace más fuerte a
+            la comunidad y a la música que la sostiene.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              href="/album"
+              className="btn-punk inline-flex items-center gap-2"
+            >
+              <Radio className="w-5 h-5" />
+              <span>Escuchar</span>
+            </Link>
+            <Link
+              href="/contacto"
+              className="btn-punk-outline inline-flex items-center gap-2 text-white border-white hover:bg-white hover:text-black"
+            >
+              <Zap className="w-5 h-5" />
+              <span>Suscribirse</span>
+            </Link>
+            <Link
+              href="/contacto"
+              className="btn-punk-outline inline-flex items-center gap-2 text-white border-white hover:bg-white hover:text-black"
+            >
+              <ArrowRight className="w-5 h-5" />
+              <span>Contactar</span>
+            </Link>
+            <Link
+              href="/merchandising"
+              className="btn-punk inline-flex items-center gap-2"
+            >
+              <Waves className="w-5 h-5" />
+              <span>Apoyar</span>
             </Link>
           </div>
         </div>

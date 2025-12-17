@@ -28,7 +28,8 @@ async function main() {
       spotifyUrl:
         "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       bandcampUrl: "https://kaosekaitza.bandcamp.com",
-      youtubeUrl: "https://www.youtube.com/@KaosEkaitza",
+      youtubeUrl:
+        "https://www.youtube.com/playlist?list=PLQbq30ffRAmi-FyBqK2_9Eeom_DeJ9eKX",
     },
   });
 
@@ -46,11 +47,158 @@ async function main() {
       spotifyUrl:
         "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       bandcampUrl: "https://kaosekaitza.bandcamp.com",
-      youtubeUrl: "https://www.youtube.com/@KaosEkaitza",
+      youtubeUrl:
+        "https://www.youtube.com/playlist?list=PLQbq30ffRAmjJ4F9gFUAhwtFLG1BB2LTW",
     },
   });
 
   console.log("💿 Álbum creado:", album2.title);
+
+  // Crear comunicado/noticia
+  // POST 1
+  const post1 = await prisma.post.create({
+    data: {
+      title: "Kaos Ekaitza rompe el silencio: el proyecto da un nuevo paso",
+      slug: "kaos-ekaitza-rompe-el-silencio",
+      excerpt:
+        "El proyecto musical antifascista Kaos Ekaitza inicia una nueva etapa y refuerza su compromiso con la calle.",
+      content: `Kaos Ekaitza nace como un proyecto musical digital, pero nunca fue solo música.
+
+Tras meses de trabajo, canciones y apoyo colectivo, el proyecto da un nuevo paso adelante. La tormenta empieza a organizarse para salir a la calle.
+
+Este comunicado marca el inicio de una nueva etapa en la que la música, el mensaje y la comunidad caminarán juntas. Seguimos adelante, sin ruido vacío, sin postureo y sin miedo.
+
+Si quieren silencio, tendrán que arrancarlo.`,
+      featuredImage:
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765996532/Completo_mkmb6y.png",
+      instagramUrl: "https://www.instagram.com/p/DRugyVEiCwQ/?img_index=1",
+      tags: ["antifascismo", "comunicado", "musica", "kaos-ekaitza"],
+      published: true,
+      publishedAt: new Date("2025-12-01T00:00:00"),
+    },
+  });
+
+  console.log("📰 Comunicado creado:", post1.title);
+  // POST 2
+  const post2 = await prisma.post.create({
+    data: {
+      title: "¡NO! al Viña Rock",
+      slug: "no-al-vina-rock",
+      excerpt:
+        "Kaos Ekaitza denuncia la vinculación del Viña Rock con intereses empresariales ligados a la guerra y la injusticia.",
+      content: `El 11/12 pondrán a la venta los abonos del Viña Rock.
+  Y volverán a intentar que el rock se arrodille ante las armas, la mentira y el odio.
+  
+  Hoy el festival forma parte de una estructura empresarial cuyo beneficio alimenta intereses que nada tienen que ver con el pueblo, ni con la música, ni con la justicia.
+  
+  Nosotros no miramos hacia otro lado.
+  Nosotros no olvidamos para quién nació esta música.
+  
+  EL ROCK NACIÓ PARA DENUNCIAR LA INJUSTICIA,
+  NO PARA FINANCIARLA.
+  
+  🔥 ¡NO! al Viña Rock.
+  🔥 ¡NO! a vivir de rodillas.
+  🌩️ La tormenta no destruye, reivindica.`,
+      featuredImage:
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765997508/VI%C3%91A_ROCK_01_e0bkws.png",
+      instagramUrl: "https://www.instagram.com/p/DSF2TyLjQ55/?img_index=1",
+      tags: ["antifascismo", "boikot", "musica", "vina-rock"],
+      published: true,
+      publishedAt: new Date("2025-12-10T00:00:00"),
+    },
+  });
+
+  console.log("📰 Comunicado creado:", post2.title);
+
+  // POST 3
+  const post3 = await prisma.post.create({
+    data: {
+      title: "Boikot a Spotify",
+      slug: "boikot-a-spotify",
+      excerpt:
+        "Kaos Ekaitza anuncia el boikot a Spotify por la inversión de su fundador en armamento militar.",
+      content: `La música no se vende.
+  La dignidad no se negocia.
+  
+  🔥 BOIKOT A SPOTIFY 🔥
+  
+  Kaos Ekaitza retira su música de Spotify como acto de coherencia política y ética, debido a la inversión del fundador de la plataforma en armamento militar vinculado al Estado de Israel.
+  
+  No queremos que nuestra música financie la guerra, la ocupación ni la muerte de pueblos inocentes.
+  
+  La música es del pueblo.
+  La música es resistencia.`,
+      featuredImage:
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1764209807/BoikotSpotify_jyh5je.png",
+      instagramUrl: "https://www.instagram.com/p/DRh0GTIDca8/",
+      tags: ["boikot", "spotify", "palestina", "antifascismo"],
+      published: true,
+      publishedAt: new Date("2025-11-26T00:00:00"),
+    },
+  });
+
+  console.log("📰 Comunicado creado:", post3.title);
+  // POST 4
+  const post4 = await prisma.post.create({
+    data: {
+      title: "Se buscan músicos en Pamplona",
+      slug: "se-buscan-musicos-en-pamplona",
+      excerpt:
+        "Kaos Ekaitza abre un llamado para formar banda real en Pamplona y alrededores.",
+      content: `🔥 KAOS EKAITZA CRECE 🔥
+  
+  Buscamos músicos en Pamplona y alrededores que sientan el mensaje, la energía y las ganas de gritar con fuerza.
+  
+  Rock / Punk / Ska con conciencia.
+  
+  Pero más que músicos, buscamos personas con ideales.
+  Con voz, con mensaje y con respeto por lo que representamos.
+  
+  ✊ La música es resistencia.
+  
+  Si entiendes la lucha y quieres formar parte:
+  📩 imanol@kaosekaitza.com
+  🌐 www.kaosekaitza.com
+  📸 @kaosekaitza`,
+      featuredImage:
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765997306/SE_BUSCAN2_hjjfwz.png",
+      instagramUrl: "https://www.instagram.com/p/DQ6YIAsDcAT/?img_index=1",
+      tags: ["banda", "pamplona", "musica", "kaos-ekaitza"],
+      published: true,
+      publishedAt: new Date("2025-11-11T00:00:00"),
+    },
+  });
+
+  console.log("📰 Comunicado creado:", post4.title);
+
+  // POST 5
+  const post5 = await prisma.post.create({
+    data: {
+      title: "Alerta Antifascista en Pamplona",
+      slug: "alerta-antifascista-pamplona",
+      excerpt:
+        "Llamado a la movilización antifascista frente a la presencia de símbolos que atacan la memoria y la dignidad.",
+      content: `🗓️ 30 de octubre de 2025
+  🕕 18:00
+  
+  El 30/10, a las 18:00, la UNAV fue escenario de símbolos que intentaron e intentan borrar nuestras raíces, nuestro idioma y nuestro pueblo.
+  
+  Defendamos la memoria, la verdad y la dignidad.
+  Porque aquello por lo que nuestros antepasados dieron sus vidas, hoy nos toca cuidarlo con voz y con conciencia.
+  
+  Esto fue una llamada a la tormenta antifascista. 🌩️🔥
+  ¡No pasarán! ✊🏼`,
+      featuredImage:
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765997154/alertaAntifascista30Oct_gxixb1.jpg",
+      instagramUrl: "https://www.instagram.com/p/DQXqHKnDGGJ/",
+      tags: ["antifascismo", "pamplona", "movilizacion"],
+      published: true,
+      publishedAt: new Date("2025-10-28T00:00:00"),
+    },
+  });
+
+  console.log("📰 Comunicado creado:", post5.title);
 
   // Crear canción real: Mentiras de Bandera
   const song1 = await prisma.song.create({
@@ -1801,7 +1949,7 @@ Renace...`,
         "https://res.cloudinary.com/dzt73baf9/image/upload/v1765957183/BOIKOTSPOTIFY_sgqvq8.png",
       youtubeUrl: "https://www.youtube.com/watch?v=k3Rr440bVt0",
       coverImage:
-        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765957827/MemoriaQueTruena_grkgwx.jpg",
+        "https://res.cloudinary.com/dzuug3ahf/image/upload/v1765957934/Renace_ntbeuw.png",
       message:
         "“Renace” es un canto a la transformación, una declaración de que incluso después de perderlo todo, sigue existiendo algo que arde dentro: la voluntad de volver a empezar. En este tema, Kaos Ekaitza convierte las cicatrices en símbolos de poder y las caídas en el impulso que enciende una nueva vida.",
       albumId: album2.id,
@@ -1810,7 +1958,7 @@ Renace...`,
 
   console.log("🎵 Canción creada:", song18.title);
 
-  // Crear canción real: Renace (Album 2)
+  // Crear canción real: Memoria que Truena (Album 2)
   const song19 = await prisma.song.create({
     data: {
       title: "Memoria que Truena - Kaos Ekaitza",

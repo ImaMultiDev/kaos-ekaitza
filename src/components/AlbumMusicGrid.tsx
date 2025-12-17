@@ -216,18 +216,6 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
 
                         {/* Enlaces */}
                         <div className="flex flex-wrap gap-2 mt-auto">
-                          {song.spotifyUrl && song.spotifyUrl !== "#" && (
-                            <a
-                              href={song.spotifyUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center gap-1 px-2 py-1 bg-green-600 hover:bg-green-500 text-white rounded text-xs font-medium"
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              <ExternalLink className="w-3 h-3" />
-                              <span>Spotify</span>
-                            </a>
-                          )}
                           {song.youtubeUrl && song.youtubeUrl !== "#" && (
                             <a
                               href={song.youtubeUrl}
@@ -261,22 +249,13 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://spotify.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-punk-outline inline-flex items-center gap-2"
-              >
-                <ExternalLink className="w-5 h-5" />
-                <span>Seguir en Spotify</span>
-              </a>
-              <a
-                href="https://youtube.com"
+                href="https://www.youtube.com/@KaosEkaitza"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-punk inline-flex items-center gap-2"
               >
                 <Play className="w-5 h-5" />
-                <span>Suscribirse en YouTube</span>
+                <span>Ver en YouTube</span>
               </a>
             </div>
           </div>
@@ -361,18 +340,6 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
                     Escuchar
                   </h3>
                   <div className="flex flex-wrap gap-3">
-                    {selectedSong.spotifyUrl &&
-                      selectedSong.spotifyUrl !== "#" && (
-                        <a
-                          href={selectedSong.spotifyUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-4 py-3 bg-green-600 hover:bg-green-500 text-white rounded-lg transition-colors duration-300 font-medium"
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                          <span>Escuchar en Spotify</span>
-                        </a>
-                      )}
                     {selectedSong.youtubeUrl &&
                       selectedSong.youtubeUrl !== "#" && (
                         <a

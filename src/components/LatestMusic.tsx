@@ -17,7 +17,6 @@ interface TrackItem {
   releaseDate: string;
   description: string;
   message: string;
-  spotifyUrl: string;
   youtubeUrl: string;
   downloadUrl: string;
   image: string;
@@ -34,7 +33,6 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
     releaseDate: song.createdAt.toISOString().split("T")[0],
     description: song.message || "Canción ska-punk con mensaje social",
     message: song.message || "Música consciente para el cambio social pacífico",
-    spotifyUrl: song.spotifyUrl || "#",
     youtubeUrl: song.youtubeUrl || "#",
     downloadUrl: "#",
     // Usar la imagen de la base de datos
@@ -145,18 +143,6 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
 
                   {/* Enlaces y acciones */}
                   <div className="flex flex-wrap gap-2 mt-auto">
-                    {track.spotifyUrl && track.spotifyUrl !== "#" && (
-                      <a
-                        href={track.spotifyUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-3 py-2 bg-green-600 hover:bg-green-500 text-white rounded-md transition-colors duration-300 text-xs font-medium"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <ExternalLink className="w-3 h-3" />
-                        <span>Spotify</span>
-                      </a>
-                    )}
                     {track.youtubeUrl && track.youtubeUrl !== "#" && (
                       <a
                         href={track.youtubeUrl}
@@ -289,18 +275,6 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
                     Escuchar
                   </h3>
                   <div className="flex flex-wrap gap-3">
-                    {selectedTrack.spotifyUrl &&
-                      selectedTrack.spotifyUrl !== "#" && (
-                        <a
-                          href={selectedTrack.spotifyUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-4 py-3 bg-green-600 hover:bg-green-500 text-white rounded-lg transition-colors duration-300 font-medium"
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                          <span>Escuchar en Spotify</span>
-                        </a>
-                      )}
                     {selectedTrack.youtubeUrl &&
                       selectedTrack.youtubeUrl !== "#" && (
                         <a

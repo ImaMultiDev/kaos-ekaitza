@@ -1,14 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  Play,
-  Pause,
-  Calendar,
-  Music,
-  ExternalLink,
-  Download,
-} from "lucide-react";
+import { Play, Pause, Calendar, Music, ExternalLink } from "lucide-react";
 import { getAlbums } from "@/lib/database";
 
 interface AlbumGridProps {
@@ -137,8 +130,8 @@ const AlbumGrid = ({ albums = [] }: AlbumGridProps) => {
                   </button>
                 </div>
 
-                {/* External Links */}
-                <div className="flex gap-4 mt-6">
+                {/* External Links (YouTube / Bandcamp) */}
+                <div className="flex gap-4 mt-6 flex-wrap">
                   {selectedAlbum.youtubeUrl &&
                     selectedAlbum.youtubeUrl !== "#" && (
                       <a
@@ -148,19 +141,7 @@ const AlbumGrid = ({ albums = [] }: AlbumGridProps) => {
                         className="btn-punk-outline flex items-center space-x-2"
                       >
                         <ExternalLink className="w-4 h-4" />
-                        <span>Ver en YouTube</span>
-                      </a>
-                    )}
-                  {selectedAlbum.spotifyUrl &&
-                    selectedAlbum.spotifyUrl !== "#" && (
-                      <a
-                        href={selectedAlbum.spotifyUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-punk-outline flex items-center space-x-2"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        <span>Spotify</span>
+                        <span>YouTube</span>
                       </a>
                     )}
                   {selectedAlbum.bandcampUrl &&

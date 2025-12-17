@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Heart, Play } from "lucide-react";
 
 const HeroSection = () => {
@@ -31,6 +32,11 @@ const HeroSection = () => {
 
       {/* Contenido principal */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Badge de evolución */}
+        <div className="inline-flex items-center px-4 py-2 mb-6 rounded-full bg-black/40 border border-white/10 text-white/80 text-xs uppercase tracking-[0.18em]">
+          2025 proyecto digital → 2026 banda real (en marcha)
+        </div>
+
         {/* Logo/Ícono principal */}
         <div className="mb-8 flex justify-center">
           <div className="w-32 h-32 bg-red-600 rounded-full flex items-center justify-center ska-bounce shadow-2xl overflow-hidden">
@@ -69,23 +75,21 @@ const HeroSection = () => {
 
         {/* Botones de acción */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-          <a
-            href="https://www.youtube.com/@KaosEkaitza"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/album"
             className="btn-punk flex items-center space-x-3 text-lg"
           >
             <Play className="w-6 h-6" />
-            <span>Accede al Canal</span>
-          </a>
+            <span>Escuchar</span>
+          </Link>
 
-          <a
-            href="#filosofia"
+          <Link
+            href="/sobre-nosotros"
             className="btn-punk-outline flex items-center space-x-3 text-lg"
           >
             <Heart className="w-6 h-6" />
-            <span>Conoce Nuestra Filosofía</span>
-          </a>
+            <span>Conocer el proyecto</span>
+          </Link>
         </div>
       </div>
 

@@ -136,6 +136,22 @@ export async function getPosts(published: boolean = true) {
   }
 }
 
+// Obtener post por slug (solo publicados por defecto)
+export async function getPostBySlug(slug: string, published: boolean = true) {
+  try {
+    const post = await prisma.post.findFirst({
+      where: {
+        slug,
+        ...(published ? { published: true } : {}),
+      },
+    });
+    return post;
+  } catch (error) {
+    console.error("Error obteniendo post por slug:", error);
+    return null;
+  }
+}
+
 // Obtener elementos de galería
 export async function getGalleryItems() {
   try {

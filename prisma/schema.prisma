@@ -58,6 +58,7 @@ model Post {
   content     String
   excerpt     String?
   featuredImage String?
+  instagramUrl String?
   published   Boolean  @default(false)
   publishedAt DateTime?
   slug        String   @unique

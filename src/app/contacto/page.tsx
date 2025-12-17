@@ -61,18 +61,18 @@ export default function ContactoPage() {
   ];
 
   const socialLinks = [
-    {
+    /*{
       icon: Facebook,
       name: "Facebook",
       url: "#",
       color: "hover:text-blue-500",
-    },
-    {
+    },*/
+    /*{
       icon: Twitter,
       name: "Twitter",
       url: "#",
       color: "hover:text-blue-400",
-    },
+    },*/
     {
       icon: Instagram,
       name: "Instagram",
@@ -182,47 +182,6 @@ export default function ContactoPage() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-white mb-6">
-              Preguntas <span className="text-red-500">Frecuentes</span>
-            </h2>
-          </div>
-
-          <div className="space-y-6">
-            {[
-              {
-                pregunta: "¿Están disponibles para conciertos?",
-                respuesta:
-                  "La banda no está disponible para conciertos en este momento, estamos trabajando en ello.",
-              },
-              {
-                pregunta: "¿Aceptan demos de otros artistas?",
-                respuesta:
-                  "Siempre estamos interesados en escuchar a artistas comprometidos con el cambio social. Envíanos tu material.",
-              },
-              {
-                pregunta: "¿Merchandising?",
-                respuesta:
-                  "De momento solo podemos ofrecer el primer CD de la fase inicial del proyecto, pronto tendremos un mayor número de artículos, posiblemente",
-              },
-            ].map((faq, index) => (
-              <div
-                key={index}
-                className="bg-black border border-gray-800 rounded-lg p-6 punk-hover"
-              >
-                <h3 className="text-lg font-bold text-white mb-3">
-                  {faq.pregunta}
-                </h3>
-                <p className="text-gray-300">{faq.respuesta}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

@@ -52,6 +52,34 @@ export default async function AlbumDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  const getYouTubeEmbedUrl = (url?: string | null) => {
+    if (!url) return null;
+    try {
+      const parsed = new URL(url);
+      const list = parsed.searchParams.get("list");
+      const v = parsed.searchParams.get("v");
+
+      if (list) {
+        return `https://www.youtube.com/embed/videoseries?list=${list}`;
+      }
+
+      if (parsed.hostname.includes("youtu.be")) {
+        const id = parsed.pathname.replace("/", "");
+        return id ? `https://www.youtube.com/embed/${id}` : null;
+      }
+
+      if (v) {
+        return `https://www.youtube.com/embed/${v}`;
+      }
+    } catch {
+      return null;
+    }
+
+    return null;
+  };
+
+  const embedUrl = getYouTubeEmbedUrl(album.youtubeUrl);
+
   return (
     <div className="min-h-screen bg-black">
       {/* Hero Header con portada del álbum */}
@@ -146,17 +174,6 @@ export default async function AlbumDetailPage({ params }: PageProps) {
                     Ver en YouTube
                   </a>
                 )}
-                {album.spotifyUrl && (
-                  <a
-                    href={album.spotifyUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-lg transition-colors"
-                  >
-                    <ExternalLink className="w-5 h-5" />
-                    Escuchar en Spotify
-                  </a>
-                )}
                 {album.bandcampUrl && (
                   <a
                     href={album.bandcampUrl}
@@ -173,6 +190,26 @@ export default async function AlbumDetailPage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {/* Player YouTube */}
+      {embedUrl && (
+        <section className="bg-black py-10 border-b border-gray-900">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 className="text-2xl font-black text-white mb-4">
+              Escucha el álbum aquí
+            </h3>
+            <div className="relative aspect-video rounded-lg overflow-hidden border border-gray-800 bg-gray-900">
+              <iframe
+                src={`${embedUrl}&rel=0`}
+                title={`Reproductor de ${album.title}`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              ></iframe>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Lista de canciones del álbum */}
       <section className="py-20 bg-black">
