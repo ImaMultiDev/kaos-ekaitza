@@ -34,7 +34,7 @@ const HeroSection = () => {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Badge de evolución */}
         <div className="inline-flex items-center px-4 py-2 mb-6 rounded-full bg-black/40 border border-white/10 text-white/80 text-xs uppercase tracking-[0.18em]">
-          2025 proyecto digital → 2026 banda real (en marcha)
+          2026 · SE ACERCA LA TORMENTA
         </div>
 
         {/* Logo/Ícono principal */}

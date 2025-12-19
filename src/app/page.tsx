@@ -57,11 +57,11 @@ export default async function Home() {
           <div className="flex flex-col md:flex-row justify-center gap-6 text-lg font-semibold">
             <div className="flex items-center justify-center gap-2">
               <Waves className="w-5 h-5" />
-              <span>2025 · Proyecto digital (20 temas)</span>
+              <span>2025 → Proyecto inicial (20 temas)</span>
             </div>
             <div className="flex items-center justify-center gap-2">
               <Waves className="w-5 h-5" />
-              <span>2026 · Banda real en Navarra · Calle y directos</span>
+              <span>2026 → Banda en marcha en Navarra</span>
             </div>
           </div>
           <div className="flex justify-center">
@@ -112,13 +112,6 @@ export default async function Home() {
             >
               <ArrowRight className="w-5 h-5" />
               <span>Contactar</span>
-            </Link>
-            <Link
-              href="/merchandising"
-              className="btn-punk inline-flex items-center gap-2"
-            >
-              <Zap className="w-5 h-5" />
-              <span>Apoyar</span>
             </Link>
           </div>
         </div>

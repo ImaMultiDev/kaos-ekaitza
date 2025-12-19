@@ -318,13 +318,6 @@ export default function SobreNosotrosPage() {
               <ArrowRight className="w-5 h-5" />
               <span>Contactar</span>
             </Link>
-            <Link
-              href="/merchandising"
-              className="btn-punk inline-flex items-center gap-2"
-            >
-              <Waves className="w-5 h-5" />
-              <span>Apoyar</span>
-            </Link>
           </div>
         </div>
       </section>
