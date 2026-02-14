@@ -75,14 +75,7 @@ const Footer = () => {
                     <Heart className="w-4 h-4 mr-2" /> Sobre Nosotros
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    href="/merchandising"
-                    className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center"
-                  >
-                    <ShoppingBag className="w-4 h-4 mr-2" /> Merchandising
-                  </Link>
-                </li>
+
                 <li>
                   <Link
                     href="/contacto"
