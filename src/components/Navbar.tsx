@@ -10,8 +10,6 @@ import {
   Music,
   Users,
   Mail,
-  ShoppingBag,
-  Newspaper,
 } from "lucide-react";
 
 const Navbar = () => {
@@ -22,8 +20,6 @@ const Navbar = () => {
   const navItems = [
     { href: "/", label: "Home", icon: Home },
     { href: "/album", label: "Album", icon: Music },
-    { href: "/noticias", label: "Noticias", icon: Newspaper },
-    //{ href: "/merchandising", label: "Merchan", icon: ShoppingBag },
     { href: "/sobre-nosotros", label: "Conocenos", icon: Users },
     { href: "/contacto", label: "Contacto", icon: Mail },
   ];
@@ -32,24 +28,35 @@ const Navbar = () => {
     <>
       <nav className="bg-black border-b-2 border-red-600 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link href="/" className="flex items-center punk-hover">
-              <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center overflow-hidden">
+          {/* CONTENEDOR PRINCIPAL */}
+          <div className="relative flex items-center justify-between h-16">
+            
+            {/* LOGO (izquierda) */}
+            <Link href="/" className="flex items-center punk-hover z-10">
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden">
                 <Image
-                  src="/logo-192.png"
+                  src="/logo-192.png?v=2"
                   alt="Kaos Ekaitza Logo"
                   width={40}
                   height={40}
                   className="object-cover"
                 />
               </div>
-              <div className="ml-3">
-                <h1 className="text-punk text-xl font-black">KAOS EKAITZA</h1>
-              </div>
             </Link>
 
-            {/* Desktop Navigation */}
+            {/* BANNER CENTRADO EN MOBILE */}
+            <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
+              <Image
+                src="/banner.png?v=2"
+                alt="Kaos Ekaitza"
+                width={160}
+                height={80}
+                className="object-cover"
+                priority
+              />
+            </div>
+
+            {/* DESKTOP NAV */}
             <div className="hidden md:block">
               <div className="ml-16 flex items-baseline gap-16">
                 {navItems.map((item) => {
@@ -61,20 +68,18 @@ const Navbar = () => {
                       className="text-white hover:text-red-500 p-2 rounded-md text-md font-bold tracking-wide transition-all duration-300 flex items-center punk-hover"
                     >
                       <IconComponent className="w-4 h-4" />
-                      <span className="text-md" style={{ paddingLeft: "12px" }}>
-                        {item.label}
-                      </span>
+                      <span className="pl-3">{item.label}</span>
                     </Link>
                   );
                 })}
               </div>
             </div>
 
-            {/* Mobile menu button */}
-            <div className="md:hidden">
+            {/* BOTÓN MOBILE */}
+            <div className="md:hidden z-10">
               <button
                 onClick={toggleMenu}
-                className="text-white hover:text-red-500 focus:outline-none focus:text-red-500 transition-colors duration-300"
+                className="text-white hover:text-red-500 focus:outline-none transition-colors duration-300"
                 aria-label="Toggle navigation menu"
               >
                 {isOpen ? (
@@ -87,7 +92,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* MOBILE NAV */}
         <div
           className={`md:hidden transition-all duration-300 ease-in-out ${
             isOpen
@@ -106,13 +111,14 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                 >
                   <IconComponent className="w-5 h-5" />
-                  <span style={{ paddingLeft: "16px" }}>{item.label}</span>
+                  <span className="pl-4">{item.label}</span>
                 </Link>
               );
             })}
           </div>
         </div>
       </nav>
+
       {/* Banda ska decorativa inferior */}
       <div className="ska-stripes-horizontal h-1 w-full"></div>
     </>

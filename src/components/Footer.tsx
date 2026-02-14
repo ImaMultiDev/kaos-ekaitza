@@ -16,9 +16,9 @@ const Footer = () => {
             {/* Sobre el Canal */}
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center overflow-hidden">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden">
                   <Image
-                    src="/logo-192.png"
+                    src="/logo-192.png?v=2"
                     alt="Kaos Ekaitza Logo"
                     width={40}
                     height={40}

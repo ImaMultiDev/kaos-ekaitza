@@ -24,24 +24,22 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Fondo con gradiente y patrón ska */}
-      <div className="absolute inset-0 bg-gradient-punk"></div>
+      {/* Fondo: banner con opacidad y oscurecimiento */}
       <div className="absolute inset-0 opacity-10">
-        <div className="ska-stripes h-full w-full transform -skew-y-12"></div>
+        <div className="ska-stripes h-full w-full transform -skew-y-12" />
       </div>
 
       {/* Contenido principal */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Badge de evolución */}
         <div className="inline-flex items-center px-4 py-2 mb-6 rounded-full bg-black/40 border border-white/10 text-white/80 text-xs uppercase tracking-[0.18em]">
-          2026 · SE ACERCA LA TORMENTA
+          2026 · La tormenta en la calle
         </div>
 
-        {/* Logo/Ícono principal */}
+        {/* Logo circular (nuevo logo, misma ruta) */}
         <div className="mb-8 flex justify-center">
           <div className="w-32 h-32 bg-red-600 rounded-full flex items-center justify-center ska-bounce shadow-2xl overflow-hidden">
             <Image
-              src="/logo-512.png"
+              src="/logo-512.png?v=2"
               alt="Kaos Ekaitza Logo"
               width={128}
               height={128}
@@ -51,20 +49,17 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Título principal */}
         <h1 className="text-6xl md:text-8xl font-black text-white mb-6 tracking-tight">
           <span className="block">KAOS</span>
           <span className="block text-red-500">EKAITZA</span>
         </h1>
 
-        {/* Subtítulo dinámico */}
         <div className="h-16 mb-8 flex items-center justify-center">
           <p className="text-2xl md:text-3xl text-white font-bold tracking-wide animate-pulse">
             {revolutionTexts[currentText]}
           </p>
         </div>
 
-        {/* Descripción */}
         <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed">
           Canal musical ska-punk antifascista dedicado a promover el cambio
           social a través de la palabra y la música.{" "}
@@ -73,7 +68,6 @@ const HeroSection = () => {
           </span>
         </p>
 
-        {/* Botones de acción */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
           <Link
             href="/album"
@@ -82,19 +76,17 @@ const HeroSection = () => {
             <Play className="w-6 h-6" />
             <span>Escuchar</span>
           </Link>
-
           <Link
             href="/sobre-nosotros"
             className="btn-punk-outline flex items-center space-x-3 text-lg"
           >
             <Heart className="w-6 h-6" />
-            <span>Conocer el proyecto</span>
+            <span>Conocer la banda</span>
           </Link>
         </div>
       </div>
 
-      {/* Decoraciones adicionales */}
-      <div className="absolute bottom-0 left-0 w-full h-4 ska-stripes-horizontal"></div>
+      <div className="absolute bottom-0 left-0 w-full h-4 ska-stripes-horizontal" />
     </section>
   );
 };
