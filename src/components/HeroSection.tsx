@@ -61,8 +61,8 @@ const HeroSection = () => {
         </div>
 
         <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed">
-          Canal musical ska-punk antifascista dedicado a promover el cambio
-          social a través de la palabra y la música.{" "}
+          Banda punk-rock y ska-punk antifascista, dedicada a promover el cambio
+          social a través de la palabra y la música, nacida en Nafarroa.{" "}
           <span className="text-red-400 font-semibold">
             Resistencia pacífica, justicia social y música consciente.
           </span>
