@@ -167,10 +167,11 @@ export default function SobreNosotrosPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {BANDA.map((member, index) => {
-              const isLast = index === BANDA.length - 1;
-              const card = (
-                <div className="bg-black borderf border-gray-800 rounded-lg overflow-hidden punk-hover group w-full max-w-sm">
+            {BANDA.map((member) => (
+              <div
+                key={member.name}
+                className="bg-black border border-gray-800 rounded-lg overflow-hidden punk-hover group w-full max-w-sm"
+              >
                   <div className="aspect-square bg-gray-800/80 flex items-center justify-center relative overflow-hidden">
                     {member.image ? (
                       <Image
@@ -195,20 +196,7 @@ export default function SobreNosotrosPage() {
                     <p className="text-white/70 text-sm">({member.town})</p>
                   </div>
                 </div>
-              );
-              return (
-                <div
-                  key={member.name}
-                  className={
-                    isLast
-                      ? "sm:col-span-2 sm:flex sm:justify-center lg:col-span-3 lg:flex lg:justify-center"
-                      : undefined
-                  }
-                >
-                  {card}
-                </div>
-              );
-            })}
+            ))}
           </div>
         </div>
       </section>
