@@ -162,22 +162,20 @@ export default function MerchandisingPage() {
   return (
     <div className="min-h-screen bg-black">
       {/* Hero Header */}
-      <section className="py-20 bg-gradient-punk">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <ShoppingBag className="w-16 h-16 text-white mx-auto mb-6" />
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-            Merchandising Oficial
-          </h1>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto mb-8">
-            Lleva el mensaje de Kaos Ekaitza contigo. Camisetas, álbumes físicos
-            y más productos para apoyar la música consciente y el cambio social.
+      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-gradient-punk">
+        <div className="text-center mb-4">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+            Nuestros <span className="text-red-500">Productos</span>
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Cada producto es una declaración de resistencia. Lleva el mensaje de{" "}
+            <b>Kaos Ekaitza</b> contigo.
           </p>
-          <div className="ska-stripes h-2 w-48 mx-auto rounded"></div>
         </div>
       </section>
 
       {/* Información: tienda en proceso */}
-      <section className="py-12 bg-gray-900 border-y border-gray-800">
+      <section className=" bg-gray-900 border-y border-gray-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-amber-600/10 border-l-4 border-amber-500 p-6 rounded-r-lg">
             <div className="flex items-start gap-4">
@@ -187,11 +185,11 @@ export default function MerchandisingPage() {
                   Tienda en proceso
                 </h3>
                 <p className="text-gray-300 leading-relaxed mb-2">
-                  Nuestra tienda de merchandising está actualmente en construcción. 
-                  Por el momento no se pueden adquirir productos.
+                  Nuestra tienda de merchandising está actualmente en
+                  construcción. Por el momento no se pueden adquirir productos.
                 </p>
                 <p className="text-gray-400 text-sm italic">
-                  Próximamente podrás llevar el mensaje de Kaos Ekaitza contigo. 
+                  Próximamente podrás llevar el mensaje de Kaos Ekaitza contigo.
                   Síguenos en{" "}
                   <a
                     href={instagramUrl}
@@ -212,16 +210,6 @@ export default function MerchandisingPage() {
       {/* Productos Grid */}
       <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-              Nuestros <span className="text-red-500">Productos</span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Cada producto es una declaración de resistencia. Lleva el mensaje
-              del ska-punk antifascista contigo.
-            </p>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product) => (
               <MerchProductCard
