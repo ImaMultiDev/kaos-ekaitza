@@ -16,6 +16,7 @@ type Product = {
   id: number;
   name: string;
   category: string;
+  gender?: string;
   description: string;
   price: string;
   image: string;
@@ -68,8 +69,11 @@ export default function MerchProductCard({ product, storeInProgress = false }: P
               {product.category === "musica" && (
                 <Disc className="w-16 h-16 text-white opacity-50" />
               )}
-              {product.category === "accesorios" && (
+              {(product.category === "accesorios" || product.category === "accesorio") && (
                 <ShoppingBag className="w-16 h-16 text-white opacity-50" />
+              )}
+              {product.category === "album" && (
+                <Disc className="w-16 h-16 text-white opacity-50" />
               )}
               {product.category === "pack" && (
                 <Music className="w-16 h-16 text-white opacity-50" />
@@ -97,9 +101,14 @@ export default function MerchProductCard({ product, storeInProgress = false }: P
                 Música
               </span>
             )}
-            {product.category === "accesorios" && (
+            {(product.category === "accesorios" || product.category === "accesorio") && (
               <span className="inline-block bg-red-600/20 text-red-400 text-xs font-semibold px-2 py-1 rounded mb-2">
-                Accesorio
+                Artículo
+              </span>
+            )}
+            {product.category === "album" && (
+              <span className="inline-block bg-red-600/20 text-red-400 text-xs font-semibold px-2 py-1 rounded mb-2">
+                Álbum
               </span>
             )}
             {product.category === "pack" && (
