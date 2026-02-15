@@ -181,7 +181,7 @@ const products = [
   },
   {
     id: 12,
-    name: "Camiseta blanca de mujer 'Kaos Ekaitza' V01",
+    name: "Camiseta blanca de mujer 'Kaos Ekaitza' V02",
     category: "ropa",
     gender: "mujer",
     description:
