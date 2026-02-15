@@ -1,14 +1,6 @@
 import { Metadata } from "next";
-import {
-  ShoppingBag,
-  Instagram,
-  ExternalLink,
-  Music,
-  Shirt,
-  Disc,
-  Shield,
-} from "lucide-react";
-import Image from "next/image";
+import { ShoppingBag, Shield, Construction } from "lucide-react";
+import MerchProductCard from "@/components/MerchProductCard";
 
 export const metadata: Metadata = {
   title: "Merchandising - Kaos Ekaitza | Tienda Oficial",
@@ -31,29 +23,132 @@ export const metadata: Metadata = {
   },
 };
 
-// Datos de productos (por ahora hardcodeados, después se pueden mover a Prisma)
+// Datos de productos (imágenes: pegar URLs de Cloudinary en cada image)
 const products = [
   {
     id: 1,
-    name: "Camiseta 'Kaos Ekaitza: Alerta Antifascista'",
+    name: "Camiseta negra de hombre 'Kaos Ekaitza'",
     category: "ropa",
     description:
-      "Camiseta personalizada de Kaos Ekaitza: Alerta Antifascista con diseño exclusivo",
-    price: "25€",
+      "Camiseta de algodón negra con diseño Kaos Ekaitza. Corte masculino.",
+    price: "15€",
     image:
-      "https://res.cloudinary.com/dzt73baf9/image/upload/v1762140927/personaliza-tu-camiseta-personalizada--id_4ae6a119-813e-4543-a54e-4b085a534811-removebg-preview_nhfr47.png",
+      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1771185287/Oficial03_hfxjth.png", // Cloudinary URL
     available: true,
-    externalUrl: null, // Si tienes una URL de tienda externa
+    externalUrl: null,
     contactRequired: true,
   },
   {
     id: 2,
-    name: "Álbum Físico 'Gritos en la Tormenta'",
-    category: "musica",
-    description: "CD físico del primer álbum con letras y diseño especial",
-    price: "10€",
+    name: "Camiseta blanca de hombre 'Kaos Ekaitza'",
+    category: "ropa",
+    description:
+      "Camiseta de algodón blanca con diseño Kaos Ekaitza. Corte masculino.",
+    price: "15€",
     image:
-      "https://res.cloudinary.com/dzt73baf9/image/upload/v1762140436/ChatGPT_Image_5_sept_2025__17_28_21-removebg-preview_kbansb.png",
+      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1771185314/Blanca02_tnmyft.png", // Cloudinary URL
+    available: true,
+    externalUrl: null,
+    contactRequired: true,
+  },
+  {
+    id: 3,
+    name: "Camiseta negra de mujer 'Kaos Ekaitza'",
+    category: "ropa",
+    description:
+      "Camiseta de algodón negra con diseño Kaos Ekaitza. Corte femenino.",
+    price: "15€",
+    image:
+      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1771185892/MUJER_NEGRA01_zohx2o.png", // Cloudinary URL
+    available: true,
+    externalUrl: null,
+    contactRequired: true,
+  },
+  {
+    id: 4,
+    name: "Camiseta blanca de mujer 'Kaos Ekaitza'",
+    category: "ropa",
+    description:
+      "Camiseta de algodón blanca con diseño Kaos Ekaitza. Corte femenino.",
+    price: "15€",
+    image:
+      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1771185890/MUJER_BLANCA01_no8wnk.png", // Cloudinary URL
+    available: true,
+    externalUrl: null,
+    contactRequired: true,
+  },
+  {
+    id: 5,
+    name: "Camiseta negra de hombre 'Renace'",
+    category: "ropa",
+    description:
+      "Camiseta de algodón negra con diseño Renace. Corte masculino.",
+    price: "15€",
+    image:
+      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1771186582/CAMISETA_RENACE_xnfxq5.png", // Cloudinary URL
+    available: true,
+    externalUrl: null,
+    contactRequired: true,
+  },
+  {
+    id: 6,
+    name: "Camiseta negra de mujer 'Renace'",
+    category: "ropa",
+    description: "Camiseta de algodón negra con diseño Renace. Corte femenino.",
+    price: "15€",
+    image:
+      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1771186681/CAMISETA_RENACE_MUJER_dmwyhd.png", // Cloudinary URL
+    available: true,
+    externalUrl: null,
+    contactRequired: true,
+  },
+  {
+    id: 7,
+    name: "Chaqueta unisex 'Kaos Ekaitza'",
+    category: "ropa",
+    description:
+      "Chaqueta unisex con diseño Kaos Ekaitza. Perfecta para cualquier ocasión.",
+    price: "35€",
+    image:
+      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1771186183/Chaqueta_KAOS_EKAITZA_cn9w4m.png", // Cloudinary URL
+    available: true,
+    externalUrl: null,
+    contactRequired: true,
+  },
+  {
+    id: 8,
+    name: "Sudadera unisex 'Kaos Ekaitza'",
+    category: "ropa",
+    description: "Sudadera unisex con diseño Kaos Ekaitza. Cómoda y cálida.",
+    price: "30€",
+    image:
+      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1771186210/SUDADERA_SIN_CAPUCHA_KAOS_EKAITZA_af0jpn.png", // Cloudinary URL
+    available: true,
+    externalUrl: null,
+    contactRequired: true,
+  },
+  {
+    id: 9,
+    name: "Sudadera con capucha 'Kaos Ekaitza'",
+    category: "ropa",
+    description:
+      "Sudadera con capucha y diseño Kaos Ekaitza. Unisex, cómoda y abrigada.",
+    price: "30€",
+    image:
+      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1771186213/SUDADERA_CON_CAPUCHA_KAOS_EKAITZA_zpqi4w.png", // Cloudinary URL
+    available: true,
+    externalUrl: null,
+    contactRequired: true,
+  },
+  {
+    id: 10,
+    name: "Chaqueta Bomber 'Kaos Ekaitza'",
+    category: "ropa",
+    description:
+      "Chaqueta bomber unisex con diseño Kaos Ekaitza. Estilo urbano y resistente.",
+    price: "45€",
+    image:
+      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1771186180/Bomber_KAOS_EKAITZA_ddbihi.png", // Cloudinary URL
     available: true,
     externalUrl: null,
     contactRequired: true,
@@ -81,32 +176,32 @@ export default function MerchandisingPage() {
         </div>
       </section>
 
-      {/* Información de compra */}
+      {/* Información: tienda en proceso */}
       <section className="py-12 bg-gray-900 border-y border-gray-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-red-600/10 border-l-4 border-red-600 p-6 rounded-r-lg">
+          <div className="bg-amber-600/10 border-l-4 border-amber-500 p-6 rounded-r-lg">
             <div className="flex items-start gap-4">
-              <Instagram className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
+              <Construction className="w-6 h-6 text-amber-500 flex-shrink-0 mt-1" />
               <div>
                 <h3 className="text-white font-bold text-lg mb-2">
-                  ¿Cómo comprar?
+                  Tienda en proceso
                 </h3>
-                <p className="text-gray-300 leading-relaxed mb-4">
-                  Por el momento, puedes adquirir nuestros productos
-                  contactándonos directamente por Instagram. Escríbenos a{" "}
+                <p className="text-gray-300 leading-relaxed mb-2">
+                  Nuestra tienda de merchandising está actualmente en construcción. 
+                  Por el momento no se pueden adquirir productos.
+                </p>
+                <p className="text-gray-400 text-sm italic">
+                  Próximamente podrás llevar el mensaje de Kaos Ekaitza contigo. 
+                  Síguenos en{" "}
                   <a
                     href={instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-red-500 hover:text-red-400 font-semibold underline"
+                    className="text-amber-400 hover:text-amber-300 font-semibold underline"
                   >
                     {instagramHandle}
                   </a>{" "}
-                  y te indicaremos el proceso de compra, envío y pago.
-                </p>
-                <p className="text-gray-400 text-sm italic">
-                  Próximamente: tienda online con pago directo y envíos
-                  automatizados.
+                  para estar al día de novedades.
                 </p>
               </div>
             </div>
@@ -129,115 +224,11 @@ export default function MerchandisingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product) => (
-              <div
+              <MerchProductCard
                 key={product.id}
-                className="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden punk-hover transition-all duration-300 hover:border-red-600 group"
-              >
-                {/* Imagen del producto */}
-                <div className="relative h-64 bg-gradient-punk overflow-hidden">
-                  {product.image ? (
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      {product.category === "ropa" && (
-                        <Shirt className="w-16 h-16 text-white opacity-50" />
-                      )}
-                      {product.category === "musica" && (
-                        <Disc className="w-16 h-16 text-white opacity-50" />
-                      )}
-                      {product.category === "accesorios" && (
-                        <ShoppingBag className="w-16 h-16 text-white opacity-50" />
-                      )}
-                      {product.category === "pack" && (
-                        <Music className="w-16 h-16 text-white opacity-50" />
-                      )}
-                    </div>
-                  )}
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
-                  {!product.available && (
-                    <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                      Agotado
-                    </div>
-                  )}
-                </div>
-
-                {/* Información del producto */}
-                <div className="p-6">
-                  <div className="mb-2">
-                    {product.category === "ropa" && (
-                      <span className="inline-block bg-red-600/20 text-red-400 text-xs font-semibold px-2 py-1 rounded mb-2">
-                        Ropa
-                      </span>
-                    )}
-                    {product.category === "musica" && (
-                      <span className="inline-block bg-red-600/20 text-red-400 text-xs font-semibold px-2 py-1 rounded mb-2">
-                        Música
-                      </span>
-                    )}
-                    {product.category === "accesorios" && (
-                      <span className="inline-block bg-red-600/20 text-red-400 text-xs font-semibold px-2 py-1 rounded mb-2">
-                        Accesorio
-                      </span>
-                    )}
-                    {product.category === "pack" && (
-                      <span className="inline-block bg-red-600/20 text-red-400 text-xs font-semibold px-2 py-1 rounded mb-2">
-                        Pack Especial
-                      </span>
-                    )}
-                  </div>
-
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {product.name}
-                  </h3>
-                  <p className="text-gray-400 text-sm mb-4 line-clamp-2">
-                    {product.description}
-                  </p>
-
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-2xl font-black text-red-500">
-                      {product.price}
-                    </span>
-                  </div>
-
-                  {/* Botones de acción */}
-                  <div className="space-y-2">
-                    {product.externalUrl ? (
-                      <a
-                        href={product.externalUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors"
-                      >
-                        <ExternalLink className="w-5 h-5" />
-                        Comprar en Tienda Externa
-                      </a>
-                    ) : product.contactRequired ? (
-                      <a
-                        href={`https://instagram.com/kaosekaitza`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors"
-                      >
-                        <Instagram className="w-5 h-5" />
-                        Contactar por Instagram
-                      </a>
-                    ) : (
-                      <button
-                        className="w-full px-4 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors"
-                        disabled={!product.available}
-                      >
-                        Agregar al Carrito
-                      </button>
-                    )}
-                  </div>
-                </div>
-              </div>
+                product={product}
+                storeInProgress
+              />
             ))}
           </div>
         </div>
