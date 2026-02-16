@@ -251,7 +251,35 @@ const products = [
   },
   {
     id: 18,
-    name: "Chaqueta unisex 'Kaos Ekaitza'",
+    name: "Chaqueta unisex 'Kaos Ekaitza' V01",
+    category: "ropa",
+    gender: "unisex",
+    description:
+      "Chaqueta unisex con diseño Kaos Ekaitza. Perfecta para cualquier ocasión.",
+    price: "35€",
+    image:
+      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1771250176/Chaqueta_KAOS_EKAITZA_00_ecfjzo.png", // Cloudinary URL
+    available: true,
+    externalUrl: null,
+    contactRequired: true,
+  },
+  {
+    id: 19,
+    name: "Chaqueta unisex 'Kaos Ekaitza' V02",
+    category: "ropa",
+    gender: "unisex",
+    description:
+      "Chaqueta unisex con diseño Kaos Ekaitza. Perfecta para cualquier ocasión.",
+    price: "35€",
+    image:
+      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1771250176/Chaqueta_KAOS_EKAITZA_01_pg3zx5.png", // Cloudinary URL
+    available: true,
+    externalUrl: null,
+    contactRequired: true,
+  },
+  {
+    id: 20,
+    name: "Chaqueta unisex 'Kaos Ekaitza' V03",
     category: "ropa",
     gender: "unisex",
     description:
@@ -264,8 +292,8 @@ const products = [
     contactRequired: true,
   },
   {
-    id: 19,
-    name: "Sudadera unisex 'Kaos Ekaitza'",
+    id: 21,
+    name: "Sudadera unisex 'Kaos Ekaitza' V01",
     category: "ropa",
     gender: "unisex",
     description: "Sudadera unisex con diseño Kaos Ekaitza. Cómoda y cálida.",
@@ -277,8 +305,50 @@ const products = [
     contactRequired: true,
   },
   {
-    id: 20,
-    name: "Sudadera con capucha 'Kaos Ekaitza'",
+    id: 22,
+    name: "Sudadera unisex 'Kaos Ekaitza' V02",
+    category: "ropa",
+    gender: "unisex",
+    description: "Sudadera unisex con diseño Kaos Ekaitza. Cómoda y cálida.",
+    price: "30€",
+    image:
+      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1771249966/SUDADERA_SIN_CAPUCHA_KAOS_EKAITZA_01_hi4okp.png", // Cloudinary URL
+    available: true,
+    externalUrl: null,
+    contactRequired: true,
+  },
+
+  {
+    id: 23,
+    name: "Sudadera con capucha 'Kaos Ekaitza' V02",
+    category: "ropa",
+    gender: "unisex",
+    description:
+      "Sudadera con capucha y diseño Kaos Ekaitza. Unisex, cómoda y abrigada.",
+    price: "30€",
+    image:
+      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1771249966/SUDADERA_CON_CAPUCHA_KAOS_EKAITZA_00_leqv7q.png", // Cloudinary URL
+    available: true,
+    externalUrl: null,
+    contactRequired: true,
+  },
+  {
+    id: 24,
+    name: "Sudadera con capucha 'Kaos Ekaitza' V03",
+    category: "ropa",
+    gender: "unisex",
+    description:
+      "Sudadera con capucha y diseño Kaos Ekaitza. Unisex, cómoda y abrigada.",
+    price: "30€",
+    image:
+      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1771249966/SUDADERA_CON_CAPUCHA_KAOS_EKAITZA_01_ydl3wl.png", // Cloudinary URL
+    available: true,
+    externalUrl: null,
+    contactRequired: true,
+  },
+  {
+    id: 25,
+    name: "Sudadera con capucha 'Kaos Ekaitza' V01",
     category: "ropa",
     gender: "unisex",
     description:
@@ -291,21 +361,7 @@ const products = [
     contactRequired: true,
   },
   {
-    id: 21,
-    name: "Chaqueta Bomber 'Kaos Ekaitza'",
-    category: "ropa",
-    gender: "unisex",
-    description:
-      "Chaqueta bomber unisex con diseño Kaos Ekaitza. Estilo urbano y resistente.",
-    price: "45€",
-    image:
-      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1771186180/Bomber_KAOS_EKAITZA_ddbihi.png", // Cloudinary URL
-    available: true,
-    externalUrl: null,
-    contactRequired: true,
-  },
-  {
-    id: 22,
+    id: 27,
     name: "Mecheros 'Kaos Ekaitza' V01",
     category: "accesorio",
     description:
@@ -318,7 +374,7 @@ const products = [
     contactRequired: true,
   },
   {
-    id: 23,
+    id: 28,
     name: "Mecheros 'Kaos Ekaitza' V02",
     category: "accesorio",
     description:
@@ -331,7 +387,7 @@ const products = [
     contactRequired: true,
   },
   {
-    id: 24,
+    id: 29,
     name: "Album físico 01 'Kaos Ekaitza - Gritos en la Tormenta' ",
     category: "album",
     description: "Album físico 01 de Kaos Ekaitza. Gritos en la Tormenta.",
@@ -343,7 +399,7 @@ const products = [
     contactRequired: true,
   },
   {
-    id: 25,
+    id: 30,
     name: "Album físico 02 'Kaos Ekaitza - Revienta el Silencio' ",
     category: "album",
     description: "Album físico 02 de Kaos Ekaitza. Revienta el Silencio.",
