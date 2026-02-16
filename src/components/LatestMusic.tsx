@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Play, Download, ExternalLink, Clock, Calendar, X } from "lucide-react";
+import { Play, Clock, Calendar, X } from "lucide-react";
 import Image from "next/image";
 import { getLatestSongs } from "@/lib/database";
 
@@ -17,6 +17,7 @@ interface TrackItem {
   releaseDate: string;
   description: string;
   message: string;
+  spotifyUrl: string | null;
   youtubeUrl: string;
   downloadUrl: string;
   image: string;
@@ -33,9 +34,9 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
     releaseDate: song.createdAt.toISOString().split("T")[0],
     description: song.message || "Canción ska-punk con mensaje social",
     message: song.message || "Música consciente para el cambio social pacífico",
+    spotifyUrl: song.spotifyUrl || null,
     youtubeUrl: song.youtubeUrl || "#",
     downloadUrl: "#",
-    // Usar la imagen de la base de datos
     image: song.coverImage || "",
   }));
 
@@ -95,30 +96,43 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
                 )}
 
                 <div className="p-6 flex flex-col flex-1">
-                  {/* Título y controles */}
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="text-xl font-bold text-white group-hover:text-red-400 transition-colors duration-300 flex-1 pr-4">
-                      {track.title}
-                    </h3>
-                    {track.youtubeUrl && track.youtubeUrl !== "#" ? (
+                  {/* Título */}
+                  <h3 className="text-xl font-bold text-white group-hover:text-red-400 transition-colors duration-300 mb-3">
+                    {track.title}
+                  </h3>
+
+                  {/* Botones Spotify y YouTube debajo del título */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {track.spotifyUrl && (
+                      <a
+                        href={track.spotifyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-3 py-2 bg-[#1DB954] hover:bg-[#1ed760] text-white rounded-md transition-colors duration-300 text-xs font-medium"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                        </svg>
+                        <span>Spotify</span>
+                      </a>
+                    )}
+                    {track.youtubeUrl && track.youtubeUrl !== "#" && (
                       <a
                         href={track.youtubeUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-12 h-12 bg-red-600 hover:bg-red-500 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-105 flex-shrink-0 group/play"
+                        className="flex items-center gap-2 px-3 py-2 bg-red-600 hover:bg-red-500 text-white rounded-md transition-colors duration-300 text-xs font-medium"
                         onClick={(e) => e.stopPropagation()}
                       >
-                        <Play className="w-5 h-5 text-white group-hover/play:text-white transition-colors" />
+                        <Play className="w-4 h-4" />
+                        <span>YouTube</span>
                       </a>
-                    ) : (
-                      <div className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center flex-shrink-0 opacity-50">
-                        <Play className="w-5 h-5 text-gray-400" />
-                      </div>
                     )}
                   </div>
 
                   {/* Metadatos */}
-                  <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
+                  <div className="flex flex-col gap-1 md:flex-row md:items-center md:gap-4 text-sm text-gray-400 mb-4">
                     <span className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
                       <span>{track.duration}</span>
@@ -129,45 +143,14 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
                     </span>
                   </div>
 
-                  {/* Descripción */}
-                  <div className="flex-1 mb-4">
-                    <p className="text-gray-300 text-sm leading-relaxed mb-3">
-                      {track.description}
-                    </p>
-                    {track.message && (
-                      <blockquote className="text-red-400 italic text-sm font-medium border-l-2 border-red-600 pl-3">
+                  {/* Mensaje (máx. 3 líneas en tarjeta) */}
+                  {track.message && (
+                    <div className="flex-1 mt-auto">
+                      <blockquote className="text-red-400 italic text-sm font-medium border-l-2 border-red-600 pl-3 line-clamp-3">
                         &ldquo;{track.message}&rdquo;
                       </blockquote>
-                    )}
-                  </div>
-
-                  {/* Enlaces y acciones */}
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {track.youtubeUrl && track.youtubeUrl !== "#" && (
-                      <a
-                        href={track.youtubeUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-3 py-2 bg-red-600 hover:bg-red-500 text-white rounded-md transition-colors duration-300 text-xs font-medium"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <ExternalLink className="w-3 h-3" />
-                        <span>YouTube</span>
-                      </a>
-                    )}
-                    {track.downloadUrl && track.downloadUrl !== "#" && (
-                      <a
-                        href={track.downloadUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-3 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md transition-colors duration-300 text-xs font-medium"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <Download className="w-3 h-3" />
-                        <span>Descargar</span>
-                      </a>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -211,7 +194,7 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
                   <h2 className="text-3xl font-bold text-white mb-4">
                     {selectedTrack.title}
                   </h2>
-                  <div className="flex items-center gap-6 text-gray-400 text-sm mb-4">
+                  <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-6 text-gray-400 text-sm mb-4">
                     <span className="flex items-center gap-2">
                       <Clock className="w-4 h-4" />
                       {selectedTrack.duration}
@@ -249,15 +232,6 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
 
               {/* Contenido de la canción */}
               <div className="prose prose-invert max-w-none">
-                <div className="mb-6">
-                  <h3 className="text-xl font-bold text-white mb-3">
-                    Descripción
-                  </h3>
-                  <p className="text-gray-300 leading-relaxed text-lg">
-                    {selectedTrack.description}
-                  </p>
-                </div>
-
                 {selectedTrack.message && (
                   <div className="mb-6">
                     <h3 className="text-xl font-bold text-white mb-3">
@@ -275,6 +249,19 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
                     Escuchar
                   </h3>
                   <div className="flex flex-wrap gap-3">
+                    {selectedTrack.spotifyUrl && (
+                      <a
+                        href={selectedTrack.spotifyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-3 bg-[#1DB954] hover:bg-[#1ed760] text-white rounded-lg transition-colors duration-300 font-medium"
+                      >
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                        </svg>
+                        <span>Escuchar en Spotify</span>
+                      </a>
+                    )}
                     {selectedTrack.youtubeUrl &&
                       selectedTrack.youtubeUrl !== "#" && (
                         <a

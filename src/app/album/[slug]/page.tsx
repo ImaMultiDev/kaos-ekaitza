@@ -214,11 +214,8 @@ export default async function AlbumDetailPage({ params }: PageProps) {
       )}
 
       {/* Lista de canciones del álbum */}
-      <section className="py-20 bg-black">
+      <section className="py-10 md:py-16 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-8">
-            Canciones
-          </h2>
           <AlbumMusicGrid
             songs={album.songs.map((song) => ({
               ...song,

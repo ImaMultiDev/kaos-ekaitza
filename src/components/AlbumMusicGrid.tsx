@@ -1,15 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  Play,
-  ExternalLink,
-  Clock,
-  Calendar,
-  Music,
-  Album,
-  X,
-} from "lucide-react";
+import { Play, Clock, Calendar, Music, Album, X } from "lucide-react";
 import Image from "next/image";
 import { getSongs } from "@/lib/database";
 
@@ -73,10 +65,10 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
 
   return (
     <>
-      <section className="py-20 bg-black">
+      <section className="pt-4 pb-12 md:pt-16 md:pb-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <div className="ska-stripes-horizontal h-2 w-32 mx-auto mb-6 rounded"></div>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
               Nuestra <span className="text-red-500">Discografía</span>
@@ -88,7 +80,7 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
           </div>
 
           {/* Estadísticas */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 md:mb-12">
             <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 text-center">
               <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Music className="w-8 h-8 text-white" />
@@ -169,47 +161,43 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
                       )}
 
                       <div className="p-4 flex flex-col flex-1">
-                        {/* Título y controles */}
-                        <div className="flex items-start justify-between gap-2 mb-3">
-                          <h4 className="text-lg font-bold text-white group-hover:text-red-400 transition-colors duration-300 flex-1 pr-3 min-w-0">
-                            {song.title}
-                          </h4>
-                          <div className="flex items-center gap-2 flex-shrink-0">
-                            {song.spotifyUrl && (
-                              <a
-                                href={song.spotifyUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 bg-[#1DB954] hover:bg-[#1ed760] rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-105"
-                                onClick={(e) => e.stopPropagation()}
-                                title="Escuchar en Spotify"
-                              >
-                                <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
-                                  <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
-                                </svg>
-                              </a>
-                            )}
-                            {song.youtubeUrl && song.youtubeUrl !== "#" ? (
-                              <a
-                                href={song.youtubeUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 bg-red-600 hover:bg-red-500 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-105"
-                                onClick={(e) => e.stopPropagation()}
-                                title="Ver en YouTube"
-                              >
-                                <Play className="w-4 h-4 text-white" />
-                              </a>
-                            ) : (
-                              <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center opacity-50">
-                                <Play className="w-4 h-4 text-gray-400" />
-                              </div>
-                            )}
-                          </div>
+                        {/* Título */}
+                        <h4 className="text-lg font-bold text-white group-hover:text-red-400 transition-colors duration-300 mb-3">
+                          {song.title}
+                        </h4>
+
+                        {/* Botones Spotify y YouTube debajo del título */}
+                        <div className="flex flex-wrap gap-2 mb-3">
+                          {song.spotifyUrl && (
+                            <a
+                              href={song.spotifyUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-1 px-2 py-1.5 bg-[#1DB954] hover:bg-[#1ed760] text-white rounded text-xs font-medium transition-all duration-300"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                              </svg>
+                              <span>Spotify</span>
+                            </a>
+                          )}
+                          {song.youtubeUrl && song.youtubeUrl !== "#" && (
+                            <a
+                              href={song.youtubeUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-1 px-2 py-1.5 bg-red-600 hover:bg-red-500 text-white rounded text-xs font-medium transition-all duration-300"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <Play className="w-3.5 h-3.5" />
+                              <span>YouTube</span>
+                            </a>
+                          )}
                         </div>
 
                         {/* Metadatos */}
-                        <div className="flex items-center gap-3 text-xs text-gray-400 mb-3">
+                        <div className="flex flex-col gap-1 md:flex-row md:items-center md:gap-3 text-xs text-gray-400 mb-3">
                           {song.duration && (
                             <span className="flex items-center gap-1">
                               <Clock className="w-3 h-3" />
@@ -224,44 +212,14 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
                           </span>
                         </div>
 
-                        {/* Mensaje */}
+                        {/* Mensaje (máx. 3 líneas en tarjeta) */}
                         {song.message && (
-                          <div className="flex-1 mb-3">
-                            <blockquote className="text-red-400 italic text-xs font-medium border-l-2 border-red-600 pl-2">
+                          <div className="flex-1 mt-auto">
+                            <blockquote className="text-red-400 italic text-xs font-medium border-l-2 border-red-600 pl-2 line-clamp-3">
                               &ldquo;{song.message}&rdquo;
                             </blockquote>
                           </div>
                         )}
-
-                        {/* Enlaces */}
-                        <div className="flex flex-wrap gap-2 mt-auto">
-                          {song.spotifyUrl && (
-                            <a
-                              href={song.spotifyUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center gap-1 px-2 py-1 bg-[#1DB954] hover:bg-[#1ed760] text-white rounded text-xs font-medium"
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
-                              </svg>
-                              <span>Spotify</span>
-                            </a>
-                          )}
-                          {song.youtubeUrl && song.youtubeUrl !== "#" && (
-                            <a
-                              href={song.youtubeUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center gap-1 px-2 py-1 bg-red-600 hover:bg-red-500 text-white rounded text-xs font-medium"
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              <ExternalLink className="w-3 h-3" />
-                              <span>YouTube</span>
-                            </a>
-                          )}
-                        </div>
                       </div>
                     </div>
                   ))}
@@ -323,7 +281,7 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
                   <h2 className="text-3xl font-bold text-white mb-4">
                     {selectedSong.title}
                   </h2>
-                  <div className="flex items-center gap-6 text-gray-400 text-sm mb-4">
+                  <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-6 text-gray-400 text-sm mb-4">
                     <span className="flex items-center gap-2">
                       <Clock className="w-4 h-4" />
                       {selectedSong.duration || "Duración no disponible"}
