@@ -2,7 +2,9 @@ import { Metadata } from "next";
 import { getAlbums, generateAlbumSlug } from "@/lib/database";
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, Music, ArrowRight, ExternalLink } from "lucide-react";
+import { Calendar, Music, ArrowRight, ExternalLink, RefreshCw } from "lucide-react";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Discografía - Kaos Ekaitza | Ska-Punk Antifascista",
@@ -36,10 +38,34 @@ export const metadata: Metadata = {
 export default async function AlbumPage() {
   const albums = await getAlbums();
 
+  if (albums.length === 0) {
+    return (
+      <div className="min-h-screen bg-black flex flex-col items-center justify-center px-4">
+        <section className="py-10 md:py-20 bg-gradient-punk w-full">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
+              Nuestra Discografía
+            </h1>
+            <p className="text-xl text-white/90 max-w-2xl mx-auto mb-8">
+              No se pudo cargar la discografía. Por favor, intenta recargar la página.
+            </p>
+            <Link
+              href="/album"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors"
+            >
+              <RefreshCw className="w-5 h-5" />
+              Recargar
+            </Link>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-black">
       {/* Hero Header */}
-      <section className="py-10 md:py-20 bg-gradient-punk">
+      <section className="py-10 md:pt-20 md:pb-10 bg-gradient-punk">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
             Nuestra Discografía
@@ -81,7 +107,7 @@ export default async function AlbumPage() {
       </section>
 
       {/* Albums Grid */}
-      <section className="pt-6 pb-12 md:py-20 bg-black">
+      <section className="pt-6 pb-12 md:pt-10 md:pb-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {albums.map((album) => {
