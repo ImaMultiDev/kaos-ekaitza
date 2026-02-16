@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import {
   Menu,
   X,
@@ -14,8 +15,14 @@ import {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  };
 
   const navItems = [
     { href: "/", label: "Home", icon: Home },
@@ -32,7 +39,7 @@ const Navbar = () => {
           <div className="relative flex items-center justify-between h-16">
             
             {/* LOGO (izquierda) */}
-            <Link href="/" className="flex items-center punk-hover z-10">
+            <Link href="/" className="flex items-center z-10">
               <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden">
                 <Image
                   src="/logo-192.png?v=2"
@@ -61,13 +68,18 @@ const Navbar = () => {
               <div className="ml-16 flex items-baseline gap-16">
                 {navItems.map((item) => {
                   const IconComponent = item.icon;
+                  const active = isActive(item.href);
                   return (
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="text-white hover:text-red-500 p-2 rounded-md text-md font-bold tracking-wide transition-all duration-300 flex items-center punk-hover"
+                      className={`relative group px-2 py-2 text-md font-bold tracking-wide flex items-center transition-all duration-300 after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:bg-red-600 after:transition-transform after:duration-300 after:origin-left after:content-[''] ${
+                        active
+                          ? "text-red-500 after:scale-x-100"
+                          : "text-white hover:text-red-500 hover:-translate-y-0.5 after:scale-x-0 group-hover:after:scale-x-100"
+                      }`}
                     >
-                      <IconComponent className="w-4 h-4" />
+                      <IconComponent className="w-4 h-4 shrink-0" />
                       <span className="pl-3">{item.label}</span>
                     </Link>
                   );
@@ -103,14 +115,19 @@ const Navbar = () => {
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900 border-t border-red-600">
             {navItems.map((item) => {
               const IconComponent = item.icon;
+              const active = isActive(item.href);
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-white hover:text-red-500 px-3 py-2 rounded-md text-base font-bold tracking-wide transition-all duration-300 flex items-center"
+                  className={`px-3 py-2 rounded-md text-base font-bold tracking-wide flex items-center border-l-2 transition-all duration-300 ${
+                    active
+                      ? "text-red-500 border-red-600 bg-red-950/30"
+                      : "text-white hover:text-red-500 hover:border-red-600/50 border-transparent"
+                  }`}
                   onClick={() => setIsOpen(false)}
                 >
-                  <IconComponent className="w-5 h-5" />
+                  <IconComponent className="w-5 h-5 shrink-0" />
                   <span className="pl-4">{item.label}</span>
                 </Link>
               );
