@@ -1,6 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/ekaitzaren-begia",
+        destination: "https://kaosekaitza.carrd.co/",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

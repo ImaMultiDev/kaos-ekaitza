@@ -12,11 +12,10 @@ export const socialConfig = {
   // Social Media URLs
   social: {
     youtube: "https://www.youtube.com/@KaosEkaitza",
-    spotify: "https://open.spotify.com/artist/kaosekaitza",
-    bandcamp: "https://kaosekaitza.bandcamp.com",
-    instagram: "#", // Añadir cuando esté disponible
-    twitter: "#", // Añadir cuando esté disponible
-    facebook: "#", // Añadir cuando esté disponible
+    spotify: "https://open.spotify.com/intl-es/artist/1reWo4KzVQLgqOwNXrVgr4",
+    instagram: "https://www.instagram.com/kaosekaitza/",
+    tiktok: "https://www.tiktok.com/@kaos_ekaitza",
+    ekaitzarenBegia: "https://kaosekaitza.carrd.co/",
   },
 
   // Hashtags recomendados para redes sociales
@@ -50,7 +49,7 @@ export const socialConfig = {
 export const generateShareUrl = (
   platform: string,
   url: string,
-  text: string
+  text: string,
 ) => {
   const encodedUrl = encodeURIComponent(url);
   const encodedText = encodeURIComponent(text);
@@ -58,7 +57,7 @@ export const generateShareUrl = (
   switch (platform) {
     case "twitter":
       return `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}&hashtags=${socialConfig.hashtags.join(
-        ","
+        ",",
       )}`;
     case "facebook":
       return `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
