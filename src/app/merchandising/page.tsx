@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { ShoppingBag, Shield, Construction } from "lucide-react";
 import MerchProductGrid from "@/components/MerchProductGrid";
+import MerchPasswordGate from "@/components/MerchPasswordGate";
 
 export const metadata: Metadata = {
   title: "Merchandising - Kaos Ekaitza | Tienda Oficial",
@@ -416,8 +417,11 @@ const instagramHandle = "@kaosekaitza";
 const instagramUrl = "https://instagram.com/kaosekaitza";
 
 export default function MerchandisingPage() {
+  const isProtected = !!process.env.MERCH_PASSWORD;
+
   return (
-    <div className="min-h-screen bg-black">
+    <MerchPasswordGate protected={isProtected}>
+      <div className="min-h-screen bg-black">
       {/* Hero Header */}
       <section className="py-8 px-4 sm:px-6 lg:px-8 bg-gradient-punk">
         <div className="text-center mb-4">
@@ -502,5 +506,6 @@ export default function MerchandisingPage() {
         </div>
       </section>
     </div>
+    </MerchPasswordGate>
   );
 }
