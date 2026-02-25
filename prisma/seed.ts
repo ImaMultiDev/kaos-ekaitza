@@ -158,7 +158,7 @@ Si quieren silencio, tendrán que arrancarlo.`,
   ✊ La música es resistencia.
   
   Si entiendes la lucha y quieres formar parte:
-  📩 imanol@kaosekaitza.com
+  📩 contact@kaosekaitza.com
   🌐 www.kaosekaitza.com
   📸 @kaosekaitza`,
       featuredImage:

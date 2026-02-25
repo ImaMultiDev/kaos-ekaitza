@@ -35,7 +35,7 @@ export default function ContactoPage() {
     {
       icon: Mail,
       title: "Email",
-      info: "imanol@kaosekaitza.com",
+      info: "contact@kaosekaitza.com",
       description: "Para colaboraciones, preguntas o cualquier consulta",
     },
     {
