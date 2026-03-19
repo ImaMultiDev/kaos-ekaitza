@@ -55,8 +55,8 @@ export default function ContactoPage() {
     {
       icon: Handshake,
       title: "Contratación",
-      info: "Próximamente",
-      description: "Esta información estará disponible muy pronto",
+      info: "contact@kaosekaitza.com",
+      description: "tfno. 689 18 17 20",
     },
   ];
 

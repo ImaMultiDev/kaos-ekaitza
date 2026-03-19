@@ -222,12 +222,17 @@ export default function SobreNosotrosPage() {
             </p>
           </div>
 
-          {/* Foto de la banda (horizontal): reemplazar por Image cuando tengas la foto */}
-          <div className="mt-12 w-full max-w-4xl mx-auto">
-            <div className="relative aspect-[2/1] rounded-lg overflow-hidden border border-gray-800 bg-gray-900 flex items-center justify-center">
-              <p className="text-white/50 text-lg font-semibold uppercase tracking-widest">
-                Próximamente
-              </p>
+          {/* Foto de la banda (4032x2268, 16:9) - mostrada completa sin recorte */}
+          <div className="mt-12 w-full max-w-5xl mx-auto">
+            <div className="relative aspect-video rounded-lg overflow-hidden border border-gray-800 bg-gray-900">
+              <Image
+                src="https://res.cloudinary.com/dzuug3ahf/image/upload/v1773963792/WhatsApp_Image_2026-03-19_at_20.25.35_1_uamnte.jpg"
+                alt="Kaos Ekaitza - La banda"
+                fill
+                className="object-contain"
+                sizes="(max-width: 1024px) 100vw, 896px"
+                priority
+              />
               <div className="absolute bottom-0 left-0 right-0 h-2 ska-stripes-horizontal opacity-80" />
             </div>
           </div>
