@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Metadata } from "next";
 import HeroSection from "@/components/HeroSection";
+import BandPhotoSection from "@/components/BandPhotoSection";
 import LatestMusic from "@/components/LatestMusic";
 import PhilosophySection from "@/components/PhilosophySection";
 import { getLatestSongs } from "@/lib/database";
@@ -44,6 +45,9 @@ export default async function Home() {
     <div className="min-h-screen bg-black">
       {/* Hero Section */}
       <HeroSection />
+
+      {/* Foto de la banda */}
+      <BandPhotoSection />
 
       {/* Latest Music */}
       <LatestMusic songs={latestSongs} />

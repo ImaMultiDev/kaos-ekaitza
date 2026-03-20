@@ -35,7 +35,7 @@ const HeroSection = () => {
           2026 · La tormenta en la calle
         </div>
 
-        {/* Logo circular (nuevo logo, misma ruta) */}
+        {/* Logo circular */}
         <div className="mb-8 flex justify-center">
           <div className="w-32 h-32 bg-red-600 rounded-full flex items-center justify-center ska-bounce shadow-2xl overflow-hidden">
             <Image

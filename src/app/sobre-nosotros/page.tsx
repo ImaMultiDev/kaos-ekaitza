@@ -233,7 +233,6 @@ export default function SobreNosotrosPage() {
                 sizes="(max-width: 1024px) 100vw, 896px"
                 priority
               />
-              <div className="absolute bottom-0 left-0 right-0 h-2 ska-stripes-horizontal opacity-80" />
             </div>
           </div>
         </div>
