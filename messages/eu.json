@@ -1,8 +1,8 @@
 {
   "RootMeta": {
-    "titleDefault": "Kaos Ekaitza — Ska-punk antifascista | Musik kontzientea",
+    "titleDefault": "Kaos Ekaitza — NAFARROA | Musik kontzientea",
     "description": "Ska-punk musika kanala, erresistentzia baketsa eta justizia soziala sustatzen dituena. Entzun kontzientziadun musika, mundu justuago baten alde.",
-    "ogTitle": "Kaos Ekaitza — Ska-punk antifascista | Musik kontzientea",
+    "ogTitle": "Kaos Ekaitza — NAFARROA | Musik kontzientea",
     "ogDescription": "Kontzientziadun musika, erresistentzia baketsa eta justizia soziala Nafarroatik."
   },
   "Nav": {
@@ -17,10 +17,10 @@
     "languageLabel": "Hizkuntza",
     "socialLabel": "Sareak",
     "ekaitzarenBegiaAria": "Ekaitzaren Begia — gure sare guztiak",
-    "brandTagline": "Ska-punk · Antifaxista"
+    "brandTagline": "NAFARROA"
   },
   "Footer": {
-    "tagline": "SKA-PUNK ANTIFASCISTA",
+    "tagline": "NAFARROA",
     "blurb": "Musik kontzientea eta gizarte aldaketa. Erresistentzia baketsa, justizia soziala eta antifaxismoa sustatzen ditugu ska-punk bidez. Musika baturik, mundu justuago baten alde egiten dugu.",
     "peace": "Bakea",
     "resistance": "Erresistentzia",
@@ -48,14 +48,12 @@
     "knowBand": "Ezagutu taldea"
   },
   "Home": {
-    "evolution": "Eboluzioa",
-    "evo1": "2025 → Hasierako proiektua (20 abesti)",
-    "evo2": "2026 → Taldea martxan Nafarroan",
-    "knowProject": "Ezagutu proiektua",
+    "upcomingEvents": "HURRENGO EKITALDIAK",
+    "eventsNewsSoon": "Berriak laster",
     "ctaTitle": "Parte hartu ekaitzan.",
-    "ctaSubtitle": "Entzun, ezagutu, lagundu edo babestu. Lau urrats argi batzeko.",
+    "ctaSubtitle": "Entzun, ezagutu, lagundu edo babestu. Hiru urrats argi batzeko.",
     "listen": "Entzun",
-    "knowProjectBtn": "Ezagutu proiektua",
+    "knowBandBtn": "Ezagutu taldea",
     "contact": "Kontaktua"
   },
   "BandPhoto": {
@@ -63,6 +61,21 @@
     "title": "Kaos Ekaitza",
     "knowBand": "Ezagutu taldea",
     "alt": "Kaos Ekaitza — taldea"
+  },
+  "Booking": {
+    "eyebrow": "Kontratazioak",
+    "subtitle": "Jaialdietan, aretoetan eta kultura edo elkartasun ekitaldietan jotzen dugu, inklusio, justizia sozial eta kultura askearen balioekin bat etorriz. Datakoordinazioa, rider arinak eta behar teknikoak argitasunez kudeatzen ditugu.",
+    "availabilityNote": "Abuztutik aurrera",
+    "contactsTitle": "Zuzeneko kontaktua",
+    "contactPhone": "689 18 17 20 (Imanol)",
+    "contactPhoneHref": "tel:+34689181720",
+    "contactEmail": "contact@kaosekaitza.com",
+    "cta": "Eskatu kontratazioa",
+    "ctaSecondary": "Ezagutu taldea",
+    "areaNote": "Nafarroan oinarrituta — desplazamenduak kontsultagarri",
+    "hint": "Idatz iezaguzu data, hiria eta ekitaldi mota. Ahalik eta laster erantzuten dugu.",
+    "cardTitle": "Data edo ideia bat al duzu?",
+    "cardBody": "Adierazi zer bilatzen duzun eta erabilgarritasuna eta baldintzak zuzenean erantzungo dizkizugu."
   },
   "LatestMusic": {
     "titlePart1": "Azken",
@@ -83,7 +96,6 @@
   "Philosophy": {
     "titlePart1": "Gure",
     "titlePart2": "Filosofia",
-    "intro": "Musika baino gehiago, mugimendu gara. Ska-punkaren ahalmen eraldatzailean sinesten dugu, mundu justuago, inklusiboago eta faxismotik librerago eraikitzeko.",
     "p1Title": "Erresistentzia baketsa",
     "p1Desc": "Indarkeriarik gabeko erresistentzia gizarte aldaketarako modutzat dugun sinesten dugu. Musika da injustiziaren aurkako gure ezkutua.",
     "p2Title": "Inklusio eta aniztasuna",
@@ -98,21 +110,24 @@
   "Contact": {
     "metaTitle": "Kontaktua — Kaos Ekaitza | Ska-punk komunitatea",
     "metaDesc": "Jarri harremanetan Kaos Ekaitzarekin: elkarlan, galdera edo agurrak. Ska-punk komunitate antifascista.",
-    "title": "Kontaktua",
+    "title": "KONTAKTUA",
     "hero": "Galderarik? Proposamena? Elkarlanean aritu nahi? Agur esan nahi? Atsegin diezaiguke gure komunitatearekin konektatzea.",
     "formTitle": "Bidali iezaguzu",
     "formTitleAccent": "Mezu bat",
     "formIntro": "Betetu inprimakia eta ahalik eta lasterren erantzungo dizugu. Kontsulta guztiak garrantzitsuak dira guretzat.",
     "otherTitle": "Beste kontaktu",
     "otherTitleAccent": "Modu batzuk",
-    "socialTitle": "Jarraitu sare sozialetan",
-    "emailCardTitle": "Emaila",
-    "emailCardDesc": "Elkarlan, galdera edo edozein kontsultarako",
+    "phoneCardTitle": "Telefonoa",
+    "phoneCardDesc": "Kontratazioak eta kontsultak — Imanol",
+    "contactPhone": "689 18 17 20 (Imanol)",
+    "contactPhoneHref": "tel:+34689181720",
+    "contactEmail": "contact@kaosekaitza.com",
+    "emailCardTitle": "Posta elektronikoa",
+    "emailCardDesc": "Elkarlan, prentsa edo edozein kontsulta",
     "locationTitle": "Kokapena",
     "locationInfo": "Nafarroa",
     "locationDesc": "Ekaitzak ez ditu mugarik ulertzen",
-    "bookingTitle": "Kontratazioa",
-    "bookingDesc": "tfno. 689 18 17 20"
+    "directContactLabel": "Zuzeneko kontaktua"
   },
   "ContactForm": {
     "name": "Izena",
@@ -136,7 +151,6 @@
     "successTitle": "Mezua bidalita!",
     "successText": "Eskerrik asko kontaktatzeagatik. Mezua jaso dugu eta laster erantzungo dizugu.",
     "sendAnother": "Bidali beste mezu bat",
-    "prefersEmail": "Zuzenean idatzi nahi? Bidali email bat hona:",
     "errName": "Izena derrigorrezkoa da",
     "errEmailRequired": "Emaila derrigorrezkoa da",
     "errEmailInvalid": "Emaila ez da baliozkoa",
@@ -193,6 +207,7 @@
   "Sobre": {
     "metaTitle": "Guri buruz — Kaos Ekaitza | Taldea",
     "metaDesc": "Ezagutu Kaos Ekaitza: Nafarroako ska-punk talde antifascista. Kideak, espiritua eta mezua.",
+    "pageTitle": "Guri buruz",
     "heroEyebrow": "Guri buruz",
     "heroP1": "Kaos Ekaitza kaletik sortzen da, zarataretik eta askok pentsatu eta gutxik oihukatzen dutena esateko beharretik. Punk arimako proiektu musikala da, poétikoa ere, non haserre eta sentikortasuna elkarrekin doazen.",
     "heroP2": "Ideia bat izatetik talde erreal bihurtu da, Nafarroako hainbat lekutako jendeak osatua, barneko ekaitza bera eta ikuspegi bera partekatzen dutenak: herriaren ahotsa defendatzea, sortzen dena kontatzea — eta askotan ez dena kontatzen—, eta hori iragazkirik gabe egitea.",
@@ -220,9 +235,9 @@
     }
   },
   "AlbumList": {
-    "metaTitle": "Diskografia — Kaos Ekaitza | Ska-punk antifascista",
+    "metaTitle": "Diskografia — Kaos Ekaitza | NAFARROA",
     "metaDesc": "Kaos Ekaitzaren diskografia osoa: mezu sozial eta erresistentzia baketsa.",
-    "title": "Gure diskografia",
+    "title": "DISKOGRAFIA",
     "subtitle": "Album bakoitza erresistentziaren adierazpen bat da. Abesti bakoitza, itxaropenaren oihu bat. Ezagutu gure diskografia osoa, mezu sozialez betea.",
     "spotify": "Entzun Spotifyn",
     "youtube": "Ikusi YouTuben",
@@ -238,7 +253,8 @@
     "listenSpotify": "Entzun Spotifyn",
     "watchYoutube": "Ikusi YouTuben",
     "listenHere": "Entzun albuma hemen",
-    "iframeTitle": "{title} erreproduzigailua"
+    "iframeTitle": "{title} erreproduzigailua",
+    "tracksSectionTitle": "Abestiak"
   },
   "AlbumGrid": {
     "titlePart1": "Gure",

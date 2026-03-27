@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { getAlbumBySlug, getAlbums, generateAlbumSlug } from "@/lib/database";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import { ArrowLeft, ExternalLink, Calendar, Music } from "lucide-react";
+import { ArrowLeft, Calendar, Music, Youtube } from "lucide-react";
 import { notFound } from "next/navigation";
 import AlbumMusicGrid from "@/components/AlbumMusicGrid";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -36,7 +36,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${album.title} - Kaos Ekaitza | Ska-Punk Antifascista`,
+    title: `${album.title} - Kaos Ekaitza | NAFARROA`,
     description:
       album.description ||
       `Descubre ${album.title}, álbum de Kaos Ekaitza con ${album.songs.length} canciones de ska-punk antifascista.`,
@@ -89,12 +89,12 @@ export default async function AlbumDetailPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-black">
-      <section className="relative py-20 bg-gradient-punk overflow-hidden">
+      <section className="relative py-8 md:py-20 bg-gradient-punk overflow-hidden">
         {album.coverImage && (
-          <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 opacity-20 hidden md:block" aria-hidden>
             <Image
               src={album.coverImage}
-              alt={album.title}
+              alt=""
               fill
               className="object-cover"
               sizes="100vw"
@@ -102,27 +102,27 @@ export default async function AlbumDetailPage({ params }: PageProps) {
             />
           </div>
         )}
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/55 md:bg-black/60" aria-hidden />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           <Link
             href="/album"
-            className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-8 transition-colors"
+            className="hidden md:inline-flex items-center gap-2 text-white/85 hover:text-white mb-4 md:mb-8 text-sm md:text-base transition-colors"
           >
-            <ArrowLeft className="w-5 h-5" />
+            <ArrowLeft className="w-4 h-4 md:w-5 md:h-5 shrink-0" />
             <span>{t("back")}</span>
           </Link>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-center">
-            <div className="md:col-span-1 flex justify-center md:justify-start">
-              <div className="relative aspect-square bg-gray-900 border border-gray-800 rounded-lg overflow-hidden shadow-2xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 md:items-center min-w-0">
+            <div className="md:col-span-1 flex justify-center md:justify-start min-w-0 w-full">
+              <div className="relative w-full h-[min(72vw,20rem)] min-h-[17rem] sm:min-h-[19rem] md:h-96 md:min-h-0 rounded-2xl md:rounded-lg overflow-hidden border border-zinc-700/90 md:border-gray-800 shadow-[0_20px_55px_rgba(0,0,0,0.55)] md:shadow-2xl bg-gradient-punk ring-1 ring-red-600/25 md:ring-0">
                 {album.coverImage ? (
                   <Image
                     src={album.coverImage}
                     alt={album.title}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="(max-width: 768px) 96vw, 33vw"
                     priority
                   />
                 ) : (
@@ -133,20 +133,20 @@ export default async function AlbumDetailPage({ params }: PageProps) {
               </div>
             </div>
 
-            <div className="md:col-span-2 text-white text-center md:text-left">
-              <h1 className="text-4xl md:text-6xl font-black text-white mb-4">
+            <div className="md:col-span-2 text-white text-center md:text-left min-w-0">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-3 md:mb-4 leading-tight tracking-tight">
                 {album.title}
               </h1>
 
-              <div className="flex flex-wrap items-center justify-center md:justify-start gap-6 mb-6 text-white/80 text-sm">
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2 mb-5 md:mb-6 text-white/85 md:text-white/80 text-xs sm:text-sm">
                 <div className="flex items-center gap-2">
-                  <Music className="w-5 h-5" />
+                  <Music className="w-4 h-4 md:w-5 md:h-5 shrink-0" />
                   <span className="font-semibold">
                     {t("songsCount", { count: album.songs.length })}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Calendar className="w-5 h-5" />
+                  <Calendar className="w-4 h-4 md:w-5 md:h-5 shrink-0" />
                   <span>
                     {new Date(album.releaseDate).toLocaleDateString(
                       locale === "eu" ? "eu-ES" : "es-ES",
@@ -161,18 +161,18 @@ export default async function AlbumDetailPage({ params }: PageProps) {
               </div>
 
               {album.description && (
-                <p className="text-lg text-white/90 leading-relaxed mb-8 max-w-2xl mx-auto md:mx-0">
+                <p className="hidden md:block text-lg text-white/90 leading-relaxed mb-6 md:mb-8 max-w-2xl mx-auto md:mx-0">
                   {album.description}
                 </p>
               )}
 
-              <div className="flex flex-wrap justify-center md:justify-start gap-4">
+              <div className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-3 md:gap-4">
                 {album.spotifyUrl && (
                   <a
                     href={album.spotifyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#1DB954] hover:bg-[#1ed760] text-white font-bold rounded-lg transition-colors"
+                    className="inline-flex w-full sm:w-auto min-h-[48px] justify-center items-center gap-2 px-6 py-3 bg-[#1DB954] hover:bg-[#1ed760] active:scale-[0.98] text-white font-bold rounded-xl md:rounded-lg transition-all"
                   >
                     <svg
                       className="w-5 h-5"
@@ -189,9 +189,9 @@ export default async function AlbumDetailPage({ params }: PageProps) {
                     href={album.youtubeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors"
+                    className="inline-flex w-full sm:w-auto min-h-[48px] justify-center items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 active:scale-[0.98] text-white font-bold rounded-xl md:rounded-lg transition-all"
                   >
-                    <ExternalLink className="w-5 h-5" />
+                    <Youtube className="w-5 h-5 shrink-0" aria-hidden />
                     {t("watchYoutube")}
                   </a>
                 )}
@@ -202,12 +202,12 @@ export default async function AlbumDetailPage({ params }: PageProps) {
       </section>
 
       {embedUrl && (
-        <section className="bg-black py-10 border-b border-gray-900">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 className="text-2xl font-black text-white mb-4">
+        <section className="bg-black py-5 md:py-10 border-b border-gray-900">
+          <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+            <h3 className="text-center text-lg sm:text-xl md:text-2xl font-black text-white mb-3 md:mb-4">
               {t("listenHere")}
             </h3>
-            <div className="relative aspect-video rounded-lg overflow-hidden border border-gray-800 bg-gray-900">
+            <div className="relative aspect-video rounded-xl md:rounded-lg overflow-hidden border border-zinc-800 bg-gray-900 ring-1 ring-red-600/10 md:ring-0 shadow-lg md:shadow-none">
               <iframe
                 src={`${embedUrl}&rel=0`}
                 title={t("iframeTitle", { title: album.title })}
@@ -220,9 +220,11 @@ export default async function AlbumDetailPage({ params }: PageProps) {
         </section>
       )}
 
-      <section className="py-10 md:py-16 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-6 md:py-16 bg-black">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           <AlbumMusicGrid
+            compact
+            tracksSectionTitle={t("tracksSectionTitle")}
             songs={album.songs.map((song) => ({
               ...song,
               album: {

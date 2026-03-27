@@ -1,8 +1,8 @@
 {
   "RootMeta": {
-    "titleDefault": "Kaos Ekaitza - Ska-Punk Antifascista | Música Consciente",
+    "titleDefault": "Kaos Ekaitza - NAFARROA | Música Consciente",
     "description": "Canal musical ska-punk antifascista que promueve la resistencia pacífica y la justicia social. Escucha música consciente por un mundo más justo.",
-    "ogTitle": "Kaos Ekaitza - Ska-Punk Antifascista | Música Consciente",
+    "ogTitle": "Kaos Ekaitza - NAFARROA | Música Consciente",
     "ogDescription": "Música consciente, resistencia pacífica y justicia social desde Nafarroa."
   },
   "Nav": {
@@ -17,10 +17,10 @@
     "languageLabel": "Idioma",
     "socialLabel": "Redes",
     "ekaitzarenBegiaAria": "Ekaitzaren Begia — todas nuestras redes",
-    "brandTagline": "Ska-punk · Antifascista"
+    "brandTagline": "NAFARROA"
   },
   "Footer": {
-    "tagline": "SKA-PUNK ANTIFASCISTA",
+    "tagline": "NAFARROA",
     "blurb": "Música consciente y cambio social. Promovemos la resistencia pacífica, la justicia social y el antifascismo a través del ska-punk. Unidos por la música, luchamos por un mundo más justo.",
     "peace": "Paz",
     "resistance": "Resistencia",
@@ -48,14 +48,12 @@
     "knowBand": "Conocer la banda"
   },
   "Home": {
-    "evolution": "Evolución",
-    "evo1": "2025 → Proyecto inicial (20 temas)",
-    "evo2": "2026 → Banda en marcha en Navarra",
-    "knowProject": "Conocer el proyecto",
+    "upcomingEvents": "PRÓXIMOS EVENTOS",
+    "eventsNewsSoon": "Noticias muy pronto",
     "ctaTitle": "Participa en la tormenta.",
-    "ctaSubtitle": "Escucha, conoce, colabora o apoya. Cuatro pasos claros para sumar.",
+    "ctaSubtitle": "Escucha, conoce, colabora o apoya. Tres pasos claros para sumar.",
     "listen": "Escuchar",
-    "knowProjectBtn": "Conocer el proyecto",
+    "knowBandBtn": "Conoce la banda",
     "contact": "Contactar"
   },
   "BandPhoto": {
@@ -63,6 +61,21 @@
     "title": "Kaos Ekaitza",
     "knowBand": "Conocer a la banda",
     "alt": "Kaos Ekaitza — la banda"
+  },
+  "Booking": {
+    "eyebrow": "CONTRATACIONES",
+    "subtitle": "Actuamos en festivales, salas y eventos que comparten valores de inclusión, justicia social y cultura libre. Coordinamos fechas, riders básicos y necesidades técnicas con transparencia.",
+    "availabilityNote": "A partir de agosto",
+    "contactsTitle": "Contacto directo",
+    "contactPhone": "689 18 17 20 (Imanol)",
+    "contactPhoneHref": "tel:+34689181720",
+    "contactEmail": "contact@kaosekaitza.com",
+    "cta": "Solicitar contratación",
+    "ctaSecondary": "Conocer la banda",
+    "areaNote": "Base en Navarra — desplazamientos consultables",
+    "hint": "Escríbenos con fecha, ciudad y tipo de evento. Respondemos lo antes posible.",
+    "cardTitle": "¿Tienes fecha o idea?",
+    "cardBody": "Cuéntanos qué buscas y te devolvemos disponibilidad y condiciones sin rodeos."
   },
   "LatestMusic": {
     "titlePart1": "Última",
@@ -83,7 +96,6 @@
   "Philosophy": {
     "titlePart1": "Nuestra",
     "titlePart2": "Filosofía",
-    "intro": "Más que música, somos un movimiento. Creemos en el poder transformador del ska-punk para construir un mundo más justo, inclusivo y libre de fascismo.",
     "p1Title": "Resistencia pacífica",
     "p1Desc": "Creemos en la resistencia no violenta como forma de cambio social. La música es nuestro escudo contra la injusticia.",
     "p2Title": "Inclusión y diversidad",
@@ -98,21 +110,24 @@
   "Contact": {
     "metaTitle": "Contacto — Kaos Ekaitza | Comunidad ska-punk",
     "metaDesc": "Ponte en contacto con Kaos Ekaitza: colaboraciones, preguntas o saludos. Comunidad ska-punk antifascista.",
-    "title": "Contacto",
+    "title": "CONTACTO",
     "hero": "¿Tienes una consulta? ¿Una propuesta? ¿Quieres colaborar? ¿Solo saludar? Nos encanta conectar con nuestra comunidad.",
     "formTitle": "Envíanos un",
     "formTitleAccent": "Mensaje",
     "formIntro": "Completa el formulario y nos pondremos en contacto contigo lo antes posible. Todas las consultas son importantes para nosotros.",
     "otherTitle": "Otras formas de",
     "otherTitleAccent": "Contactar",
-    "socialTitle": "Síguenos en redes sociales",
-    "emailCardTitle": "Email",
-    "emailCardDesc": "Para colaboraciones, preguntas o cualquier consulta",
+    "phoneCardTitle": "Teléfono",
+    "phoneCardDesc": "Contrataciones y consultas — Imanol",
+    "contactPhone": "689 18 17 20 (Imanol)",
+    "contactPhoneHref": "tel:+34689181720",
+    "contactEmail": "contact@kaosekaitza.com",
+    "emailCardTitle": "Correo",
+    "emailCardDesc": "Colaboraciones, prensa o cualquier consulta",
     "locationTitle": "Ubicación",
     "locationInfo": "Nafarroa",
     "locationDesc": "La tormenta no entiende de fronteras",
-    "bookingTitle": "Contratación",
-    "bookingDesc": "tfno. 689 18 17 20"
+    "directContactLabel": "Contacto directo"
   },
   "ContactForm": {
     "name": "Nombre",
@@ -136,7 +151,6 @@
     "successTitle": "¡Mensaje enviado!",
     "successText": "Gracias por contactarnos. Hemos recibido tu mensaje y te responderemos lo antes posible.",
     "sendAnother": "Enviar otro mensaje",
-    "prefersEmail": "¿Prefieres escribirnos directamente? Envía un email a",
     "errName": "El nombre es obligatorio",
     "errEmailRequired": "El email es obligatorio",
     "errEmailInvalid": "El email no es válido",
@@ -193,6 +207,7 @@
   "Sobre": {
     "metaTitle": "Conócenos — Kaos Ekaitza | La banda",
     "metaDesc": "Conoce a Kaos Ekaitza: banda ska-punk antifascista de Nafarroa. Integrantes, espíritu y mensaje.",
+    "pageTitle": "CONÓCENOS",
     "heroEyebrow": "Conócenos",
     "heroP1": "Kaos Ekaitza nace desde la calle, desde el ruido y la necesidad de decir lo que muchos piensan y pocos gritan. Es un proyecto musical con espíritu punk y también poético, donde la rabia y la sensibilidad caminan juntas.",
     "heroP2": "Lo que empezó como una idea se ha convertido en una banda real, formada por personas de distintos puntos de Nafarroa, unidas por una misma tormenta interior y la misma visión: defender la voz del pueblo, contar lo que se vive y no se suele contar, y hacerlo sin filtros.",
@@ -220,9 +235,9 @@
     }
   },
   "AlbumList": {
-    "metaTitle": "Discografía — Kaos Ekaitza | Ska-punk antifascista",
+    "metaTitle": "Discografía — Kaos Ekaitza | NAFARROA",
     "metaDesc": "Toda la discografía de Kaos Ekaitza: álbumes con mensaje social y resistencia pacífica.",
-    "title": "Nuestra discografía",
+    "title": "DISCOGRAFÍA",
     "subtitle": "Cada álbum es una declaración de resistencia. Cada canción, un grito de esperanza. Descubre nuestra discografía completa cargada de mensaje social.",
     "spotify": "Escuchar en Spotify",
     "youtube": "Ver en YouTube",
@@ -238,7 +253,8 @@
     "listenSpotify": "Escuchar en Spotify",
     "watchYoutube": "Ver en YouTube",
     "listenHere": "Escucha el álbum aquí",
-    "iframeTitle": "Reproductor de {title}"
+    "iframeTitle": "Reproductor de {title}",
+    "tracksSectionTitle": "Canciones"
   },
   "AlbumGrid": {
     "titlePart1": "Nuestra",

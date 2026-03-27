@@ -9,6 +9,9 @@ import { formatDate } from "@/lib/utils";
 
 interface AlbumMusicGridProps {
   songs?: Awaited<ReturnType<typeof getSongs>>;
+  /** Página de un solo álbum: oculta cabecera discografía, estadísticas y CTA */
+  compact?: boolean;
+  tracksSectionTitle?: string;
 }
 
 interface SongItem {
@@ -24,7 +27,11 @@ interface SongItem {
   image: string;
 }
 
-const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
+const AlbumMusicGrid = ({
+  songs = [],
+  compact = false,
+  tracksSectionTitle,
+}: AlbumMusicGridProps) => {
   const t = useTranslations("AlbumGrid");
   const locale = useLocale();
   const [selectedSong, setSelectedSong] = useState<SongItem | null>(null);
@@ -62,22 +69,28 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
 
   return (
     <>
-      <section className="pt-4 pb-12 md:pt-16 md:pb-20 bg-black">
+      <section
+        className={
+          compact
+            ? "pt-0 pb-10 md:pt-8 md:pb-20 bg-black"
+            : "pt-4 pb-12 md:pt-16 md:pb-20 bg-black"
+        }
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
-          <div className="text-center mb-8 md:mb-16">
-            <div className="ska-stripes-horizontal h-2 w-32 mx-auto mb-6 rounded"></div>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-              {t("titlePart1")}{" "}
-              <span className="text-red-500">{t("titlePart2")}</span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              {t("subtitle")}
-            </p>
-          </div>
+          {!compact && (
+            <>
+              <div className="text-center mb-8 md:mb-16">
+                <div className="ska-stripes-horizontal h-2 w-32 mx-auto mb-6 rounded"></div>
+                <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+                  {t("titlePart1")}{" "}
+                  <span className="text-red-500">{t("titlePart2")}</span>
+                </h2>
+                <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                  {t("subtitle")}
+                </p>
+              </div>
 
-          {/* Estadísticas */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 md:mb-12">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 md:mb-12">
             <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 text-center">
               <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Music className="w-8 h-8 text-white" />
@@ -111,41 +124,65 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
               </h3>
               <p className="text-gray-400">{t("minutesMusic")}</p>
             </div>
-          </div>
+              </div>
+            </>
+          )}
+
+          {compact && tracksSectionTitle && (
+            <div className="mb-5 md:hidden text-center">
+              <div className="ska-stripes-horizontal h-1 w-20 mx-auto rounded opacity-90 mb-3" />
+              <p className="text-lg sm:text-xl font-black text-white uppercase tracking-wide">
+                {tracksSectionTitle}
+              </p>
+            </div>
+          )}
 
           {/* Lista de canciones organizadas por álbum */}
-          <div className="space-y-12">
+          <div className={compact ? "space-y-5 md:space-y-12" : "space-y-12"}>
             {Object.values(songsByAlbum).map((albumGroup) => (
               <div
                 key={albumGroup.albumId}
-                className="bg-gray-900 border border-gray-800 rounded-lg p-6"
+                className={
+                  compact
+                    ? "max-md:bg-transparent max-md:border-0 max-md:p-0 max-md:shadow-none md:bg-gray-900 md:border md:border-gray-800 md:rounded-lg md:p-6"
+                    : "bg-gray-900 border border-gray-800 rounded-lg p-6"
+                }
               >
-                {/* Header del álbum */}
-                <div className="flex items-center gap-4 mb-6 pb-4 border-b border-gray-700">
-                  <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
-                    <Album className="w-6 h-6 text-white" />
+                {!compact && (
+                  <div className="flex items-center gap-4 mb-6 pb-4 border-b border-gray-700">
+                    <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
+                      <Album className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white">
+                        {albumGroup.albumTitle}
+                      </h3>
+                      <p className="text-gray-400">
+                        {t("albumSongCount", { count: albumGroup.songs.length })}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-white">
-                      {albumGroup.albumTitle}
-                    </h3>
-                    <p className="text-gray-400">
-                      {t("albumSongCount", { count: albumGroup.songs.length })}
-                    </p>
-                  </div>
-                </div>
+                )}
 
-                {/* Grid de canciones del álbum */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div
+                  className={
+                    compact
+                      ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4"
+                      : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+                  }
+                >
                   {albumGroup.songs.map((song) => (
                     <div
                       key={song.id}
-                      className="bg-black border border-gray-700 rounded-lg overflow-hidden punk-hover group flex flex-col cursor-pointer"
+                      className={
+                        compact
+                          ? "bg-zinc-950 border border-zinc-800/90 md:border-gray-700 rounded-2xl md:rounded-lg overflow-hidden punk-hover group flex flex-col cursor-pointer shadow-[0_12px_40px_rgba(0,0,0,0.35)] md:shadow-none ring-1 ring-red-600/10 md:ring-0 max-md:active:scale-[0.99]"
+                          : "bg-black border border-gray-700 rounded-lg overflow-hidden punk-hover group flex flex-col cursor-pointer"
+                      }
                       onClick={() => openSongModal(song)}
                     >
-                      {/* Imagen de la canción */}
                       {song.image && (
-                        <div className="h-32 relative overflow-hidden">
+                        <div className="h-28 md:h-32 relative overflow-hidden">
                           <Image
                             src={song.image}
                             alt={song.title}
@@ -157,9 +194,14 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
                         </div>
                       )}
 
-                      <div className="p-4 flex flex-col flex-1">
-                        {/* Título */}
-                        <h4 className="text-lg font-bold text-white group-hover:text-red-400 transition-colors duration-300 mb-3">
+                      <div
+                        className={
+                          compact
+                            ? "p-3 sm:p-4 flex flex-col flex-1"
+                            : "p-4 flex flex-col flex-1"
+                        }
+                      >
+                        <h4 className="text-base md:text-lg font-bold text-white group-hover:text-red-400 transition-colors duration-300 mb-2 md:mb-3 leading-snug">
                           {song.title}
                         </h4>
 
@@ -225,36 +267,37 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
             ))}
           </div>
 
-          {/* Call to action */}
-          <div className="text-center mt-16">
-            <div className="ska-stripes h-2 w-48 mx-auto mb-8 rounded"></div>
-            <h3 className="text-2xl font-bold text-white mb-4">
-              {t("ctaTitle")}
-            </h3>
-            <p className="text-gray-300 mb-6">{t("ctaSubtitle")}</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href="https://open.spotify.com/intl-es/artist/1reWo4KzVQLgqOwNXrVgr4"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#1DB954] hover:bg-[#1ed760] text-white font-bold rounded-lg transition-colors"
-              >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
-                </svg>
-                <span>{t("spotifyListen")}</span>
-              </a>
-              <a
-                href="https://www.youtube.com/@KaosEkaitza"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-punk inline-flex items-center gap-2"
-              >
-                <Play className="w-5 h-5" />
-                <span>{t("youtubeWatch")}</span>
-              </a>
+          {!compact && (
+            <div className="text-center mt-16">
+              <div className="ska-stripes h-2 w-48 mx-auto mb-8 rounded"></div>
+              <h3 className="text-2xl font-bold text-white mb-4">
+                {t("ctaTitle")}
+              </h3>
+              <p className="text-gray-300 mb-6">{t("ctaSubtitle")}</p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <a
+                  href="https://open.spotify.com/intl-es/artist/1reWo4KzVQLgqOwNXrVgr4"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#1DB954] hover:bg-[#1ed760] text-white font-bold rounded-lg transition-colors"
+                >
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                  </svg>
+                  <span>{t("spotifyListen")}</span>
+                </a>
+                <a
+                  href="https://www.youtube.com/@KaosEkaitza"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-punk inline-flex items-center gap-2"
+                >
+                  <Play className="w-5 h-5" />
+                  <span>{t("youtubeWatch")}</span>
+                </a>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
 

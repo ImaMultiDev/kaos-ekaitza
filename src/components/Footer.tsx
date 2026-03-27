@@ -1,7 +1,12 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { Music, Heart, Shield, Users } from "lucide-react";
+import { Heart, Shield, Users } from "lucide-react";
+import {
+  NavIconFlash,
+  NavIconMail,
+  NavIconMusic,
+} from "@/components/nav/NavbarSketchIcons";
 
 export default async function Footer() {
   const t = await getTranslations("Footer");
@@ -9,7 +14,7 @@ export default async function Footer() {
 
   return (
     <>
-      <div className="ska-stripes-horizontal h-1 w-full"></div>
+      <div className="ska-stripes-horizontal h-px md:h-1 w-full" aria-hidden />
 
       <footer className="bg-black border-t-2 border-red-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -32,8 +37,10 @@ export default async function Footer() {
                   </p>
                 </div>
               </div>
-              <p className="text-gray-300 mb-4 leading-relaxed">{t("blurb")}</p>
-              <div className="flex items-center space-x-4 text-sm text-red-500 flex-wrap gap-y-2">
+              <p className="hidden md:block text-gray-300 mb-4 leading-relaxed">
+                {t("blurb")}
+              </p>
+              <div className="hidden md:flex items-center space-x-4 text-sm text-red-500 flex-wrap gap-y-2">
                 <div className="flex items-center space-x-1">
                   <Heart className="w-4 h-4" />
                   <span>{t("peace")}</span>
@@ -49,7 +56,7 @@ export default async function Footer() {
               </div>
             </div>
 
-            <div>
+            <div className="hidden md:block">
               <h3 className="text-white font-bold text-lg mb-4">
                 {t("quickLinks")}
               </h3>
@@ -57,52 +64,38 @@ export default async function Footer() {
                 <li>
                   <Link
                     href="/album"
-                    className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center"
+                    className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center [&_svg]:block"
                   >
-                    <Music className="w-4 h-4 mr-2" /> {t("discography")}
+                    <NavIconMusic className="w-[18px] h-[18px] mr-2 shrink-0" />{" "}
+                    {t("discography")}
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/sobre-nosotros"
-                    className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center"
+                    className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center [&_svg]:block"
                   >
-                    <Heart className="w-4 h-4 mr-2" /> {t("aboutUs")}
+                    <NavIconFlash className="w-[18px] h-[18px] mr-2 shrink-0" />{" "}
+                    {t("aboutUs")}
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/contacto"
-                    className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center"
+                    className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center [&_svg]:block"
                   >
-                    <Users className="w-4 h-4 mr-2" /> {t("contact")}
+                    <NavIconMail className="w-[18px] h-[18px] mr-2 shrink-0" />{" "}
+                    {t("contact")}
                   </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-white font-bold text-lg mb-4">
-                {t("valuesTitle")}
-              </h3>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li className="flex items-center">
-                  <Shield className="w-4 h-4 mr-2 text-red-500" />{" "}
-                  {t("antifascism")}
-                </li>
-                <li className="flex items-center">
-                  <Heart className="w-4 h-4 mr-2 text-red-500" />{" "}
-                  {t("socialJustice")}
-                </li>
-                <li className="flex items-center">
-                  <Users className="w-4 h-4 mr-2 text-red-500" />{" "}
-                  {t("community")}
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="ska-stripes h-2 w-full my-8 rounded"></div>
+          <div
+            className="ska-stripes h-px md:h-2 w-full my-4 md:my-8 rounded"
+            aria-hidden
+          />
 
           <div className="mt-4 text-center">
             <p className="text-gray-500 text-xs">

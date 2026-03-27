@@ -37,7 +37,7 @@ export const socialConfig = {
   // Mensajes para compartir en redes sociales
   shareMessages: {
     default:
-      "🎵 Descubre la música consciente de Kaos Ekaitza - Ska-Punk Antifascista que lucha por la justicia social 🎵",
+      "🎵 Descubre la música consciente de Kaos Ekaitza - NAFARROA que lucha por la justicia social 🎵",
     music:
       "🎵 Nueva música de Kaos Ekaitza - Ska-Punk con mensaje social y resistencia pacífica 🎵",
     philosophy:

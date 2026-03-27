@@ -3,7 +3,7 @@ export const seoConfig = {
   site: {
     name: "Kaos Ekaitza",
     title:
-      "Kaos Ekaitza - Ska-Punk Antifascista | Música Consciente y Cambio Social",
+      "Kaos Ekaitza - NAFARROA | Música Consciente y Cambio Social",
     description:
       "Canal musical ska-punk antifascista que promueve la resistencia pacífica, justicia social y cambio positivo a través de la música consciente.",
     url: "https://kaosekaitza.com",
@@ -83,14 +83,14 @@ export const seoConfig = {
         url: "/logo-512.png",
         width: 512,
         height: 512,
-        alt: "Kaos Ekaitza - Logo Ska-Punk Antifascista",
+        alt: "Kaos Ekaitza - NAFARROA",
         type: "image/png",
       },
       {
         url: "/logo-192.png",
         width: 192,
         height: 192,
-        alt: "Kaos Ekaitza - Logo Ska-Punk Antifascista",
+        alt: "Kaos Ekaitza - NAFARROA",
         type: "image/png",
       },
     ],

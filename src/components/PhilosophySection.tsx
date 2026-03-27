@@ -34,7 +34,7 @@ const PhilosophySection = () => {
   ];
 
   return (
-    <section id="filosofia" className="py-20 bg-gray-900">
+    <section id="filosofia" className="hidden md:block py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="ska-stripes-horizontal h-2 w-32 mx-auto mb-6 rounded"></div>
@@ -42,9 +42,6 @@ const PhilosophySection = () => {
             {t("titlePart1")}{" "}
             <span className="text-red-500">{t("titlePart2")}</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            {t("intro")}
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">

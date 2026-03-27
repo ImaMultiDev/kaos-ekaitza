@@ -1,81 +1,44 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Play } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+
+const BAND_IMAGE =
+  "https://res.cloudinary.com/dzuug3ahf/image/upload/v1774606840/KaosEkaitza-2026c_rapkbz.png";
 
 const HeroSection = () => {
-  const t = useTranslations("Hero");
-  const [currentText, setCurrentText] = useState(0);
-
-  const revolutionTexts = [
-    t("rotating0"),
-    t("rotating1"),
-    t("rotating2"),
-    t("rotating3"),
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentText((prev) => (prev + 1) % revolutionTexts.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [revolutionTexts.length]);
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        <div className="ska-stripes h-full w-full transform -skew-y-12" />
-      </div>
-
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="inline-flex items-center px-4 py-2 mb-6 rounded-full bg-black/40 border border-white/10 text-white/80 text-xs uppercase tracking-[0.18em]">
-          {t("badge")}
-        </div>
-
-        <div className="mb-8 flex justify-center">
-          <div className="w-32 h-32 bg-red-600 rounded-full flex items-center justify-center ska-bounce shadow-2xl overflow-hidden">
+    <section className="relative w-full bg-black overflow-hidden max-md:pt-8">
+      {/* Móvil: contenido arriba (sin justify-end sobre min-h alto). Desktop: banda abajo del bloque alto como antes */}
+      <div className="relative flex w-full flex-col max-md:min-h-0 max-md:justify-start md:min-h-[80vh] lg:min-h-[85vh] md:justify-end">
+        {/* Logo: en móvil usa vh para subirlo bajo el navbar; en md+ % del contenedor */}
+        <div
+          className="pointer-events-none absolute left-1/2 z-0 w-[min(92vw,22rem)] -translate-x-1/2 -translate-y-1/2 sm:w-[min(88vw,26rem)] md:w-[min(52vw,30rem)] lg:w-[min(36rem,40vw)] max-md:top-[min(26vh,9.5rem)] sm:max-md:top-[min(28vh,10.25rem)] md:top-[38%] lg:top-[40%]"
+          aria-hidden
+        >
+          <div className="relative aspect-square overflow-hidden rounded-full bg-red-600 shadow-[0_24px_70px_rgba(0,0,0,0.65)] ring-2 ring-red-900/50">
             <Image
               src="/logo-512.png?v=2"
-              alt="Kaos Ekaitza Logo"
-              width={128}
-              height={128}
+              alt=""
+              fill
               className="object-cover"
               priority
+              sizes="(max-width: 768px) 92vw, 36rem"
             />
           </div>
         </div>
 
-        <h1 className="text-6xl md:text-8xl font-black text-white mb-6 tracking-tight">
-          <span className="block">KAOS</span>
-          <span className="block text-red-500">EKAITZA</span>
-        </h1>
-
-        <div className="h-16 mb-8 flex items-center justify-center">
-          <p className="text-2xl md:text-3xl text-white font-bold tracking-wide animate-pulse">
-            {revolutionTexts[currentText]}
-          </p>
-        </div>
-
-        <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed">
-          {t("intro")}{" "}
-          <span className="text-red-400 font-semibold">{t("introHighlight")}</span>
-        </p>
-
-        <div className="flex justify-center mb-16">
-          <Link
-            href="/album"
-            className="btn-punk flex items-center space-x-3 text-lg"
-          >
-            <Play className="w-6 h-6" />
-            <span>{t("listen")}</span>
-          </Link>
+        <div className="relative z-10 w-full leading-none max-md:pt-14 max-md:translate-y-6 md:translate-y-0 md:pt-6">
+          <Image
+            src={BAND_IMAGE}
+            alt="Kaos Ekaitza"
+            width={2400}
+            height={1350}
+            className="w-full h-auto block object-contain max-md:object-center md:object-bottom"
+            priority
+            sizes="100vw"
+          />
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 w-full h-4 ska-stripes-horizontal" />
+      <div className="h-1 w-full ska-stripes-horizontal shrink-0" aria-hidden />
     </section>
   );
 };
