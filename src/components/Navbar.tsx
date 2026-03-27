@@ -44,11 +44,18 @@ const socialLinks = [
 function SocialIcon({
   icon,
   compact,
+  comfortable,
 }: {
   icon: (typeof socialLinks)[number]["icon"];
   compact?: boolean;
+  /** Icono algo mayor (franja social móvil a ancho completo) */
+  comfortable?: boolean;
 }) {
-  const c = compact ? "w-[15px] h-[15px]" : "w-4 h-4 sm:w-[18px] sm:h-[18px]";
+  const c = comfortable
+    ? "w-5 h-5"
+    : compact
+      ? "w-[15px] h-[15px]"
+      : "w-4 h-4 sm:w-[18px] sm:h-[18px]";
   if (icon === "facebook") return <Facebook className={c} />;
   if (icon === "instagram") return <Instagram className={c} />;
   if (icon === "youtube") return <Youtube className={c} />;
@@ -65,11 +72,14 @@ function SocialIcon({
   );
 }
 
-/** Iconos-only, fila horizontal (navbar móvil cerrado) */
+/** Iconos-only: en móvil, cuadrícula a todo el ancho con huecos táctiles cómodos */
 function MobileBarSocialStrip({ t }: { t: (key: string) => string }) {
+  const cellClass =
+    "flex min-h-[48px] w-full min-w-0 items-center justify-center rounded-lg bg-zinc-900/90 border border-zinc-800 text-zinc-300 hover:text-red-400 hover:border-red-600/70 active:scale-[0.98] transition-all duration-200";
+
   return (
     <div
-      className="flex items-center justify-center gap-1 sm:gap-1.5 w-full min-w-0 px-1"
+      className="grid w-full min-w-0 grid-cols-6 gap-2"
       role="list"
       aria-label={t("socialLabel")}
     >
@@ -80,10 +90,10 @@ function MobileBarSocialStrip({ t }: { t: (key: string) => string }) {
           target="_blank"
           rel="noopener noreferrer"
           role="listitem"
-          className="shrink-0 w-10 h-10 rounded-lg bg-zinc-900/90 border border-zinc-800 flex items-center justify-center text-zinc-300 hover:text-red-400 hover:border-red-600/70 active:scale-95 transition-all duration-200"
+          className={cellClass}
           aria-label={social.name}
         >
-          <SocialIcon icon={social.icon} compact />
+          <SocialIcon icon={social.icon} comfortable />
         </a>
       ))}
       <a
@@ -91,10 +101,10 @@ function MobileBarSocialStrip({ t }: { t: (key: string) => string }) {
         target="_blank"
         rel="noopener noreferrer"
         role="listitem"
-        className="shrink-0 w-10 h-10 rounded-lg bg-zinc-900/90 border border-zinc-800 flex items-center justify-center text-zinc-300 hover:text-red-400 hover:border-red-600/70 active:scale-95 transition-all duration-200"
+        className={cellClass}
         aria-label={t("ekaitzarenBegiaAria")}
       >
-        <CloudLightning className="w-[15px] h-[15px]" />
+        <CloudLightning className="h-5 w-5 shrink-0" aria-hidden />
       </a>
     </div>
   );
@@ -262,10 +272,8 @@ const Navbar = () => {
               {isOpen ? <X className="w-6 h-6" strokeWidth={2.2} /> : <Menu className="w-6 h-6" strokeWidth={2.2} />}
             </button>
           </div>
-          <div className="px-2 pb-3.5 pt-1 border-t border-zinc-800/60">
-            <div className="max-w-lg mx-auto overflow-x-auto overflow-y-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-              <MobileBarSocialStrip t={t} />
-            </div>
+          <div className="border-t border-zinc-800/60 px-3 pb-3.5 pt-1.5">
+            <MobileBarSocialStrip t={t} />
           </div>
 
           <div
