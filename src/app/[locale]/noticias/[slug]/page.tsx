@@ -10,6 +10,7 @@ import {
   setRequestLocale,
 } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { RevealSection } from "@/components/motion/RevealSection";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -65,6 +66,7 @@ export default async function PostPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-black">
+      <RevealSection className="w-full">
       <section className="relative overflow-hidden bg-black">
         {post.featuredImage && (
           <div className="absolute inset-0">
@@ -113,7 +115,9 @@ export default async function PostPage({ params }: PageProps) {
         </div>
         <div className="ska-stripes-horizontal h-2 w-full"></div>
       </section>
+      </RevealSection>
 
+      <RevealSection className="w-full" delay={0.05}>
       <section className="py-16 bg-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="space-y-4 text-white/90 leading-relaxed">
@@ -143,6 +147,7 @@ export default async function PostPage({ params }: PageProps) {
           )}
         </div>
       </section>
+      </RevealSection>
     </div>
   );
 }

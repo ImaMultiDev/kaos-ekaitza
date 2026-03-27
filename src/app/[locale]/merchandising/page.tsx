@@ -5,6 +5,7 @@ import MerchProductGrid from "@/components/MerchProductGrid";
 import MerchPasswordGate from "@/components/MerchPasswordGate";
 import { merchProductEuCopy } from "@/data/merch-products-eu";
 import { routing } from "@/i18n/routing";
+import { RevealSection } from "@/components/motion/RevealSection";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -435,6 +436,7 @@ export default async function MerchandisingPage({ params }: Props) {
   return (
     <MerchPasswordGate protected={isProtected}>
       <div className="min-h-screen bg-black">
+        <RevealSection className="w-full">
         <section className="py-8 px-4 sm:px-6 lg:px-8 bg-gradient-punk">
           <div className="text-center mb-4">
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
@@ -446,7 +448,9 @@ export default async function MerchandisingPage({ params }: Props) {
             </p>
           </div>
         </section>
+        </RevealSection>
 
+        <RevealSection className="w-full" delay={0.04}>
         <section className=" bg-gray-900 border-y border-gray-800">
           <div className="max-w-4xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
             <div className="bg-amber-600/10 border-l-4 border-amber-500 p-6 rounded-r-lg">
@@ -476,7 +480,9 @@ export default async function MerchandisingPage({ params }: Props) {
             </div>
           </div>
         </section>
+        </RevealSection>
 
+        <RevealSection className="w-full" delay={0.06}>
         <section className="py-20 bg-black">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <MerchProductGrid products={products} storeInProgress />
@@ -508,6 +514,7 @@ export default async function MerchandisingPage({ params }: Props) {
             </div>
           </div>
         </section>
+        </RevealSection>
       </div>
     </MerchPasswordGate>
   );

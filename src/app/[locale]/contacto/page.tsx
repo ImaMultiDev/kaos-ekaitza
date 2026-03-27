@@ -10,6 +10,7 @@ import {
   ContactIconMap,
   ContactIconMobile,
 } from "@/components/contact/ContactAsideIcons";
+import { RevealSection } from "@/components/motion/RevealSection";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -40,6 +41,7 @@ export default async function ContactoPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-black">
+      <RevealSection className="w-full">
       <section className="relative py-10 md:py-16 lg:py-20 bg-gradient-punk overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.06] pointer-events-none"
@@ -56,7 +58,9 @@ export default async function ContactoPage({ params }: Props) {
           </p>
         </div>
       </section>
+      </RevealSection>
 
+      <RevealSection className="w-full" delay={0.05}>
       <section className="relative py-10 md:py-16 lg:py-20 bg-zinc-950 border-t border-red-600/30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 lg:items-start">
@@ -163,6 +167,7 @@ export default async function ContactoPage({ params }: Props) {
           </div>
         </div>
       </section>
+      </RevealSection>
     </div>
   );
 }

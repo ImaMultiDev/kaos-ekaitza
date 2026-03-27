@@ -9,6 +9,7 @@ import {
   setRequestLocale,
 } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { RevealSection } from "@/components/motion/RevealSection";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -40,6 +41,7 @@ export default async function NoticiasPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-black">
+      <RevealSection className="w-full">
       <section className="py-16 bg-gradient-punk">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm uppercase tracking-[0.25em] text-white/80 mb-3">
@@ -54,7 +56,9 @@ export default async function NoticiasPage({ params }: Props) {
         </div>
         <div className="ska-stripes-horizontal h-2 w-full"></div>
       </section>
+      </RevealSection>
 
+      <RevealSection className="w-full" delay={0.05}>
       <section className="py-16 bg-black">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {posts.length === 0 ? (
@@ -112,6 +116,7 @@ export default async function NoticiasPage({ params }: Props) {
           )}
         </div>
       </section>
+      </RevealSection>
     </div>
   );
 }

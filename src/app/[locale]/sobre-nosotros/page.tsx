@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Music } from "lucide-react";
 import { routing } from "@/i18n/routing";
 import { NavIconMail, NavIconMusic } from "@/components/nav/NavbarSketchIcons";
+import { RevealSection } from "@/components/motion/RevealSection";
 
 type Member = {
   name: string;
@@ -102,6 +103,7 @@ export default async function SobreNosotrosPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-black">
+      <RevealSection className="w-full">
       <section className="py-8 md:py-16 bg-gray-900">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 md:mb-12">
@@ -144,7 +146,9 @@ export default async function SobreNosotrosPage({ params }: Props) {
           </div>
         </div>
       </section>
+      </RevealSection>
 
+      <RevealSection className="w-full" delay={0.05}>
       <section className="py-10 md:py-16 bg-black border-t border-red-900/20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative aspect-video w-full rounded-lg overflow-hidden border border-gray-800 bg-gray-900">
@@ -159,7 +163,9 @@ export default async function SobreNosotrosPage({ params }: Props) {
           </div>
         </div>
       </section>
+      </RevealSection>
 
+      <RevealSection className="w-full" delay={0.06}>
       <section className="relative overflow-hidden bg-black border-t border-red-900/35">
         <div className="absolute inset-0 opacity-10" aria-hidden>
           <div className="ska-stripes h-full w-full" />
@@ -201,6 +207,7 @@ export default async function SobreNosotrosPage({ params }: Props) {
           </div>
         </div>
       </section>
+      </RevealSection>
     </div>
   );
 }

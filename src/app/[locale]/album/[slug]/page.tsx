@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import AlbumMusicGrid from "@/components/AlbumMusicGrid";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { RevealSection } from "@/components/motion/RevealSection";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -89,6 +90,7 @@ export default async function AlbumDetailPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-black">
+      <RevealSection className="w-full">
       <section className="relative py-8 md:py-20 bg-gradient-punk overflow-hidden">
         {album.coverImage && (
           <div className="absolute inset-0 opacity-20 hidden md:block" aria-hidden>
@@ -200,8 +202,10 @@ export default async function AlbumDetailPage({ params }: PageProps) {
           </div>
         </div>
       </section>
+      </RevealSection>
 
       {embedUrl && (
+        <RevealSection className="w-full" delay={0.05}>
         <section className="bg-black py-5 md:py-10 border-b border-gray-900">
           <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
             <h3 className="text-center text-lg sm:text-xl md:text-2xl font-black text-white mb-3 md:mb-4">
@@ -218,8 +222,10 @@ export default async function AlbumDetailPage({ params }: PageProps) {
             </div>
           </div>
         </section>
+        </RevealSection>
       )}
 
+      <RevealSection className="w-full" delay={embedUrl ? 0.08 : 0.05}>
       <section className="py-6 md:py-16 bg-black">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           <AlbumMusicGrid
@@ -244,6 +250,7 @@ export default async function AlbumDetailPage({ params }: PageProps) {
           />
         </div>
       </section>
+      </RevealSection>
     </div>
   );
 }

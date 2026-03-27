@@ -8,6 +8,7 @@ import {
 } from "next-intl/server";
 import { Calendar, Music, ArrowRight, RefreshCw, Youtube } from "lucide-react";
 import { routing } from "@/i18n/routing";
+import { RevealSection } from "@/components/motion/RevealSection";
 
 export const dynamic = "force-dynamic";
 
@@ -41,6 +42,7 @@ export default async function AlbumPage({ params }: Props) {
   if (albums.length === 0) {
     return (
       <div className="min-h-screen bg-black flex flex-col items-center justify-center px-4">
+        <RevealSection className="w-full">
         <section className="py-10 md:py-20 bg-gradient-punk w-full">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-5 md:mb-6 tracking-tight max-md:px-1">
@@ -58,12 +60,14 @@ export default async function AlbumPage({ params }: Props) {
             </Link>
           </div>
         </section>
+        </RevealSection>
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-black">
+      <RevealSection className="w-full">
       <section className="py-8 md:py-16 bg-gradient-punk">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-5 md:mb-6 tracking-tight max-md:px-1">
@@ -101,7 +105,9 @@ export default async function AlbumPage({ params }: Props) {
           </div>
         </div>
       </section>
+      </RevealSection>
 
+      <RevealSection className="w-full" delay={0.05}>
       <section className="pt-5 pb-10 md:pt-10 md:pb-20 bg-black">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 lg:gap-12">
@@ -205,6 +211,7 @@ export default async function AlbumPage({ params }: Props) {
           </div>
         </div>
       </section>
+      </RevealSection>
     </div>
   );
 }
