@@ -8,6 +8,7 @@ import AlbumMusicGrid from "@/components/AlbumMusicGrid";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { RevealSection } from "@/components/motion/RevealSection";
+import { ogImages, twitterImages } from "@/lib/og-defaults";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -45,7 +46,11 @@ export async function generateMetadata({
       title: `${album.title} - Kaos Ekaitza`,
       description:
         album.description || `Descubre ${album.title} de Kaos Ekaitza.`,
-      images: album.coverImage ? [album.coverImage] : [],
+      images: ogImages(album.coverImage),
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: twitterImages(album.coverImage),
     },
   };
 }

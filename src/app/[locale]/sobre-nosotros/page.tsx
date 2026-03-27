@@ -6,6 +6,10 @@ import { Music } from "lucide-react";
 import { routing } from "@/i18n/routing";
 import { NavIconMail, NavIconMusic } from "@/components/nav/NavbarSketchIcons";
 import { RevealSection } from "@/components/motion/RevealSection";
+import {
+  defaultOgImages,
+  defaultTwitterImageUrls,
+} from "@/lib/og-defaults";
 
 type Member = {
   name: string;
@@ -92,6 +96,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: t("metaDesc"),
       url: `https://kaosekaitza.com/${locale}/sobre-nosotros`,
       type: "website",
+      images: [...defaultOgImages],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [...defaultTwitterImageUrls],
     },
   };
 }

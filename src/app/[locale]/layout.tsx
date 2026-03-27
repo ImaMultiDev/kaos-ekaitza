@@ -7,6 +7,10 @@ import "../globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { routing } from "@/i18n/routing";
+import {
+  defaultOgImages,
+  defaultTwitterImageUrls,
+} from "@/lib/og-defaults";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -61,15 +65,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       locale: locale === "eu" ? "eu_ES" : "es_ES",
       url: "https://kaosekaitza.com",
       siteName: "Kaos Ekaitza",
-      images: [
-        {
-          url: "/logo-512.png",
-          width: 512,
-          height: 512,
-          alt: "Kaos Ekaitza",
-          type: "image/png",
-        },
-      ],
+      images: [...defaultOgImages],
     },
     twitter: {
       card: "summary_large_image",
@@ -77,7 +73,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       creator: "@KaosEkaitza",
       title: t("ogTitle"),
       description: t("ogDescription"),
-      images: ["/logo.png", "/logo-512.png"],
+      images: [...defaultTwitterImageUrls],
     },
   };
 }

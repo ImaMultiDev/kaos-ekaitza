@@ -11,6 +11,7 @@ import {
 } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { RevealSection } from "@/components/motion/RevealSection";
+import { ogImages, twitterImages } from "@/lib/og-defaults";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -44,7 +45,11 @@ export async function generateMetadata({
     openGraph: {
       title: post.title,
       description: desc,
-      images: post.featuredImage ? [post.featuredImage] : [],
+      images: ogImages(post.featuredImage),
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: twitterImages(post.featuredImage),
     },
   };
 }

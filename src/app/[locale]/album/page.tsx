@@ -9,6 +9,10 @@ import {
 import { Calendar, Music, ArrowRight, RefreshCw, Youtube } from "lucide-react";
 import { routing } from "@/i18n/routing";
 import { RevealSection } from "@/components/motion/RevealSection";
+import {
+  defaultOgImages,
+  defaultTwitterImageUrls,
+} from "@/lib/og-defaults";
 
 export const dynamic = "force-dynamic";
 
@@ -29,6 +33,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: t("metaDesc"),
       url: `https://kaosekaitza.com/${locale}/album`,
       type: "website",
+      images: [...defaultOgImages],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [...defaultTwitterImageUrls],
     },
   };
 }

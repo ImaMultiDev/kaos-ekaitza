@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import HeroSection from "@/components/HeroSection";
@@ -17,27 +16,6 @@ type Props = { params: Promise<{ locale: string }> };
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "RootMeta" });
-
-  return {
-    title: t("titleDefault"),
-    description: t("description"),
-    openGraph: {
-      title: t("ogTitle"),
-      description: t("ogDescription"),
-      url: "https://kaosekaitza.com",
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: t("ogTitle"),
-      description: t("ogDescription"),
-    },
-  };
 }
 
 export default async function Home({ params }: Props) {

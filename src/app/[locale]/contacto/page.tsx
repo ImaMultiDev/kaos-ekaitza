@@ -11,6 +11,10 @@ import {
   ContactIconMobile,
 } from "@/components/contact/ContactAsideIcons";
 import { RevealSection } from "@/components/motion/RevealSection";
+import {
+  defaultOgImages,
+  defaultTwitterImageUrls,
+} from "@/lib/og-defaults";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -29,6 +33,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: t("metaDesc"),
       url: `https://kaosekaitza.com/${locale}/contacto`,
       type: "website",
+      images: [...defaultOgImages],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [...defaultTwitterImageUrls],
     },
   };
 }

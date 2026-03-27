@@ -2,10 +2,8 @@
 export const seoConfig = {
   site: {
     name: "Kaos Ekaitza",
-    title:
-      "Kaos Ekaitza - NAFARROA | Música Consciente y Cambio Social",
-    description:
-      "Canal musical ska-punk antifascista que promueve la resistencia pacífica, justicia social y cambio positivo a través de la música consciente.",
+    title: "Kaos Ekaitza | Nafarroa",
+    description: "Web Oficial",
     url: "https://kaosekaitza.com",
     logo: "/logo-512.png",
     logo192: "/logo-192.png",
@@ -43,8 +41,7 @@ export const seoConfig = {
       "@context": "https://schema.org",
       "@type": "MusicGroup",
       name: "Kaos Ekaitza",
-      description:
-        "Canal musical ska-punk antifascista que promueve la resistencia pacífica y la justicia social",
+      description: "Web Oficial",
       url: "https://kaosekaitza.com",
       logo: "https://kaosekaitza.com/logo-512.png",
       sameAs: [
@@ -62,8 +59,7 @@ export const seoConfig = {
       "@context": "https://schema.org",
       "@type": "WebSite",
       name: "Kaos Ekaitza",
-      description:
-        "Canal musical ska-punk antifascista que promueve la resistencia pacífica y la justicia social",
+      description: "Web Oficial",
       url: "https://kaosekaitza.com",
       potentialAction: {
         "@type": "SearchAction",
@@ -83,14 +79,14 @@ export const seoConfig = {
         url: "/logo-512.png",
         width: 512,
         height: 512,
-        alt: "Kaos Ekaitza - NAFARROA",
+        alt: "Kaos Ekaitza | Nafarroa",
         type: "image/png",
       },
       {
         url: "/logo-192.png",
         width: 192,
         height: 192,
-        alt: "Kaos Ekaitza - NAFARROA",
+        alt: "Kaos Ekaitza | Nafarroa",
         type: "image/png",
       },
     ],
