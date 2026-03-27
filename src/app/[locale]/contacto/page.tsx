@@ -1,4 +1,8 @@
 import { Metadata } from "next";
+import {
+  getTranslations,
+  setRequestLocale,
+} from "next-intl/server";
 import ContactForm from "@/components/ContactForm";
 import {
   Mail,
@@ -9,54 +13,52 @@ import {
   CloudLightning,
 } from "lucide-react";
 import { socialConfig } from "@/lib/social";
+import { routing } from "@/i18n/routing";
 
-export const metadata: Metadata = {
-  title: "Contacto - Kaos Ekaitza | Conecta con Nuestra Comunidad Ska-Punk",
-  description:
-    "Ponte en contacto con Kaos Ekaitza para colaboraciones, preguntas o simplemente para conectar con nuestra comunidad ska-punk antifascista. Únete a la revolución musical.",
-  keywords: [
-    "contacto kaos ekaitza",
-    "colaboraciones ska-punk",
-    "comunidad antifascista",
-    "música consciente",
-    "ska-punk colaboraciones",
-    "contactar kaos ekaitza",
-    "música comprometida",
-  ],
-  openGraph: {
-    title: "Contacto - Kaos Ekaitza | Conecta con Nuestra Comunidad Ska-Punk",
-    description:
-      "Ponte en contacto con Kaos Ekaitza para colaboraciones, preguntas o simplemente para conectar con nuestra comunidad ska-punk antifascista.",
-    url: "https://kaosekaitza.com/contacto",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Contacto - Kaos Ekaitza | Conecta con Nuestra Comunidad Ska-Punk",
-    description:
-      "Ponte en contacto con Kaos Ekaitza para colaboraciones y conectar con nuestra comunidad ska-punk antifascista.",
-  },
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function ContactoPage() {
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Contact" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    openGraph: {
+      title: t("metaTitle"),
+      description: t("metaDesc"),
+      url: `https://kaosekaitza.com/${locale}/contacto`,
+      type: "website",
+    },
+  };
+}
+
+export default async function ContactoPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("Contact");
+
   const contactInfo = [
     {
       icon: Mail,
-      title: "Email",
+      title: t("emailCardTitle"),
       info: "contact@kaosekaitza.com",
-      description: "Para colaboraciones, preguntas o cualquier consulta",
+      description: t("emailCardDesc"),
     },
     {
       icon: MapPin,
-      title: "Ubicación",
-      info: "Nafarroa",
-      description: "La tormenta no entiende de fronteras",
+      title: t("locationTitle"),
+      info: t("locationInfo"),
+      description: t("locationDesc"),
     },
     {
       icon: Handshake,
-      title: "Contratación",
+      title: t("bookingTitle"),
       info: "contact@kaosekaitza.com",
-      description: "tfno. 689 18 17 20",
+      description: t("bookingDesc"),
     },
   ];
 
@@ -95,49 +97,39 @@ export default function ContactoPage() {
 
   return (
     <div className="min-h-screen bg-black">
-      {/* Hero Section */}
       <section className="py-20 bg-gradient-punk">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-            Contacto
+            {t("title")}
           </h1>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto">
-            ¿Tienes una consulta? ¿Tienes una propuesta? ¿Quieres colaborar?
-            ¿Simplemente quieres saludar? <br />
-            Nos encanta conectar con nuestra comunidad.
+          <p className="text-xl text-white/90 max-w-2xl mx-auto whitespace-pre-line">
+            {t("hero")}
           </p>
         </div>
       </section>
 
-      {/* Contact Content */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Contact Form */}
             <div>
               <div className="mb-8">
                 <h2 className="text-3xl font-black text-white mb-4">
-                  Envíanos un <span className="text-red-500">Mensaje</span>
+                  {t("formTitle")}{" "}
+                  <span className="text-red-500">{t("formTitleAccent")}</span>
                 </h2>
-                <p className="text-gray-300 leading-relaxed">
-                  Completa el formulario y nos pondremos en contacto contigo lo
-                  antes posible. Todas las consultas son importantes para
-                  nosotros.
-                </p>
+                <p className="text-gray-300 leading-relaxed">{t("formIntro")}</p>
               </div>
               <ContactForm />
             </div>
 
-            {/* Contact Info */}
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl font-black text-white mb-8">
-                  Otras Formas de{" "}
-                  <span className="text-red-500">Contactar</span>
+                  {t("otherTitle")}{" "}
+                  <span className="text-red-500">{t("otherTitleAccent")}</span>
                 </h2>
               </div>
 
-              {/* Contact Methods */}
               <div className="space-y-6">
                 {contactInfo.map((contact, index) => {
                   const IconComponent = contact.icon;
@@ -154,7 +146,7 @@ export default function ContactoPage() {
                           <h3 className="text-lg font-bold text-white group-hover:text-red-400 transition-colors duration-300">
                             {contact.title}
                           </h3>
-                          <p className="text-red-500 font-semibold">
+                          <p className="text-red-500 font-semibold break-all">
                             {contact.info}
                           </p>
                           <p className="text-gray-400 text-sm">
@@ -167,10 +159,9 @@ export default function ContactoPage() {
                 })}
               </div>
 
-              {/* Social Media */}
               <div className="bg-gray-900 border border-gray-800 rounded-lg p-6">
                 <h3 className="text-xl font-bold text-white mb-6">
-                  Síguenos en Redes Sociales
+                  {t("socialTitle")}
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
                   {socialLinks.map((social, index) => (

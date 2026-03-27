@@ -1,32 +1,37 @@
 import { Metadata } from "next";
 import { getAlbumBySlug, getAlbums, generateAlbumSlug } from "@/lib/database";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowLeft, ExternalLink, Calendar, Music } from "lucide-react";
 import { notFound } from "next/navigation";
 import AlbumMusicGrid from "@/components/AlbumMusicGrid";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { routing } from "@/i18n/routing";
 
 interface PageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }
 
 export async function generateStaticParams() {
   const albums = await getAlbums();
-
-  return albums.map((album) => ({
-    slug: generateAlbumSlug(album.title),
-  }));
+  return routing.locales.flatMap((locale) =>
+    albums.map((album) => ({
+      locale,
+      slug: generateAlbumSlug(album.title),
+    })),
+  );
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const album = await getAlbumBySlug(slug);
+  const t = await getTranslations({ locale, namespace: "AlbumDetail" });
 
   if (!album) {
     return {
-      title: "Álbum no encontrado - Kaos Ekaitza",
+      title: t("notFoundTitle"),
     };
   }
 
@@ -45,7 +50,9 @@ export async function generateMetadata({
 }
 
 export default async function AlbumDetailPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("AlbumDetail");
   const album = await getAlbumBySlug(slug);
 
   if (!album) {
@@ -82,9 +89,7 @@ export default async function AlbumDetailPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-black">
-      {/* Hero Header con portada del álbum */}
       <section className="relative py-20 bg-gradient-punk overflow-hidden">
-        {/* Imagen de fondo con overlay */}
         {album.coverImage && (
           <div className="absolute inset-0 opacity-20">
             <Image
@@ -100,17 +105,15 @@ export default async function AlbumDetailPage({ params }: PageProps) {
         <div className="absolute inset-0 bg-black/60"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Botón de regreso */}
           <Link
             href="/album"
             className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-8 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
-            <span>Volver a Discografía</span>
+            <span>{t("back")}</span>
           </Link>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-center">
-            {/* Portada del álbum */}
             <div className="md:col-span-1 flex justify-center md:justify-start">
               <div className="relative aspect-square bg-gray-900 border border-gray-800 rounded-lg overflow-hidden shadow-2xl">
                 {album.coverImage ? (
@@ -130,7 +133,6 @@ export default async function AlbumDetailPage({ params }: PageProps) {
               </div>
             </div>
 
-            {/* Información del álbum */}
             <div className="md:col-span-2 text-white text-center md:text-left">
               <h1 className="text-4xl md:text-6xl font-black text-white mb-4">
                 {album.title}
@@ -140,17 +142,20 @@ export default async function AlbumDetailPage({ params }: PageProps) {
                 <div className="flex items-center gap-2">
                   <Music className="w-5 h-5" />
                   <span className="font-semibold">
-                    {album.songs.length} canciones
+                    {t("songsCount", { count: album.songs.length })}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Calendar className="w-5 h-5" />
                   <span>
-                    {new Date(album.releaseDate).toLocaleDateString("es-ES", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
+                    {new Date(album.releaseDate).toLocaleDateString(
+                      locale === "eu" ? "eu-ES" : "es-ES",
+                      {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      },
+                    )}
                   </span>
                 </div>
               </div>
@@ -161,7 +166,6 @@ export default async function AlbumDetailPage({ params }: PageProps) {
                 </p>
               )}
 
-              {/* Enlaces externos */}
               <div className="flex flex-wrap justify-center md:justify-start gap-4">
                 {album.spotifyUrl && (
                   <a
@@ -170,10 +174,14 @@ export default async function AlbumDetailPage({ params }: PageProps) {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-6 py-3 bg-[#1DB954] hover:bg-[#1ed760] text-white font-bold rounded-lg transition-colors"
                   >
-                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                    <svg
+                      className="w-5 h-5"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
                     </svg>
-                    Escuchar en Spotify
+                    {t("listenSpotify")}
                   </a>
                 )}
                 {album.youtubeUrl && (
@@ -184,7 +192,7 @@ export default async function AlbumDetailPage({ params }: PageProps) {
                     className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors"
                   >
                     <ExternalLink className="w-5 h-5" />
-                    Ver en YouTube
+                    {t("watchYoutube")}
                   </a>
                 )}
               </div>
@@ -193,17 +201,16 @@ export default async function AlbumDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Player YouTube */}
       {embedUrl && (
         <section className="bg-black py-10 border-b border-gray-900">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <h3 className="text-2xl font-black text-white mb-4">
-              Escucha el álbum aquí
+              {t("listenHere")}
             </h3>
             <div className="relative aspect-video rounded-lg overflow-hidden border border-gray-800 bg-gray-900">
               <iframe
                 src={`${embedUrl}&rel=0`}
-                title={`Reproductor de ${album.title}`}
+                title={t("iframeTitle", { title: album.title })}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="absolute inset-0 w-full h-full"
@@ -213,7 +220,6 @@ export default async function AlbumDetailPage({ params }: PageProps) {
         </section>
       )}
 
-      {/* Lista de canciones del álbum */}
       <section className="py-10 md:py-16 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AlbumMusicGrid

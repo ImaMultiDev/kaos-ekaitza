@@ -1,45 +1,57 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowLeft, Calendar, ExternalLink, Hash } from "lucide-react";
 import { getPostBySlug, getPosts } from "@/lib/database";
 import { formatDate } from "@/lib/utils";
 import { notFound } from "next/navigation";
+import {
+  getTranslations,
+  setRequestLocale,
+} from "next-intl/server";
+import { routing } from "@/i18n/routing";
 
 interface PageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }
 
 export async function generateStaticParams() {
   const posts = await getPosts(true);
-  return posts.map((post) => ({ slug: post.slug }));
+  return routing.locales.flatMap((locale) =>
+    posts.map((post) => ({ locale, slug: post.slug })),
+  );
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug, locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Noticias" });
   const post = await getPostBySlug(slug, true);
 
   if (!post) {
     return {
-      title: "Comunicado no encontrado - Kaos Ekaitza",
+      title: t("metaNotFoundTitle"),
     };
   }
 
+  const desc = post.excerpt || t("metaPostDescFallback");
+
   return {
-    title: `${post.title} - Kaos Ekaitza | Comunicado`,
-    description: post.excerpt || "Comunicado oficial de Kaos Ekaitza.",
+    title: `${post.title} — Kaos Ekaitza`,
+    description: desc,
     openGraph: {
       title: post.title,
-      description: post.excerpt || "Comunicado oficial de Kaos Ekaitza.",
+      description: desc,
       images: post.featuredImage ? [post.featuredImage] : [],
     },
   };
 }
 
 export default async function PostPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "Noticias" });
   const post = await getPostBySlug(slug, true);
 
   if (!post) {
@@ -53,7 +65,6 @@ export default async function PostPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-black">
-      {/* Hero */}
       <section className="relative overflow-hidden bg-black">
         {post.featuredImage && (
           <div className="absolute inset-0">
@@ -74,17 +85,17 @@ export default async function PostPage({ params }: PageProps) {
             className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Volver a Noticias</span>
+            <span>{t("backToNews")}</span>
           </Link>
           <p className="text-sm uppercase tracking-[0.25em] text-red-500">
-            Comunicado
+            {t("postEyebrow")}
           </p>
           <h1 className="text-4xl md:text-5xl font-black text-white leading-tight">
             {post.title}
           </h1>
           <div className="flex items-center gap-2 text-white/75 text-sm">
             <Calendar className="w-4 h-4" />
-            <span>{formatDate(date)}</span>
+            <span>{formatDate(date, locale)}</span>
           </div>
           {post.tags && post.tags.length > 0 && (
             <div className="flex flex-wrap gap-2 pt-2">
@@ -103,7 +114,6 @@ export default async function PostPage({ params }: PageProps) {
         <div className="ska-stripes-horizontal h-2 w-full"></div>
       </section>
 
-      {/* Contenido */}
       <section className="py-16 bg-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="space-y-4 text-white/90 leading-relaxed">
@@ -114,9 +124,7 @@ export default async function PostPage({ params }: PageProps) {
                 </p>
               ))
             ) : (
-              <p className="text-lg text-white/70">
-                Sin contenido disponible.
-              </p>
+              <p className="text-lg text-white/70">{t("noContent")}</p>
             )}
           </div>
 
@@ -129,7 +137,7 @@ export default async function PostPage({ params }: PageProps) {
                 className="btn-punk inline-flex items-center gap-2"
               >
                 <ExternalLink className="w-5 h-5" />
-                <span>Ver en Instagram</span>
+                <span>{t("viewInstagram")}</span>
               </a>
             </div>
           )}
@@ -138,4 +146,3 @@ export default async function PostPage({ params }: PageProps) {
     </div>
   );
 }
-

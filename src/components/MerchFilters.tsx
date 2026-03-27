@@ -1,6 +1,7 @@
 "use client";
 
 import { Shirt, Package, Disc } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export type CategoryFilter = "ropa" | "articulos" | "albumes" | "todos";
 export type GenderFilter = "hombre" | "mujer" | "unisex" | "todos";
@@ -20,18 +21,34 @@ export default function MerchFilters({
   onGenderChange,
   showGenderFilters,
 }: Props) {
+  const t = useTranslations("Merch");
+
+  const categories: {
+    id: CategoryFilter;
+    labelKey: "catAll" | "catClothes" | "catArticles" | "catAlbums";
+    icon: typeof Shirt | null;
+  }[] = [
+    { id: "todos", labelKey: "catAll", icon: null },
+    { id: "ropa", labelKey: "catClothes", icon: Shirt },
+    { id: "articulos", labelKey: "catArticles", icon: Package },
+    { id: "albumes", labelKey: "catAlbums", icon: Disc },
+  ];
+
+  const genders: { id: GenderFilter; labelKey: "genAll" | "genMen" | "genWomen" | "genUnisex" }[] = [
+    { id: "todos", labelKey: "genAll" },
+    { id: "hombre", labelKey: "genMen" },
+    { id: "mujer", labelKey: "genWomen" },
+    { id: "unisex", labelKey: "genUnisex" },
+  ];
+
   return (
     <div className="flex flex-col gap-4 mb-12">
-      {/* Filtro por categoría */}
       <div>
-        <p className="text-gray-400 text-sm font-semibold mb-3">Categoría</p>
+        <p className="text-gray-400 text-sm font-semibold mb-3">
+          {t("filterCategory")}
+        </p>
         <div className="flex flex-wrap gap-2">
-          {[
-            { id: "todos" as const, label: "Todos", icon: null },
-            { id: "ropa" as const, label: "Ropa", icon: Shirt },
-            { id: "articulos" as const, label: "Artículos", icon: Package },
-            { id: "albumes" as const, label: "Álbumes", icon: Disc },
-          ].map(({ id, label, icon: Icon }) => (
+          {categories.map(({ id, labelKey, icon: Icon }) => (
             <button
               key={id}
               type="button"
@@ -43,23 +60,19 @@ export default function MerchFilters({
               }`}
             >
               {Icon && <Icon className="w-4 h-4" />}
-              {label}
+              {t(labelKey)}
             </button>
           ))}
         </div>
       </div>
 
-      {/* Filtro por género (solo cuando categoria = ropa) */}
       {showGenderFilters && (
         <div>
-          <p className="text-gray-400 text-sm font-semibold mb-3">Ropa para</p>
+          <p className="text-gray-400 text-sm font-semibold mb-3">
+            {t("filterGender")}
+          </p>
           <div className="flex flex-wrap gap-2">
-            {[
-              { id: "todos" as const, label: "Todos" },
-              { id: "hombre" as const, label: "Hombre" },
-              { id: "mujer" as const, label: "Mujer" },
-              { id: "unisex" as const, label: "Unisex" },
-            ].map(({ id, label }) => (
+            {genders.map(({ id, labelKey }) => (
               <button
                 key={id}
                 type="button"
@@ -70,7 +83,7 @@ export default function MerchFilters({
                     : "bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white"
                 }`}
               >
-                {label}
+                {t(labelKey)}
               </button>
             ))}
           </div>

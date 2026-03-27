@@ -1,31 +1,33 @@
 import { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ShoppingBag, Shield, Construction } from "lucide-react";
 import MerchProductGrid from "@/components/MerchProductGrid";
 import MerchPasswordGate from "@/components/MerchPasswordGate";
+import { merchProductEuCopy } from "@/data/merch-products-eu";
+import { routing } from "@/i18n/routing";
 
-export const metadata: Metadata = {
-  title: "Merchandising - Kaos Ekaitza | Tienda Oficial",
-  description:
-    "Descubre nuestra tienda oficial de merchandising. Camisetas, álbumes físicos, posters y más productos con el logo y mensaje de Kaos Ekaitza.",
-  keywords: [
-    "merchandising kaos ekaitza",
-    "tienda ska-punk",
-    "camisetas antifascistas",
-    "álbumes físicos",
-    "merch kaos ekaitza",
-    "productos música consciente",
-  ],
-  openGraph: {
-    title: "Merchandising - Kaos Ekaitza | Tienda Oficial",
-    description:
-      "Descubre nuestra tienda oficial de merchandising. Camisetas, álbumes físicos, posters y más productos.",
-    url: "https://kaosekaitza.com/merchandising",
-    type: "website",
-  },
-};
+type Props = { params: Promise<{ locale: string }> };
 
-// Datos de productos (imágenes: pegar URLs de Cloudinary en cada image)
-const products = [
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "MerchPage" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    openGraph: {
+      title: t("metaTitle"),
+      description: t("metaDesc"),
+      url: `https://kaosekaitza.com/${locale}/merchandising`,
+      type: "website",
+    },
+  };
+}
+
+const rawMerchProducts = [
   {
     id: 1,
     name: "Camiseta negra de hombre 'Kaos Ekaitza' V01",
@@ -416,96 +418,97 @@ const products = [
 const instagramHandle = "@kaosekaitza";
 const instagramUrl = "https://instagram.com/kaosekaitza";
 
-export default function MerchandisingPage() {
+export default async function MerchandisingPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("Merch");
+  const products = rawMerchProducts.map((p) => {
+    const eu = merchProductEuCopy[p.id];
+    if (locale === "eu" && eu) {
+      return { ...p, name: eu.name, description: eu.description };
+    }
+    return p;
+  });
+
   const isProtected = !!process.env.MERCH_PASSWORD;
 
   return (
     <MerchPasswordGate protected={isProtected}>
       <div className="min-h-screen bg-black">
-      {/* Hero Header */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-gradient-punk">
-        <div className="text-center mb-4">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-            Nuestros <span className="text-red-500">Productos</span>
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Cada producto es una declaración de resistencia. Lleva el mensaje de{" "}
-            <b>Kaos Ekaitza</b> contigo.
-          </p>
-        </div>
-      </section>
+        <section className="py-8 px-4 sm:px-6 lg:px-8 bg-gradient-punk">
+          <div className="text-center mb-4">
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+              {t("heroTitle")}{" "}
+              <span className="text-red-500">{t("heroAccent")}</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              {t("heroSubtitle")}
+            </p>
+          </div>
+        </section>
 
-      {/* Información: tienda en proceso */}
-      <section className=" bg-gray-900 border-y border-gray-800">
-        <div className="max-w-4xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
-          <div className="bg-amber-600/10 border-l-4 border-amber-500 p-6 rounded-r-lg">
-            <div className="flex items-start gap-4">
-              <Construction className="w-6 h-6 text-amber-500 flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="text-white font-bold text-lg mb-2">
-                  Tienda en proceso
+        <section className=" bg-gray-900 border-y border-gray-800">
+          <div className="max-w-4xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
+            <div className="bg-amber-600/10 border-l-4 border-amber-500 p-6 rounded-r-lg">
+              <div className="flex items-start gap-4">
+                <Construction className="w-6 h-6 text-amber-500 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-white font-bold text-lg mb-2">
+                    {t("wipTitle")}
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed mb-2">
+                    {t("wipP1")}
+                  </p>
+                  <p className="text-gray-400 text-sm italic">
+                    {t("wipP2a")}{" "}
+                    <a
+                      href={instagramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-amber-400 hover:text-amber-300 font-semibold underline"
+                    >
+                      {instagramHandle}
+                    </a>{" "}
+                    {t("wipP2b")}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 bg-black">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <MerchProductGrid products={products} storeInProgress />
+          </div>
+        </section>
+
+        <section className="py-20 bg-gray-900">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-black border border-gray-800 rounded-lg p-6">
+                <h3 className="text-white font-bold text-xl mb-4 flex items-center gap-2">
+                  <ShoppingBag className="w-6 h-6 text-red-500" />
+                  {t("shippingTitle")}
                 </h3>
-                <p className="text-gray-300 leading-relaxed mb-2">
-                  Nuestra tienda de merchandising está actualmente en
-                  construcción. Por el momento no se pueden adquirir productos.
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  {t("shippingBody")}
                 </p>
-                <p className="text-gray-400 text-sm italic">
-                  Próximamente podrás llevar el mensaje de Kaos Ekaitza contigo.
-                  Síguenos en{" "}
-                  <a
-                    href={instagramUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-amber-400 hover:text-amber-300 font-semibold underline"
-                  >
-                    {instagramHandle}
-                  </a>{" "}
-                  para estar al día de novedades.
+              </div>
+
+              <div className="bg-black border border-gray-800 rounded-lg p-6">
+                <h3 className="text-white font-bold text-xl mb-4 flex items-center gap-2">
+                  <Shield className="w-6 h-6 text-red-500" />
+                  {t("paymentTitle")}
+                </h3>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  {t("paymentBody")}
                 </p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Productos Grid */}
-      <section className="py-20 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <MerchProductGrid products={products} storeInProgress />
-        </div>
-      </section>
-
-      {/* Sección de envíos e información adicional */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-black border border-gray-800 rounded-lg p-6">
-              <h3 className="text-white font-bold text-xl mb-4 flex items-center gap-2">
-                <ShoppingBag className="w-6 h-6 text-red-500" />
-                Envíos
-              </h3>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                Realizamos envíos a toda España y Europa. Los costes de envío
-                varían según el destino y se calcularán al contactarnos por
-                Instagram.
-              </p>
-            </div>
-
-            <div className="bg-black border border-gray-800 rounded-lg p-6">
-              <h3 className="text-white font-bold text-xl mb-4 flex items-center gap-2">
-                <Shield className="w-6 h-6 text-red-500" />
-                Métodos de Pago
-              </h3>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                Aceptamos transferencia bancaria y otros métodos de pago. Al
-                contactarnos por Instagram te indicaremos todas las opciones
-                disponibles.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
     </MerchPasswordGate>
   );
 }

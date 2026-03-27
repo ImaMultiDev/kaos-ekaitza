@@ -1,45 +1,64 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Calendar, ArrowRight } from "lucide-react";
 import { getPosts } from "@/lib/database";
 import { formatDate } from "@/lib/utils";
+import {
+  getTranslations,
+  setRequestLocale,
+} from "next-intl/server";
+import { routing } from "@/i18n/routing";
 
-export const metadata: Metadata = {
-  title: "Noticias - Kaos Ekaitza | Comunicados oficiales",
-  description:
-    "Comunicados oficiales de Kaos Ekaitza: novedades, lanzamientos y mensajes antifascistas.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default async function NoticiasPage() {
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Noticias" });
+
+  return {
+    title: t("metaTitle"),
+    description: t("metaDesc"),
+    openGraph: {
+      title: t("metaTitle"),
+      description: t("metaDesc"),
+      url: `https://kaosekaitza.com/${locale}/noticias`,
+      type: "website",
+    },
+  };
+}
+
+export default async function NoticiasPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "Noticias" });
   const posts = await getPosts(true);
 
   return (
     <div className="min-h-screen bg-black">
-      {/* Hero */}
       <section className="py-16 bg-gradient-punk">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm uppercase tracking-[0.25em] text-white/80 mb-3">
-            Comunicados
+            {t("eyebrow")}
           </p>
           <h1 className="text-4xl md:text-5xl font-black text-white mb-4">
-            Noticias oficiales de Kaos Ekaitza
+            {t("title")}
           </h1>
           <p className="text-lg text-white/85 max-w-3xl mx-auto">
-            Actualizaciones directas del proyecto. Sin relleno, solo lo que
-            importa.
+            {t("subtitle")}
           </p>
         </div>
         <div className="ska-stripes-horizontal h-2 w-full"></div>
       </section>
 
-      {/* Listado */}
       <section className="py-16 bg-black">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {posts.length === 0 ? (
-            <div className="text-center text-white/70">
-              Aún no hay comunicados publicados.
-            </div>
+            <div className="text-center text-white/70">{t("empty")}</div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {posts.map((post) => {
@@ -71,7 +90,7 @@ export default async function NoticiasPage() {
                     <div className="p-6 flex flex-col gap-3 flex-1">
                       <div className="flex items-center text-white/70 text-sm gap-2">
                         <Calendar className="w-4 h-4" />
-                        <span>{formatDate(date)}</span>
+                        <span>{formatDate(date, locale)}</span>
                       </div>
                       <h2 className="text-2xl font-black text-white leading-tight">
                         {post.title}
@@ -82,7 +101,7 @@ export default async function NoticiasPage() {
                         </p>
                       )}
                       <div className="flex items-center gap-2 text-red-500 font-semibold mt-auto">
-                        <span>Leer comunicado</span>
+                        <span>{t("cardCta")}</span>
                         <ArrowRight className="w-4 h-4" />
                       </div>
                     </div>

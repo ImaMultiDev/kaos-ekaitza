@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import MerchFilters, {
   type CategoryFilter,
   type GenderFilter,
@@ -43,6 +44,7 @@ export default function MerchProductGrid({
   products,
   storeInProgress = false,
 }: Props) {
+  const t = useTranslations("Merch");
   const [category, setCategory] = useState<CategoryFilter>("todos");
   const [gender, setGender] = useState<GenderFilter>("todos");
 
@@ -74,9 +76,7 @@ export default function MerchProductGrid({
       </div>
 
       {filteredProducts.length === 0 && (
-        <p className="text-center text-gray-400 py-12">
-          No hay productos que coincidan con los filtros seleccionados.
-        </p>
+        <p className="text-center text-gray-400 py-12">{t("noMatch")}</p>
       )}
     </>
   );

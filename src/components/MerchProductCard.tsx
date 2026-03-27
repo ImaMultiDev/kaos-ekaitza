@@ -11,6 +11,7 @@ import {
   Music,
   X,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 type Product = {
   id: number;
@@ -27,7 +28,11 @@ type Product = {
 
 type Props = { product: Product; storeInProgress?: boolean };
 
-export default function MerchProductCard({ product, storeInProgress = false }: Props) {
+export default function MerchProductCard({
+  product,
+  storeInProgress = false,
+}: Props) {
+  const t = useTranslations("Merch");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -44,10 +49,21 @@ export default function MerchProductCard({ product, storeInProgress = false }: P
     };
   }, [isModalOpen]);
 
+  const categoryBadge = () => {
+    if (product.category === "ropa") return t("badgeClothes");
+    if (product.category === "musica") return t("badgeMusic");
+    if (product.category === "accesorios" || product.category === "accesorio")
+      return t("badgeArticle");
+    if (product.category === "album") return t("badgeAlbum");
+    if (product.category === "pack") return t("badgePack");
+    return null;
+  };
+
+  const badge = categoryBadge();
+
   return (
     <>
       <div className="bg-gray-900 border-2 border-gray-800 rounded-lg overflow-hidden transition-all duration-300 hover:border-red-600 group">
-        {/* Imagen del producto - clickeable */}
         <button
           type="button"
           onClick={() => setIsModalOpen(true)}
@@ -69,7 +85,8 @@ export default function MerchProductCard({ product, storeInProgress = false }: P
               {product.category === "musica" && (
                 <Disc className="w-16 h-16 text-white opacity-50" />
               )}
-              {(product.category === "accesorios" || product.category === "accesorio") && (
+              {(product.category === "accesorios" ||
+                product.category === "accesorio") && (
                 <ShoppingBag className="w-16 h-16 text-white opacity-50" />
               )}
               {product.category === "album" && (
@@ -83,40 +100,19 @@ export default function MerchProductCard({ product, storeInProgress = false }: P
           <div className="absolute inset-0 bg-black/15 group-hover:bg-black/5 transition-colors" />
           {!product.available && (
             <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-              Agotado
+              {t("soldOut")}
             </div>
           )}
         </button>
 
-        {/* Información del producto - título y precio clickeables */}
         <div className="p-6">
-          <div className="mb-2">
-            {product.category === "ropa" && (
+          {badge && (
+            <div className="mb-2">
               <span className="inline-block bg-red-600/20 text-red-400 text-xs font-semibold px-2 py-1 rounded mb-2">
-                Ropa
+                {badge}
               </span>
-            )}
-            {product.category === "musica" && (
-              <span className="inline-block bg-red-600/20 text-red-400 text-xs font-semibold px-2 py-1 rounded mb-2">
-                Música
-              </span>
-            )}
-            {(product.category === "accesorios" || product.category === "accesorio") && (
-              <span className="inline-block bg-red-600/20 text-red-400 text-xs font-semibold px-2 py-1 rounded mb-2">
-                Artículo
-              </span>
-            )}
-            {product.category === "album" && (
-              <span className="inline-block bg-red-600/20 text-red-400 text-xs font-semibold px-2 py-1 rounded mb-2">
-                Álbum
-              </span>
-            )}
-            {product.category === "pack" && (
-              <span className="inline-block bg-red-600/20 text-red-400 text-xs font-semibold px-2 py-1 rounded mb-2">
-                Pack Especial
-              </span>
-            )}
-          </div>
+            </div>
+          )}
 
           <button
             type="button"
@@ -127,14 +123,15 @@ export default function MerchProductCard({ product, storeInProgress = false }: P
             <p className="text-gray-400 text-sm mb-4 line-clamp-2">
               {product.description}
             </p>
-            <span className="text-2xl font-black text-red-500">{product.price}</span>
+            <span className="text-2xl font-black text-red-500">
+              {product.price}
+            </span>
           </button>
 
-          {/* Botones de acción */}
           <div className="space-y-2 mt-4">
             {storeInProgress ? (
               <div className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-gray-700 text-gray-400 font-bold rounded-lg cursor-not-allowed">
-                Tienda en proceso — No disponible
+                {t("storeWipCta")}
               </div>
             ) : product.externalUrl ? (
               <a
@@ -144,7 +141,7 @@ export default function MerchProductCard({ product, storeInProgress = false }: P
                 className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors"
               >
                 <ExternalLink className="w-5 h-5" />
-                Comprar en Tienda Externa
+                {t("buyExternal")}
               </a>
             ) : product.contactRequired ? (
               <a
@@ -154,7 +151,7 @@ export default function MerchProductCard({ product, storeInProgress = false }: P
                 className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors"
               >
                 <Instagram className="w-5 h-5" />
-                Contactar por Instagram
+                {t("contactInstagram")}
               </a>
             ) : (
               <button
@@ -162,21 +159,20 @@ export default function MerchProductCard({ product, storeInProgress = false }: P
                 className="w-full px-4 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors"
                 disabled={!product.available}
               >
-                Agregar al Carrito
+                {t("addToCart")}
               </button>
             )}
           </div>
         </div>
       </div>
 
-      {/* Modal vista ampliada */}
       {isModalOpen && (
         <div
           className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
           onClick={() => setIsModalOpen(false)}
           role="dialog"
           aria-modal="true"
-          aria-label="Vista ampliada del producto"
+          aria-label={t("modalAria")}
         >
           <div
             className="bg-gray-900 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto border-2 border-red-600"
@@ -187,7 +183,7 @@ export default function MerchProductCard({ product, storeInProgress = false }: P
                 type="button"
                 onClick={() => setIsModalOpen(false)}
                 className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-colors"
-                aria-label="Cerrar"
+                aria-label={t("closeAria")}
               >
                 <X className="w-5 h-5" />
               </button>
@@ -218,7 +214,7 @@ export default function MerchProductCard({ product, storeInProgress = false }: P
                 </span>
                 {storeInProgress ? (
                   <div className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-gray-700 text-gray-400 font-bold rounded-lg">
-                    Tienda en proceso — No disponible
+                    {t("storeWipCta")}
                   </div>
                 ) : (
                   <a
@@ -228,7 +224,7 @@ export default function MerchProductCard({ product, storeInProgress = false }: P
                     className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors"
                   >
                     <Instagram className="w-5 h-5" />
-                    Contactar por Instagram
+                    {t("contactInstagram")}
                   </a>
                 )}
               </div>

@@ -9,6 +9,7 @@ import {
   AlertCircle,
   CheckCircle,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface FormData {
   name: string;
@@ -25,6 +26,7 @@ interface FormErrors {
 }
 
 const ContactForm = () => {
+  const t = useTranslations("ContactForm");
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -40,23 +42,23 @@ const ContactForm = () => {
     const newErrors: FormErrors = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = "El nombre es requerido";
+      newErrors.name = t("errName");
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "El email es requerido";
+      newErrors.email = t("errEmailRequired");
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "El email no es válido";
+      newErrors.email = t("errEmailInvalid");
     }
 
     if (!formData.subject.trim()) {
-      newErrors.subject = "El asunto es requerido";
+      newErrors.subject = t("errSubject");
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "El mensaje es requerido";
+      newErrors.message = t("errMessageRequired");
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = "El mensaje debe tener al menos 10 caracteres";
+      newErrors.message = t("errMessageMin");
     }
 
     setErrors(newErrors);
@@ -66,7 +68,7 @@ const ContactForm = () => {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -74,7 +76,6 @@ const ContactForm = () => {
       [name]: value,
     }));
 
-    // Limpiar error del campo cuando el usuario empiece a escribir
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({
         ...prev,
@@ -93,14 +94,10 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Aquí iría la lógica para enviar el formulario a la API
-      // Simulamos una llamada a la API
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
-      console.log("Form submitted:", formData);
       setIsSubmitted(true);
 
-      // Limpiar formulario
       setFormData({
         name: "",
         email: "",
@@ -119,14 +116,11 @@ const ContactForm = () => {
       <div className="bg-green-900/20 border border-green-500 rounded-lg p-8 text-center">
         <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
         <h3 className="text-2xl font-bold text-white mb-4">
-          ¡Mensaje Enviado!
+          {t("successTitle")}
         </h3>
-        <p className="text-gray-300 mb-6">
-          Gracias por contactarnos. Hemos recibido tu mensaje y te responderemos
-          lo antes posible.
-        </p>
-        <button onClick={() => setIsSubmitted(false)} className="btn-punk">
-          Enviar Otro Mensaje
+        <p className="text-gray-300 mb-6">{t("successText")}</p>
+        <button type="button" onClick={() => setIsSubmitted(false)} className="btn-punk">
+          {t("sendAnother")}
         </button>
       </div>
     );
@@ -134,10 +128,9 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Nombre */}
       <div>
         <label htmlFor="name" className="block text-white font-semibold mb-2">
-          Nombre *
+          {t("name")} *
         </label>
         <div className="relative">
           <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -152,7 +145,7 @@ const ContactForm = () => {
                 ? "border-red-500 focus:ring-red-500"
                 : "border-gray-700 focus:ring-red-600 focus:border-red-600"
             }`}
-            placeholder="Tu nombre completo"
+            placeholder={t("namePlaceholder")}
           />
         </div>
         {errors.name && (
@@ -163,10 +156,9 @@ const ContactForm = () => {
         )}
       </div>
 
-      {/* Email */}
       <div>
         <label htmlFor="email" className="block text-white font-semibold mb-2">
-          Email *
+          {t("email")} *
         </label>
         <div className="relative">
           <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -181,7 +173,7 @@ const ContactForm = () => {
                 ? "border-red-500 focus:ring-red-500"
                 : "border-gray-700 focus:ring-red-600 focus:border-red-600"
             }`}
-            placeholder="tu@email.com"
+            placeholder={t("emailPlaceholder")}
           />
         </div>
         {errors.email && (
@@ -192,13 +184,12 @@ const ContactForm = () => {
         )}
       </div>
 
-      {/* Asunto */}
       <div>
         <label
           htmlFor="subject"
           className="block text-white font-semibold mb-2"
         >
-          Asunto *
+          {t("subject")} *
         </label>
         <select
           id="subject"
@@ -211,12 +202,12 @@ const ContactForm = () => {
               : "border-gray-700 focus:ring-red-600 focus:border-red-600"
           }`}
         >
-          <option value="">Selecciona un asunto</option>
-          <option value="colaboracion">Colaboración Musical</option>
-          <option value="concierto">Solicitud de Concierto</option>
-          <option value="prensa">Consulta de Prensa</option>
-          <option value="general">Consulta General</option>
-          <option value="otro">Otro</option>
+          <option value="">{t("subjectPlaceholder")}</option>
+          <option value="colaboracion">{t("subjectCollaboration")}</option>
+          <option value="concierto">{t("subjectConcert")}</option>
+          <option value="prensa">{t("subjectPress")}</option>
+          <option value="general">{t("subjectGeneral")}</option>
+          <option value="otro">{t("subjectOther")}</option>
         </select>
         {errors.subject && (
           <p className="text-red-400 text-sm mt-1 flex items-center space-x-1">
@@ -226,13 +217,12 @@ const ContactForm = () => {
         )}
       </div>
 
-      {/* Mensaje */}
       <div>
         <label
           htmlFor="message"
           className="block text-white font-semibold mb-2"
         >
-          Mensaje *
+          {t("message")} *
         </label>
         <div className="relative">
           <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
@@ -247,7 +237,7 @@ const ContactForm = () => {
                 ? "border-red-500 focus:ring-red-500"
                 : "border-gray-700 focus:ring-red-600 focus:border-red-600"
             }`}
-            placeholder="Escribe tu mensaje aquí..."
+            placeholder={t("messagePlaceholder")}
           />
         </div>
         {errors.message && (
@@ -257,23 +247,15 @@ const ContactForm = () => {
           </p>
         )}
         <p className="text-gray-400 text-xs mt-1">
-          Mínimo 10 caracteres. Actual: {formData.message.length}
+          {t("minChars", { count: formData.message.length })}
         </p>
       </div>
 
-      {/* Información adicional */}
       <div className="bg-gray-900 border border-gray-800 rounded-lg p-4">
-        <h4 className="text-white font-semibold mb-2">
-          Política de Privacidad
-        </h4>
-        <p className="text-gray-400 text-sm">
-          Respetamos tu privacidad. La información que nos proporciones será
-          utilizada únicamente para responder a tu consulta y no será compartida
-          con terceros.
-        </p>
+        <h4 className="text-white font-semibold mb-2">{t("privacyTitle")}</h4>
+        <p className="text-gray-400 text-sm">{t("privacyText")}</p>
       </div>
 
-      {/* Botón de envío */}
       <button
         type="submit"
         disabled={isSubmitting}
@@ -284,20 +266,19 @@ const ContactForm = () => {
         {isSubmitting ? (
           <>
             <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-            <span>Enviando...</span>
+            <span>{t("sending")}</span>
           </>
         ) : (
           <>
             <Send className="w-5 h-5" />
-            <span>Enviar Mensaje</span>
+            <span>{t("send")}</span>
           </>
         )}
       </button>
 
-      {/* Información de contacto alternativa */}
       <div className="text-center pt-4 border-t border-gray-800">
         <p className="text-gray-400 text-sm">
-          ¿Prefieres escribirnos directamente? Envía un email a{" "}
+          {t("prefersEmail")}{" "}
           <a
             href="mailto:contact@kaosekaitza.com"
             className="text-red-500 hover:text-red-400"

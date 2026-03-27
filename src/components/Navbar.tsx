@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import {
   Menu,
   X,
@@ -15,7 +13,10 @@ import {
   Youtube,
   CloudLightning,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 import { socialConfig } from "@/lib/social";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const socialLinks = [
   {
@@ -41,6 +42,7 @@ const socialLinks = [
 ];
 
 const Navbar = () => {
+  const t = useTranslations("Nav");
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
@@ -52,19 +54,17 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { href: "/", label: "Home", icon: Home },
-    { href: "/album", label: "Album", icon: Music },
-    { href: "/sobre-nosotros", label: "Conocenos", icon: Users },
-    { href: "/contacto", label: "Contacto", icon: Mail },
+    { href: "/", labelKey: "home" as const, icon: Home },
+    { href: "/album", labelKey: "album" as const, icon: Music },
+    { href: "/sobre-nosotros", labelKey: "about" as const, icon: Users },
+    { href: "/contacto", labelKey: "contact" as const, icon: Mail },
   ];
 
   return (
     <>
       <nav className="bg-black border-b-2 border-red-600 sticky top-0 z-50">
         <div className="w-full max-w-7xl md:max-w-none mx-auto px-4 sm:px-6 lg:px-8">
-          {/* CONTENEDOR PRINCIPAL */}
           <div className="relative flex items-center justify-between h-16">
-            {/* LOGO (izquierda) */}
             <Link href="/" className="flex items-center z-10">
               <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden">
                 <Image
@@ -77,7 +77,6 @@ const Navbar = () => {
               </div>
             </Link>
 
-            {/* BANNER CENTRADO EN MOBILE */}
             <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
               <Image
                 src="/banner.png?v=2"
@@ -89,8 +88,7 @@ const Navbar = () => {
               />
             </div>
 
-            {/* DESKTOP NAV + REDES */}
-            <div className="hidden md:flex md:items-center md:ml-16 md:gap-8">
+            <div className="hidden md:flex md:items-center md:ml-16 md:gap-6">
               <div className="flex items-baseline gap-10">
                 {navItems.map((item) => {
                   const IconComponent = item.icon;
@@ -106,12 +104,14 @@ const Navbar = () => {
                       }`}
                     >
                       <IconComponent className="w-4 h-4 shrink-0" />
-                      <span className="pl-3">{item.label}</span>
+                      <span className="pl-3">{t(item.labelKey)}</span>
                     </Link>
                   );
                 })}
               </div>
-              {/* Iconos redes sociales - estilo Kaotiko */}
+
+              <LanguageSwitcher />
+
               <div className="flex items-center gap-2 pl-4 border-l border-gray-700">
                 {socialLinks.map((social) => (
                   <a
@@ -154,7 +154,7 @@ const Navbar = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-9 h-9 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center text-white hover:text-red-500 hover:border-red-600 transition-all duration-300"
-                  aria-label="Ekaitzaren Begia - Todas nuestras redes"
+                  aria-label={t("ekaitzarenBegiaAria")}
                   title="Ekaitzaren Begia"
                 >
                   <CloudLightning className="w-4 h-4" />
@@ -162,12 +162,13 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* BOTÓN MOBILE */}
-            <div className="md:hidden z-10">
+            <div className="md:hidden flex items-center gap-2 z-10">
+              <LanguageSwitcher />
               <button
+                type="button"
                 onClick={toggleMenu}
                 className="text-white hover:text-red-500 focus:outline-none transition-colors duration-300"
-                aria-label="Toggle navigation menu"
+                aria-label={t("toggleMenu")}
               >
                 {isOpen ? (
                   <X className="w-6 h-6" />
@@ -179,11 +180,10 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* MOBILE NAV */}
         <div
           className={`md:hidden transition-all duration-300 ease-in-out ${
             isOpen
-              ? "max-h-[420px] opacity-100"
+              ? "max-h-[480px] opacity-100"
               : "max-h-0 opacity-0 overflow-hidden"
           }`}
         >
@@ -203,14 +203,13 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                 >
                   <IconComponent className="w-5 h-5 shrink-0" />
-                  <span className="pl-4">{item.label}</span>
+                  <span className="pl-4">{t(item.labelKey)}</span>
                 </Link>
               );
             })}
-            {/* Redes sociales - estilo Kaotiko (lista vertical) */}
             <div className="pt-3 mt-3 border-t border-gray-700">
               <p className="px-3 py-1 text-xs font-bold text-gray-500 uppercase tracking-wider">
-                Redes
+                {t("socialLabel")}
               </p>
               {socialLinks.map((social) => (
                 <a
@@ -239,7 +238,6 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Banda ska decorativa inferior */}
       <div className="ska-stripes-horizontal h-1 w-full"></div>
     </>
   );

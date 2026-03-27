@@ -2,17 +2,19 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { Heart, Play } from "lucide-react";
+import { Play } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 const HeroSection = () => {
+  const t = useTranslations("Hero");
   const [currentText, setCurrentText] = useState(0);
 
   const revolutionTexts = [
-    "La revolución comienza con una canción",
-    "Música consciente para el cambio social",
-    "Unidos contra el fascismo",
-    "La resistencia suena a ska-punk",
+    t("rotating0"),
+    t("rotating1"),
+    t("rotating2"),
+    t("rotating3"),
   ];
 
   useEffect(() => {
@@ -24,18 +26,15 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Fondo: banner con opacidad y oscurecimiento */}
       <div className="absolute inset-0 opacity-10">
         <div className="ska-stripes h-full w-full transform -skew-y-12" />
       </div>
 
-      {/* Contenido principal */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="inline-flex items-center px-4 py-2 mb-6 rounded-full bg-black/40 border border-white/10 text-white/80 text-xs uppercase tracking-[0.18em]">
-          2026 · La tormenta en la calle
+          {t("badge")}
         </div>
 
-        {/* Logo circular */}
         <div className="mb-8 flex justify-center">
           <div className="w-32 h-32 bg-red-600 rounded-full flex items-center justify-center ska-bounce shadow-2xl overflow-hidden">
             <Image
@@ -61,27 +60,17 @@ const HeroSection = () => {
         </div>
 
         <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed">
-          Banda punk-rock y ska-punk antifascista, dedicada a promover el cambio
-          social a través de la palabra y la música, nacida en Nafarroa.{" "}
-          <span className="text-red-400 font-semibold">
-            Resistencia pacífica, justicia social y música consciente.
-          </span>
+          {t("intro")}{" "}
+          <span className="text-red-400 font-semibold">{t("introHighlight")}</span>
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+        <div className="flex justify-center mb-16">
           <Link
             href="/album"
             className="btn-punk flex items-center space-x-3 text-lg"
           >
             <Play className="w-6 h-6" />
-            <span>Escuchar</span>
-          </Link>
-          <Link
-            href="/sobre-nosotros"
-            className="btn-punk-outline flex items-center space-x-3 text-lg"
-          >
-            <Heart className="w-6 h-6" />
-            <span>Conocer la banda</span>
+            <span>{t("listen")}</span>
           </Link>
         </div>
       </div>

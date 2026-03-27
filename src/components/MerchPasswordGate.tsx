@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Lock, ShoppingBag } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const STORAGE_KEY = "merch_unlocked";
 
@@ -14,6 +15,7 @@ export default function MerchPasswordGate({
   children,
   protected: isProtected = true,
 }: MerchPasswordGateProps) {
+  const t = useTranslations("MerchGate");
   const [unlocked, setUnlocked] = useState<boolean | null>(null);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -43,10 +45,10 @@ export default function MerchPasswordGate({
         setUnlocked(true);
         setPassword("");
       } else {
-        setError("Contraseña incorrecta");
+        setError(t("wrongPassword"));
       }
     } catch {
-      setError("Error de conexión. Intenta de nuevo.");
+      setError(t("connectionError"));
     } finally {
       setLoading(false);
     }
@@ -59,7 +61,7 @@ export default function MerchPasswordGate({
   if (unlocked === null) {
     return (
       <div className="min-h-[50vh] flex items-center justify-center">
-        <div className="animate-pulse text-gray-500">Cargando...</div>
+        <div className="animate-pulse text-gray-500">{t("loading")}</div>
       </div>
     );
   }
@@ -76,17 +78,15 @@ export default function MerchPasswordGate({
             <Lock className="w-8 h-8 text-white" />
           </div>
           <h2 className="text-2xl font-bold text-white mb-2">
-            Acceso restringido
+            {t("restrictedTitle")}
           </h2>
-          <p className="text-gray-400 text-sm mb-6">
-            Introduce la contraseña para acceder a la tienda en desarrollo.
-          </p>
+          <p className="text-gray-400 text-sm mb-6">{t("restrictedBody")}</p>
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Contraseña"
+              placeholder={t("passwordPlaceholder")}
               className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-red-600 focus:ring-1 focus:ring-red-600 outline-none transition-colors"
               autoFocus
               disabled={loading}
@@ -101,11 +101,11 @@ export default function MerchPasswordGate({
               className="w-full py-3 bg-red-600 hover:bg-red-700 disabled:bg-gray-700 disabled:cursor-not-allowed text-white font-bold rounded-lg transition-colors flex items-center justify-center gap-2"
             >
               {loading ? (
-                "Comprobando..."
+                t("checking")
               ) : (
                 <>
                   <ShoppingBag className="w-5 h-5" />
-                  Acceder
+                  {t("enter")}
                 </>
               )}
             </button>

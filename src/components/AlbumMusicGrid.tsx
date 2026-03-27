@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { Play, Clock, Calendar, Music, Album, X } from "lucide-react";
 import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
 import { getSongs } from "@/lib/database";
+import { formatDate } from "@/lib/utils";
 
 interface AlbumMusicGridProps {
   songs?: Awaited<ReturnType<typeof getSongs>>;
@@ -23,15 +25,16 @@ interface SongItem {
 }
 
 const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
+  const t = useTranslations("AlbumGrid");
+  const locale = useLocale();
   const [selectedSong, setSelectedSong] = useState<SongItem | null>(null);
 
-  // Organizar canciones por álbum si tienen albumId y añadir imágenes
   const songsByAlbum = songs.reduce((acc, song) => {
     const albumId = song.albumId || "sin-album";
     if (!acc[albumId]) {
       acc[albumId] = {
         albumId,
-        albumTitle: song.album?.title || "Sin Álbum",
+        albumTitle: song.album?.title || t("noAlbum"),
         songs: [],
       };
     }
@@ -47,13 +50,7 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
     return acc;
   }, {} as Record<string, { albumId: string; albumTitle: string; songs: SongItem[] }>);
 
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("es-ES", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  };
+  const fmt = (dateString: string) => formatDate(dateString, locale);
 
   const openSongModal = (song: SongItem) => {
     setSelectedSong(song);
@@ -71,11 +68,11 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
           <div className="text-center mb-8 md:mb-16">
             <div className="ska-stripes-horizontal h-2 w-32 mx-auto mb-6 rounded"></div>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-              Nuestra <span className="text-red-500">Discografía</span>
+              {t("titlePart1")}{" "}
+              <span className="text-red-500">{t("titlePart2")}</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Descubre toda nuestra música ska-punk antifascista. Cada canción
-              es una declaración de resistencia pacífica y justicia social.
+              {t("subtitle")}
             </p>
           </div>
 
@@ -88,7 +85,7 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
               <h3 className="text-2xl font-bold text-white mb-2">
                 {songs.length}
               </h3>
-              <p className="text-gray-400">Canciones Totales</p>
+              <p className="text-gray-400">{t("totalSongs")}</p>
             </div>
             <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 text-center">
               <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -97,7 +94,7 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
               <h3 className="text-2xl font-bold text-white mb-2">
                 {Object.keys(songsByAlbum).length}
               </h3>
-              <p className="text-gray-400">Álbumes/EPs</p>
+              <p className="text-gray-400">{t("albumsEps")}</p>
             </div>
             <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 text-center">
               <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -112,7 +109,7 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
                   }, 0) / 60
                 )}
               </h3>
-              <p className="text-gray-400">Minutos de Música</p>
+              <p className="text-gray-400">{t("minutesMusic")}</p>
             </div>
           </div>
 
@@ -133,7 +130,7 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
                       {albumGroup.albumTitle}
                     </h3>
                     <p className="text-gray-400">
-                      {albumGroup.songs.length} canciones
+                      {t("albumSongCount", { count: albumGroup.songs.length })}
                     </p>
                   </div>
                 </div>
@@ -207,7 +204,7 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
                           <span className="flex items-center gap-1">
                             <Calendar className="w-3 h-3" />
                             <span>
-                              {formatDate(song.createdAt.toISOString())}
+                              {fmt(song.createdAt.toISOString())}
                             </span>
                           </span>
                         </div>
@@ -232,12 +229,9 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
           <div className="text-center mt-16">
             <div className="ska-stripes h-2 w-48 mx-auto mb-8 rounded"></div>
             <h3 className="text-2xl font-bold text-white mb-4">
-              ¿Te gusta lo que escuchas?
+              {t("ctaTitle")}
             </h3>
-            <p className="text-gray-300 mb-6">
-              Comparte nuestra música y únete a la resistencia pacífica a través
-              del ska-punk consciente.
-            </p>
+            <p className="text-gray-300 mb-6">{t("ctaSubtitle")}</p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="https://open.spotify.com/intl-es/artist/1reWo4KzVQLgqOwNXrVgr4"
@@ -248,7 +242,7 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
                 </svg>
-                <span>Escuchar en Spotify</span>
+                <span>{t("spotifyListen")}</span>
               </a>
               <a
                 href="https://www.youtube.com/@KaosEkaitza"
@@ -257,7 +251,7 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
                 className="btn-punk inline-flex items-center gap-2"
               >
                 <Play className="w-5 h-5" />
-                <span>Ver en YouTube</span>
+                <span>{t("youtubeWatch")}</span>
               </a>
             </div>
           </div>
@@ -284,11 +278,11 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
                   <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-6 text-gray-400 text-sm mb-4">
                     <span className="flex items-center gap-2">
                       <Clock className="w-4 h-4" />
-                      {selectedSong.duration || "Duración no disponible"}
+                      {selectedSong.duration || t("durationUnavailable")}
                     </span>
                     <span className="flex items-center gap-2">
                       <Calendar className="w-4 h-4" />
-                      {formatDate(selectedSong.createdAt.toISOString())}
+                      {fmt(selectedSong.createdAt.toISOString())}
                     </span>
                     {selectedSong.album && (
                       <span className="flex items-center gap-2">
@@ -328,7 +322,7 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
                 {selectedSong.message && (
                   <div className="mb-6">
                     <h3 className="text-xl font-bold text-white mb-3">
-                      Mensaje
+                      {t("messageHeading")}
                     </h3>
                     <blockquote className="text-red-400 italic text-lg font-medium border-l-4 border-red-600 pl-4 py-2">
                       &ldquo;{selectedSong.message}&rdquo;
@@ -339,7 +333,7 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
                 {/* Enlaces de la canción */}
                 <div className="mb-6">
                   <h3 className="text-xl font-bold text-white mb-3">
-                    Escuchar
+                    {t("listenHeading")}
                   </h3>
                   <div className="flex flex-wrap gap-3">
                     {selectedSong.spotifyUrl && (
@@ -352,7 +346,7 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
                         <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
                         </svg>
-                        <span>Escuchar en Spotify</span>
+                        <span>{t("spotifyListen")}</span>
                       </a>
                     )}
                     {selectedSong.youtubeUrl &&
@@ -364,7 +358,7 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
                           className="flex items-center gap-2 px-4 py-3 bg-red-600 hover:bg-red-500 text-white rounded-lg transition-colors duration-300 font-medium"
                         >
                           <Play className="w-4 h-4" />
-                          <span>Ver en YouTube</span>
+                          <span>{t("youtubeWatch")}</span>
                         </a>
                       )}
                   </div>
@@ -373,9 +367,7 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
                 {/* Mensaje de cierre */}
                 <div className="bg-red-600/10 border-l-4 border-red-600 p-4 rounded-r-lg">
                   <p className="text-red-400 italic font-medium">
-                    &ldquo;La música es el arma de los pueblos que quieren ser
-                    libres. Cada canción es un grito de resistencia
-                    pacífica.&rdquo;
+                    &ldquo;{t("modalQuote")}&rdquo;
                   </p>
                 </div>
               </div>
@@ -388,7 +380,7 @@ const AlbumMusicGrid = ({ songs = [] }: AlbumMusicGridProps) => {
                   onClick={closeSongModal}
                   className="px-6 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors text-sm"
                 >
-                  Cerrar
+                  {t("close")}
                 </button>
               </div>
             </div>

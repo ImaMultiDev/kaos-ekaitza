@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Play, Clock, Calendar, X } from "lucide-react";
 import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { getLatestSongs } from "@/lib/database";
+import { formatDate } from "@/lib/utils";
 
 interface LatestMusicProps {
   songs?: Awaited<ReturnType<typeof getLatestSongs>>;
@@ -24,29 +26,25 @@ interface TrackItem {
 }
 
 const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
+  const t = useTranslations("LatestMusic");
+  const locale = useLocale();
   const [selectedTrack, setSelectedTrack] = useState<TrackItem | null>(null);
 
-  // Usar las canciones reales de la base de datos
   const latestTracks = songs.map((song, index) => ({
     id: index + 1,
     title: song.title,
     duration: song.duration || "0:00",
     releaseDate: song.createdAt.toISOString().split("T")[0],
-    description: song.message || "Canción ska-punk con mensaje social",
-    message: song.message || "Música consciente para el cambio social pacífico",
+    description: song.message || t("songFallback"),
+    message: song.message || t("messageFallback"),
     spotifyUrl: song.spotifyUrl || null,
     youtubeUrl: song.youtubeUrl || "#",
     downloadUrl: "#",
     image: song.coverImage || "",
   }));
 
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("es-ES", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  };
+  const formatTrackDate = (dateString: string) =>
+    formatDate(dateString, locale);
 
   const openTrackModal = (track: TrackItem) => {
     setSelectedTrack(track);
@@ -64,11 +62,11 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
           <div className="text-center mb-16">
             <div className="ska-stripes-horizontal h-2 w-32 mx-auto mb-6 rounded"></div>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-              Última <span className="text-red-500">Música</span>
+              {t("titlePart1")}{" "}
+              <span className="text-red-500">{t("titlePart2")}</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Nuestros últimos lanzamientos cargados de mensaje social y energía
-              ska-punk. Cada canción es una declaración de resistencia pacífica.
+              {t("subtitle")}
             </p>
           </div>
 
@@ -139,7 +137,7 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
                     </span>
                     <span className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
-                      <span>{formatDate(track.releaseDate)}</span>
+                      <span>{formatTrackDate(track.releaseDate)}</span>
                     </span>
                   </div>
 
@@ -160,18 +158,15 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
           <div className="text-center">
             <div className="ska-stripes h-2 w-48 mx-auto mb-8 rounded"></div>
             <h3 className="text-2xl font-bold text-white mb-4">
-              ¿Quieres escuchar más?
+              {t("moreTitle")}
             </h3>
-            <p className="text-gray-300 mb-6">
-              Explora toda nuestra discografía y descubre el poder del ska-punk
-              consciente.
-            </p>
+            <p className="text-gray-300 mb-6">{t("moreSubtitle")}</p>
             <Link
               href="/album"
               className="btn-punk inline-flex items-center gap-2"
             >
               <Play className="w-5 h-5" />
-              <span>Ver Toda la Discografía</span>
+              <span>{t("allDiscography")}</span>
             </Link>
           </div>
         </div>
@@ -201,7 +196,7 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
                     </span>
                     <span className="flex items-center gap-2">
                       <Calendar className="w-4 h-4" />
-                      {formatDate(selectedTrack.releaseDate)}
+                      {formatTrackDate(selectedTrack.releaseDate)}
                     </span>
                   </div>
                 </div>
@@ -235,7 +230,7 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
                 {selectedTrack.message && (
                   <div className="mb-6">
                     <h3 className="text-xl font-bold text-white mb-3">
-                      Mensaje
+                      {t("messageHeading")}
                     </h3>
                     <blockquote className="text-red-400 italic text-lg font-medium border-l-4 border-red-600 pl-4 py-2">
                       &ldquo;{selectedTrack.message}&rdquo;
@@ -246,7 +241,7 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
                 {/* Enlaces de la canción */}
                 <div className="mb-6">
                   <h3 className="text-xl font-bold text-white mb-3">
-                    Escuchar
+                    {t("listenHeading")}
                   </h3>
                   <div className="flex flex-wrap gap-3">
                     {selectedTrack.spotifyUrl && (
@@ -259,7 +254,7 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
                         <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
                         </svg>
-                        <span>Escuchar en Spotify</span>
+                        <span>{t("spotifyListen")}</span>
                       </a>
                     )}
                     {selectedTrack.youtubeUrl &&
@@ -271,7 +266,7 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
                           className="flex items-center gap-2 px-4 py-3 bg-red-600 hover:bg-red-500 text-white rounded-lg transition-colors duration-300 font-medium"
                         >
                           <Play className="w-4 h-4" />
-                          <span>Ver en YouTube</span>
+                          <span>{t("youtubeWatch")}</span>
                         </a>
                       )}
                   </div>
@@ -280,9 +275,7 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
                 {/* Mensaje de cierre */}
                 <div className="bg-red-600/10 border-l-4 border-red-600 p-4 rounded-r-lg">
                   <p className="text-red-400 italic font-medium">
-                    &ldquo;La música es el arma de los pueblos que quieren ser
-                    libres. Cada canción es un grito de resistencia
-                    pacífica.&rdquo;
+                    &ldquo;{t("modalQuote")}&rdquo;
                   </p>
                 </div>
               </div>
@@ -295,7 +288,7 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
                   onClick={closeTrackModal}
                   className="px-6 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors text-sm"
                 >
-                  Cerrar
+                  {t("close")}
                 </button>
               </div>
             </div>
