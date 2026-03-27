@@ -61,7 +61,7 @@ export default async function Home({ params }: Props) {
             <p className="hidden md:block text-white/80 max-w-2xl mx-auto">
               {t("ctaSubtitle")}
             </p>
-            <div className="flex flex-wrap md:justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/album"
                 className="inline-flex cursor-pointer items-center gap-2 rounded-lg px-6 py-3 font-bold text-white transition-all duration-300 bg-red-600 scale-100 shadow-none hover:bg-red-500 hover:scale-105 hover:shadow-[0_10px_25px_rgba(220,38,38,0.3)] [&_svg]:block"
