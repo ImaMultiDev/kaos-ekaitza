@@ -8,6 +8,7 @@ import {
   Mail,
   MapPin,
   Handshake,
+  Facebook,
   Instagram,
   Youtube,
   CloudLightning,
@@ -63,6 +64,12 @@ export default async function ContactoPage({ params }: Props) {
   ];
 
   const socialLinks = [
+    {
+      icon: "facebook",
+      name: "Facebook",
+      url: socialConfig.social.facebook,
+      color: "hover:text-[#1877F2]",
+    },
     {
       icon: "instagram",
       name: "Instagram",
@@ -172,6 +179,9 @@ export default async function ContactoPage({ params }: Props) {
                       rel="noopener noreferrer"
                       className={`flex items-center space-x-3 p-3 rounded-lg bg-black hover:bg-gray-800 text-gray-400 ${social.color} transition-all duration-300 group`}
                     >
+                      {social.icon === "facebook" && (
+                        <Facebook className="w-5 h-5" />
+                      )}
                       {social.icon === "instagram" && (
                         <Instagram className="w-5 h-5" />
                       )}

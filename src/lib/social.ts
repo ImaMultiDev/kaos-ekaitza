@@ -11,6 +11,8 @@ export const socialConfig = {
 
   // Social Media URLs
   social: {
+    facebook:
+      "https://www.facebook.com/people/Kaos-Ekaitza/pfbid02XLgEadZn5SHcrMH4UgCEaKUjd911vZmy1NSF58EV3aoAdyij9sX6NyDmJdTLtocul/",
     youtube: "https://www.youtube.com/@KaosEkaitza",
     spotify: "https://open.spotify.com/intl-es/artist/1reWo4KzVQLgqOwNXrVgr4",
     instagram: "https://www.instagram.com/kaosekaitza/",

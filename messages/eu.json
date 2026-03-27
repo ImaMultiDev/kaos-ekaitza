@@ -11,8 +11,13 @@
     "about": "Guri buruz",
     "contact": "Kontaktua",
     "toggleMenu": "Ireki edo itxi menua",
+    "closeMenu": "Itxi menua",
+    "mainNavAria": "Nabigazio nagusia",
+    "mobileDrawerTitle": "Menua",
+    "languageLabel": "Hizkuntza",
     "socialLabel": "Sareak",
-    "ekaitzarenBegiaAria": "Ekaitzaren Begia — gure sare guztiak"
+    "ekaitzarenBegiaAria": "Ekaitzaren Begia — gure sare guztiak",
+    "brandTagline": "Ska-punk · Antifaxista"
   },
   "Footer": {
     "tagline": "SKA-PUNK ANTIFASCISTA",
