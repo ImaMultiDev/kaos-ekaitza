@@ -1,5 +1,6 @@
 "use client";
 
+import { ShoppingBag } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type IconProps = { className?: string };
@@ -77,7 +78,7 @@ export function NavIconMail({ className }: IconProps) {
   );
 }
 
-export type NavSketchIconId = "home" | "album" | "about" | "contact";
+export type NavSketchIconId = "home" | "album" | "merch" | "about" | "contact";
 
 export function NavbarSketchIcon({
   name,
@@ -91,6 +92,14 @@ export function NavbarSketchIcon({
       return <NavIconHome className={className} />;
     case "album":
       return <NavIconMusic className={className} />;
+    case "merch":
+      return (
+        <ShoppingBag
+          className={cn("shrink-0", className)}
+          strokeWidth={2.25}
+          aria-hidden
+        />
+      );
     case "about":
       return <NavIconFlash className={className} />;
     case "contact":

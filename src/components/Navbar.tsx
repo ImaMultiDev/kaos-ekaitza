@@ -180,11 +180,12 @@ const Navbar = () => {
 
   const navItems: {
     href: string;
-    labelKey: "home" | "album" | "about" | "contact";
+    labelKey: "home" | "album" | "merch" | "about" | "contact";
     icon: NavSketchIconId;
   }[] = [
     { href: "/", labelKey: "home", icon: "home" },
     { href: "/album", labelKey: "album", icon: "album" },
+    { href: "/merchandising", labelKey: "merch", icon: "merch" },
     { href: "/sobre-nosotros", labelKey: "about", icon: "about" },
     { href: "/contacto", labelKey: "contact", icon: "contact" },
   ];

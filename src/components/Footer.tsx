@@ -6,6 +6,7 @@ import {
   NavIconFlash,
   NavIconMail,
   NavIconMusic,
+  NavbarSketchIcon,
 } from "@/components/nav/NavbarSketchIcons";
 
 export default async function Footer() {
@@ -68,6 +69,18 @@ export default async function Footer() {
                   >
                     <NavIconMusic className="w-[18px] h-[18px] mr-2 shrink-0" />{" "}
                     {t("discography")}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/merchandising"
+                    className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center [&_svg]:block"
+                  >
+                    <NavbarSketchIcon
+                      name="merch"
+                      className="w-[18px] h-[18px] mr-2 shrink-0"
+                    />{" "}
+                    {t("merchandising")}
                   </Link>
                 </li>
                 <li>
