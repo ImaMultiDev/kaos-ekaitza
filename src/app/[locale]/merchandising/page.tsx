@@ -105,7 +105,7 @@ const rawMerchProducts = [
     name: "Sudadera sin capucha con logo 'Kaos Ekaitza'",
     category: "ropa",
     description: "Sudadera sin capucha con logo en el pecho, unisex.",
-    price: "30€",
+    price: "25€",
     image:
       "https://res.cloudinary.com/dzuug3ahf/image/upload/v1775145080/IMG-20260331-WA0019_fcjagk.jpg", // Cloudinary URL
     available: true,
