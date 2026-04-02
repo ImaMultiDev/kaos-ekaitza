@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import HeroSection from "@/components/HeroSection";
 import BookingSection from "@/components/BookingSection";
 import PhilosophySection from "@/components/PhilosophySection";
+import HomeMerchSection from "@/components/HomeMerchSection";
 import { HomeBombIcon } from "@/components/HomeBombIcon";
 import {
   NavIconFlash,
@@ -46,6 +47,10 @@ export default async function Home({ params }: Props) {
             </p>
           </div>
         </section>
+      </RevealSection>
+
+      <RevealSection className="w-full" delay={0.07}>
+        <HomeMerchSection />
       </RevealSection>
 
       <RevealSection className="w-full" delay={0.06}>

@@ -129,13 +129,13 @@ export default async function MerchandisingPage({ params }: Props) {
   return (
     <div className="min-h-screen bg-black">
       <RevealSection className="w-full">
-        <section className="py-8 md:py-16 bg-gradient-punk">
+        <section className="py-8 md:pt-16 md:pb-7 bg-gradient-punk">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase text-white mb-5 md:mb-6 tracking-tight max-md:px-1">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase text-white mb-5 md:mb-4 tracking-tight max-md:px-1">
               {t("heroTitle")}{" "}
               <span className="text-red-500">{t("heroAccent")}</span>
             </h1>
-            <p className="hidden md:block text-lg text-white/80 max-w-2xl mx-auto mb-4 md:mb-6 leading-relaxed">
+            <p className="hidden md:block text-lg text-white/80 max-w-2xl mx-auto mb-4 md:mb-3 leading-relaxed">
               {t("heroSubtitle")}
             </p>
           </div>
@@ -143,7 +143,7 @@ export default async function MerchandisingPage({ params }: Props) {
       </RevealSection>
 
       {/* Sin RevealSection aquí: bloques altos + whileInView en móvil podían dejar la galería en opacity 0 */}
-      <section className="pt-4 pb-12 md:pt-6 md:pb-16 bg-black">
+      <section className="pt-4 pb-12 md:pt-3 md:pb-16 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <MerchProductGrid products={products} storeInProgress={false} />
         </div>
