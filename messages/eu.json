@@ -200,7 +200,7 @@
     "heroEyebrow": "Guri buruz",
     "heroP1": "Kaos Ekaitza kaletik sortzen da, zarataretik eta askok pentsatu eta gutxik oihukatzen dutena esateko beharretik. Punk arimako proiektu musikala da, poétikoa ere, non haserre eta sentikortasuna elkarrekin doazen.",
     "heroP2": "Ideia bat izatetik talde erreal bihurtu da, Nafarroako hainbat lekutako jendeak osatua, barneko ekaitza bera eta ikuspegi bera partekatzen dutenak: herriaren ahotsa defendatzea, sortzen dena kontatzea — eta askotan ez dena kontatzen—, eta hori iragazkirik gabe egitea.",
-    "heroP3": "Taldeak Altsasu, San Martin Unx, Milagro, Noain, Huarte, Iruña eta Zarrakasteluko kideak biltzen ditu: indarra Nafarroako bazter guztietan dago.",
+    "heroP3": "Taldeak Altsasu, San Martin Unx, Milagro, Noain, Huarte, Iruña, Larraga eta Zarrakasteluko kideak biltzen ditu: indarra Nafarroako bazter guztietan dago.",
     "listen": "Entzun",
     "contact": "Kontaktua",
     "bandEyebrow": "Taldea",
@@ -220,7 +220,8 @@
       "bajo": "Baxua",
       "bateria": "Bateria",
       "voz": "Ahots nagusia",
-      "productor": "Musikaren ekoizlea"
+      "productor": "Musikaren ekoizlea",
+      "trombón": "Tronboia"
     }
   },
   "AlbumList": {

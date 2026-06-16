@@ -200,7 +200,7 @@
     "heroEyebrow": "Conócenos",
     "heroP1": "Kaos Ekaitza nace desde la calle, desde el ruido y la necesidad de decir lo que muchos piensan y pocos gritan. Es un proyecto musical con espíritu punk y también poético, donde la rabia y la sensibilidad caminan juntas.",
     "heroP2": "Lo que empezó como una idea se ha convertido en una banda real, formada por personas de distintos puntos de Nafarroa, unidas por una misma tormenta interior y la misma visión: defender la voz del pueblo, contar lo que se vive y no se suele contar, y hacerlo sin filtros.",
-    "heroP3": "La banda reúne integrantes de Altsasu, San Martín de Unx, Milagro, Noain, Huarte, Iruña y Zarrakastelu: la fuerza está en cada rincón de Nafarroa.",
+    "heroP3": "La banda reúne integrantes de Altsasu, San Martín de Unx, Milagro, Noain, Huarte, Iruña, Larraga y Zarrakastelu: la fuerza está en cada rincón de Nafarroa.",
     "listen": "Escuchar",
     "contact": "Contactar",
     "bandEyebrow": "La banda",
@@ -220,7 +220,8 @@
       "bajo": "Bajo",
       "bateria": "Batería",
       "voz": "Voz principal",
-      "productor": "Productor musical"
+      "productor": "Productor musical",
+      "trombón": "Trombón"
     }
   },
   "AlbumList": {
