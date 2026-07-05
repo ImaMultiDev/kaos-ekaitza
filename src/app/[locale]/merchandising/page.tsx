@@ -6,6 +6,8 @@ import { merchProductEuCopy } from "@/data/merch-products-eu";
 import { routing } from "@/i18n/routing";
 import { RevealSection } from "@/components/motion/RevealSection";
 import { defaultOgImages, defaultTwitterImageUrls } from "@/lib/og-defaults";
+import { isMerchEnabled } from "@/lib/merch-config";
+import { notFound } from "next/navigation";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -14,6 +16,9 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  if (!isMerchEnabled) {
+    return { robots: { index: false, follow: false } };
+  }
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "MerchPage" });
   return {
@@ -115,6 +120,8 @@ const rawMerchProducts = [
 ];
 
 export default async function MerchandisingPage({ params }: Props) {
+  if (!isMerchEnabled) notFound();
+
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("Merch");

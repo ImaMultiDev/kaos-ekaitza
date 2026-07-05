@@ -1,6 +1,6 @@
 "use client";
 
-import { ShoppingBag } from "lucide-react";
+import { ShoppingBag, CalendarDays } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type IconProps = { className?: string };
@@ -78,7 +78,7 @@ export function NavIconMail({ className }: IconProps) {
   );
 }
 
-export type NavSketchIconId = "home" | "album" | "merch" | "about" | "contact";
+export type NavSketchIconId = "home" | "album" | "merch" | "events" | "about" | "contact";
 
 export function NavbarSketchIcon({
   name,
@@ -95,6 +95,14 @@ export function NavbarSketchIcon({
     case "merch":
       return (
         <ShoppingBag
+          className={cn("shrink-0", className)}
+          strokeWidth={2.25}
+          aria-hidden
+        />
+      );
+    case "events":
+      return (
+        <CalendarDays
           className={cn("shrink-0", className)}
           strokeWidth={2.25}
           aria-hidden

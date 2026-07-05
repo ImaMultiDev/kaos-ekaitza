@@ -8,6 +8,7 @@ import { Link, usePathname } from "@/i18n/navigation";
 import { socialConfig } from "@/lib/social";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { cn } from "@/lib/utils";
+import { isMerchEnabled } from "@/lib/merch-config";
 import {
   NavbarSketchIcon,
   type NavSketchIconId,
@@ -180,12 +181,15 @@ const Navbar = () => {
 
   const navItems: {
     href: string;
-    labelKey: "home" | "album" | "merch" | "about" | "contact";
+    labelKey: "home" | "album" | "merch" | "events" | "about" | "contact";
     icon: NavSketchIconId;
   }[] = [
     { href: "/", labelKey: "home", icon: "home" },
+    { href: "/eventos", labelKey: "events", icon: "events" },
     { href: "/album", labelKey: "album", icon: "album" },
-    { href: "/merchandising", labelKey: "merch", icon: "merch" },
+    ...(isMerchEnabled
+      ? [{ href: "/merchandising", labelKey: "merch" as const, icon: "merch" as const }]
+      : []),
     { href: "/sobre-nosotros", labelKey: "about", icon: "about" },
     { href: "/contacto", labelKey: "contact", icon: "contact" },
   ];

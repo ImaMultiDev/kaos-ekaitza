@@ -8,6 +8,7 @@ import {
   NavIconMusic,
   NavbarSketchIcon,
 } from "@/components/nav/NavbarSketchIcons";
+import { isMerchEnabled } from "@/lib/merch-config";
 
 export default async function Footer() {
   const t = await getTranslations("Footer");
@@ -73,16 +74,30 @@ export default async function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/merchandising"
+                    href="/eventos"
                     className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center [&_svg]:block"
                   >
                     <NavbarSketchIcon
-                      name="merch"
+                      name="events"
                       className="w-[18px] h-[18px] mr-2 shrink-0"
                     />{" "}
-                    {t("merchandising")}
+                    {t("events")}
                   </Link>
                 </li>
+                {isMerchEnabled && (
+                  <li>
+                    <Link
+                      href="/merchandising"
+                      className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center [&_svg]:block"
+                    >
+                      <NavbarSketchIcon
+                        name="merch"
+                        className="w-[18px] h-[18px] mr-2 shrink-0"
+                      />{" "}
+                      {t("merchandising")}
+                    </Link>
+                  </li>
+                )}
                 <li>
                   <Link
                     href="/sobre-nosotros"

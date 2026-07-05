@@ -1,4 +1,5 @@
 import { prisma } from "./prisma";
+import { normalizeEvent } from "./event-gallery";
 
 // Obtener todas las canciones con su álbum
 export async function getSongs() {
@@ -85,14 +86,19 @@ export async function getAlbumById(id: string) {
   }
 }
 
-// Función auxiliar para generar slug del álbum
-export function generateAlbumSlug(title: string): string {
+// Función auxiliar para generar slug
+export function generateSlug(title: string): string {
   return title
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
+}
+
+// Alias usado por álbumes
+export function generateAlbumSlug(title: string): string {
+  return generateSlug(title);
 }
 
 // Obtener álbum por slug (título normalizado)
@@ -109,7 +115,7 @@ export async function getAlbumBySlug(slug: string) {
     });
 
     // Buscar el álbum cuyo slug coincida
-    const album = albums.find((a) => generateAlbumSlug(a.title) === slug);
+    const album = albums.find((a) => generateSlug(a.title) === slug);
 
     return album || null;
   } catch (error) {
@@ -214,6 +220,110 @@ export async function getSongByYouTubeUrl(youtubeUrl: string) {
     return song;
   } catch (error) {
     console.error("Error obteniendo canción por YouTube URL:", error);
+    return null;
+  }
+}
+
+const eventInclude = {
+  images: {
+    orderBy: { sortOrder: "asc" as const },
+  },
+};
+
+function startOfTodayUtc(): Date {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  return d;
+}
+
+export async function getEvents(published = true) {
+  try {
+    const events = await prisma.event.findMany({
+      where: published ? { published: true } : undefined,
+      include: eventInclude,
+      orderBy: { startDate: "desc" },
+    });
+    return events.map(normalizeEvent);
+  } catch (error) {
+    console.error("Error obteniendo eventos:", error);
+    return [];
+  }
+}
+
+export async function getUpcomingEvents(
+  limit?: number,
+  options?: { fullPagesOnly?: boolean; teasersAfterFull?: boolean },
+) {
+  try {
+    const baseWhere = {
+      published: true,
+      startDate: { gte: startOfTodayUtc() },
+    };
+
+    if (options?.teasersAfterFull) {
+      const [fullEvents, teaserEvents] = await Promise.all([
+        prisma.event.findMany({
+          where: { ...baseWhere, pageAccess: "FULL" },
+          include: eventInclude,
+          orderBy: { startDate: "asc" },
+        }),
+        prisma.event.findMany({
+          where: { ...baseWhere, pageAccess: "TEASER" },
+          include: eventInclude,
+          orderBy: { startDate: "asc" },
+        }),
+      ]);
+
+      const merged = [...fullEvents, ...teaserEvents].map(normalizeEvent);
+      return limit ? merged.slice(0, limit) : merged;
+    }
+
+    const events = await prisma.event.findMany({
+      where: {
+        ...baseWhere,
+        ...(options?.fullPagesOnly ? { pageAccess: "FULL" } : {}),
+      },
+      include: eventInclude,
+      orderBy: { startDate: "asc" },
+      ...(limit ? { take: limit } : {}),
+    });
+    return events.map(normalizeEvent);
+  } catch (error) {
+    console.error("Error obteniendo próximos eventos:", error);
+    return [];
+  }
+}
+
+export async function getPastEvents(limit = 24) {
+  try {
+    const events = await prisma.event.findMany({
+      where: {
+        published: true,
+        startDate: { lt: startOfTodayUtc() },
+      },
+      include: eventInclude,
+      orderBy: { startDate: "desc" },
+      take: limit,
+    });
+    return events.map(normalizeEvent);
+  } catch (error) {
+    console.error("Error obteniendo eventos pasados:", error);
+    return [];
+  }
+}
+
+export async function getEventBySlug(slug: string, published = true) {
+  try {
+    const event = await prisma.event.findFirst({
+      where: {
+        slug,
+        ...(published ? { published: true } : {}),
+      },
+      include: eventInclude,
+    });
+    return event ? normalizeEvent(event) : null;
+  } catch (error) {
+    console.error("Error obteniendo evento por slug:", error);
     return null;
   }
 }

@@ -4,7 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import BookingSection from "@/components/BookingSection";
 import PhilosophySection from "@/components/PhilosophySection";
 import HomeMerchSection from "@/components/HomeMerchSection";
-import { HomeBombIcon } from "@/components/HomeBombIcon";
+import UpcomingEventsSection from "@/components/events/UpcomingEventsSection";
 import {
   NavIconFlash,
   NavIconMail,
@@ -12,6 +12,7 @@ import {
 } from "@/components/nav/NavbarSketchIcons";
 import { routing } from "@/i18n/routing";
 import { RevealSection } from "@/components/motion/RevealSection";
+import { isMerchEnabled } from "@/lib/merch-config";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -32,26 +33,18 @@ export default async function Home({ params }: Props) {
       </RevealSection>
 
       <RevealSection className="w-full" delay={0.04}>
-        <BookingSection />
+        <UpcomingEventsSection locale={locale} />
       </RevealSection>
 
       <RevealSection className="w-full" delay={0.06}>
-        <section className="py-10 gradient-punk">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-4 text-center text-white">
-            <div className="text-sm uppercase tracking-[0.25em] text-white/80">
-              {t("upcomingEvents")}
-            </div>
-            <HomeBombIcon className="w-12 h-12 shrink-0 text-white/90 mx-auto" />
-            <p className="text-lg font-semibold text-white">
-              {t("eventsNewsSoon")}
-            </p>
-          </div>
-        </section>
+        <BookingSection />
       </RevealSection>
 
-      <RevealSection className="w-full" delay={0.07}>
-        <HomeMerchSection />
-      </RevealSection>
+      {isMerchEnabled && (
+        <RevealSection className="w-full" delay={0.07}>
+          <HomeMerchSection />
+        </RevealSection>
+      )}
 
       <RevealSection className="w-full" delay={0.06}>
         <PhilosophySection />
