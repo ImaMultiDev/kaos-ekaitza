@@ -6,6 +6,8 @@ import { Music } from "lucide-react";
 import { routing } from "@/i18n/routing";
 import { NavIconMail, NavIconMusic } from "@/components/nav/NavbarSketchIcons";
 import { RevealSection } from "@/components/motion/RevealSection";
+import BandPhotoGallery from "@/components/about/BandPhotoGallery";
+import { BAND_GALLERY_IMAGES } from "@/data/band-gallery";
 import { defaultOgImages, defaultTwitterImageUrls } from "@/lib/og-defaults";
 
 type Member = {
@@ -167,16 +169,11 @@ export default async function SobreNosotrosPage({ params }: Props) {
       <RevealSection className="w-full" delay={0.05}>
         <section className="py-10 md:py-16 bg-black border-t border-red-900/20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative aspect-video w-full rounded-lg overflow-hidden border border-gray-800 bg-gray-900">
-              <Image
-                src="https://res.cloudinary.com/dzuug3ahf/image/upload/v1773963792/WhatsApp_Image_2026-03-19_at_20.25.35_1_uamnte.jpg"
-                alt={t("bandPhotoAlt")}
-                fill
-                className="object-contain"
-                sizes="(max-width: 1024px) 100vw, 1024px"
-                priority
-              />
-            </div>
+            <BandPhotoGallery
+              images={BAND_GALLERY_IMAGES}
+              alt={t("bandPhotoAlt")}
+              selectLabel={t("bandGallerySelect")}
+            />
           </div>
         </section>
       </RevealSection>
