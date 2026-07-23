@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Image from "next/image";
+import RemoteImage from "@/components/RemoteImage";
 import { Link } from "@/i18n/navigation";
 import { Calendar, ArrowRight } from "lucide-react";
 import { getPosts } from "@/lib/database";
@@ -85,7 +85,7 @@ export default async function NoticiasPage({ params }: Props) {
                   >
                     <div className="relative h-56 bg-gradient-punk">
                       {post.featuredImage ? (
-                        <Image
+                        <RemoteImage
                           src={post.featuredImage}
                           alt={post.title}
                           fill

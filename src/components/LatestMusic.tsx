@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Play, Clock, Calendar, X } from "lucide-react";
-import Image from "next/image";
+import RemoteImage from "@/components/RemoteImage";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { getLatestSongs } from "@/lib/database";
@@ -81,7 +81,7 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
                 {/* Imagen de la canción */}
                 {track.image && (
                   <div className="h-48 relative overflow-hidden">
-                    <Image
+                    <RemoteImage
                       src={track.image}
                       alt={track.title}
                       fill
@@ -214,7 +214,7 @@ const LatestMusic = ({ songs = [] }: LatestMusicProps) => {
               {/* Imagen destacada */}
               {selectedTrack.image && (
                 <div className="h-64 relative overflow-hidden rounded-lg mb-6">
-                  <Image
+                  <RemoteImage
                     src={selectedTrack.image}
                     alt={selectedTrack.title}
                     fill

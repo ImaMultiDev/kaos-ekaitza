@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import Image from "next/image";
+import RemoteImage from "@/components/RemoteImage";
 import { Music } from "lucide-react";
 import { routing } from "@/i18n/routing";
 import { NavIconMail, NavIconMusic } from "@/components/nav/NavbarSketchIcons";
@@ -119,9 +119,9 @@ export default async function SobreNosotrosPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-black">
-      <RevealSection className="w-full">
-        <section className="py-8 md:py-16 bg-gray-900">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-8 md:py-16 bg-gray-900">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <RevealSection className="w-full" eager>
             <div className="text-center mb-8 md:mb-12">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-5 md:mb-6 tracking-tight max-md:px-1">
                 {t("pageTitle")}
@@ -130,7 +130,9 @@ export default async function SobreNosotrosPage({ params }: Props) {
                 {t("teamIntro")}
               </p>
             </div>
+          </RevealSection>
 
+          <RevealSection className="w-full">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {BANDA.map((member) => (
                 <div
@@ -139,7 +141,7 @@ export default async function SobreNosotrosPage({ params }: Props) {
                 >
                   <div className="aspect-square bg-gray-800/80 flex items-center justify-center relative overflow-hidden">
                     {member.image ? (
-                      <Image
+                      <RemoteImage
                         src={member.image}
                         alt={member.name}
                         fill
@@ -162,9 +164,9 @@ export default async function SobreNosotrosPage({ params }: Props) {
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-      </RevealSection>
+          </RevealSection>
+        </div>
+      </section>
 
       <RevealSection className="w-full" delay={0.05}>
         <section className="py-10 md:py-16 bg-black border-t border-red-900/20">

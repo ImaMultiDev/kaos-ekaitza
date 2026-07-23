@@ -1,4 +1,4 @@
-import Image from "next/image";
+import RemoteImage from "@/components/RemoteImage";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
@@ -19,7 +19,7 @@ export default async function BandPhotoSection() {
         </div>
 
         <div className="relative w-full aspect-video max-w-5xl mx-auto rounded-lg overflow-hidden border border-gray-800 bg-black shadow-2xl">
-          <Image
+          <RemoteImage
             src="/KaosEkaitza-2026.jpeg"
             alt={t("alt")}
             fill

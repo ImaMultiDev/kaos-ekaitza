@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { getAlbumBySlug, getAlbums, generateAlbumSlug } from "@/lib/database";
-import Image from "next/image";
+import RemoteImage from "@/components/RemoteImage";
 import { Link } from "@/i18n/navigation";
 import { ArrowLeft, Calendar, Music, Youtube } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -99,7 +99,7 @@ export default async function AlbumDetailPage({ params }: PageProps) {
       <section className="relative py-8 md:py-20 bg-gradient-punk overflow-hidden">
         {album.coverImage && (
           <div className="absolute inset-0 opacity-20 hidden md:block" aria-hidden>
-            <Image
+            <RemoteImage
               src={album.coverImage}
               alt=""
               fill
@@ -124,7 +124,7 @@ export default async function AlbumDetailPage({ params }: PageProps) {
             <div className="md:col-span-1 flex justify-center md:justify-start min-w-0 w-full">
               <div className="relative w-full h-[min(72vw,20rem)] min-h-[17rem] sm:min-h-[19rem] md:h-96 md:min-h-0 rounded-2xl md:rounded-lg overflow-hidden border border-zinc-700/90 md:border-gray-800 shadow-[0_20px_55px_rgba(0,0,0,0.55)] md:shadow-2xl bg-gradient-punk ring-1 ring-red-600/25 md:ring-0">
                 {album.coverImage ? (
-                  <Image
+                  <RemoteImage
                     src={album.coverImage}
                     alt={album.title}
                     fill

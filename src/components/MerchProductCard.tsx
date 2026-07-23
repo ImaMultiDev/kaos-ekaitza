@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
+import RemoteImage from "@/components/RemoteImage";
 import {
   Instagram,
   ExternalLink,
@@ -70,7 +70,7 @@ export default function MerchProductCard({
           className="relative h-64 w-full bg-gray-800 overflow-hidden block text-left cursor-pointer"
         >
           {product.image ? (
-            <Image
+            <RemoteImage
               src={product.image}
               alt={product.name}
               fill
@@ -190,7 +190,7 @@ export default function MerchProductCard({
 
               {product.image ? (
                 <div className="relative aspect-square w-full min-h-[280px]">
-                  <Image
+                  <RemoteImage
                     src={product.image}
                     alt={product.name}
                     fill

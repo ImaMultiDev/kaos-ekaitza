@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Image from "next/image";
+import RemoteImage from "@/components/RemoteImage";
 import { Link } from "@/i18n/navigation";
 import { ArrowLeft, Calendar, ExternalLink, Hash } from "lucide-react";
 import { getPostBySlug, getPosts } from "@/lib/database";
@@ -75,7 +75,7 @@ export default async function PostPage({ params }: PageProps) {
       <section className="relative overflow-hidden bg-black">
         {post.featuredImage && (
           <div className="absolute inset-0">
-            <Image
+            <RemoteImage
               src={post.featuredImage}
               alt={post.title}
               fill

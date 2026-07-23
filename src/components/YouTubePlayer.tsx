@@ -13,7 +13,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { getSongs } from "@/lib/database";
-import Image from "next/image";
+import RemoteImage from "@/components/RemoteImage";
 
 interface YouTubePlayerProps {
   songs?: Awaited<ReturnType<typeof getSongs>>;
@@ -267,7 +267,7 @@ const YouTubePlayer = ({ songs = [] }: YouTubePlayerProps) => {
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           {/* Info de la canción */}
           <div className="flex items-center space-x-4 min-w-0 flex-1">
-            <Image
+            <RemoteImage
               src={currentTrackData.thumbnailUrl}
               alt={currentTrackData.title}
               width={48}

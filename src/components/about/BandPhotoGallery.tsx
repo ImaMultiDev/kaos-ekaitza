@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import RemoteImage from "@/components/RemoteImage";
 import { cn } from "@/lib/utils";
 
 export type BandGalleryImage = {
@@ -24,7 +24,7 @@ export default function BandPhotoGallery({ images, alt, selectLabel }: Props) {
   return (
     <div className="space-y-4 md:space-y-5">
       <div className="relative aspect-video w-full rounded-lg overflow-hidden border border-gray-800 bg-gray-900">
-        <Image
+        <RemoteImage
           key={active.url}
           src={active.url}
           alt={active.alt ?? alt}
@@ -57,7 +57,7 @@ export default function BandPhotoGallery({ images, alt, selectLabel }: Props) {
                   : "border-gray-800 opacity-75 hover:opacity-100 hover:border-red-600/50",
               )}
             >
-              <Image
+              <RemoteImage
                 src={image.url}
                 alt=""
                 fill

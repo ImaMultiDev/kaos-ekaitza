@@ -1,4 +1,4 @@
-import Image from "next/image";
+import RemoteImage from "@/components/RemoteImage";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 
@@ -24,7 +24,7 @@ export default async function HomeMerchSection() {
           className="group block w-full max-w-lg sm:max-w-xl lg:max-w-3xl xl:max-w-4xl cursor-pointer scale-100 shadow-none rounded-2xl transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-[0_10px_25px_rgba(220,38,38,0.3)] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-500 motion-reduce:transition-none motion-reduce:hover:scale-100 motion-reduce:hover:shadow-none motion-reduce:active:scale-100"
         >
           <figure className="m-0 w-full rounded-2xl border border-zinc-800/90 bg-zinc-900/40 p-3 sm:p-4 shadow-2xl shadow-black/50 flex justify-center items-center transition-all duration-300 ease-in-out group-hover:border-red-600/50 group-hover:bg-zinc-900/55">
-            <Image
+            <RemoteImage
               src={MERCH_TEASER_IMAGE}
               alt={t("merchImageAlt")}
               width={1200}

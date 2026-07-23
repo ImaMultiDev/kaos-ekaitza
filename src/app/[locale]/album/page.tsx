@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { getAlbums, generateAlbumSlug } from "@/lib/database";
-import Image from "next/image";
+import RemoteImage from "@/components/RemoteImage";
 import { Link } from "@/i18n/navigation";
 import {
   getTranslations,
@@ -130,7 +130,7 @@ export default async function AlbumPage({ params }: Props) {
                   <Link href={`/album/${albumSlug}`} className="block">
                     <div className="relative h-[min(72vw,20rem)] min-h-[17rem] sm:min-h-[19rem] md:h-96 md:min-h-0 bg-gradient-punk overflow-hidden">
                       {album.coverImage ? (
-                        <Image
+                        <RemoteImage
                           src={album.coverImage}
                           alt={album.title}
                           fill

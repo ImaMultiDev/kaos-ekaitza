@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Play, Clock, Calendar, Music, Album, X } from "lucide-react";
-import Image from "next/image";
+import RemoteImage from "@/components/RemoteImage";
 import { useLocale, useTranslations } from "next-intl";
 import { getSongs } from "@/lib/database";
 import { formatDate } from "@/lib/utils";
@@ -183,7 +183,7 @@ const AlbumMusicGrid = ({
                     >
                       {song.image && (
                         <div className="h-28 md:h-32 relative overflow-hidden">
-                          <Image
+                          <RemoteImage
                             src={song.image}
                             alt={song.title}
                             fill
@@ -349,7 +349,7 @@ const AlbumMusicGrid = ({
               {/* Imagen destacada */}
               {selectedSong.image && (
                 <div className="h-64 relative overflow-hidden rounded-lg mb-6">
-                  <Image
+                  <RemoteImage
                     src={selectedSong.image}
                     alt={selectedSong.title}
                     fill

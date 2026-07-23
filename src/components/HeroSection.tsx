@@ -1,4 +1,5 @@
 import Image from "next/image";
+import RemoteImage from "@/components/RemoteImage";
 
 const BAND_IMAGE =
   "https://res.cloudinary.com/dzuug3ahf/image/upload/v1784749931/IMG-20260717-WA0037-Photoroom2_1_erpg1y.png";
@@ -26,7 +27,7 @@ const HeroSection = () => {
         </div>
 
         <div className="relative z-10 w-full leading-none max-md:pt-10 max-md:translate-y-1 md:translate-y-14 lg:translate-y-3">
-          <Image
+          <RemoteImage
             src={BAND_IMAGE}
             alt="Kaos Ekaitza"
             width={2400}
