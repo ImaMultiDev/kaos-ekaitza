@@ -77,30 +77,54 @@ const EVENTS: EventSeed[] = [
     tags: ["ekhifest", "alava", "araba", "EH", "Euskal Herria", "festival"],
   },
   {
-    title: "Laster",
-    slug: "laster-2026-08-15",
+    title: "Concierto en Corella",
+    slug: "corella-2026",
+    excerpt: "Concierto en Corella (Navarra).",
+    description: "La tormenta llega a Corella\n\nAbuztuak 15 de Agosto.",
+    venue: "Plaza de Corella",
+    city: "Corella (Nafarroa)",
     startDate: "2026-08-15",
     featuredImage:
-      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1783284765/lasterpost_letdh4.png",
+      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1785521113/759687855_17897671620557544_7789763158379382333_n_k3m7to.webp",
     published: true,
     detailsPending: false,
-    pageAccess: "TEASER",
     publishedAt: "2026-07-05T00:00:00.000Z",
-    tags: ["laster", "proximamente"],
+    tags: [
+      "corella",
+      "navarra",
+      "nafarroa",
+      "EH",
+      "Euskal Herria",
+      "concierto",
+    ],
   },
   {
-    title: "Laster",
-    slug: "laster-2026-08-29",
+    title: "III Karakol Rock",
+    slug: "biurrun-karakol-rock-2026",
+    excerpt: "Karakol-Rock III Biurrun (Navarra).",
+    description:
+      "La tormenta llega al Karakol Rock en su III edición\n\nAbuztuak 29 de Agosto.",
+    city: "Biurrun (Nafarroa)",
     startDate: "2026-08-29",
     featuredImage:
-      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1783284765/lasterpost_letdh4.png",
+      "https://res.cloudinary.com/dzuug3ahf/image/upload/v1785521113/758386945_17938453500317023_1910691214609421941_n_b2r2ib.webp",
+    instagramUrl: "https://www.instagram.com/froilanboys/",
     published: true,
     detailsPending: false,
-    pageAccess: "TEASER",
     publishedAt: "2026-07-05T00:00:00.000Z",
-    tags: ["laster", "proximamente"],
+    tags: [
+      "biurrun",
+      "navarra",
+      "nafarroa",
+      "EH",
+      "Euskal Herria",
+      "karakol rock",
+    ],
   },
 ];
+
+/** Slugs retirados del catálogo (p. ej. teasers sustituidos por fichas completas) */
+const REMOVED_SLUGS = ["laster-2026-08-15", "laster-2026-08-29"];
 
 function parseEventDate(dateStr: string): Date {
   const [year, month, day] = dateStr.split("-").map(Number);
@@ -146,6 +170,13 @@ async function seedEvent(entry: EventSeed) {
 
 async function main() {
   console.log(`📅 Sincronizando ${EVENTS.length} evento(s)...`);
+
+  for (const slug of REMOVED_SLUGS) {
+    const removed = await prisma.event.deleteMany({ where: { slug } });
+    if (removed.count > 0) {
+      console.log(`  🗑️  Eliminado: ${slug}`);
+    }
+  }
 
   for (const entry of EVENTS) {
     const event = await seedEvent(entry);
