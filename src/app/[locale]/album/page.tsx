@@ -13,6 +13,8 @@ import {
   defaultOgImages,
   defaultTwitterImageUrls,
 } from "@/lib/og-defaults";
+import { isDiscographyEnabled } from "@/lib/discography-config";
+import { notFound } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 
@@ -23,6 +25,9 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  if (!isDiscographyEnabled) {
+    return { robots: { index: false, follow: false } };
+  }
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "AlbumList" });
   return {
@@ -43,6 +48,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function AlbumPage({ params }: Props) {
+  if (!isDiscographyEnabled) notFound();
+
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("AlbumList");

@@ -8,6 +8,7 @@
   "Nav": {
     "home": "Hasiera",
     "album": "Diskografia",
+    "gallery": "Galeria",
     "events": "Ekitaldiak",
     "merch": "Merch",
     "about": "Guri buruz",
@@ -29,6 +30,7 @@
     "community": "Komunitatea",
     "quickLinks": "Estek azkarrak",
     "discography": "Diskografia",
+    "gallery": "Galeria",
     "events": "Ekitaldiak",
     "merchandising": "Merch",
     "aboutUs": "Guri buruz",
@@ -60,6 +62,7 @@
     "ctaTitle": "Parte hartu ekaitzan.",
     "ctaSubtitle": "Entzun, ezagutu, lagundu edo babestu. Hiru urrats argi batzeko.",
     "listen": "Entzun",
+    "galleryBtn": "Ikusi galeria",
     "knowBandBtn": "Ezagutu taldea",
     "contact": "Kontaktua"
   },
@@ -205,6 +208,7 @@
     "heroP2": "Ideia bat izatetik talde erreal bihurtu da, Nafarroako hainbat lekutako jendeak osatua, barneko ekaitza bera eta ikuspegi bera partekatzen dutenak: herriaren ahotsa defendatzea, sortzen dena kontatzea — eta askotan ez dena kontatzen—, eta hori iragazkirik gabe egitea.",
     "heroP3": "Taldeak Altsasu, San Martin Unx, Milagro, Noain, Huarte, Iruña, Larraga eta Zarrakasteluko kideak biltzen ditu: indarra Nafarroako bazter guztietan dago.",
     "listen": "Entzun",
+    "galleryBtn": "Ikusi galeria",
     "contact": "Kontaktua",
     "bandEyebrow": "Taldea",
     "teamTitle": "Taldea",
@@ -307,6 +311,18 @@
     "galleryClose": "Itxi",
     "galleryPrev": "Aurrekoa",
     "galleryNext": "Hurrengoa"
+  },
+  "Galeria": {
+    "metaTitle": "Galeria — Kaos Ekaitza | Zuzeneko argazkiak",
+    "metaDesc": "Kaos Ekaitzaren kontzertu eta zuzeneko irudiak: ekaitza eszenatokian.",
+    "title": "Galeria",
+    "subtitle": "Kontzertu, festibal eta zuzeneko uneak. Taldearen energia iruditan.",
+    "empty": "Laster argazki gehiago. Jarraitu gure sare sozialetan.",
+    "imageAlt": "Kaos Ekaitza kontzertuan",
+    "close": "Itxi",
+    "prev": "Aurrekoa",
+    "next": "Hurrengoa",
+    "counter": "{current} / {total}"
   },
   "MerchPage": {
     "metaTitle": "Merchandising — Kaos Ekaitza | Denda",

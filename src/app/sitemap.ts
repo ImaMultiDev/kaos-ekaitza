@@ -2,6 +2,7 @@ import { MetadataRoute } from "next";
 import { getPosts, getAlbums, getEvents, generateAlbumSlug } from "@/lib/database";
 import { isEventDetailAccessible } from "@/lib/event-access";
 import { routing } from "@/i18n/routing";
+import { isDiscographyEnabled } from "@/lib/discography-config";
 import { isMerchEnabled } from "@/lib/merch-config";
 
 const baseUrl = "https://kaosekaitza.com";
@@ -9,7 +10,7 @@ const baseUrl = "https://kaosekaitza.com";
 const baseStaticPaths = [
   "",
   "noticias",
-  "album",
+  ...(isDiscographyEnabled ? (["album"] as const) : (["galeria"] as const)),
   "eventos",
   "sobre-nosotros",
   "contacto",
@@ -19,6 +20,7 @@ const staticPriority: Record<string, number> = {
   "": 1,
   noticias: 0.85,
   album: 0.9,
+  galeria: 0.88,
   eventos: 0.88,
   "sobre-nosotros": 0.8,
   contacto: 0.7,
@@ -60,6 +62,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
 
     for (const album of albums) {
+      if (!isDiscographyEnabled) continue;
       const slug = generateAlbumSlug(album.title);
       entries.push({
         url: `${baseUrl}/${locale}/album/${slug}`,

@@ -4,11 +4,12 @@ import { Link } from "@/i18n/navigation";
 import RemoteImage from "@/components/RemoteImage";
 import { Music } from "lucide-react";
 import { routing } from "@/i18n/routing";
-import { NavIconMail, NavIconMusic } from "@/components/nav/NavbarSketchIcons";
+import { NavIconMail, NavIconMusic, NavbarSketchIcon } from "@/components/nav/NavbarSketchIcons";
 import { RevealSection } from "@/components/motion/RevealSection";
 import BandPhotoGallery from "@/components/about/BandPhotoGallery";
 import { BAND_GALLERY_IMAGES } from "@/data/band-gallery";
 import { defaultOgImages, defaultTwitterImageUrls } from "@/lib/og-defaults";
+import { isDiscographyEnabled } from "@/lib/discography-config";
 
 type Member = {
   name: string;
@@ -208,11 +209,15 @@ export default async function SobreNosotrosPage({ params }: Props) {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                href="/album"
+                href={isDiscographyEnabled ? "/album" : "/galeria"}
                 className="btn-punk inline-flex items-center gap-2 [&_svg]:block"
               >
-                <NavIconMusic className="w-5 h-5 shrink-0" />
-                <span>{t("listen")}</span>
+                {isDiscographyEnabled ? (
+                  <NavIconMusic className="w-5 h-5 shrink-0" />
+                ) : (
+                  <NavbarSketchIcon name="gallery" className="w-5 h-5 shrink-0" />
+                )}
+                <span>{isDiscographyEnabled ? t("listen") : t("galleryBtn")}</span>
               </Link>
               <Link
                 href="/contacto"

@@ -9,9 +9,11 @@ import {
   NavIconFlash,
   NavIconMail,
   NavIconMusic,
+  NavbarSketchIcon,
 } from "@/components/nav/NavbarSketchIcons";
 import { routing } from "@/i18n/routing";
 import { RevealSection } from "@/components/motion/RevealSection";
+import { isDiscographyEnabled } from "@/lib/discography-config";
 import { isMerchEnabled } from "@/lib/merch-config";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -61,11 +63,15 @@ export default async function Home({ params }: Props) {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                href="/album"
+                href={isDiscographyEnabled ? "/album" : "/galeria"}
                 className="inline-flex cursor-pointer items-center gap-2 rounded-lg px-6 py-3 font-bold text-white transition-all duration-300 bg-red-600 scale-100 shadow-none hover:bg-red-500 hover:scale-105 hover:shadow-[0_10px_25px_rgba(220,38,38,0.3)] [&_svg]:block"
               >
-                <NavIconMusic className="w-5 h-5 shrink-0" />
-                <span>{t("listen")}</span>
+                {isDiscographyEnabled ? (
+                  <NavIconMusic className="w-5 h-5 shrink-0" />
+                ) : (
+                  <NavbarSketchIcon name="gallery" className="w-5 h-5 shrink-0" />
+                )}
+                <span>{isDiscographyEnabled ? t("listen") : t("galleryBtn")}</span>
               </Link>
               <Link
                 href="/sobre-nosotros"

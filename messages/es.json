@@ -8,6 +8,7 @@
   "Nav": {
     "home": "Inicio",
     "album": "Discografía",
+    "gallery": "Galería",
     "events": "Eventos",
     "merch": "Merch",
     "about": "Conócenos",
@@ -29,6 +30,7 @@
     "community": "Comunidad",
     "quickLinks": "Enlaces rápidos",
     "discography": "Discografía",
+    "gallery": "Galería",
     "events": "Eventos",
     "merchandising": "Merch",
     "aboutUs": "Sobre nosotros",
@@ -60,6 +62,7 @@
     "ctaTitle": "Participa en la tormenta.",
     "ctaSubtitle": "Escucha, conoce, colabora o apoya. Tres pasos claros para sumar.",
     "listen": "Escuchar",
+    "galleryBtn": "Ver galería",
     "knowBandBtn": "Conoce la banda",
     "contact": "Contactar"
   },
@@ -205,6 +208,7 @@
     "heroP2": "Lo que empezó como una idea se ha convertido en una banda real, formada por personas de distintos puntos de Nafarroa, unidas por una misma tormenta interior y la misma visión: defender la voz del pueblo, contar lo que se vive y no se suele contar, y hacerlo sin filtros.",
     "heroP3": "La banda reúne integrantes de Altsasu, San Martín de Unx, Milagro, Noain, Huarte, Iruña, Larraga y Zarrakastelu: la fuerza está en cada rincón de Nafarroa.",
     "listen": "Escuchar",
+    "galleryBtn": "Ver galería",
     "contact": "Contactar",
     "bandEyebrow": "La banda",
     "teamTitle": "El equipo",
@@ -307,6 +311,18 @@
     "galleryClose": "Cerrar",
     "galleryPrev": "Anterior",
     "galleryNext": "Siguiente"
+  },
+  "Galeria": {
+    "metaTitle": "Galería — Kaos Ekaitza | Fotos en directo",
+    "metaDesc": "Imágenes de conciertos y directos de Kaos Ekaitza: la tormenta en escena.",
+    "title": "Galería",
+    "subtitle": "Momentos de conciertos, festivales y directos. La energía de la banda, capturada en imagen.",
+    "empty": "Pronto añadiremos más fotos. Síguenos en redes para no perderte nada.",
+    "imageAlt": "Kaos Ekaitza en concierto",
+    "close": "Cerrar",
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "counter": "{current} / {total}"
   },
   "MerchPage": {
     "metaTitle": "Merchandising — Kaos Ekaitza | Tienda",

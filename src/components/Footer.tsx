@@ -8,6 +8,7 @@ import {
   NavIconMusic,
   NavbarSketchIcon,
 } from "@/components/nav/NavbarSketchIcons";
+import { isDiscographyEnabled } from "@/lib/discography-config";
 import { isMerchEnabled } from "@/lib/merch-config";
 
 export default async function Footer() {
@@ -63,15 +64,30 @@ export default async function Footer() {
                 {t("quickLinks")}
               </h3>
               <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="/album"
-                    className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center [&_svg]:block"
-                  >
-                    <NavIconMusic className="w-[18px] h-[18px] mr-2 shrink-0" />{" "}
-                    {t("discography")}
-                  </Link>
-                </li>
+                {isDiscographyEnabled ? (
+                  <li>
+                    <Link
+                      href="/album"
+                      className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center [&_svg]:block"
+                    >
+                      <NavIconMusic className="w-[18px] h-[18px] mr-2 shrink-0" />{" "}
+                      {t("discography")}
+                    </Link>
+                  </li>
+                ) : (
+                  <li>
+                    <Link
+                      href="/galeria"
+                      className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center [&_svg]:block"
+                    >
+                      <NavbarSketchIcon
+                        name="gallery"
+                        className="w-[18px] h-[18px] mr-2 shrink-0"
+                      />{" "}
+                      {t("gallery")}
+                    </Link>
+                  </li>
+                )}
                 <li>
                   <Link
                     href="/eventos"

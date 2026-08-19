@@ -9,6 +9,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { RevealSection } from "@/components/motion/RevealSection";
 import { ogImages, twitterImages } from "@/lib/og-defaults";
+import { isDiscographyEnabled } from "@/lib/discography-config";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -27,6 +28,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
+  if (!isDiscographyEnabled) {
+    return { robots: { index: false, follow: false } };
+  }
   const { slug, locale } = await params;
   const album = await getAlbumBySlug(slug);
   const t = await getTranslations({ locale, namespace: "AlbumDetail" });
@@ -56,6 +60,8 @@ export async function generateMetadata({
 }
 
 export default async function AlbumDetailPage({ params }: PageProps) {
+  if (!isDiscographyEnabled) notFound();
+
   const { slug, locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("AlbumDetail");
