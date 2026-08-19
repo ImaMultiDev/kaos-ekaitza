@@ -322,7 +322,9 @@
     "close": "Itxi",
     "prev": "Aurrekoa",
     "next": "Hurrengoa",
-    "counter": "{current} / {total}"
+    "counter": "{current} / {total}",
+    "photographerLabel": "Argazkiak",
+    "photographerInstagramAria": "Laura Yarnold-ren Instagrama"
   },
   "MerchPage": {
     "metaTitle": "Merchandising — Kaos Ekaitza | Denda",

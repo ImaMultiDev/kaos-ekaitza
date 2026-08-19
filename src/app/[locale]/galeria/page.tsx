@@ -1,3 +1,4 @@
+import { Instagram } from "lucide-react";
 import { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
@@ -62,13 +63,30 @@ export default async function GaleriaPage({ params }: Props) {
             {images.length === 0 ? (
               <p className="text-center text-white/70 text-lg">{t("empty")}</p>
             ) : (
-              <ConcertGalleryGrid
-                images={images}
-                defaultAlt={t("imageAlt")}
-                closeLabel={t("close")}
-                prevLabel={t("prev")}
-                nextLabel={t("next")}
-              />
+              <>
+                <ConcertGalleryGrid
+                  images={images}
+                  defaultAlt={t("imageAlt")}
+                  closeLabel={t("close")}
+                  prevLabel={t("prev")}
+                  nextLabel={t("next")}
+                />
+                <div className="mt-12 md:mt-16 pt-8 border-t border-zinc-800/80 text-center">
+                  <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-white/45 mb-4">
+                    {t("photographerLabel")}
+                  </p>
+                  <a
+                    href="https://www.instagram.com/lyarnoldlay/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2.5 rounded-lg border border-zinc-800 bg-zinc-900/60 px-5 py-3 text-white/90 transition-all duration-300 hover:border-red-600/60 hover:text-red-400 hover:bg-zinc-900"
+                    aria-label={t("photographerInstagramAria")}
+                  >
+                    <Instagram className="w-5 h-5 shrink-0" aria-hidden />
+                    <span className="font-semibold">Laura Yarnold</span>
+                  </a>
+                </div>
+              </>
             )}
           </div>
         </section>
