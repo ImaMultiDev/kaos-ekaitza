@@ -50,6 +50,11 @@ export default async function GaleriaPage({ params }: Props) {
               {t("title")}
             </h1>
           </div>
+          <div className="hidden md:block max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p className="text-center text-white/70 text-lg max-w-2xl mx-auto leading-relaxed">
+              {t("subtitle")}
+            </p>
+          </div>
           <div
             className="ska-stripes-horizontal h-2 w-full mt-8 md:mt-10"
             aria-hidden
