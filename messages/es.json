@@ -85,7 +85,12 @@
     "areaNote": "Base en Navarra — desplazamientos consultables",
     "hint": "Escríbenos con fecha, ciudad y tipo de evento. Respondemos lo antes posible.",
     "cardTitle": "¿Tienes fecha o idea?",
-    "cardBody": "Cuéntanos qué buscas y te devolvemos disponibilidad y condiciones sin rodeos."
+    "cardBody": "Cuéntanos qué buscas y te devolvemos disponibilidad y condiciones sin rodeos.",
+    "dossierTitle": "Dossier de la banda",
+    "dossierBody": "Presentación con bio, rider, fotos y datos para programadores, salas y festivales.",
+    "dossierCta": "Ver dossier completo",
+    "dossierThumbAlt": "Vista previa del dossier de Kaos Ekaitza",
+    "dossierLinkAria": "Abrir dossier de Kaos Ekaitza (nueva pestaña)"
   },
   "LatestMusic": {
     "titlePart1": "Última",

@@ -6,8 +6,7 @@ import { Music } from "lucide-react";
 import { routing } from "@/i18n/routing";
 import { NavIconMail, NavIconMusic, NavbarSketchIcon } from "@/components/nav/NavbarSketchIcons";
 import { RevealSection } from "@/components/motion/RevealSection";
-import BandPhotoGallery from "@/components/about/BandPhotoGallery";
-import { BAND_GALLERY_IMAGES } from "@/data/band-gallery";
+import DossierPromoCard from "@/components/DossierPromoCard";
 import { defaultOgImages, defaultTwitterImageUrls } from "@/lib/og-defaults";
 import { isDiscographyEnabled } from "@/lib/discography-config";
 
@@ -117,6 +116,7 @@ export default async function SobreNosotrosPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("Sobre");
+  const tBooking = await getTranslations("Booking");
 
   return (
     <div className="min-h-screen bg-black">
@@ -172,10 +172,12 @@ export default async function SobreNosotrosPage({ params }: Props) {
       <RevealSection className="w-full" delay={0.05}>
         <section className="py-10 md:py-16 bg-black border-t border-red-900/20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <BandPhotoGallery
-              images={BAND_GALLERY_IMAGES}
-              alt={t("bandPhotoAlt")}
-              selectLabel={t("bandGallerySelect")}
+            <DossierPromoCard
+              title={tBooking("dossierTitle")}
+              body={tBooking("dossierBody")}
+              cta={tBooking("dossierCta")}
+              thumbAlt={tBooking("dossierThumbAlt")}
+              linkAria={tBooking("dossierLinkAria")}
             />
           </div>
         </section>

@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import DossierPromoCard from "@/components/DossierPromoCard";
 import { CalendarDays, Mail, MapPin, Phone } from "lucide-react";
 import { NavIconFlash, NavIconMail } from "@/components/nav/NavbarSketchIcons";
 
@@ -110,6 +111,15 @@ export default async function BookingSection() {
             </div>
           </div>
         </div>
+
+        <DossierPromoCard
+          className="mt-10 md:mt-14"
+          title={t("dossierTitle")}
+          body={t("dossierBody")}
+          cta={t("dossierCta")}
+          thumbAlt={t("dossierThumbAlt")}
+          linkAria={t("dossierLinkAria")}
+        />
       </div>
     </section>
   );

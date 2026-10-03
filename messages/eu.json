@@ -85,7 +85,12 @@
     "areaNote": "Nafarroan oinarrituta — desplazamenduak kontsultagarri",
     "hint": "Idatz iezaguzu data, hiria eta ekitaldi mota. Ahalik eta laster erantzuten dugu.",
     "cardTitle": "Data edo ideia bat al duzu?",
-    "cardBody": "Adierazi zer bilatzen duzun eta erabilgarritasuna eta baldintzak zuzenean erantzungo dizkizugu."
+    "cardBody": "Adierazi zer bilatzen duzun eta erabilgarritasuna eta baldintzak zuzenean erantzungo dizkizugu.",
+    "dossierTitle": "Taldearen dossiera",
+    "dossierBody": "Aurkezpena bioarekin, riderrekin, argazkiekin eta datuekin antolatzaile, areto eta jaialdientzat.",
+    "dossierCta": "Ikusi dossier osoa",
+    "dossierThumbAlt": "Kaos Ekaitzaren dossieraren aurrebista",
+    "dossierLinkAria": "Ireki Kaos Ekaitzaren dossiera (fitxa berria)"
   },
   "LatestMusic": {
     "titlePart1": "Azken",
