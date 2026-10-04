@@ -56,6 +56,12 @@
   "Home": {
     "upcomingEvents": "HURRENGO EKITALDIAK",
     "eventsEmpty": "Data berriak laster. Jarraitu gure sare sozialetan edo idatzi kontratazioetarako.",
+    "gallerySpotlightTitle": "GALERIA",
+    "gallerySpotlightSubtitle": "Ekaitza eszenatokian: kontzertuak, festibalak eta zuzeneko uneak iruditan.",
+    "gallerySpotlightEyebrow": "Zuzeneko argazkiak",
+    "gallerySpotlightCta": "Ikusi galeria",
+    "gallerySpotlightImageAlt": "Kaos Ekaitza kontzertuan publikoarekin",
+    "gallerySpotlightLinkAria": "Joan Kaos Ekaitzaren argazki galeriara",
     "eventsViewAll": "Ikusi ekitaldi guztiak",
     "merchCta": "Ikusi produktuak",
     "merchImageAlt": "Kaos Ekaitza merkea: taldearen logodun kamiseta",

@@ -4,7 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import BookingSection from "@/components/BookingSection";
 import PhilosophySection from "@/components/PhilosophySection";
 import HomeMerchSection from "@/components/HomeMerchSection";
-import UpcomingEventsSection from "@/components/events/UpcomingEventsSection";
+import HomeGallerySpotlight from "@/components/home/HomeGallerySpotlight";
 import {
   NavIconFlash,
   NavIconMail,
@@ -35,11 +35,11 @@ export default async function Home({ params }: Props) {
       </RevealSection>
 
       <RevealSection className="w-full" delay={0.04}>
-        <UpcomingEventsSection locale={locale} />
+        <BookingSection />
       </RevealSection>
 
       <RevealSection className="w-full" delay={0.06}>
-        <BookingSection />
+        <HomeGallerySpotlight />
       </RevealSection>
 
       {isMerchEnabled && (

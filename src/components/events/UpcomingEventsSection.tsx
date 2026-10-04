@@ -47,19 +47,19 @@ export default async function UpcomingEventsSection({
               {events.map((event, index) => {
                 const teaser = isEventTeaser(event.pageAccess);
                 return (
-                <RevealSection
-                  key={event.id}
-                  delay={0.04 + index * 0.05}
-                  className={teaser ? "self-start w-full" : "h-full"}
-                >
-                  <EventCard
-                    event={event}
-                    locale={locale}
-                    ctaLabel={tEvents("cardCta")}
-                    pendingLabel={tEvents("detailsPending")}
-                    variant={teaser ? "poster" : "compact"}
-                  />
-                </RevealSection>
+                  <RevealSection
+                    key={event.id}
+                    delay={0.04 + index * 0.05}
+                    className={teaser ? "self-start w-full" : "h-full"}
+                  >
+                    <EventCard
+                      event={event}
+                      locale={locale}
+                      ctaLabel={tEvents("cardCta")}
+                      pendingLabel={tEvents("detailsPending")}
+                      variant={teaser ? "poster" : "compact"}
+                    />
+                  </RevealSection>
                 );
               })}
             </div>

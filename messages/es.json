@@ -56,6 +56,12 @@
   "Home": {
     "upcomingEvents": "PRÓXIMOS EVENTOS",
     "eventsEmpty": "Nuevas fechas muy pronto. Síguenos en redes o escríbenos para contrataciones.",
+    "gallerySpotlightTitle": "GALERÍA",
+    "gallerySpotlightSubtitle": "La tormenta en escena: conciertos, festivales y directos capturados en imagen.",
+    "gallerySpotlightEyebrow": "Fotos en directo",
+    "gallerySpotlightCta": "Ver galería",
+    "gallerySpotlightImageAlt": "Kaos Ekaitza en concierto con el público",
+    "gallerySpotlightLinkAria": "Ir a la galería de fotos de Kaos Ekaitza",
     "eventsViewAll": "Ver todos los eventos",
     "merchCta": "Ver productos",
     "merchImageAlt": "Merchandising Kaos Ekaitza: camiseta con logo del grupo",

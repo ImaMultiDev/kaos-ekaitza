@@ -66,10 +66,6 @@ export const CONCERT_GALLERY_IMAGES: ConcertGalleryImage[] = [
     caption: "Agurain 2026 - Fotografía: Laura Yarnold",
   },
   {
-    url: "https://res.cloudinary.com/dzuug3ahf/image/upload/v1790624452/WhatsApp_Image_2026-09-28_at_10.26.13_mt1k10.jpg",
-    caption: "Agurain 2026 - Fotografía: Laura Yarnold",
-  },
-  {
     url: "https://res.cloudinary.com/dzuug3ahf/image/upload/v1790625449/WhatsApp_Image_2026-09-27_at_20.44.06_2_yp5wai.jpg",
     caption: "Agurain 2026 - Fotografía: Laura Yarnold",
   },
@@ -129,10 +125,6 @@ export const CONCERT_GALLERY_IMAGES: ConcertGalleryImage[] = [
   },
   {
     url: "https://res.cloudinary.com/dzuug3ahf/image/upload/v1790624029/WhatsApp_Image_2026-09-21_at_04.47.10_v9z3s6.jpg",
-    caption: "Ekhifest 2026 - Fotografía: Laura Yarnold",
-  },
-  {
-    url: "https://res.cloudinary.com/dzuug3ahf/image/upload/v1790623865/WhatsApp_Image_2026-09-21_at_04.47.07_wy1hkx.jpg",
     caption: "Ekhifest 2026 - Fotografía: Laura Yarnold",
   },
   {
@@ -219,9 +211,5 @@ export const CONCERT_GALLERY_IMAGES: ConcertGalleryImage[] = [
   {
     url: "https://res.cloudinary.com/dzuug3ahf/image/upload/v1787167604/IMG-20260817-WA0005_ykomub.jpg",
     caption: "Corella 2026 - Fotografía: Laura Yarnold",
-  },
-  {
-    url: "https://res.cloudinary.com/dzuug3ahf/image/upload/v1790623713/imgi_11_817198047_17906461788557544_6186705193337197145_n_b4mwxi.jpg",
-    caption: "Ekhifest 2026",
   },
 ];

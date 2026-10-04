@@ -7,9 +7,7 @@ const BAND_IMAGE =
 const HeroSection = () => {
   return (
     <section className="relative w-full bg-black overflow-hidden max-md:pt-8">
-      {/* Móvil: contenido arriba (sin justify-end sobre min-h alto). Desktop: banda abajo del bloque alto como antes */}
       <div className="relative flex w-full flex-col max-md:min-h-0 max-md:justify-start md:min-h-[58vh] md:justify-center md:-mt-6 lg:-mt-8">
-        {/* Logo: en móvil usa vh para subirlo bajo el navbar; en md+ % del contenedor */}
         <div
           className="pointer-events-none absolute left-1/2 z-0 w-[min(92vw,22rem)] -translate-x-1/2 -translate-y-1/2 sm:w-[min(88vw,26rem)] md:w-[min(52vw,30rem)] lg:w-[min(36rem,40vw)] max-md:top-[min(20vh,8.5rem)] sm:max-md:top-[min(22vh,9rem)] md:top-[50%] lg:top-[42%] xl:top-[35%]"
           aria-hidden

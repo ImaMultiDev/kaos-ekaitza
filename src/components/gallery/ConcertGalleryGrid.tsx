@@ -57,7 +57,7 @@ export default function ConcertGalleryGrid({
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 md:gap-5 space-y-4 md:space-y-5">
         {images.map((image, index) => (
           <button
-            key={image.url}
+            key={`${index}-${image.url}`}
             type="button"
             onClick={() => setActiveIndex(index)}
             className={cn(
